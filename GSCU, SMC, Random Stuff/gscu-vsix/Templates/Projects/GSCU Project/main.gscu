@@ -1,0 +1,21 @@
+﻿#include util.gscu; // include files by their relative filepath.
+
+// declare namespaces for your functions. you cannot declare functions without a namespace scope.
+namespace syntax_demo
+{
+	// declare each function with the 'function' keyword
+	// optional modifiers:
+	// --- private: the function name is automatically stripped from release builds and cannot be called by external scripts
+	// --- autoexec: the function is automatically executed when the script is loaded into the vm for the first time. Note that autoexec functions will never have parameters passed.
+	function private autoexec main()
+	{
+		
+	}
+}
+
+// declare classes in the root scope. classes are in their own namespace.
+// classes can contain field accessors and methods like a namespace, except all functions will be called with the object instance as self.
+class demo_class
+{
+	
+}

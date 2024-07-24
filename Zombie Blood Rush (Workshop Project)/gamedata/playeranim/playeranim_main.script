@@ -1,0 +1,14 @@
+LOADSCRIPTS
+
+playeranim_defines
+playeranim_loco_blends
+playeranim_loco_states
+playeranim_death
+playeranim_events
+playeranim_forceload
+playeranim_melee
+playeranim_pain
+playeranim_special_moves
+playeranim_swim
+playeranim_transitions
+playeranim_weapons

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <BuildDependsOn>
+      BeforeBuild;
+      CoreBuild;
+      AfterBuild
+    </BuildDependsOn>
+  </PropertyGroup>
+  
+  <Target Name="Build" DependsOnTargets="$(BuildDependsOn)"/>
+
+  <Target Name="CoreBuild">
+    <Message Text="Building: $(Name)" />
+    <MakeDir Directories="$(OutputPath)" Condition="!Exists('$(OutputPath)')" />
+
+    <PropertyGroup>
+      <CompilerOutput>$(OutputPath)</CompilerOutput>
+      <CompilerPath Condition="$(CompilerPath) == ''">c:\gscu\bin\gscubuild.exe</CompilerPath>
+      <CompileCommand Condition="$(CompileCommand) == ''">$(CompilerPath) -a build -o $(CompilerOutput) -m $(OutputMode) -f @(Compile)</CompileCommand>
+    </PropertyGroup>
+
+    <Exec Command='$(CompileCommand)' IgnoreExitCode="true"/>
+  </Target>
+  
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <OutputMode>debug</OutputMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+    <OutputMode>release</OutputMode>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Compile Include="main.gscu">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="util.gscu">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <Target Name="GetFrameworkPaths" />
+  <Target Name="BeforeBuild" />
+  <Target Name="AfterBuild" />
+</Project>

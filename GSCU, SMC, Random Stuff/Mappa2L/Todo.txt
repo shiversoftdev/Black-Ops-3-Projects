@@ -1,0 +1,29 @@
+﻿In no particular order:
+
+	- Lookup tables
+	- Sun sprite
+	- Reflection probes
+	- Static meshes
+	- Colmap (general BSP and applicable materials)
+	- Triggers
+	- Script origins
+	- Client side entities
+	- Static ents
+	- Destructibles
+	- Glass
+	- Umbra tomes
+	- Lights
+	- Effects
+	- Fog
+	- Sounds
+	- Scripts
+	- Minimap
+	- Navmesh
+	- Client Triggers
+		- Audio strings
+		- Trigger types
+	- Map addon ents
+		- and resulting triggers
+	- Dynents (the physics fuckers)
+	- Physics Ents
+	- BSP lump portals -> umbra volumes??

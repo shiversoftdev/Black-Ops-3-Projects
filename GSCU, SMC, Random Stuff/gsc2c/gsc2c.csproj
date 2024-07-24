@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="TEMPLATE_NAME.asm" />
+    <None Remove="TEMPLATE_NAME.cpp" />
+    <None Remove="TEMPLATE_NAME.h" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="TEMPLATE_NAME.asm" />
+    <EmbeddedResource Include="TEMPLATE_NAME.cpp" />
+    <EmbeddedResource Include="TEMPLATE_NAME.h" />
+  </ItemGroup>
+
+</Project>

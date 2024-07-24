@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CACB60A9-1E76-4F92-8831-B134A658C695}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.VisualStudio.Project</RootNamespace>
+    <AssemblyName>Microsoft.VisualStudio.Project.10.0</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
+    <AllowedAssemblyPrefix>$(AllowedAssemblyPrefix);Microsoft.Internal</AllowedAssemblyPrefix>
+    <BaseIntermediateOutputPath>obj\dev10\</BaseIntermediateOutputPath>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\dev10\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;DEV10;DEV10PLUS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\dev10\Release\</OutputPath>
+    <DefineConstants>TRACE;DEV10;DEV10PLUS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <!--
+      Make sure any documentation comments which are included in code get checked for syntax during the build, but do
+      not report warnings for missing comments.
+      
+      CS1573: Parameter 'parameter' has no matching param tag in the XML comment for 'parameter' (but other parameters do)
+      CS1591: Missing XML comment for publicly visible type or member 'Type_or_Member'
+    -->
+    <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
+    <NoWarn>$(NoWarn),1573,1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="envdte, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>False</Private>
+      <HintPath>..\..\packages\VSSDK.DTE.7.0.4\lib\net20\envdte.dll</HintPath>
+    </Reference>
+    <Reference Include="envdte80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>False</Private>
+      <HintPath>..\..\packages\VSSDK.DTE.8.8.0.4\lib\net20\envdte80.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="Microsoft.Build.Tasks.v4.0" />
+    <Reference Include="Microsoft.Build.Utilities.v4.0">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Designer.Interfaces, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>False</Private>
+      <HintPath>..\..\packages\VSSDK.Designer.7.0.4\lib\net20\Microsoft.VisualStudio.Designer.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>False</Private>
+      <HintPath>..\..\packages\VSSDK.OLE.Interop.7.0.4\lib\net20\Microsoft.VisualStudio.OLE.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+      <HintPath>..\..\packages\VSSDK.Shell.10.10.0.4\lib\net40\Microsoft.VisualStudio.Shell.10.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Immutable.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+      <HintPath>..\..\packages\VSSDK.Shell.Immutable.10.10.0.4\lib\net40\Microsoft.VisualStudio.Shell.Immutable.10.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>False</Private>
+      <HintPath>..\..\packages\VSSDK.Shell.Interop.7.0.4\lib\net20\Microsoft.VisualStudio.Shell.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>False</Private>
+      <HintPath>..\..\packages\VSSDK.Shell.Interop.10.10.0.4\lib\net20\Microsoft.VisualStudio.Shell.Interop.10.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.8.0, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>False</Private>
+      <HintPath>..\..\packages\VSSDK.Shell.Interop.8.8.0.4\lib\net20\Microsoft.VisualStudio.Shell.Interop.8.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.9.0, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>False</Private>
+      <HintPath>..\..\packages\VSSDK.Shell.Interop.9.9.0.4\lib\net20\Microsoft.VisualStudio.Shell.Interop.9.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TextManager.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>False</Private>
+      <HintPath>..\..\packages\VSSDK.TextManager.Interop.7.0.4\lib\net20\Microsoft.VisualStudio.TextManager.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TextManager.Interop.8.0, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>False</Private>
+      <HintPath>..\..\packages\VSSDK.TextManager.Interop.8.8.0.4\lib\net20\Microsoft.VisualStudio.TextManager.Interop.8.0.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>False</Private>
+      <HintPath>..\..\packages\VSSDK.DTE.7.0.4\lib\net20\stdole.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.XML" />
+    <Reference Include="VSLangProj, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>False</Private>
+      <HintPath>..\..\packages\VSSDK.VSLangProj.7.0.4\lib\net20\VSLangProj.dll</HintPath>
+    </Reference>
+    <Reference Include="VSLangProj2, Version=7.0.5000.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>False</Private>
+      <HintPath>..\..\packages\VSSDK.VSLangProj.7.0.4\lib\net20\VSLangProj2.dll</HintPath>
+    </Reference>
+    <Reference Include="VSLangProj80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>False</Private>
+      <HintPath>..\..\packages\VSSDK.VSLangProj.8.8.0.4\lib\net20\VSLangProj80.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActiveConfigurationChangedEventArgs.cs" />
+    <Compile Include="ProjectFileOpenedEventArgs.cs" />
+    <Compile Include="AssemblyReferenceNode.cs" />
+    <Compile Include="AutomationBrowsableAttribute.cs" />
+    <Compile Include="Automation\VSProject\EmptyReferencesEvents.cs" />
+    <Compile Include="Automation\VSProject\OAVSProjectEvents.cs" />
+    <Compile Include="AvailableFileBuildActionConverter.cs" />
+    <Compile Include="ProjectFileClosingEventArgs.cs" />
+    <Compile Include="BuildableProjectConfig.cs" />
+    <Compile Include="BuildKind.cs" />
+    <Compile Include="BuildPropertyPageTag.cs" />
+    <Compile Include="BuildStatus.cs" />
+    <Compile Include="CommandOrigin.cs" />
+    <Compile Include="ComReferenceProperties.cs" />
+    <Compile Include="ConnectionPoint`1.cs" />
+    <Compile Include="DataCacheEntry.cs" />
+    <Compile Include="DebugMode.cs" />
+    <Compile Include="DebugModeConverter.cs" />
+    <Compile Include="DefaultSortOrderNode.cs" />
+    <Compile Include="DeleteToken.cs" />
+    <Compile Include="DependentFileNodeProperties.cs" />
+    <Compile Include="DesignTimeAssemblyResolution.MockEngine.cs" />
+    <Compile Include="DesignTimeAssemblyResolution.RarInputs.cs" />
+    <Compile Include="DragDropHelper.cs" />
+    <Compile Include="EnumConnectionPoints`1.cs" />
+    <Compile Include="EnumFORMATETC.cs" />
+    <Compile Include="EnumSTATDATA.cs" />
+    <Compile Include="FileChangedOnDiskEventArgs.cs" />
+    <Compile Include="FileChangeManager.ObservedItemInfo.cs" />
+    <Compile Include="FileNodeProperties.cs" />
+    <Compile Include="FolderNodeProperties.cs" />
+    <Compile Include="FrameworkNameConverter.cs" />
+    <Compile Include="GlobalProperty.cs" />
+    <Compile Include="HierarchyAddType.cs" />
+    <Compile Include="DropEffects.cs" />
+    <Compile Include="HierarchyNodeCollection.cs" />
+    <Compile Include="HierarchyNodeEventArgs.cs" />
+    <Compile Include="IBuildDependencyOnProjectContainer.cs" />
+    <Compile Include="IBuildDependencyUpdate.cs" />
+    <Compile Include="IEventSource`1.cs" />
+    <Compile Include="IProjectConfigProperties.cs" />
+    <Compile Include="IProjectEvents.cs" />
+    <Compile Include="IProjectEventsListener.cs" />
+    <Compile Include="IProjectEventsProvider.cs" />
+    <Compile Include="IReferenceContainer.cs" />
+    <Compile Include="IReferenceContainerProvider.cs" />
+    <Compile Include="ISingleFileGenerator.cs" />
+    <Compile Include="LocDisplayNameAttribute.cs" />
+    <Compile Include="ModuleKind.cs" />
+    <Compile Include="MSBuildGeneratedItemType.cs" />
+    <Compile Include="MSBuildResult.cs" />
+    <Compile Include="MSBuildTarget.cs" />
+    <Compile Include="ObjectReferenceEqualityComparer`1.cs" />
+    <Compile Include="OleServiceProvider.ServiceData.cs" />
+    <Compile Include="OutputType.cs" />
+    <Compile Include="OutputTypeConverter.cs" />
+    <Compile Include="ProjectFileAttributeValue.cs" />
+    <Compile Include="ProjectFileValues.cs" />
+    <Compile Include="SuppressEvents.cs" />
+    <Compile Include="ImageName.cs" />
+    <Compile Include="ProjectNodeProperties.cs" />
+    <Compile Include="ProjectPropertyChangedArgs.cs" />
+    <Compile Include="ProjectReferencesProperties.cs" />
+    <Compile Include="PropertyPageTypeConverterAttribute.cs" />
+    <Compile Include="Automation\AutomationScope.cs" />
+    <Compile Include="Automation\OAFileItem.cs" />
+    <Compile Include="Automation\OAFolderItem.cs" />
+    <Compile Include="Automation\OANavigableProjectItems.cs" />
+    <Compile Include="Automation\OANestedProjectItem.cs" />
+    <Compile Include="Automation\OANullProperty.cs" />
+    <Compile Include="Automation\OAProject.cs" />
+    <Compile Include="Automation\OAProjectItem`1.cs" />
+    <Compile Include="Automation\OAProjectItems.cs" />
+    <Compile Include="Automation\OAProperties.cs" />
+    <Compile Include="Automation\OAProperty.cs" />
+    <Compile Include="Automation\OAReferenceFolderItem.cs" />
+    <Compile Include="Automation\OAReferenceItem.cs" />
+    <Compile Include="Automation\OASolutionFolder`1.cs" />
+    <Compile Include="Automation\VSProject\OAAssemblyReference.cs" />
+    <Compile Include="Automation\VSProject\OABuildManager.cs" />
+    <Compile Include="Automation\VSProject\OAComReference.cs" />
+    <Compile Include="Automation\VSProject\OAProjectReference.cs" />
+    <Compile Include="Automation\VSProject\OAReferenceBase`1.cs" />
+    <Compile Include="Automation\VSProject\OAReferences.cs" />
+    <Compile Include="Automation\VSProject\OAVSProject.cs" />
+    <Compile Include="Automation\VSProject\OAVSProjectItem.cs" />
+    <Compile Include="BuildDependency.cs" />
+    <Compile Include="BuildPropertyPage.cs" />
+    <Compile Include="ComReferenceNode.cs" />
+    <Compile Include="ConfigProvider.cs" />
+    <Compile Include="ProjectConfigProperties.cs" />
+    <Compile Include="CopyToOutputDirectoryBehavior.cs" />
+    <Compile Include="CopyToOutputDirectoryBehaviorConverter.cs" />
+    <Compile Include="DataObject.cs" />
+    <Compile Include="DependentFileNode.cs" />
+    <Compile Include="DesignPropertyDescriptor.cs" />
+    <Compile Include="DesignTimeAssemblyResolution.cs" />
+    <Compile Include="DocumentManager.cs" />
+    <Compile Include="DropDataType.cs" />
+    <Compile Include="EnumDependencies.cs" />
+    <Compile Include="FileChangeManager.cs" />
+    <Compile Include="FileDocumentManager.cs" />
+    <Compile Include="FileNode.cs" />
+    <Compile Include="FolderNode.cs" />
+    <Compile Include="GlobalAllocFlags.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="HierarchyNode.cs" />
+    <Compile Include="IdeBuildLogger.cs" />
+    <Compile Include="ImageHandler.cs" />
+    <Compile Include="IProjectSourceNode.cs" />
+    <Compile Include="LocalizableProperties.cs" />
+    <Compile Include="PropPageStatus.cs" />
+    <Compile Include="ReferenceNodeProperties.cs" />
+    <Compile Include="ReplaceBetweenPairToken.cs" />
+    <Compile Include="ReplacePairToken.cs" />
+    <Compile Include="SafeGlobalAllocHandle.cs" />
+    <Compile Include="SingleFileGeneratorFactory.GeneratorMetaData.cs" />
+    <Compile Include="SingleFileGeneratorNodeExtenderProperties.cs" />
+    <Compile Include="SingleFileGeneratorNodeExtenderProvider.cs" />
+    <Compile Include="TokenReplaceType.cs" />
+    <Compile Include="UIHierarchyElements.cs" />
+    <Compile Include="UIThread.cs" />
+    <Compile Include="VisualStudio.Project.cs" />
+    <Compile Include="ConnectionPointContainer.cs" />
+    <Compile Include="ExternDll.cs" />
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="UnsafeNativeMethods.cs" />
+    <Compile Include="NestedProjectBuildDependency.cs" />
+    <Compile Include="NestedProjectNode.cs" />
+    <Compile Include="NodeProperties.cs" />
+    <Compile Include="OleServiceProvider.cs" />
+    <Compile Include="Output.cs" />
+    <Compile Include="OutputGroup.cs" />
+    <Compile Include="ProjectConfig.cs" />
+    <Compile Include="ProjectContainerNode.cs" />
+    <Compile Include="ProjectDesignerDocumentManager.cs" />
+    <Compile Include="ProjectDocumentsListener.cs" />
+    <Compile Include="ProjectElement.cs" />
+    <Compile Include="ProjectFactory.cs" />
+    <Compile Include="ProjectFileConstants.cs" />
+    <Compile Include="ProjectNode.CopyPaste.cs" />
+    <Compile Include="ProjectNode.cs" />
+    <Compile Include="ProjectNode.Events.cs" />
+    <Compile Include="ProjectOptions.cs" />
+    <Compile Include="ProjectPackage.cs" />
+    <Compile Include="ProjectReferenceNode.cs" />
+    <Compile Include="PropertiesEditorLauncher.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReferenceContainerNode.cs" />
+    <Compile Include="ReferenceNode.cs" />
+    <Compile Include="RegisteredProjectType.cs" />
+    <Compile Include="SelectionListener.cs" />
+    <Compile Include="SettingsPage.cs" />
+    <Compile Include="SingleFileGenerator.cs" />
+    <Compile Include="SingleFileGeneratorFactory.cs" />
+    <Compile Include="SolutionListener.cs" />
+    <Compile Include="SolutionListenerForBuildDependencyUpdate.cs" />
+    <Compile Include="SolutionListenerForProjectEvents.cs" />
+    <Compile Include="SolutionListenerForProjectOpen.cs" />
+    <Compile Include="SolutionListenerForProjectReferenceUpdate.cs" />
+    <Compile Include="SuspendFileChanges.cs" />
+    <Compile Include="TokenProcessor.cs" />
+    <Compile Include="CciTracing.cs" />
+    <Compile Include="TrackDocumentsHelper.cs" />
+    <Compile Include="UpdateSolutionEventsListener.cs" />
+    <Compile Include="Utilities.cs" />
+    <Compile Include="UIHierarchyUtilities.cs" />
+    <Compile Include="WindowFrameShowAction.cs" />
+    <Compile Include="WrapperToolAttributeValue.cs" />
+    <Compile Include="_DROPFILES.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Microsoft.VisualStudio.Project.10.0.nuspec">
+      <Link>Microsoft.VisualStudio.Project.10.0.nuspec</Link>
+    </None>
+    <None Include="Diagrams\AutomationClasses.cd" />
+    <None Include="Diagrams\ConfigurationClasses.cd" />
+    <None Include="Diagrams\DocumentManagerClasses.cd" />
+    <None Include="Diagrams\HierarchyClasses.cd" />
+    <None Include="Diagrams\PropertiesClasses.cd" />
+    <None Include="Diagrams\ReferenceClasses.cd" />
+    <None Include="Key.snk" />
+    <None Include="packages.Microsoft.VisualStudio.Project.10.0.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="VisualStudio.Project.resx">
+      <LogicalName>Microsoft.VisualStudio.Project.resources</LogicalName>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\imagelis.bmp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,132 @@
+FILENOTES           "copyall"
+
+REFERENCE           BGB_BOARD_TO_DEATH_DESC
+LANG_ENGLISH        "^2MEGA\n^7Activates Immediately (Lasts for 5 minutes)\nRepairing a board will kill all nearby enemies."
+
+REFERENCE           BGB_ARMS_GRACE_DESC
+LANG_ENGLISH        "Activates Immediately (Lasts until next respawn)\nFor 60 seconds after respawning, deal significantly increased damage to enemies and temporarily receive helpful perks."
+
+REFERENCE           BGB_COAGULANT_DESC
+LANG_ENGLISH        "Activates Immediately (Lasts until death)\nWhen downed, explode for the total amount of damage taken while coagulant.\nNukes will no longer damage you, instead supercharging your coagulant."
+
+REFERENCE           BGB_IN_PLAIN_SIGHT_DESC
+LANG_ENGLISH        "Activated (2x Activations, 10 seconds each)\nYou are invisible to enemies for 10 seconds."
+
+REFERENCE           BGB_IMPATIENT_DESC
+LANG_ENGLISH        "Activates Immediately (Lasts until bleedout)\nRespawn instantly after bleeding out."
+
+REFERENCE           BGB_SWORD_FLAY_DESC
+LANG_ENGLISH        "Activates Immediately (Lasts 1 full round)\nMelee attacks deal 5x damage to zombies and 2x damage to players."
+
+REFERENCE           BGB_NEWTONIAN_NEGATION_DESC
+LANG_ENGLISH        "Activates Immediately (Lasts 25 minutes)\nEnemies killed fall straight up."
+
+REFERENCE           BGB_TONE_DEATH_DES
+LANG_ENGLISH        "Auto-activates when killing an enemy (25x Activations)\nSilly sounds play when enemies are killed."
+
+REFERENCE           BGB_BURNED_OUT_DESC
+LANG_ENGLISH        "^2MEGA\n^7Activates Immediately (Lasts 5 hits)\nThe next time you would take melee damage, instead, take no damage and nearby enemies burst into fire."
+
+REFERENCE           BGB_CRAWL_SPACE_DESC
+LANG_ENGLISH        "^2MEGA\n^7Activated (5x Activations)\nAll nearby zombies become crawlers. All nearby players are forced into prone position."
+
+REFERENCE           BGB_IDLE_EYES_DESC
+LANG_ENGLISH        "^2MEGA\n^7Activated (3x Activations, 30 seconds each)\nZombies will ignore you."
+
+REFERENCE           BGB_POP_SHOCKS_DESC
+LANG_ENGLISH        "^2MEGA\n^7Auto-activates when melee attacking enemies (4x Activations)\nMelee attacks trigger an electrostatic discharge, electrocuting nearby enemies."
+
+REFERENCE           BGB_UNQUENCHABLE_DESC
+LANG_ENGLISH        "^2MEGA\n^7Auto-activates when you buy a perk (Lasts until next down)\nWhen purchasing a perk, gain cash back. This effect becomes more potent as the game progresses."
+
+REFERENCE           BGB_EXTRA_CREDIT_DESC
+LANG_ENGLISH        "^3RARE MEGA\n^7Activated (4x Activations)\nSpawns a personal 2500 point power up."
+
+REFERENCE           BGB_FEAR_IN_HEADLIGHTS_DESC
+LANG_ENGLISH        "^3RARE MEGA\n^7Activated (1x Activation, 20 seconds)\nEnemies seen by you will not move."
+
+REFERENCE           BGB_UNDEAD_MAN_WALKING_DESC
+LANG_ENGLISH        "^3RARE MEGA\n^7Activates Immediately (Lasts 60 seconds)\nSlow down all enemies to a shambling speed."
+
+REFERENCE           BGB_HEAD_DRAMA_DESC
+LANG_ENGLISH        "^6ULTRA-RARE MEGA\n^7Activates Immediately (3x Activations)\nAny bullet which hits an enemy will damage its head. Activated when the round changes or you kill a player."
+
+REFERENCE           BGB_KILLING_TIME_DESC
+LANG_ENGLISH        "^6ULTRA-RARE MEGA\n^7Activated (1x Activation)\nAll enemies freeze in place for 20 seconds. Attacking an enemy marks it for death, damaging players and \nkilling zombies after time is up."
+
+REFERENCE           BGB_POWER_VACUUM_DESC
+LANG_ENGLISH        "^6ULTRA-RARE MEGA\n^7Activates Immediately (Lasts for one full round)\nMore power ups can drop each round."
+
+REFERENCE           BGB_NEAR_DEATH_EXPERIENCE_DESC
+LANG_ENGLISH        "^6ULTRA-RARE MEGA\n^7Activates Immediately (5 charges)\nWhen downed, get teleported to a safe location and keep all perks. Loses a charge when the round changes or you are revived."
+
+REFERENCE           BGB_ROUND_ROBBIN_DESC
+LANG_ENGLISH        "^6ULTRA-RARE MEGA\n^7Activated (2x Activations)\nEnds the current round. Gain 5000 points."
+
+REFERENCE           BGB_PHOENIX_UP_DESC
+LANG_ENGLISH        "^2MEGA\n^7Auto-activates (Lasts until next down)\nRevive yourself instantly, keep all perks, and receive 30% of your previous highest balance of points."
+
+REFERENCE           BGB_MIND_BLOWN_DESC
+LANG_ENGLISH        "^2MEGA\n^7Activated (3x Activations)\nGib the heads of all the zombies you can see, killing them. Stun nearby players with an electric shock,\ndealing a small amount of damage."
+
+REFERENCE           BGB_BULLET_BOOST_DESC
+LANG_ENGLISH        "^3RARE MEGA\n^7Activated (2x Activations)\nAcquire an alternate ammo type on your current gun."
+
+REFERENCE           BGB_FATAL_CONTRAPTION_DESC
+LANG_ENGLISH        "^2MEGA\n^7Activated (1x Activation)\nSpawn a Death Machine power up."
+
+REFERENCE           BGB_REIGN_DROPS_DESC
+LANG_ENGLISH        "^6ULTRA-RARE MEGA\n^7Activated (1x Activation)\nSpawns one of each of the core nine power ups."
+
+REFERENCE           BGB_LUCKY_CRIT_DESC
+LANG_ENGLISH        "Activates Immediately (Lasts 3 rounds)\nImproves your chance of activating an Alternate Ammo Type and increases its damage against players."
+
+REFERENCE           BGB_ARMAMENTAL_ACCOMPLISHMENT_DESC
+LANG_ENGLISH        "Activates Immediately\nImproved weapon handling, don't trigger explosives, immune to emps, and hide from thermal."
+
+REFERENCE           BGB_ALWAYS_DONE_SWIFTLY_DESC
+LANG_ENGLISH        "Activates Immediately (Lasts until match end)\nWhile any other perk is active, gain improved aiming, improved sprinting, immune to fall damage, and move quietly..\nAdditional consumptions of this gum have no effect."
+
+REFERENCE           BGB_FIRING_ON_ALL_CYLINDERS_DESC
+LANG_ENGLISH        "Activates Immediately (Lasts until match end)\nWhile any other perk is active, fire weapons while sprinting, sprint longer, and move more quietly.\nAdditional consumptions of this gum have no effect."
+
+REFERENCE           BGB_CACHE_BACK_DESC
+LANG_ENGLISH        "^3RARE MEGA\n^7Activated (2x Activations)\nSpawns a max ammo power up."
+
+REFERENCE           BGB_NOW_YOU_SEE_ME_DESC
+LANG_ENGLISH        "Activated (2x Activations)\nAll enemies will chase you for 60 seconds."
+
+REFERENCE           BGB_UNBEARABLE_DESC
+LANG_ENGLISH        "^2MEGA\n^7Auto-activates (Lasts until next death)\nMagic box is discounted and never leaves."
+
+REFERENCE           BGB_DANGER_CLOSEST_DESC
+LANG_ENGLISH        "Activates Immediately (4 charges)\nTake no damage from explosives. Lose a charge each round or when taking damage."
+
+REFERENCE           BGB_RESPIN_CYCLE_DESC
+LANG_ENGLISH        "^2MEGA\n^7Activated (10x Activations)\nRe-spin the mystery box after it has been activated."
+
+REFERENCE           BGB_SODA_FOUNTAIN_DESC
+LANG_ENGLISH        "^3RARE MEGA\n^7Activated (5x Activations)\nGives you two free perks when you buy one."
+
+REFERENCE           BGB_ON_THE_HOUSE_DESC
+LANG_ENGLISH        "^3RARE MEGA\n^7Activated (1x Activation)\nSpawn a random number of perk bottles for your team."
+
+REFERENCE           BGB_SECRET_SHOPPER_DESC
+LANG_ENGLISH        "^6ULTRA-RARE MEGA\n^7Activates Immediately (Lasts until death)\nPurchase ammo for any weapon at any wallbuy."
+
+REFERENCE           BGB_TEMPORAL_GIFT_DESC
+LANG_ENGLISH        "^3RARE MEGA\n^7Activates Immediately (Lasts 3 full rounds)\nGreatly improved powerups."
+
+REFERENCE           PLAYER_DOWNED
+LANG_ENGLISH        "Player Downed"
+
+REFERENCE           PLAYER_MARKED
+LANG_ENGLISH        "Marked For Death"
+
+REFERENCE           PLAYER_KILLED
+LANG_ENGLISH        "Player Eliminated"
+
+REFERENCE           OBJECTIVE_COMPLETE
+LANG_ENGLISH        "Objective Complete"
+
+ENDMARKER

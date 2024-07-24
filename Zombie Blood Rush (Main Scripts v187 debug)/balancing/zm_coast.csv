@@ -1,0 +1,48 @@
+name,b,bi,bdt,bdti,h,hi,hdt,hdti,class,type,issniper,isbolt,isdw,firetype,clipsize,maxammo
+pistol_burst,0,0,0,0,0,0,0,0,pistol,bullet,0,0,single,Burst,15,120
+humangun_up,0,0,0,0,0,0,0,0,rifle,projectile,0,0,single,Single Shot,6,18
+scavenger_up,0,0,0,0,0,0,0,0,rifle,projectile,1,1,single,Single Shot,6,30
+t5_stakeout_up,1920,2880,7680,11520,7680,11520,30720,46080,spread,bullet,0,1,single,Single Shot,18,216
+none,27501,41251.5,110004,165006,0,0,0,0,rifle,bullet,0,0,single,Full Auto,0,0
+zombie_ai_defaultmelee,45,67.5,90,135,45,67.5,90,135,melee,melee,0,0,single,Full Auto,0,0
+knife,300,450,600,900,300,450,600,900,melee,melee,0,0,single,Full Auto,0,0
+t5_spectre_up,8965,13447.5,35860,53790,13448,20172,53792,80688,smg,bullet,0,0,single,Full Auto,52,416
+t5_spas12_up,22222,33333,88888,133332,66666,99999,266664,399996,spread,bullet,0,0,single,Single Shot,24,144
+t5_rpk_up,12800,19200,51200,76800,12800,19200,51200,76800,mg,bullet,0,0,single,Full Auto,125,500
+t5_minigun,0,0,0,0,0,0,0,0,mg,bullet,0,0,single,Minigun,350,700
+t5_m1911,208,312,832,1248,625,937.5,2500,3750,pistol,bullet,0,0,single,Single Shot,8,80
+t5_python_up,20833,31249.5,83332,124998,31250,46875,125000,187500,pistol,bullet,0,0,single,Single Shot,12,72
+t5_pm63_rdw_up,0,0,0,0,0,0,0,0,smg,bullet,0,0,dw,Full Auto,30,360
+t5_pm63_ldw_up,6249,9373.5,24996,37494,18749,28123.5,74996,112494,smg,bullet,0,0,dw,Full Auto,30,0
+t5_olympia_up,6180,9270,24720,37080,18540,27810,74160,111240,spread,bullet,0,0,single,Single Shot,2,76
+t5_mpl_up,3749,5623.5,14996,22494,11249,16873.5,44996,67494,smg,bullet,0,0,single,Full Auto,48,240
+t5_mp40_up,2900,4350,11600,17400,8700,13050,34800,52200,smg,bullet,0,0,single,Full Auto,64,512
+t5_mp5k_up,3466,5199,13864,20796,10400,15600,41600,62400,smg,bullet,0,0,single,Full Auto,50,200
+zombie_bgb_grab,0,0,0,0,0,0,0,0,grenade,grenade,0,0,single,Full Auto,0,1
+t5_minigun_up,0,0,0,0,0,0,0,0,mg,bullet,0,0,single,Minigun,999,999
+t5_m1911_rdw_up,10350,15525,20700,31050,0,0,0,0,pistol,projectile,0,0,dw,Single Shot,6,54
+t5_m1911_ldw_up,10000,15000,20000,30000,0,0,0,0,pistol,projectile,0,0,dw,Single Shot,6,0
+t5_m72_up,4773,7159.5,9546,14319,0,0,0,0,rocketlauncher,projectile,0,0,single,Full Auto,10,40
+t5_m16a1_up,10156,15234,40624,60936,25390,38085,101560,152340,rifle,bullet,0,0,single,Full Auto,50,400
+frag_grenade,200,300,400,600,0,0,0,0,grenade,grenade,0,0,single,Full Auto,4,4
+t5_m14_up,15000,22500,60000,90000,18750,28125,75000,112500,rifle,bullet,0,0,single,Single Shot,20,240
+t5_l96a1_up,7000,10500,28000,42000,9500,14250,38000,57000,rifle,bullet,1,1,single,Single Shot,10,150
+t5_hs10_rdw_up,19090,28635,76360,114540,32454,48681,129816,194724,spread,bullet,0,0,dw,Single Shot,12,120
+nesting_dolls_single,9999,14998.5,19998,29997,0,0,0,0,grenade,grenade,0,0,single,Full Auto,3,3
+t5_hs10_ldw_up,70909,106364,283636,425454,0,0,0,0,spread,bullet,0,0,dw,Single Shot,12,0
+t5_hk21_up,8749,13123.5,34996,52494,13124,19686,52496,78744,mg,bullet,0,0,single,Full Auto,150,750
+t5_galil_up,9374,14061,37496,56244,23437,35155.5,93748,140622,rifle,bullet,0,0,single,Full Auto,50,400
+t5_g11_up,16250,24375,65000,97500,27083,40624.5,108332,162498,rifle,bullet,0,0,single,Full Auto,72,360
+t5_fal_up,13333,19999.5,53332,79998,16666,24999,66664,99996,rifle,bullet,0,0,single,Burst,45,450
+t5_famas_up,4416,6624,17664,26496,22083,33124.5,88332,132498,rifle,bullet,0,0,single,Full Auto,45,360
+t5_dragunov_up,16666,24999,66664,99996,25000,37500,100000,150000,rifle,bullet,1,0,single,Single Shot,15,150
+t5_cz75_rdw_up,6071,9106.5,24284,36426,18214,27321,72856,109284,pistol,bullet,0,0,dw,Full Auto,25,700
+t5_cz75_up,3035,4552.5,12140,18210,9107,13660.5,36428,54642,pistol,bullet,0,0,single,Full Auto,25,350
+t5_commando_up,4249,6373.5,16996,25494,21249,31873.5,84996,127494,rifle,bullet,0,0,single,Full Auto,45,360
+t5_china_lake_up,7000,10500,14000,21000,0,0,0,0,grenade,projectile,0,1,single,Single Shot,5,65
+t5_aug_up,4687,7030.5,18748,28122,23437,35155.5,93748,140622,rifle,bullet,0,0,single,Full Auto,45,450
+t5_ak74u_up,3249,4873.5,12996,19494,16249,24373.5,64996,97494,smg,bullet,0,0,single,Full Auto,40,280
+t5_ak47_up,4533,6799.5,18132,27198,22666,33999,90664,135996,rifle,bullet,0,0,single,Full Auto,50,450
+tesla_gun_upgraded,0,0,0,0,0,0,0,0,rifle,projectile,0,0,single,Full Auto,6,30
+ray_gun_upgraded,0,0,0,0,0,0,0,0,pistol,projectile,0,0,single,Full Auto,40,200
+pistol_standard_upgraded,0,0,0,0,0,0,0,0,pistol,projectile,0,0,dw,Single Shot,6,50

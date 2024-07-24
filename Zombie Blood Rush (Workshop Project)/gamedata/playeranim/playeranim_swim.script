@@ -1,0 +1,597 @@
+ANIMATIONS
+
+STATE COMBAT
+{
+	swim
+	{
+	
+#gametype MP
+#demo_version_at_least 21
+		weapon melee_nunchuks, swimtype underwater, movestatus stationary
+		{
+			both pb_nunchucks_swim_idle blendTime 400
+		}
+		weapon melee_nunchuks, movestatus stationary
+		{
+			both pb_nunchucks_swim_idle_over blendTime 400
+		}
+#end_demo_version_at_least
+		// SWORD
+		playerAnimType sword, swimtype underwater, movestatus stationary
+		{
+			both pb_sword_swim_idle blendTime 400
+		}
+		playerAnimType sword, movestatus stationary
+		{
+			both pb_sword_swim_idle_over blendTime 400
+		}
+		weapon gadget_resurrect
+		{
+			both pb_rejack_standby_swim_idle blendTime 400
+		}
+		playerAnimType armminigun, swimtype underwater, movestatus stationary, weapon_position ads
+		{
+			torso pt_reaper_swim_idle_ads blendTime 400
+		}
+		playerAnimType armminigun, swimtype underwater, movestatus stationary
+		{
+			both pb_reaper_swim_idle blendTime 400
+		}
+		playerAnimType armminigun, movestatus stationary, weapon_position ads
+		{
+			torso pt_reaper_swim_idle_ads_over blendTime 400
+		}
+		playerAnimType armminigun, movestatus stationary
+		{
+			both pb_reaper_swim_idle_over blendTime 400
+		}
+		playerAnimType brawler, movestatus stationary
+		{
+			both pb_knife_swim_idle_over blendTime 400
+		}
+		playerAnimType brawler, swimtype underwater, movestatus stationary
+		{
+			both pb_knife_swim_idle blendTime 400
+		}
+		// CLUB
+		playerAnimType club, movestatus stationary
+		{
+			both pb_wrench_swim_idle_over blendTime 400
+		}
+		playerAnimType club, swimtype underwater, movestatus stationary
+		{
+			both pb_wrench_swim_idle blendTime 400
+		}
+#end_gametype
+
+#gametype MP AND ZM
+		// BOW
+		playerAnimType bow, swimtype underwater, movestatus stationary
+		{
+			both pb_bow_swim_idle blendTime 400
+		}
+		playerAnimType bow, movestatus stationary
+		{
+			both pb_bow_swim_idle_over blendTime 400
+		}
+#end_gametype
+
+		playerAnimType singleknife, movestatus stationary
+		{
+			both pb_knife_swim_idle_over blendTime 400
+		}
+		playerAnimType singleknife, swimtype underwater, movestatus stationary
+		{
+			both pb_knife_swim_idle blendTime 400
+		}
+		// DUALWIELD
+		playerAnimType dualwield, swimtype underwater, movestatus stationary
+		{
+			both pb_dw_swim_idle blendTime 400
+		}
+		playerAnimType dualwield, movestatus stationary
+		{
+			both pb_dw_swim_idle_over blendTime 400
+		}
+		// HOLD
+		playerAnimType hold, swimtype underwater, movestatus stationary
+		{
+			both pb_hold_swim_idle blendTime 10
+		}
+		playerAnimType hold, movestatus stationary
+		{
+			both pb_hold_swim_idle_over blendTime 10
+		}
+		// TABLET
+		playerAnimType tablet, swimtype underwater, movestatus stationary
+		{
+			both pb_v_tablet_swim_idle
+		}
+		playerAnimType tablet, swimtype surface, movestatus stationary
+		{
+			both pb_v_tablet_swim_idle_over
+		}
+		// RADIO
+		playerAnimType radio, swimtype underwater, movestatus stationary
+		{
+			both pb_supply_drop_swim_idle blendTime 400
+		}
+		playerAnimType radio, movestatus stationary
+		{
+			both pb_supply_drop_swim_idle_over blendTime 400
+		}
+		// GRENADE
+		swimtype underwater, movestatus stationary, weaponclass grenade
+		{
+			both pb_grenade_swim_idle blendTime 10
+		}
+		movestatus stationary, weaponclass grenade
+		{
+			both pb_grenade_swim_idle_over blendTime 10
+		}
+		// PISTOL
+		weaponclass pistol AND pistol_spread, swimtype underwater, movestatus stationary, weapon_position ads
+		{
+			both pb_pistol_swim_idle_ads blendTime 400
+		}
+		weaponclass pistol AND pistol_spread, swimtype underwater, movestatus stationary
+		{
+			both pb_pistol_swim_idle blendTime 400
+		}
+		weaponclass pistol AND pistol_spread, movestatus stationary, weapon_position ads
+		{
+			both pb_pistol_swim_idle_ads_over blendTime 400
+		}
+		weaponclass pistol AND pistol_spread, movestatus stationary
+		{
+			both pb_pistol_swim_idle_over blendTime 400
+		}
+		// RPG
+		weaponclass rocketlauncher, swimtype underwater, movestatus stationary, weapon_position ads
+		{
+			both pt_launcher_swim_idle_ads blendTime 400
+		}
+		weaponclass rocketlauncher, swimtype underwater, movestatus stationary
+		{
+			both pb_launcher_swim_idle blendTime 400
+		}
+		weaponclass rocketlauncher, movestatus stationary, weapon_position ads
+		{
+			torso pt_launcher_swim_idle_ads_over blendTime 400
+		}
+		weaponclass rocketlauncher, movestatus stationary
+		{
+			both pb_launcher_swim_idle_over blendTime 400
+		}
+		swimtype underwater, movestatus stationary, weapon_position ads
+		{
+			torso pt_rifle_swim_idle_ads blendTime 400
+		}
+		swimtype underwater, movestatus stationary
+		{
+			both pb_rifle_swim_idle blendTime 400
+		}
+		movestatus stationary, weapon_position ads
+		{
+			torso pt_rifle_swim_idle_ads_over blendTime 400
+		}
+		movestatus stationary
+		{
+			both pb_rifle_swim_idle_over blendTime 400
+		}
+		swimtype underwater, playerAnimType dualwield
+		{
+			both locomotion_blend_swim_dw blendTime 10
+		}
+		swimtype underwater, playerAnimType hold
+		{
+			both locomotion_blend_swim_hold blendTime 10
+		}
+		swimtype underwater, playerAnimType radio
+		{
+			both locomotion_blend_swim_radio blendTime 10
+		}
+		swimtype underwater, weaponclass pistol AND pistol_spread
+		{
+			both locomotion_blend_swim_pistol blendTime 10
+		}
+#gametype MP AND ZM
+		swimtype underwater, playerAnimType bow
+		{
+			both locomotion_blend_swim_bow blendTime 10
+		}
+#end_gametype
+		swimtype underwater, weaponclass rocketlauncher
+		{
+			both locomotion_blend_swim_launcher blendTime 10
+		}
+		swimtype underwater, weaponclass grenade
+		{
+			both locomotion_blend_swim_grenade blendTime 10
+		}		
+		swimtype underwater, playerAnimType singleknife
+		{
+			both locomotion_blend_swim_knife blendTime 10			
+		}
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks, swimtype underwater
+		{
+			both locomotion_blend_swim_nunchucks blendTime 10		
+		}
+#end_demo_version_at_least
+		// SWORD
+		playerAnimType sword, swimtype underwater
+		{
+			both locomotion_blend_swim_sword blendTime 10		
+		}
+		swimtype underwater, playerAnimType armminigun
+		{
+			both locomotion_blend_swim_armminigun blendTime 10			
+		}
+		// CLUB
+		swimtype underwater, playerAnimType club
+		{
+			both locomotion_blend_swim_wrench blendTime 10			
+		}
+#end_gametype
+		swimtype underwater
+		{
+			both locomotion_blend_swim_rifle blendTime 10
+		}
+		playerAnimType dualwield
+		{
+			both locomotion_blend_swim_over_dw blendTime 10
+		}
+		
+#gametype MP AND ZM
+		playerAnimType bow
+		{
+			both locomotion_blend_swim_over_bow blendTime 10
+		}
+#end_gametype
+
+		playerAnimType hold
+		{
+			both locomotion_blend_swim_over_hold blendTime 10
+		}
+		playerAnimType radio
+		{
+			both locomotion_blend_swim_over_radio blendTime 10
+		}
+		weaponclass rocketlauncher
+		{
+			both locomotion_blend_swim_over_launcher blendTime 10
+		}
+		weaponclass grenade
+		{
+			both locomotion_blend_swim_over_grenade blendTime 10
+		}
+		weaponclass pistol AND pistol_spread
+		{
+			both locomotion_blend_swim_over_pistol blendTime 10
+		}
+		playerAnimType singleknife
+		{
+			both locomotion_blend_swim_over_knife blendTime 10
+		}
+		
+#gametype MP
+#demo_version_at_least 21
+		weapon melee_nunchuks
+		{
+			both locomotion_blend_swim_over_nunchucks blendTime 10
+		}
+#end_demo_version_at_least
+		playerAnimType sword
+		{
+			both locomotion_blend_swim_over_sword blendTime 10
+		}
+		playerAnimType armminigun
+		{
+			both locomotion_blend_swim_over_armminigun blendTime 10
+		}
+		// CLUB
+		playerAnimType club
+		{
+			both locomotion_blend_swim_over_wrench blendTime 10
+		}
+#end_gametype
+
+		default
+		{
+			both locomotion_blend_swim_over_rifle blendTime 10
+		}
+	}
+	
+	swim_turnright
+	{
+		playerAnimType hold, swimtype underwater
+		{
+			both pb_hold_swim_turn_90_r
+		}
+		playerAnimType hold, swimtype surface
+		{
+			both pb_hold_swim_turn_over_90_r
+		}
+		playerAnimType dualwield, swimtype underwater
+		{
+			both pb_dw_swim_turn_90_r
+		}
+		playerAnimType dualwield
+		{
+			both pb_dw_swim_turn_over_90_r
+		}
+		playerAnimType radio, swimtype underwater
+		{
+			both pb_supply_drop_swim_turn_90_r
+		}
+		playerAnimType radio
+		{
+			both pb_supply_drop_swim_turn_over_90_r
+		}
+		weaponclass pistol AND pistol_spread, swimtype underwater
+		{
+			both pb_pistol_swim_turn_90_r
+		}
+		weaponclass pistol AND pistol_spread
+		{
+			both pb_pistol_swim_turn_over_90_r
+		}
+
+#gametype MP AND ZM
+		playerAnimType bow, swimtype underwater
+		{
+			both pb_bow_swim_turn_90_r
+		}
+		playerAnimType bow
+		{
+			both pb_bow_swim_turn_over_90_r
+		}
+#end_gametype
+
+		weaponclass rocketlauncher, swimtype underwater
+		{
+			both pb_launcher_swim_turn_90_r
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_swim_turn_over_90_r
+		}
+		weaponclass grenade, swimtype underwater
+		{
+			both pb_grenade_swim_turn_90_r
+		}
+		weaponclass grenade
+		{
+			both pb_grenade_swim_turn_over_90_r
+		}
+		playerAnimType singleknife, swimtype underwater
+		{
+			both pb_knife_swim_turn_90_r
+		}
+		playerAnimType singleknife
+		{
+			both pb_knife_swim_turn_over_90_r
+		}
+		
+#gametype MP
+#demo_version_at_least 21
+		weapon melee_nunchuks, swimtype underwater
+		{
+			both pb_nunchucks_swim_turn_90_r
+		}
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_swim_turn_over_90_r
+		}
+#end_demo_version_at_least
+		playerAnimType sword, swimtype underwater
+		{
+			both pb_sword_swim_turn_90_r
+		}
+		playerAnimType sword
+		{
+			both pb_sword_swim_turn_over_90_r
+		}
+		playerAnimType armminigun, swimtype underwater
+		{
+			both pb_reaper_swim_turn_90_r
+		}
+		playerAnimType armminigun
+		{
+			both pb_reaper_swim_turn_over_90_r
+		}
+		playerAnimType brawler, swimtype underwater
+		{
+			both pb_knife_swim_turn_90_r
+		}
+		playerAnimType brawler
+		{
+			both pb_knife_swim_turn_over_90_r
+		}
+		// CLUB
+		playerAnimType club, swimtype underwater
+		{
+			both pb_wrench_swim_turn_90_r
+		}
+		playerAnimType club
+		{
+			both pb_wrench_swim_turn_over_90_r
+		}
+#end_gametype
+
+		default
+		{
+			both pb_rifle_swim_aim_turn_r90
+		}
+	}
+	
+	swim_turnleft
+	{
+		playerAnimType dualwield, swimtype underwater
+		{
+			both pb_dw_swim_turn_90_l
+		}
+		playerAnimType dualwield
+		{
+			both pb_dw_swim_turn_over_90_l
+		}
+		playerAnimType hold, swimtype underwater
+		{
+			both pb_hold_swim_turn_90_l
+		}
+		playerAnimType hold, swimtype surface
+		{
+			both pb_hold_swim_turn_over_90_l
+		}
+		playerAnimType radio, swimtype underwater
+		{
+			both pb_supply_drop_swim_turn_90_l
+		}
+		playerAnimType radio
+		{
+			both pb_supply_drop_swim_turn_over_90_l
+		}
+		weaponclass pistol AND pistol_spread, swimtype underwater
+		{
+			both pb_pistol_swim_turn_90_l
+		}
+		weaponclass pistol AND pistol_spread
+		{
+			both pb_pistol_swim_turn_over_90_l
+		}
+		
+#gametype MP AND ZM
+		playerAnimType bow, swimtype underwater
+		{
+			both pb_bow_swim_turn_90_l
+		}
+		playerAnimType bow
+		{
+			both pb_bow_swim_turn_over_90_l
+		}
+#end_gametype
+
+		weaponclass rocketlauncher, swimtype underwater
+		{
+			both pb_launcher_swim_turn_90_l
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_swim_turn_over_90_l
+		}
+
+		weaponclass grenade, swimtype underwater
+		{
+			both pb_grenade_swim_turn_90_l
+		}
+		weaponclass grenade
+		{
+			both pb_grenade_swim_turn_over_90_l
+		}
+		playerAnimType singleknife, swimtype underwater
+		{
+			both pb_knife_swim_turn_90_l
+		}
+		playerAnimType singleknife
+		{
+			both pb_knife_swim_turn_over_90_l
+		}
+
+#gametype MP
+#demo_version_at_least 21
+		weapon melee_nunchuks, swimtype underwater
+		{
+			both pb_nunchucks_swim_turn_90_l
+		}
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_swim_turn_over_90_l
+		}
+#end_demo_version_at_least
+		playerAnimType sword, swimtype underwater
+		{
+			both pb_sword_swim_turn_90_l
+		}
+		playerAnimType sword
+		{
+			both pb_sword_swim_turn_over_90_l
+		}
+		playerAnimType brawler, swimtype underwater
+		{
+			both pb_knife_swim_turn_90_l
+		}
+		playerAnimType brawler
+		{
+			both pb_knife_swim_turn_over_90_l
+		}
+		playerAnimType armminigun, swimtype underwater
+		{
+			both pb_reaper_swim_turn_90_l
+		}
+		playerAnimType armminigun
+		{
+			both pb_reaper_swim_turn_over_90_l
+		}
+		// CLUB
+		playerAnimType club, swimtype underwater
+		{
+			both pb_wrench_swim_turn_90_l
+		}
+		playerAnimType club
+		{
+			both pb_wrench_swim_turn_over_90_l
+		}
+#end_gametype
+
+		default
+		{
+			both pb_rifle_swim_aim_turn_l90
+		}
+	}
+}
+
+EVENTS
+
+swim_in
+{
+	weaponclass pistol AND pistol_spread
+	{
+		//both pb_pistol_swim_trans_in
+	}
+	playerAnimType singleknife
+	{
+		//both pb_knife_swim_trans_in
+	}
+	default
+	{
+	//	both pb_rifle_swim_trans_in
+	}
+}
+
+
+swim_out
+{
+	weaponclass pistol AND pistol_spread
+	{
+		//both pb_knife_swim_trans_out
+	}
+	playerAnimType singleknife
+	{
+		//both pb_pistol_swim_trans_out
+	}
+	default
+	{
+	//	both pb_rifle_swim_trans_out duration 100
+	}
+}
+
+swim_out_climb
+{
+	default
+	{
+	//	both pb_rifle_swim2climb duration 500
+	}
+}

@@ -1,0 +1,38 @@
+name,b,bi,bdt,bdti,h,hi,hdt,hdti,class,type,issniper,isbolt,isdw,firetype,clipsize,maxammo,,,,Notes:
+pistol_burst_upgraded,4545,6817.5,18180,27270,6818,10227,27272,40908,pistol,bullet,0,0,single,Burst,30,180,2,36360,54544,
+sniper_powerbolt_upgraded,3000,4500,12000,18000,10000,15000,40000,60000,rifle,bullet,1,1,single,Single Shot,10,100,2,24000,80000,HD should not apply headshot damage for bolt snipers
+sniper_fastsemi_upgraded,16000,24000,64000,96000,25600,38400,102400,153600,rifle,bullet,1,0,single,Single Shot,20,140,0.5,32000,51200,
+sniper_fastbolt_upgraded,6300,9450,25200,37800,8100,12150,32400,48600,rifle,bullet,1,1,single,Single Shot,25,100,1.25,31500,40500,
+smg_sten_upgraded,1979,2968.5,7916,11874,10885,16327.5,43540,65310,rifle,bullet,0,0,single,Full Auto,64,320,2.5,19790,108850,
+smg_versatile_upgraded,2121,3181.5,8484,12726,10606,15909,42424,63636,smg,bullet,0,0,single,Full Auto,40,400,2.5,21210,106060,
+smg_standard_upgraded,1807,2710.5,7228,10842,9036,13554,36144,54216,smg,bullet,0,0,single,Full Auto,50,350,2.5,18070,90360,
+smg_fastfire_upgraded,2800,4200,11200,16800,16800,25200,67200,100800,smg,bullet,0,0,single,Full Auto,60,360,2,22400,134400,
+smg_capacity_upgraded,2108,3162,8432,12648,10542,15813,42168,63252,smg,bullet,0,0,single,Full Auto,100,500,2.5,21080,105420,
+smg_burst_upgraded,2272,3408,9088,13632,11363,17044.5,45452,68178,smg,bullet,0,0,single,Auto Burst,60,300,6.25,56800,284075,
+shotgun_semiauto_upgraded,7499,11248.5,29996,44994,16249,24373.5,64996,97494,spread,bullet,0,0,single,Single Shot,24,120,0.8,23996.8,51996.8,
+shotgun_pump_upgraded,3000,4500,12000,18000,6784,10176,27136,40704,spread,bullet,0,1,single,Single Shot,16,64,1.8,21600,48844.8,
+shotgun_precision_upgraded,1800,2700,7200,10800,3600,5400,14400,21600,spread,bullet,0,1,single,Single Shot,32,96,2.8,20160,40320,
+shotgun_fullauto_upgraded,12000,18000,48000,72000,25680,38520,102720,154080,spread,bullet,0,0,single,Full Auto,25,125,0.6,28800,61632,
+pistol_fullauto_upgraded,1144,1716,4576,6864,4060,6090,16240,24360,pistol,bullet,0,0,single,Full Auto,40,200,6,27456,97440,
+lmg_slowfire_upgraded,2459,3688.5,9836,14754,9836,14754,39344,59016,mg,bullet,0,0,single,Full Auto,100,500,2,19672,78688,
+lmg_light_upgraded,1939,2908.5,7756,11634,7758,11637,31032,46548,mg,bullet,0,0,single,Full Auto,100,700,2,15512,62064,
+lmg_heavy_upgraded,19230,28845,76920,115380,19230,28845,76920,115380,mg,bullet,0,0,single,Auto Burst,120,720,1.5,115380,115380,These numbers are super wrong LOL
+lmg_cqb_upgraded,4578,6867,18312,27468,13734,20601,54936,82404,mg,bullet,0,0,single,Full Auto,120,600,1.4,25636.8,76910.4,
+ar_standard_upgraded,2083,3124.5,8332,12498,3125,4687.5,12500,18750,rifle,bullet,0,0,single,Full Auto,50,350,2.6,21663.2,32500,
+ar_marksman_upgraded,772,1158,3088,4632,1390,2085,5560,8340,rifle,bullet,0,0,single,Single Shot,30,270,6,18528,33360,
+ar_longburst_upgraded,2666,3999,10664,15996,3999,5998.5,15996,23994,rifle,bullet,0,0,single,Burst,48,480,2.5,26660,39990,
+ar_damage_upgraded,2112,3168,8448,12672,3879,5818.5,15516,23274,rifle,bullet,0,0,single,Full Auto,40,440,2.5,21120,38790,
+ar_cqb_upgraded,2108,3162,8432,12648,3156,4734,12624,18936,rifle,bullet,0,0,single,Full Auto,60,480,2.2,18550.4,27772.8,
+ar_accurate_upgraded,2000,3000,8000,12000,3000,4500,12000,18000,rifle,bullet,0,0,single,Full Auto,45,360,2.5,20000,30000,
+,,,9088,,,,,,,,,,,,,,,21663.2,61632,
+smg_mp40_upgraded,1810,2715,7240,10860,9051,13576.5,36204,54306,smg,bullet,0,0,single,Full Auto,64,448
+pistol_shotgun_dw_upgraded,30000,45000,120000,180000,54000,81000,216000,324000,pistol spread,bullet,0,0,dw,Single Shot,3,99
+ar_garand_upgraded,3012,4518,12048,18072,15060,22590,60240,90360,rifle,bullet,0,0,single,Single Shot,20,200
+special_crossbow_dw_upgraded,4666,6999,9332,13998,46666,69999,93332,139998,rifle,projectile,0,0,dw,Single Shot,12,144
+special_crossbowlh_upgraded,466,699,932,1398,46666,69999,93332,139998,rifle,projectile,0,0,dw,Single Shot,12,12
+smg_ppsh_upgraded,2835,4252.5,11340,17010,15597,23395.5,62388,93582,smg,bullet,0,0,single,Full Auto,115,690
+ar_famas_upgraded,3333,4999.5,13332,19998,13333,19999.5,53332,79998,rifle,bullet,0,0,single,Full Auto,90,450
+ar_m14_upgraded,9333,13999.5,37332,55998,28000,42000,112000,168000,rifle,bullet,0,0,single,Single Shot,16,208
+smg_thompson_upgraded,2812,4218,11248,16872,15468,23202,61872,92808,smg,bullet,0,0,single,Full Auto,100,500
+lmg_mg08_upgraded,3124,4686,12496,18744,15624,23436,62496,93744,mg,bullet,0,0,single,Full Auto,100,600
+ar_stg44_upgraded,2499,3748.5,9996,14994,12499,18748.5,49996,74994,rifle,bullet,0,0,single,Full Auto,60,330

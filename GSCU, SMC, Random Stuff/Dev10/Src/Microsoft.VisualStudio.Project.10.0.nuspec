@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.VisualStudio.Project.10.0</id>
+    <version>0.0.0</version>
+    <authors>Sam Harwell et. al.</authors>
+    <owners>Sam Harwell</owners>
+    <description>The Managed Package Framework for Visual Studio Projects, for extensions targeting Visual Studio 2010 and newer.</description>
+    <language>en-us</language>
+    <projectUrl>https://raw.github.com/sharwell/MPFProj10</projectUrl>
+    <licenseUrl>https://raw.github.com/sharwell/MPFProj10/v$version$/LICENSE.txt</licenseUrl>
+    <!--<iconUrl></iconUrl>-->
+    <copyright>Copyright © Microsoft Corporation 2014</copyright>
+    <releaseNotes>https://github.com/sharwell/MPFProj10/releases/v$version$</releaseNotes>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <tags>mpfproj mpfproj10 mpfproj11 mpfproj12 vsix</tags>
+    <title>Managed Package Framework for Visual Studio 2010 and newer</title>
+    <summary>The Managed Package Framework for Visual Studio Projects</summary>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework="net40"/>
+      <frameworkAssembly assemblyName="System.Drawing" targetFramework="net40"/>
+      <frameworkAssembly assemblyName="System.Windows.Forms" targetFramework="net40"/>
+      <frameworkAssembly assemblyName="System.Xml" targetFramework="net40"/>
+      <frameworkAssembly assemblyName="WindowsBase" targetFramework="net40"/>
+      <frameworkAssembly assemblyName="Microsoft.Build" targetFramework="net40"/>
+      <frameworkAssembly assemblyName="Microsoft.Build.Framework" targetFramework="net40"/>
+      <frameworkAssembly assemblyName="Microsoft.Build.Utilities.v4.0" targetFramework="net40"/>
+    </frameworkAssemblies>
+    <dependencies>
+      <!-- Visual Studio 2010 -->
+      <dependency id="VSSDK.IDE.10" version="[10.0.4,11.0.0)"/>
+      <!--
+      Exposed Dependencies (Microsoft.VisualStudio.Project.10.0.dll):
+        EnvDTE
+        Microsoft.Build
+        Microsoft.Build.Framework
+        Microsoft.Build.Utilities.v4.0
+        Microsoft.VisualStudio.Designer.Interfaces
+        Microsoft.VisualStudio.OLE.Interop
+        Microsoft.VisualStudio.Shell.10.0
+        Microsoft.VisualStudio.Shell.Interop
+        Microsoft.VisualStudio.Shell.Interop.10.0
+        Microsoft.VisualStudio.Shell.Interop.8.0
+        Microsoft.VisualStudio.TextManager.Interop
+        System
+        System.Drawing
+        System.Windows.Forms
+        System.Xml
+        VSLangProj
+        VSLangProj80
+        WindowsBase
+      -->
+      <dependency id="VSSDK.DTE" version="[7.0.4,8.0.0)"/>
+      <dependency id="VSSDK.OLE.Interop" version="[7.0.4,8.0.0)"/>
+      <dependency id="VSSDK.Designer" version="[7.0.4,8.0.0)"/>
+      <dependency id="VSSDK.Shell.Interop" version="[7.0.4,8.0.0)"/>
+      <dependency id="VSSDK.Shell.Interop.8" version="[8.0.4,9.0.0)"/>
+      <dependency id="VSSDK.Shell.Interop.10" version="[10.0.4,11.0.0)"/>
+      <dependency id="VSSDK.TextManager.Interop" version="[7.0.4,8.0.0)"/>
+      <dependency id="VSSDK.VSLangProj" version="[7.0.4,8.0.0)"/>
+      <dependency id="VSSDK.VSLangProj.8" version="[8.0.4,9.0.0)"/>
+      <dependency id="VSSDK.Shell.10" version="[10.0.4,11.0.0)"/>
+    </dependencies>
+  </metadata>
+  <files>
+    <!-- Runtime Libraries -->
+
+    <file src=".\CSharp\bin\dev10\$Configuration$\Microsoft.VisualStudio.Project.10.0.dll" target="lib\net40"/>
+    <file src=".\CSharp\bin\dev10\$Configuration$\Microsoft.VisualStudio.Project.10.0.pdb" target="lib\net40"/>
+    <file src=".\CSharp\bin\dev10\$Configuration$\Microsoft.VisualStudio.Project.10.0.xml" target="lib\net40"/>
+
+    <!-- Source Code -->
+
+    <file exclude=".\CSharp\obj\**\*.cs" src=".\CSharp\**\*.cs" target="src"/>
+  </files>
+</package>

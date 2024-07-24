@@ -1,0 +1,51 @@
+name,b,bi,bdt,bdti,h,hi,hdt,hdti,class,type,issniper,isbolt,isdw,firetype,clipsize,maxammo
+none,50,75,200,300,0,0,0,0,rifle,bullet,0,0,single,Full Auto,0,0
+pistol_burst,0,0,0,0,0,0,0,0,pistol,bullet,0,0,single,Burst,15,120
+special_harpoon_crystal_upgraded,33333,49999.5,66666,99999,0,0,0,0,rocketlauncher,projectile,0,0,single,Single Shot,1,40
+special_harpoon_upgraded,0,0,0,0,0,0,0,0,rocketlauncher,projectile,0,0,single,Single Shot,1,40
+knife_ballistic_bowie_upgraded,4500,6750,9000,13500,0,0,0,0,pistol,projectile,0,0,single,Single Shot,1,9
+knife_ballistic_upgraded,3000,4500,6000,9000,0,0,0,0,pistol,projectile,0,0,single,Single Shot,1,9
+launcher_crossbow_upgraded,409,613.5,818,1227,0,0,0,0,rocketlauncher,projectile,0,0,single,Single Shot,1,12
+launcher_law_upgraded,0,0,0,0,0,0,0,0,rocketlauncher,projectile,0,0,single,Full Auto,10,40
+zombie_ai_defaultmelee,45,67.5,90,135,45,67.5,90,135,melee,melee,0,0,single,Full Auto,0,0
+launcher_china_lake_upgraded,343,514.5,686,1029,0,0,0,0,grenade,projectile,0,1,single,Single Shot,5,40
+raygun_mark2_upgraded,29166,43749,58332,87498,0,0,0,0,pistol,projectile,0,0,single,Burst,42,201
+microwavegundw_upgraded,6,9,12,18,0,0,0,0,pistol,projectile,0,0,dw,Single Shot,12,100
+ar_m16_upgraded,2343,3514.5,9372,14058,11718,17577,46872,70308,rifle,bullet,0,0,single,Full Auto,30,270
+shotgun_hs10_upgraded,27272,40908,109088,163632,27272,40908,109088,163632,spread,bullet,0,0,dw,Single Shot,8,80
+shotgun_stakeout_upgraded,2400,3600,9600,14400,2400,3600,9600,14400,spread,bullet,0,1,single,Single Shot,10,60
+lmg_hk21_upgraded,1874,2811,7496,11244,5624,8436,22496,33744,mg,bullet,0,0,single,Full Auto,150,750
+lmg_rpk_upgraded,20571,30856.5,82284,123426,61714,92571,246856,370284,mg,bullet,0,0,single,Full Auto,125,500
+sniper_l96a1_upgraded,3000,4500,12000,18000,10000,15000,40000,60000,rifle,bullet,1,1,single,Single Shot,8,72
+sniper_dragunov_upgraded,11718,17577,46872,70308,39062,58593,156248,234372,rifle,bullet,1,0,single,Single Shot,10,80
+ar_commando_upgraded,2624,3936,10496,15744,13124,19686,52496,78744,rifle,bullet,0,0,single,Full Auto,40,360
+ar_g11_upgraded,1375,2062.5,5500,8250,15625,23437.5,62500,93750,rifle,bullet,0,0,single,Full Auto,48,288
+ar_fal_upgraded,2500,3750,10000,15000,12500,18750,50000,75000,rifle,bullet,0,0,single,Burst,30,360
+ar_aug_upgraded,3333,4999.5,13332,19998,16666,24999,66664,99996,rifle,bullet,0,0,single,Full Auto,30,390
+ar_galil_upgraded,2749,4123.5,10996,16494,13749,20623.5,54996,82494,rifle,bullet,0,0,single,Full Auto,35,490
+zombie_bgb_grab,0,0,0,0,0,0,0,0,grenade,grenade,0,0,single,Full Auto,0,1
+ar_famasa_upgraded,2343,3514.5,9372,14058,11718,17577,46872,70308,rifle,bullet,0,0,single,Full Auto,45,225
+smg_spectre_upgraded,2031,3046.5,8124,12186,10156,15234,40624,60936,smg,bullet,0,0,single,Full Auto,45,225
+smg_mpl_upgraded,2187,3280.5,8748,13122,10937,16405.5,43748,65622,smg,bullet,0,0,single,Full Auto,40,200
+smg_mp40_1940_upgraded,1785,2677.5,7140,10710,8928,13392,35712,53568,smg,bullet,0,0,single,Full Auto,64,192
+smg_ak74u_upgraded,2374,3561,9496,14244,11874,17811,47496,71244,smg,bullet,0,0,single,Full Auto,40,280
+smg_pm63_upgraded,4374,6561,17496,26244,21874,32811,87496,131244,smg,bullet,0,0,dw,Full Auto,25,225
+ar_m14_upgraded,33333,49999.5,133332,199998,100000,150000,400000,600000,rifle,bullet,0,0,single,Single Shot,16,192
+smg_mp5k_upgraded,13999,20998.5,55996,83994,69999,104999,279996,419994,smg,bullet,0,0,single,Full Auto,40,200
+shotgun_spas12_upgraded,6250,9375,25000,37500,14583,21874.5,58332,87498,spread,bullet,0,0,single,Full Auto,24,72
+shotgun_olympia_upgraded,8480,12720,33920,50880,8480,12720,33920,50880,spread,bullet,0,0,single,Single Shot,2,60
+pistol_cz75_dw_upgraded,5357,8035.5,21428,32142,18749,28123.5,74996,112494,pistol,bullet,0,0,dw,Full Auto,20,320
+pistol_cz75_upgraded,2678,4017,10712,16068,9374,14061,37496,56244,pistol,bullet,0,0,single,Full Auto,20,240
+pistol_python_upgraded,15625,23437.5,62500,93750,31250,46875,125000,187500,pistol,bullet,0,0,single,Single Shot,12,96
+pistol_m1911,0,0,0,0,0,0,0,0,pistol,bullet,0,0,single,Single Shot,8,80
+pistol_c96_upgraded,10000,15000,20000,30000,40000,60000,80000,120000,pistol,projectile,0,0,single,Single Shot,50,100
+pistol_m1911_upgraded,8250,12375,16500,24750,0,0,0,0,pistol,projectile,0,0,dw,Single Shot,6,50
+ray_gun_upgraded,3542,5313,7084,10626,0,0,0,0,pistol,projectile,0,0,single,Full Auto,40,200
+frag_grenade,340,510,680,1020,0,0,0,0,grenade,grenade,0,0,single,Full Auto,4,4
+microwavegun_upgraded,0,0,0,0,0,0,0,0,rifle,projectile,0,0,single,Single Shot,4,24
+lmg_deathmachine,0,0,0,0,0,0,0,0,rifle,bullet,0,0,single,Minigun,999,999
+zombie_bgb_use,0,0,0,0,0,0,0,0,grenade,grenade,0,0,single,Full Auto,0,1
+pistol_m1911_upgraded_le,9100,13650,18200,27300,0,0,0,0,pistol,projectile,0,0,dw,Single Shot,6,0
+claymore,0,0,0,0,0,0,0,0,grenade,grenade,0,0,single,Full Auto,10,0
+m203,1881,2821.5,3762,5643,0,0,0,0,rifle,projectile,0,0,single,Single Shot,1,8
+shotgun_masterkey,2880,4320,11520,17280,0,0,0,0,spread,bullet,0,1,single,Single Shot,6,30

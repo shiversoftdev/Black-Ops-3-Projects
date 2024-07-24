@@ -1,0 +1,1905 @@
+require( "ui.uieditor.widgets.Lobby.Common.FE_MemberBlurPanelContainer" )
+require( "ui.uieditor.widgets.Lobby.Common.FE_FeaturedCard" )
+require( "ui.uieditor.widgets.Lobby.Common.FE_FeaturedCardsContainerController" )
+require( "ui.uieditor.widgets.Lobby.Common.FE_FeaturedCardsTitleBox" )
+require( "ui.uieditor.widgets.Lobby.Common.FE_FeaturedFrame" )
+require( "ui.uieditor.widgets.FaceButtonThatHidesWithLabel" )
+require( "ui.uieditor.widgets.FeaturedOfflineText" )
+require( "ui.uieditor.widgets.Lobby.PlayGo.PlayGoDownloadProgressBar" )
+require( "ui.uieditor.widgets.Lobby.PlayGo.PlayGoDownloadStatus" )
+
+local PreLoadFunc = function ( self, controller )
+	local f1_local0 = Engine.CreateModel( Engine.GetGlobalModel(), "FeaturedCardsRoot", true )
+	Engine.CreateModel( f1_local0, "Enabled", true )
+	Engine.CreateModel( f1_local0, "Update", true )
+	Engine.CreateModel( f1_local0, "hasAction", true )
+	Engine.SetModelValue( Engine.CreateModel( f1_local0, "CardSequence", false ), 0 )
+end
+
+local f0_local1 = function ( f2_arg0, f2_arg1, f2_arg2 )
+	-- if not CoD.isPC then
+	-- 	return 
+	-- end
+	-- f2_arg0:setForceMouseEventDispatch( true )
+	-- local f2_local0 = function ( f3_arg0, f3_arg1 )
+	-- 	if FeaturedCards_IsEnabled( f3_arg0, f2_arg1 ) then
+	-- 		if f3_arg0.bumper then
+	-- 			if f3_arg0.bumper == "left" then
+	-- 				FeaturedCardsGetPreviousCard( f2_arg2, f3_arg0, f2_arg1, "", f2_arg2 )
+	-- 			else
+	-- 				FeaturedCardsGetNextCard( f2_arg2, f3_arg0, f2_arg1, "", f2_arg2 )
+	-- 			end
+	-- 		end
+	-- 		FeaturedCardsResetTimer( f2_arg2, f3_arg0, f2_arg1, "", f2_arg2 )
+	-- 	end
+	-- 	return true
+	-- end
+	
+	-- if f2_arg0.FEFeaturedCardsContainerController.RightBumperImage then
+	-- 	f2_arg0.FEFeaturedCardsContainerController.RightBumperImage.bumper = "right"
+	-- 	f2_arg0.FEFeaturedCardsContainerController.RightBumperImage:registerEventHandler( "leftmouseup", f2_local0 )
+	-- end
+	-- if f2_arg0.FEFeaturedCardsContainerController.LeftBumperImage then
+	-- 	f2_arg0.FEFeaturedCardsContainerController.LeftBumperImage.bumper = "left"
+	-- 	f2_arg0.FEFeaturedCardsContainerController.LeftBumperImage:registerEventHandler( "leftmouseup", f2_local0 )
+	-- end
+	-- f2_arg0.Action.clickButton.m_button = Enum.LUIButton.LUI_KEY_XBX_PSSQUARE
+	-- f2_arg0.Action.clickButton.keyshortcut:setText( Engine.Localize( "[^3N^7]" ) )
+end
+
+local PostLoadFunc = function ( self, controller, menu )
+	f0_local1( self, controller, menu )
+	-- self.CardsList:subscribeToGlobalModel( controller, "FeaturedCardsRoot", "CardSequence", function ( modelRef )
+	-- 	if self.CardsList.activeWidget ~= nil then
+	-- 		local f5_local0 = self.CardsList:getDataSource()
+	-- 		local f5_local1 = f5_local0.getCount( self.CardsList )
+	-- 		local f5_local2 = Engine.GetModelValue( modelRef )
+	-- 		if f5_local1 <= f5_local2 then
+	-- 			f5_local2 = 0
+	-- 		elseif f5_local2 < 0 then
+	-- 			f5_local2 = f5_local1 - 1
+	-- 		end
+	-- 		Engine.SetModelValue( modelRef, f5_local2 )
+	-- 		local f5_local3 = Engine.GetModel( Engine.GetModel( Engine.GetModelForController( controller ), "FeaturedCards" ), f5_local2 + 1 )
+	-- 		if f5_local3 then
+	-- 			local f5_local4 = CoD.SafeGetModelValue( f5_local3, "index" )
+	-- 			local f5_local5 = Engine.CreateModel( f5_local3, "wasDisplayed" )
+	-- 			local f5_local6 = CoD.SafeGetModelValue( f5_local3, "wasDisplayed" )
+	-- 			if f5_local4 then
+	-- 				local f5_local7 = Engine.GetFeaturedCard( f5_local4 )
+	-- 				if f5_local7 ~= nil and f5_local7.type == Enum.FeaturedCardType.FEATURED_CARD_TYPE_CRM then
+	-- 					Engine.FeaturedCardMarkRead( controller, f5_local7.messageID )
+	-- 					if not f5_local6 then
+	-- 						LUI.CoDMetrics.CRMMessageImpression( self, controller, "crm_featured" )
+	-- 					end
+	-- 					Engine.SetModelValue( f5_local5, 1 )
+	-- 				end
+	-- 			end
+	-- 		end
+	-- 		self.CardsList:setActiveIndex( 1, f5_local2 + 1, false )
+	-- 		if IsMenuInState( menu, "Left" ) then
+	-- 			self:playSound( "feature_update" )
+	-- 		end
+	-- 	end
+	-- end )
+	-- local f4_local0 = Engine.GetFeaturedCardsData()
+	-- local f4_local1
+	-- if f4_local0 then
+	-- 	f4_local1 = f4_local0.timer
+	-- 	if not f4_local1 then
+		
+	-- 	else
+	-- 		if f4_local1 <= 0 then
+	-- 			f4_local1 = 5000
+	-- 		end
+	-- 		local f4_local2 = LUI.UITimer.newElementTimer( f4_local1, false, function ()
+	-- 			if FeaturedWidgetControllerVisible( controller ) then
+	-- 				local f6_local0 = 1
+	-- 				if self.CardsList.activeWidget ~= nil then
+	-- 					FeaturedCardsGetNextCard()
+	-- 				end
+	-- 			end
+	-- 		end, self )
+	-- 		self.CarouselTimer = f4_local2
+	-- 		self:addElement( f4_local2 )
+	-- 	end
+	-- end
+	-- f4_local1 = 5000
+end
+
+CoD.FE_FeaturedCardsContainer = InheritFrom( LUI.UIElement )
+CoD.FE_FeaturedCardsContainer.new = function ( menu, controller )
+	local self = LUI.UIElement.new()
+
+	if PreLoadFunc then
+		PreLoadFunc( self, controller )
+	end
+
+	self:setUseStencil( false )
+	self:setClass( CoD.FE_FeaturedCardsContainer )
+	self.id = "FE_FeaturedCardsContainer"
+	self.soundSet = "Special_widgets"
+	self:setLeftRight( true, false, 0, 0.01 )
+	self:setTopBottom( true, false, 0, 0.01 )
+	self.anyChildUsesUpdateState = true
+	
+	-- local FEMemberBlurPanelContainer0 = CoD.FE_MemberBlurPanelContainer.new( menu, controller )
+	-- FEMemberBlurPanelContainer0:setLeftRight( true, false, 26, 332 )
+	-- FEMemberBlurPanelContainer0:setTopBottom( true, false, 36, 152 )
+	-- FEMemberBlurPanelContainer0:setRGB( 0.5, 0.5, 0.5 )
+	-- FEMemberBlurPanelContainer0.FEMemberBlurPanel0:setShaderVector( 0, 0, 3, 0, 0 )
+	-- self:addElement( FEMemberBlurPanelContainer0 )
+	-- self.FEMemberBlurPanelContainer0 = FEMemberBlurPanelContainer0
+	
+	-- local BlackBack = LUI.UIImage.new()
+	-- BlackBack:setLeftRight( true, false, 26, 332 )
+	-- BlackBack:setTopBottom( true, false, 36, 152 )
+	-- BlackBack:setRGB( 0, 0, 0 )
+	-- BlackBack:setAlpha( 0.2 )
+	-- self:addElement( BlackBack )
+	-- self.BlackBack = BlackBack
+	
+	local CardsList = LUI.GridLayout.new( menu, controller, false, 0, 0, 1, 200, nil, nil, true, true, 0, 0, false, true )
+	CardsList:setLeftRight( true, false, 0, 0.01 )
+	CardsList:setTopBottom( true, false, 0, 0.01 )
+	CardsList:setWidgetType( CoD.FE_FeaturedCard )
+	CardsList:setSpacing( 1 )
+	-- CardsList:setDataSource( "FeaturedCards" )
+	-- CardsList:subscribeToGlobalModel( controller, "FeaturedCardsRoot", "Update", function ( modelRef )
+	-- 	UpdateDataSource( self, CardsList, controller )
+	-- end )
+	-- CardsList:subscribeToGlobalModel( controller, "MarketingRoot", "Updated", function ( modelRef )
+	-- 	UpdateDataSource( self, CardsList, controller )
+	-- end )
+	-- CardsList:subscribeToGlobalModel( controller, "AutoeventsCycled", "cycled", function ( modelRef )
+	-- 	UpdateDataSource( self, CardsList, controller )
+	-- end )
+	self:addElement( CardsList )
+	self.CardsList = CardsList
+	
+	-- local FeaturedLabel = LUI.UITightText.new()
+	-- FeaturedLabel:setLeftRight( true, false, 33, 96 )
+	-- FeaturedLabel:setTopBottom( true, false, 4, 29 )
+	-- FeaturedLabel:setAlpha( 0 )
+	-- FeaturedLabel:setText( Engine.Localize( "MENU_FEATURED_CAPS" ) )
+	-- FeaturedLabel:setTTF( "fonts/default.ttf" )
+	-- self:addElement( FeaturedLabel )
+	-- self.FeaturedLabel = FeaturedLabel
+	
+	-- local FEFeaturedCardsContainerController = CoD.FE_FeaturedCardsContainerController.new( menu, controller )
+	-- FEFeaturedCardsContainerController:setLeftRight( false, true, -155, -19 )
+	-- FEFeaturedCardsContainerController:setTopBottom( false, false, 42, 69 )
+	-- FEFeaturedCardsContainerController:linkToElementModel( self, nil, false, function ( modelRef )
+	-- 	FEFeaturedCardsContainerController:setModel( modelRef, controller )
+	-- end )
+	-- self:addElement( FEFeaturedCardsContainerController )
+	-- self.FEFeaturedCardsContainerController = FEFeaturedCardsContainerController
+	
+	-- local pixelLL = LUI.UIImage.new()
+	-- pixelLL:setLeftRight( true, false, 0, 28 )
+	-- pixelLL:setTopBottom( false, false, 41, 45 )
+	-- pixelLL:setImage( RegisterImage( "uie_t7_menu_frontend_pixelframe" ) )
+	-- pixelLL:setMaterial( LUI.UIImage.GetCachedMaterial( "ui_add" ) )
+	-- self:addElement( pixelLL )
+	-- self.pixelLL = pixelLL
+	
+	-- local Image1 = LUI.UIImage.new()
+	-- Image1:setLeftRight( true, false, 0, 28 )
+	-- Image1:setTopBottom( false, false, -47, -43 )
+	-- Image1:setImage( RegisterImage( "uie_t7_menu_frontend_pixelframe" ) )
+	-- Image1:setMaterial( LUI.UIImage.GetCachedMaterial( "ui_add" ) )
+	-- self:addElement( Image1 )
+	-- self.Image1 = Image1
+	
+	-- local pixelUR = LUI.UIImage.new()
+	-- pixelUR:setLeftRight( false, false, 145, 181 )
+	-- pixelUR:setTopBottom( false, false, -46.5, -43 )
+	-- pixelUR:setImage( RegisterImage( "uie_t7_menu_frontend_pixelist" ) )
+	-- pixelUR:setMaterial( LUI.UIImage.GetCachedMaterial( "uie_feather_add" ) )
+	-- self:addElement( pixelUR )
+	-- self.pixelUR = pixelUR
+	
+	-- local Image2 = LUI.UIImage.new()
+	-- Image2:setLeftRight( false, false, 145, 181 )
+	-- Image2:setTopBottom( false, false, 42, 45.5 )
+	-- Image2:setImage( RegisterImage( "uie_t7_menu_frontend_pixelist" ) )
+	-- Image2:setMaterial( LUI.UIImage.GetCachedMaterial( "uie_feather_add" ) )
+	-- self:addElement( Image2 )
+	-- self.Image2 = Image2
+	
+	-- local emblemline0 = LUI.UIImage.new()
+	-- emblemline0:setLeftRight( false, false, 158, 162 )
+	-- emblemline0:setTopBottom( false, false, -46, 45 )
+	-- emblemline0:setAlpha( 0.25 )
+	-- emblemline0:setImage( RegisterImage( "uie_t7_menu_frontend_featuredemblemline" ) )
+	-- emblemline0:setMaterial( LUI.UIImage.GetCachedMaterial( "ui_add" ) )
+	-- self:addElement( emblemline0 )
+	-- self.emblemline0 = emblemline0
+	
+	-- local pixelMiddle = LUI.UIImage.new()
+	-- pixelMiddle:setLeftRight( true, false, -4, 28 )
+	-- pixelMiddle:setTopBottom( false, false, -28, 24 )
+	-- pixelMiddle:setZoom( 10 )
+	-- pixelMiddle:setImage( RegisterImage( "uie_t7_menu_frontend_titlebackpixelb" ) )
+	-- pixelMiddle:setMaterial( LUI.UIImage.GetCachedMaterial( "ui_add" ) )
+	-- self:addElement( pixelMiddle )
+	-- self.pixelMiddle = pixelMiddle
+	
+	-- local FEFeaturedCardsTitleBox0 = CoD.FE_FeaturedCardsTitleBox.new( menu, controller )
+	-- FEFeaturedCardsTitleBox0:setLeftRight( true, false, 26, 332 )
+	-- FEFeaturedCardsTitleBox0:setTopBottom( true, false, 14, 33 )
+	-- FEFeaturedCardsTitleBox0.ScorestreaksLabel:setText( Engine.Localize( "GROUPS_FEATURED_CAPS" ) )
+	-- self:addElement( FEFeaturedCardsTitleBox0 )
+	-- self.FEFeaturedCardsTitleBox0 = FEFeaturedCardsTitleBox0
+	
+	-- local FEFeaturedFrame0 = CoD.FE_FeaturedFrame.new( menu, controller )
+	-- FEFeaturedFrame0:setLeftRight( true, false, 26, 332 )
+	-- FEFeaturedFrame0:setTopBottom( true, false, 36, 126 )
+	-- FEFeaturedFrame0:setAlpha( 0.5 )
+	-- self:addElement( FEFeaturedFrame0 )
+	-- self.FEFeaturedFrame0 = FEFeaturedFrame0
+	
+	-- local featlineleft = LUI.UIImage.new()
+	-- featlineleft:setLeftRight( true, false, 180, 184 )
+	-- featlineleft:setTopBottom( true, false, -56, 261 )
+	-- featlineleft:setZRot( -90 )
+	-- featlineleft:setImage( RegisterImage( "uie_t7_menu_frontend_featuredlline" ) )
+	-- featlineleft:setMaterial( LUI.UIImage.GetCachedMaterial( "ui_add" ) )
+	-- self:addElement( featlineleft )
+	-- self.featlineleft = featlineleft
+	
+	-- local Action = CoD.FaceButtonThatHidesWithLabel.new( menu, controller )
+	-- Action:setLeftRight( true, false, 41, 176.25 )
+	-- Action:setTopBottom( true, false, 128, 148 )
+	-- Action:subscribeToGlobalModel( controller, "Controller", "alt1_button_image", function ( modelRef )
+	-- 	local alt1ButtonImage = Engine.GetModelValue( modelRef )
+	-- 	if alt1ButtonImage then
+	-- 		Action.ButtonImage.ControllerImage:setImage( RegisterImage( alt1ButtonImage ) )
+	-- 	end
+	-- end )
+	-- self:addElement( Action )
+	-- self.Action = Action
+	
+	-- local FeaturedOfflineText0 = CoD.FeaturedOfflineText.new( menu, controller )
+	-- FeaturedOfflineText0:setLeftRight( true, false, 33, 325.5 )
+	-- FeaturedOfflineText0:setTopBottom( true, false, 40, 65 )
+	-- self:addElement( FeaturedOfflineText0 )
+	-- self.FeaturedOfflineText0 = FeaturedOfflineText0
+	
+	-- local OfflineAction = CoD.FaceButtonThatHidesWithLabel.new( menu, controller )
+	-- OfflineAction:setLeftRight( true, false, 41, 267.76 )
+	-- OfflineAction:setTopBottom( true, false, 128, 148 )
+	-- OfflineAction.ButtonLabel:setText( Engine.Localize( "MENU_NETWORK" ) )
+	-- OfflineAction.clickButton.label:setText( Engine.Localize( "MENU_NETWORK" ) )
+	-- OfflineAction:subscribeToGlobalModel( controller, "Controller", "alt1_button_image", function ( modelRef )
+	-- 	local alt1ButtonImage = Engine.GetModelValue( modelRef )
+	-- 	if alt1ButtonImage then
+	-- 		OfflineAction.ButtonImage.ControllerImage:setImage( RegisterImage( alt1ButtonImage ) )
+	-- 	end
+	-- end )
+	-- OfflineAction:mergeStateConditions( {
+	-- 	{
+	-- 		stateName = "HideButtonAndText",
+	-- 		condition = function ( menu, element, event )
+	-- 			return ShouldHideOfflineNetworkPrompt( controller )
+	-- 		end
+	-- 	}
+	-- } )
+	-- OfflineAction:subscribeToModel( Engine.GetModel( Engine.GetGlobalModel(), "lobbyRoot.lobbyNetworkMode" ), function ( modelRef )
+	-- 	menu:updateElementState( OfflineAction, {
+	-- 		name = "model_validation",
+	-- 		menu = menu,
+	-- 		modelValue = Engine.GetModelValue( modelRef ),
+	-- 		modelName = "lobbyRoot.lobbyNetworkMode"
+	-- 	} )
+	-- end )
+	-- OfflineAction:subscribeToModel( Engine.GetModel( Engine.GetGlobalModel(), "lobbyRoot.lobbyNav" ), function ( modelRef )
+	-- 	menu:updateElementState( OfflineAction, {
+	-- 		name = "model_validation",
+	-- 		menu = menu,
+	-- 		modelValue = Engine.GetModelValue( modelRef ),
+	-- 		modelName = "lobbyRoot.lobbyNav"
+	-- 	} )
+	-- end )
+	-- if OfflineAction.m_eventHandlers.input_source_changed then
+	-- 	local PlayGoDownloadProgressBar0 = OfflineAction.m_eventHandlers.input_source_changed
+	-- 	OfflineAction:registerEventHandler( "input_source_changed", function ( element, event )
+	-- 		event.menu = event.menu or menu
+	-- 		element:updateState( event )
+	-- 		return PlayGoDownloadProgressBar0( element, event )
+	-- 	end )
+	-- else
+	-- 	OfflineAction:registerEventHandler( "input_source_changed", LUI.UIElement.updateState )
+	-- end
+	-- OfflineAction:subscribeToModel( Engine.GetModel( Engine.GetModelForController( controller ), "LastInput" ), function ( modelRef )
+	-- 	menu:updateElementState( OfflineAction, {
+	-- 		name = "model_validation",
+	-- 		menu = menu,
+	-- 		modelValue = Engine.GetModelValue( modelRef ),
+	-- 		modelName = "LastInput"
+	-- 	} )
+	-- end )
+	-- self:addElement( OfflineAction )
+	-- self.OfflineAction = OfflineAction
+	
+	-- local PlayGoDownloadProgressBar0 = CoD.PlayGoDownloadProgressBar.new( menu, controller )
+	-- PlayGoDownloadProgressBar0:setLeftRight( true, false, 29.5, 329.5 )
+	-- PlayGoDownloadProgressBar0:setTopBottom( true, false, 134, 154 )
+	-- PlayGoDownloadProgressBar0:setAlpha( 0 )
+	-- self:addElement( PlayGoDownloadProgressBar0 )
+	-- self.PlayGoDownloadProgressBar0 = PlayGoDownloadProgressBar0
+	
+	-- local PlayGoDownloadStatus0 = CoD.PlayGoDownloadStatus.new( menu, controller )
+	-- PlayGoDownloadStatus0:setLeftRight( true, false, 28, 228 )
+	-- PlayGoDownloadStatus0:setTopBottom( true, false, 102.5, 122.5 )
+	-- PlayGoDownloadStatus0:setAlpha( 0 )
+	-- self:addElement( PlayGoDownloadStatus0 )
+	-- self.PlayGoDownloadStatus0 = PlayGoDownloadStatus0
+	
+	-- Action:linkToElementModel( CardsList, "actionTitle", true, function ( modelRef )
+	-- 	local actionTitle = Engine.GetModelValue( modelRef )
+	-- 	if actionTitle then
+	-- 		Action.ButtonLabel:setText( Engine.Localize( actionTitle ) )
+	-- 	end
+	-- end )
+	-- Action:linkToElementModel( CardsList, "actionTitle", true, function ( modelRef )
+	-- 	local actionTitle = Engine.GetModelValue( modelRef )
+	-- 	if actionTitle then
+	-- 		Action.clickButton.label:setText( Engine.Localize( actionTitle ) )
+	-- 	end
+	-- end )
+	-- self.clipsPerState = {
+	-- 	DefaultState = {
+	-- 		DefaultClip = function ()
+	-- 			self:setupElementClipCounter( 19 )
+	-- 			FEMemberBlurPanelContainer0:completeAnimation()
+	-- 			self.FEMemberBlurPanelContainer0:setAlpha( 0 )
+	-- 			self.clipFinished( FEMemberBlurPanelContainer0, {} )
+	-- 			BlackBack:completeAnimation()
+	-- 			self.BlackBack:setRGB( 0, 0, 0 )
+	-- 			self.BlackBack:setAlpha( 0 )
+	-- 			self.clipFinished( BlackBack, {} )
+	-- 			CardsList:completeAnimation()
+	-- 			self.CardsList:setAlpha( 0 )
+	-- 			self.clipFinished( CardsList, {} )
+	-- 			FeaturedLabel:completeAnimation()
+	-- 			self.FeaturedLabel:setAlpha( 0 )
+	-- 			self.clipFinished( FeaturedLabel, {} )
+	-- 			FEFeaturedCardsContainerController:completeAnimation()
+	-- 			self.FEFeaturedCardsContainerController:setAlpha( 0 )
+	-- 			self.clipFinished( FEFeaturedCardsContainerController, {} )
+	-- 			pixelLL:completeAnimation()
+	-- 			self.pixelLL:setAlpha( 0 )
+	-- 			self.clipFinished( pixelLL, {} )
+	-- 			Image1:completeAnimation()
+	-- 			self.Image1:setAlpha( 0 )
+	-- 			self.clipFinished( Image1, {} )
+	-- 			pixelUR:completeAnimation()
+	-- 			self.pixelUR:setAlpha( 0 )
+	-- 			self.clipFinished( pixelUR, {} )
+	-- 			Image2:completeAnimation()
+	-- 			self.Image2:setAlpha( 0 )
+	-- 			self.clipFinished( Image2, {} )
+	-- 			emblemline0:completeAnimation()
+	-- 			self.emblemline0:setAlpha( 0 )
+	-- 			self.clipFinished( emblemline0, {} )
+	-- 			pixelMiddle:completeAnimation()
+	-- 			self.pixelMiddle:setAlpha( 0 )
+	-- 			self.clipFinished( pixelMiddle, {} )
+	-- 			FEFeaturedCardsTitleBox0:completeAnimation()
+	-- 			self.FEFeaturedCardsTitleBox0:setAlpha( 0 )
+	-- 			self.clipFinished( FEFeaturedCardsTitleBox0, {} )
+	-- 			FEFeaturedFrame0:completeAnimation()
+	-- 			self.FEFeaturedFrame0:setAlpha( 0 )
+	-- 			self.clipFinished( FEFeaturedFrame0, {} )
+	-- 			featlineleft:completeAnimation()
+	-- 			self.featlineleft:setAlpha( 0 )
+	-- 			self.clipFinished( featlineleft, {} )
+	-- 			Action:completeAnimation()
+	-- 			self.Action:setAlpha( 0 )
+	-- 			self.clipFinished( Action, {} )
+	-- 			FeaturedOfflineText0:completeAnimation()
+	-- 			self.FeaturedOfflineText0:setAlpha( 0 )
+	-- 			self.clipFinished( FeaturedOfflineText0, {} )
+	-- 			OfflineAction:completeAnimation()
+	-- 			self.OfflineAction:setAlpha( 0 )
+	-- 			self.clipFinished( OfflineAction, {} )
+	-- 			PlayGoDownloadProgressBar0:completeAnimation()
+	-- 			self.PlayGoDownloadProgressBar0:setAlpha( 0 )
+	-- 			self.clipFinished( PlayGoDownloadProgressBar0, {} )
+	-- 			PlayGoDownloadStatus0:completeAnimation()
+	-- 			self.PlayGoDownloadStatus0:setAlpha( 0 )
+	-- 			self.clipFinished( PlayGoDownloadStatus0, {} )
+	-- 		end,
+	-- 		FeaturedCardsVisible = function ()
+	-- 			self:setupElementClipCounter( 17 )
+	-- 			local f22_local0 = function ( f23_arg0, f23_arg1 )
+	-- 				local f23_local0 = function ( f24_arg0, f24_arg1 )
+	-- 					if not f24_arg1.interrupted then
+	-- 						f24_arg0:beginAnimation( "keyframe", 219, true, false, CoD.TweenType.Bounce )
+	-- 					end
+	-- 					f24_arg0:setAlpha( 1 )
+	-- 					if f24_arg1.interrupted then
+	-- 						self.clipFinished( f24_arg0, f24_arg1 )
+	-- 					else
+	-- 						f24_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f23_arg1.interrupted then
+	-- 					f23_local0( f23_arg0, f23_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f23_arg0:beginAnimation( "keyframe", 610, false, false, CoD.TweenType.Linear )
+	-- 					f23_arg0:registerEventHandler( "transition_complete_keyframe", f23_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			FEMemberBlurPanelContainer0:completeAnimation()
+	-- 			self.FEMemberBlurPanelContainer0:setAlpha( 0 )
+	-- 			f22_local0( FEMemberBlurPanelContainer0, {} )
+	-- 			local f22_local1 = function ( f25_arg0, f25_arg1 )
+	-- 				local f25_local0 = function ( f26_arg0, f26_arg1 )
+	-- 					if not f26_arg1.interrupted then
+	-- 						f26_arg0:beginAnimation( "keyframe", 219, true, false, CoD.TweenType.Bounce )
+	-- 					end
+	-- 					f26_arg0:setRGB( 0, 0, 0 )
+	-- 					f26_arg0:setAlpha( 0.2 )
+	-- 					if f26_arg1.interrupted then
+	-- 						self.clipFinished( f26_arg0, f26_arg1 )
+	-- 					else
+	-- 						f26_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f25_arg1.interrupted then
+	-- 					f25_local0( f25_arg0, f25_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f25_arg0:beginAnimation( "keyframe", 610, false, false, CoD.TweenType.Linear )
+	-- 					f25_arg0:registerEventHandler( "transition_complete_keyframe", f25_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			BlackBack:completeAnimation()
+	-- 			self.BlackBack:setRGB( 0, 0, 0 )
+	-- 			self.BlackBack:setAlpha( 0 )
+	-- 			f22_local1( BlackBack, {} )
+	-- 			local f22_local2 = function ( f27_arg0, f27_arg1 )
+	-- 				local f27_local0 = function ( f28_arg0, f28_arg1 )
+	-- 					if not f28_arg1.interrupted then
+	-- 						f28_arg0:beginAnimation( "keyframe", 219, true, false, CoD.TweenType.Bounce )
+	-- 					end
+	-- 					f28_arg0:setAlpha( 1 )
+	-- 					if f28_arg1.interrupted then
+	-- 						self.clipFinished( f28_arg0, f28_arg1 )
+	-- 					else
+	-- 						f28_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f27_arg1.interrupted then
+	-- 					f27_local0( f27_arg0, f27_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f27_arg0:beginAnimation( "keyframe", 610, false, false, CoD.TweenType.Linear )
+	-- 					f27_arg0:registerEventHandler( "transition_complete_keyframe", f27_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			CardsList:completeAnimation()
+	-- 			self.CardsList:setAlpha( 0 )
+	-- 			f22_local2( CardsList, {} )
+	-- 			FeaturedLabel:completeAnimation()
+	-- 			self.FeaturedLabel:setAlpha( 0 )
+	-- 			self.clipFinished( FeaturedLabel, {} )
+	-- 			local f22_local3 = function ( f29_arg0, f29_arg1 )
+	-- 				local f29_local0 = function ( f30_arg0, f30_arg1 )
+	-- 					if not f30_arg1.interrupted then
+	-- 						f30_arg0:beginAnimation( "keyframe", 190, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f30_arg0:setAlpha( 1 )
+	-- 					if f30_arg1.interrupted then
+	-- 						self.clipFinished( f30_arg0, f30_arg1 )
+	-- 					else
+	-- 						f30_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f29_arg1.interrupted then
+	-- 					f29_local0( f29_arg0, f29_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f29_arg0:beginAnimation( "keyframe", 1000, false, false, CoD.TweenType.Linear )
+	-- 					f29_arg0:registerEventHandler( "transition_complete_keyframe", f29_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			FEFeaturedCardsContainerController:completeAnimation()
+	-- 			self.FEFeaturedCardsContainerController:setAlpha( 0 )
+	-- 			f22_local3( FEFeaturedCardsContainerController, {} )
+	-- 			local f22_local4 = function ( f31_arg0, f31_arg1 )
+	-- 				local f31_local0 = function ( f32_arg0, f32_arg1 )
+	-- 					if not f32_arg1.interrupted then
+	-- 						f32_arg0:beginAnimation( "keyframe", 290, true, false, CoD.TweenType.Bounce )
+	-- 					end
+	-- 					f32_arg0:setAlpha( 1 )
+	-- 					if f32_arg1.interrupted then
+	-- 						self.clipFinished( f32_arg0, f32_arg1 )
+	-- 					else
+	-- 						f32_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f31_arg1.interrupted then
+	-- 					f31_local0( f31_arg0, f31_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f31_arg0:beginAnimation( "keyframe", 899, false, false, CoD.TweenType.Linear )
+	-- 					f31_arg0:registerEventHandler( "transition_complete_keyframe", f31_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			pixelLL:completeAnimation()
+	-- 			self.pixelLL:setAlpha( 0 )
+	-- 			f22_local4( pixelLL, {} )
+	-- 			local f22_local5 = function ( f33_arg0, f33_arg1 )
+	-- 				local f33_local0 = function ( f34_arg0, f34_arg1 )
+	-- 					if not f34_arg1.interrupted then
+	-- 						f34_arg0:beginAnimation( "keyframe", 290, true, false, CoD.TweenType.Bounce )
+	-- 					end
+	-- 					f34_arg0:setAlpha( 1 )
+	-- 					if f34_arg1.interrupted then
+	-- 						self.clipFinished( f34_arg0, f34_arg1 )
+	-- 					else
+	-- 						f34_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f33_arg1.interrupted then
+	-- 					f33_local0( f33_arg0, f33_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f33_arg0:beginAnimation( "keyframe", 899, false, false, CoD.TweenType.Linear )
+	-- 					f33_arg0:registerEventHandler( "transition_complete_keyframe", f33_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			Image1:completeAnimation()
+	-- 			self.Image1:setAlpha( 0 )
+	-- 			f22_local5( Image1, {} )
+	-- 			local f22_local6 = function ( f35_arg0, f35_arg1 )
+	-- 				local f35_local0 = function ( f36_arg0, f36_arg1 )
+	-- 					if not f36_arg1.interrupted then
+	-- 						f36_arg0:beginAnimation( "keyframe", 290, true, false, CoD.TweenType.Bounce )
+	-- 					end
+	-- 					f36_arg0:setAlpha( 1 )
+	-- 					if f36_arg1.interrupted then
+	-- 						self.clipFinished( f36_arg0, f36_arg1 )
+	-- 					else
+	-- 						f36_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f35_arg1.interrupted then
+	-- 					f35_local0( f35_arg0, f35_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f35_arg0:beginAnimation( "keyframe", 899, false, false, CoD.TweenType.Linear )
+	-- 					f35_arg0:registerEventHandler( "transition_complete_keyframe", f35_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			pixelUR:completeAnimation()
+	-- 			self.pixelUR:setAlpha( 0 )
+	-- 			f22_local6( pixelUR, {} )
+	-- 			local f22_local7 = function ( f37_arg0, f37_arg1 )
+	-- 				local f37_local0 = function ( f38_arg0, f38_arg1 )
+	-- 					if not f38_arg1.interrupted then
+	-- 						f38_arg0:beginAnimation( "keyframe", 290, true, false, CoD.TweenType.Bounce )
+	-- 					end
+	-- 					f38_arg0:setAlpha( 1 )
+	-- 					if f38_arg1.interrupted then
+	-- 						self.clipFinished( f38_arg0, f38_arg1 )
+	-- 					else
+	-- 						f38_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f37_arg1.interrupted then
+	-- 					f37_local0( f37_arg0, f37_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f37_arg0:beginAnimation( "keyframe", 899, false, false, CoD.TweenType.Linear )
+	-- 					f37_arg0:registerEventHandler( "transition_complete_keyframe", f37_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			Image2:completeAnimation()
+	-- 			self.Image2:setAlpha( 0 )
+	-- 			f22_local7( Image2, {} )
+	-- 			local f22_local8 = function ( f39_arg0, f39_arg1 )
+	-- 				local f39_local0 = function ( f40_arg0, f40_arg1 )
+	-- 					if not f40_arg1.interrupted then
+	-- 						f40_arg0:beginAnimation( "keyframe", 290, true, false, CoD.TweenType.Bounce )
+	-- 					end
+	-- 					f40_arg0:setAlpha( 0.2 )
+	-- 					if f40_arg1.interrupted then
+	-- 						self.clipFinished( f40_arg0, f40_arg1 )
+	-- 					else
+	-- 						f40_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f39_arg1.interrupted then
+	-- 					f39_local0( f39_arg0, f39_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f39_arg0:beginAnimation( "keyframe", 899, false, false, CoD.TweenType.Linear )
+	-- 					f39_arg0:registerEventHandler( "transition_complete_keyframe", f39_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			emblemline0:completeAnimation()
+	-- 			self.emblemline0:setAlpha( 0 )
+	-- 			f22_local8( emblemline0, {} )
+	-- 			local f22_local9 = function ( f41_arg0, f41_arg1 )
+	-- 				local f41_local0 = function ( f42_arg0, f42_arg1 )
+	-- 					if not f42_arg1.interrupted then
+	-- 						f42_arg0:beginAnimation( "keyframe", 290, true, false, CoD.TweenType.Bounce )
+	-- 					end
+	-- 					f42_arg0:setAlpha( 1 )
+	-- 					if f42_arg1.interrupted then
+	-- 						self.clipFinished( f42_arg0, f42_arg1 )
+	-- 					else
+	-- 						f42_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f41_arg1.interrupted then
+	-- 					f41_local0( f41_arg0, f41_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f41_arg0:beginAnimation( "keyframe", 899, false, false, CoD.TweenType.Linear )
+	-- 					f41_arg0:registerEventHandler( "transition_complete_keyframe", f41_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			pixelMiddle:completeAnimation()
+	-- 			self.pixelMiddle:setAlpha( 0 )
+	-- 			f22_local9( pixelMiddle, {} )
+	-- 			local f22_local10 = function ( f43_arg0, f43_arg1 )
+	-- 				local f43_local0 = function ( f44_arg0, f44_arg1 )
+	-- 					if not f44_arg1.interrupted then
+	-- 						f44_arg0:beginAnimation( "keyframe", 360, false, false, CoD.TweenType.Bounce )
+	-- 					end
+	-- 					f44_arg0:setAlpha( 1 )
+	-- 					if f44_arg1.interrupted then
+	-- 						self.clipFinished( f44_arg0, f44_arg1 )
+	-- 					else
+	-- 						f44_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f43_arg1.interrupted then
+	-- 					f43_local0( f43_arg0, f43_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f43_arg0:beginAnimation( "keyframe", 779, false, false, CoD.TweenType.Linear )
+	-- 					f43_arg0:registerEventHandler( "transition_complete_keyframe", f43_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			FEFeaturedCardsTitleBox0:completeAnimation()
+	-- 			self.FEFeaturedCardsTitleBox0:setAlpha( 0 )
+	-- 			f22_local10( FEFeaturedCardsTitleBox0, {} )
+	-- 			local f22_local11 = function ( f45_arg0, f45_arg1 )
+	-- 				local f45_local0 = function ( f46_arg0, f46_arg1 )
+	-- 					if not f46_arg1.interrupted then
+	-- 						f46_arg0:beginAnimation( "keyframe", 219, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f46_arg0:setAlpha( 0.5 )
+	-- 					if f46_arg1.interrupted then
+	-- 						self.clipFinished( f46_arg0, f46_arg1 )
+	-- 					else
+	-- 						f46_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f45_arg1.interrupted then
+	-- 					f45_local0( f45_arg0, f45_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f45_arg0:beginAnimation( "keyframe", 610, false, false, CoD.TweenType.Linear )
+	-- 					f45_arg0:registerEventHandler( "transition_complete_keyframe", f45_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			FEFeaturedFrame0:completeAnimation()
+	-- 			self.FEFeaturedFrame0:setAlpha( 0 )
+	-- 			f22_local11( FEFeaturedFrame0, {} )
+	-- 			local f22_local12 = function ( f47_arg0, f47_arg1 )
+	-- 				local f47_local0 = function ( f48_arg0, f48_arg1 )
+	-- 					if not f48_arg1.interrupted then
+	-- 						f48_arg0:beginAnimation( "keyframe", 219, true, false, CoD.TweenType.Bounce )
+	-- 					end
+	-- 					f48_arg0:setAlpha( 1 )
+	-- 					if f48_arg1.interrupted then
+	-- 						self.clipFinished( f48_arg0, f48_arg1 )
+	-- 					else
+	-- 						f48_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f47_arg1.interrupted then
+	-- 					f47_local0( f47_arg0, f47_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f47_arg0:beginAnimation( "keyframe", 610, false, false, CoD.TweenType.Linear )
+	-- 					f47_arg0:registerEventHandler( "transition_complete_keyframe", f47_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			featlineleft:completeAnimation()
+	-- 			self.featlineleft:setAlpha( 0 )
+	-- 			f22_local12( featlineleft, {} )
+	-- 			local f22_local13 = function ( f49_arg0, f49_arg1 )
+	-- 				if not f49_arg1.interrupted then
+	-- 					f49_arg0:beginAnimation( "keyframe", 1000, false, false, CoD.TweenType.Linear )
+	-- 				end
+	-- 				f49_arg0:setAlpha( 0 )
+	-- 				if f49_arg1.interrupted then
+	-- 					self.clipFinished( f49_arg0, f49_arg1 )
+	-- 				else
+	-- 					f49_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 				end
+	-- 			end
+				
+	-- 			Action:completeAnimation()
+	-- 			self.Action:setAlpha( 0 )
+	-- 			f22_local13( Action, {} )
+	-- 			local f22_local14 = function ( f50_arg0, f50_arg1 )
+	-- 				local f50_local0 = function ( f51_arg0, f51_arg1 )
+	-- 					if not f51_arg1.interrupted then
+	-- 						f51_arg0:beginAnimation( "keyframe", 250, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f51_arg0:setAlpha( 1 )
+	-- 					if f51_arg1.interrupted then
+	-- 						self.clipFinished( f51_arg0, f51_arg1 )
+	-- 					else
+	-- 						f51_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f50_arg1.interrupted then
+	-- 					f50_local0( f50_arg0, f50_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f50_arg0:beginAnimation( "keyframe", 610, false, false, CoD.TweenType.Linear )
+	-- 					f50_arg0:registerEventHandler( "transition_complete_keyframe", f50_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			FeaturedOfflineText0:completeAnimation()
+	-- 			self.FeaturedOfflineText0:setAlpha( 0 )
+	-- 			f22_local14( FeaturedOfflineText0, {} )
+	-- 			local f22_local15 = function ( f52_arg0, f52_arg1 )
+	-- 				local f52_local0 = function ( f53_arg0, f53_arg1 )
+	-- 					if not f53_arg1.interrupted then
+	-- 						f53_arg0:beginAnimation( "keyframe", 229, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f53_arg0:setAlpha( 1 )
+	-- 					if f53_arg1.interrupted then
+	-- 						self.clipFinished( f53_arg0, f53_arg1 )
+	-- 					else
+	-- 						f53_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f52_arg1.interrupted then
+	-- 					f52_local0( f52_arg0, f52_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f52_arg0:beginAnimation( "keyframe", 610, false, false, CoD.TweenType.Linear )
+	-- 					f52_arg0:registerEventHandler( "transition_complete_keyframe", f52_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			OfflineAction:completeAnimation()
+	-- 			self.OfflineAction:setAlpha( 0 )
+	-- 			f22_local15( OfflineAction, {} )
+	-- 		end
+	-- 	},
+	-- 	FeaturedCardsVisible = {
+	-- 		DefaultClip = function ()
+	-- 			self:setupElementClipCounter( 16 )
+	-- 			FEMemberBlurPanelContainer0:completeAnimation()
+	-- 			self.FEMemberBlurPanelContainer0:setAlpha( 1 )
+	-- 			self.clipFinished( FEMemberBlurPanelContainer0, {} )
+	-- 			BlackBack:completeAnimation()
+	-- 			self.BlackBack:setAlpha( 0.2 )
+	-- 			self.clipFinished( BlackBack, {} )
+	-- 			CardsList:completeAnimation()
+	-- 			self.CardsList:setAlpha( 1 )
+	-- 			self.clipFinished( CardsList, {} )
+	-- 			FEFeaturedCardsContainerController:completeAnimation()
+	-- 			self.FEFeaturedCardsContainerController:setAlpha( 1 )
+	-- 			self.clipFinished( FEFeaturedCardsContainerController, {} )
+	-- 			pixelLL:completeAnimation()
+	-- 			self.pixelLL:setAlpha( 1 )
+	-- 			self.clipFinished( pixelLL, {} )
+	-- 			Image1:completeAnimation()
+	-- 			self.Image1:setAlpha( 1 )
+	-- 			self.clipFinished( Image1, {} )
+	-- 			pixelUR:completeAnimation()
+	-- 			self.pixelUR:setAlpha( 1 )
+	-- 			self.clipFinished( pixelUR, {} )
+	-- 			Image2:completeAnimation()
+	-- 			self.Image2:setAlpha( 1 )
+	-- 			self.clipFinished( Image2, {} )
+	-- 			emblemline0:completeAnimation()
+	-- 			self.emblemline0:setAlpha( 0.2 )
+	-- 			self.clipFinished( emblemline0, {} )
+	-- 			pixelMiddle:completeAnimation()
+	-- 			self.pixelMiddle:setAlpha( 1 )
+	-- 			self.clipFinished( pixelMiddle, {} )
+	-- 			FEFeaturedCardsTitleBox0:completeAnimation()
+	-- 			self.FEFeaturedCardsTitleBox0:setAlpha( 1 )
+	-- 			self.clipFinished( FEFeaturedCardsTitleBox0, {} )
+	-- 			FEFeaturedFrame0:completeAnimation()
+	-- 			self.FEFeaturedFrame0:setAlpha( 0.7 )
+	-- 			self.clipFinished( FEFeaturedFrame0, {} )
+	-- 			featlineleft:completeAnimation()
+	-- 			self.featlineleft:setAlpha( 1 )
+	-- 			self.clipFinished( featlineleft, {} )
+	-- 			Action:completeAnimation()
+	-- 			self.Action:setAlpha( 1 )
+	-- 			self.clipFinished( Action, {} )
+	-- 			FeaturedOfflineText0:completeAnimation()
+	-- 			self.FeaturedOfflineText0:setAlpha( 1 )
+	-- 			self.clipFinished( FeaturedOfflineText0, {} )
+	-- 			OfflineAction:completeAnimation()
+	-- 			self.OfflineAction:setAlpha( 1 )
+	-- 			self.clipFinished( OfflineAction, {} )
+	-- 		end,
+	-- 		DefaultState = function ()
+	-- 			self:setupElementClipCounter( 17 )
+	-- 			local f55_local0 = function ( f56_arg0, f56_arg1 )
+	-- 				if not f56_arg1.interrupted then
+	-- 					f56_arg0:beginAnimation( "keyframe", 289, false, false, CoD.TweenType.Linear )
+	-- 				end
+	-- 				f56_arg0:setAlpha( 0 )
+	-- 				if f56_arg1.interrupted then
+	-- 					self.clipFinished( f56_arg0, f56_arg1 )
+	-- 				else
+	-- 					f56_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 				end
+	-- 			end
+				
+	-- 			FEMemberBlurPanelContainer0:completeAnimation()
+	-- 			self.FEMemberBlurPanelContainer0:setAlpha( 1 )
+	-- 			f55_local0( FEMemberBlurPanelContainer0, {} )
+	-- 			local f55_local1 = function ( f57_arg0, f57_arg1 )
+	-- 				local f57_local0 = function ( f58_arg0, f58_arg1 )
+	-- 					if not f58_arg1.interrupted then
+	-- 						f58_arg0:beginAnimation( "keyframe", 89, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f58_arg0:setRGB( 0, 0, 0 )
+	-- 					f58_arg0:setAlpha( 0 )
+	-- 					if f58_arg1.interrupted then
+	-- 						self.clipFinished( f58_arg0, f58_arg1 )
+	-- 					else
+	-- 						f58_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f57_arg1.interrupted then
+	-- 					f57_local0( f57_arg0, f57_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f57_arg0:beginAnimation( "keyframe", 200, false, false, CoD.TweenType.Linear )
+	-- 					f57_arg0:setAlpha( 0 )
+	-- 					f57_arg0:registerEventHandler( "transition_complete_keyframe", f57_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			BlackBack:completeAnimation()
+	-- 			self.BlackBack:setRGB( 0, 0, 0 )
+	-- 			self.BlackBack:setAlpha( 0.2 )
+	-- 			f55_local1( BlackBack, {} )
+	-- 			local f55_local2 = function ( f59_arg0, f59_arg1 )
+	-- 				local f59_local0 = function ( f60_arg0, f60_arg1 )
+	-- 					if not f60_arg1.interrupted then
+	-- 						f60_arg0:beginAnimation( "keyframe", 69, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f60_arg0:setAlpha( 0 )
+	-- 					if f60_arg1.interrupted then
+	-- 						self.clipFinished( f60_arg0, f60_arg1 )
+	-- 					else
+	-- 						f60_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f59_arg1.interrupted then
+	-- 					f59_local0( f59_arg0, f59_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f59_arg0:beginAnimation( "keyframe", 219, false, false, CoD.TweenType.Linear )
+	-- 					f59_arg0:setAlpha( 0 )
+	-- 					f59_arg0:registerEventHandler( "transition_complete_keyframe", f59_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			CardsList:completeAnimation()
+	-- 			self.CardsList:setAlpha( 1 )
+	-- 			f55_local2( CardsList, {} )
+	-- 			FeaturedLabel:completeAnimation()
+	-- 			self.FeaturedLabel:setAlpha( 0 )
+	-- 			self.clipFinished( FeaturedLabel, {} )
+	-- 			local f55_local3 = function ( f61_arg0, f61_arg1 )
+	-- 				local f61_local0 = function ( f62_arg0, f62_arg1 )
+	-- 					if not f62_arg1.interrupted then
+	-- 						f62_arg0:beginAnimation( "keyframe", 239, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f62_arg0:setAlpha( 0 )
+	-- 					if f62_arg1.interrupted then
+	-- 						self.clipFinished( f62_arg0, f62_arg1 )
+	-- 					else
+	-- 						f62_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f61_arg1.interrupted then
+	-- 					f61_local0( f61_arg0, f61_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f61_arg0:beginAnimation( "keyframe", 50, false, false, CoD.TweenType.Linear )
+	-- 					f61_arg0:setAlpha( 0 )
+	-- 					f61_arg0:registerEventHandler( "transition_complete_keyframe", f61_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			FEFeaturedCardsContainerController:completeAnimation()
+	-- 			self.FEFeaturedCardsContainerController:setAlpha( 1 )
+	-- 			f55_local3( FEFeaturedCardsContainerController, {} )
+	-- 			local f55_local4 = function ( f63_arg0, f63_arg1 )
+	-- 				local f63_local0 = function ( f64_arg0, f64_arg1 )
+	-- 					if not f64_arg1.interrupted then
+	-- 						f64_arg0:beginAnimation( "keyframe", 139, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f64_arg0:setAlpha( 0 )
+	-- 					if f64_arg1.interrupted then
+	-- 						self.clipFinished( f64_arg0, f64_arg1 )
+	-- 					else
+	-- 						f64_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f63_arg1.interrupted then
+	-- 					f63_local0( f63_arg0, f63_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f63_arg0:beginAnimation( "keyframe", 150, false, false, CoD.TweenType.Linear )
+	-- 					f63_arg0:setAlpha( 0 )
+	-- 					f63_arg0:registerEventHandler( "transition_complete_keyframe", f63_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			pixelLL:completeAnimation()
+	-- 			self.pixelLL:setAlpha( 1 )
+	-- 			f55_local4( pixelLL, {} )
+	-- 			local f55_local5 = function ( f65_arg0, f65_arg1 )
+	-- 				local f65_local0 = function ( f66_arg0, f66_arg1 )
+	-- 					if not f66_arg1.interrupted then
+	-- 						f66_arg0:beginAnimation( "keyframe", 139, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f66_arg0:setAlpha( 0 )
+	-- 					if f66_arg1.interrupted then
+	-- 						self.clipFinished( f66_arg0, f66_arg1 )
+	-- 					else
+	-- 						f66_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f65_arg1.interrupted then
+	-- 					f65_local0( f65_arg0, f65_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f65_arg0:beginAnimation( "keyframe", 150, false, false, CoD.TweenType.Linear )
+	-- 					f65_arg0:setAlpha( 0 )
+	-- 					f65_arg0:registerEventHandler( "transition_complete_keyframe", f65_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			Image1:completeAnimation()
+	-- 			self.Image1:setAlpha( 1 )
+	-- 			f55_local5( Image1, {} )
+	-- 			local f55_local6 = function ( f67_arg0, f67_arg1 )
+	-- 				local f67_local0 = function ( f68_arg0, f68_arg1 )
+	-- 					if not f68_arg1.interrupted then
+	-- 						f68_arg0:beginAnimation( "keyframe", 139, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f68_arg0:setAlpha( 0 )
+	-- 					if f68_arg1.interrupted then
+	-- 						self.clipFinished( f68_arg0, f68_arg1 )
+	-- 					else
+	-- 						f68_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f67_arg1.interrupted then
+	-- 					f67_local0( f67_arg0, f67_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f67_arg0:beginAnimation( "keyframe", 150, false, false, CoD.TweenType.Linear )
+	-- 					f67_arg0:setAlpha( 0 )
+	-- 					f67_arg0:registerEventHandler( "transition_complete_keyframe", f67_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			pixelUR:completeAnimation()
+	-- 			self.pixelUR:setAlpha( 1 )
+	-- 			f55_local6( pixelUR, {} )
+	-- 			local f55_local7 = function ( f69_arg0, f69_arg1 )
+	-- 				local f69_local0 = function ( f70_arg0, f70_arg1 )
+	-- 					if not f70_arg1.interrupted then
+	-- 						f70_arg0:beginAnimation( "keyframe", 139, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f70_arg0:setAlpha( 0 )
+	-- 					if f70_arg1.interrupted then
+	-- 						self.clipFinished( f70_arg0, f70_arg1 )
+	-- 					else
+	-- 						f70_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f69_arg1.interrupted then
+	-- 					f69_local0( f69_arg0, f69_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f69_arg0:beginAnimation( "keyframe", 150, false, false, CoD.TweenType.Linear )
+	-- 					f69_arg0:setAlpha( 0 )
+	-- 					f69_arg0:registerEventHandler( "transition_complete_keyframe", f69_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			Image2:completeAnimation()
+	-- 			self.Image2:setAlpha( 1 )
+	-- 			f55_local7( Image2, {} )
+	-- 			local f55_local8 = function ( f71_arg0, f71_arg1 )
+	-- 				local f71_local0 = function ( f72_arg0, f72_arg1 )
+	-- 					if not f72_arg1.interrupted then
+	-- 						f72_arg0:beginAnimation( "keyframe", 139, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f72_arg0:setAlpha( 0 )
+	-- 					if f72_arg1.interrupted then
+	-- 						self.clipFinished( f72_arg0, f72_arg1 )
+	-- 					else
+	-- 						f72_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f71_arg1.interrupted then
+	-- 					f71_local0( f71_arg0, f71_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f71_arg0:beginAnimation( "keyframe", 150, false, false, CoD.TweenType.Linear )
+	-- 					f71_arg0:setAlpha( 0 )
+	-- 					f71_arg0:registerEventHandler( "transition_complete_keyframe", f71_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			emblemline0:completeAnimation()
+	-- 			self.emblemline0:setAlpha( 0.2 )
+	-- 			f55_local8( emblemline0, {} )
+	-- 			local f55_local9 = function ( f73_arg0, f73_arg1 )
+	-- 				local f73_local0 = function ( f74_arg0, f74_arg1 )
+	-- 					if not f74_arg1.interrupted then
+	-- 						f74_arg0:beginAnimation( "keyframe", 139, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f74_arg0:setAlpha( 0 )
+	-- 					if f74_arg1.interrupted then
+	-- 						self.clipFinished( f74_arg0, f74_arg1 )
+	-- 					else
+	-- 						f74_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f73_arg1.interrupted then
+	-- 					f73_local0( f73_arg0, f73_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f73_arg0:beginAnimation( "keyframe", 150, false, false, CoD.TweenType.Linear )
+	-- 					f73_arg0:setAlpha( 0 )
+	-- 					f73_arg0:registerEventHandler( "transition_complete_keyframe", f73_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			pixelMiddle:completeAnimation()
+	-- 			self.pixelMiddle:setAlpha( 1 )
+	-- 			f55_local9( pixelMiddle, {} )
+	-- 			local f55_local10 = function ( f75_arg0, f75_arg1 )
+	-- 				local f75_local0 = function ( f76_arg0, f76_arg1 )
+	-- 					if not f76_arg1.interrupted then
+	-- 						f76_arg0:beginAnimation( "keyframe", 79, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f76_arg0:setAlpha( 0 )
+	-- 					if f76_arg1.interrupted then
+	-- 						self.clipFinished( f76_arg0, f76_arg1 )
+	-- 					else
+	-- 						f76_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f75_arg1.interrupted then
+	-- 					f75_local0( f75_arg0, f75_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f75_arg0:beginAnimation( "keyframe", 209, false, false, CoD.TweenType.Linear )
+	-- 					f75_arg0:setAlpha( 0 )
+	-- 					f75_arg0:registerEventHandler( "transition_complete_keyframe", f75_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			FEFeaturedCardsTitleBox0:completeAnimation()
+	-- 			self.FEFeaturedCardsTitleBox0:setAlpha( 1 )
+	-- 			f55_local10( FEFeaturedCardsTitleBox0, {} )
+	-- 			local f55_local11 = function ( f77_arg0, f77_arg1 )
+	-- 				local f77_local0 = function ( f78_arg0, f78_arg1 )
+	-- 					if not f78_arg1.interrupted then
+	-- 						f78_arg0:beginAnimation( "keyframe", 139, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f78_arg0:setAlpha( 0 )
+	-- 					if f78_arg1.interrupted then
+	-- 						self.clipFinished( f78_arg0, f78_arg1 )
+	-- 					else
+	-- 						f78_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f77_arg1.interrupted then
+	-- 					f77_local0( f77_arg0, f77_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f77_arg0:beginAnimation( "keyframe", 150, false, false, CoD.TweenType.Linear )
+	-- 					f77_arg0:registerEventHandler( "transition_complete_keyframe", f77_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			FEFeaturedFrame0:completeAnimation()
+	-- 			self.FEFeaturedFrame0:setAlpha( 0.7 )
+	-- 			f55_local11( FEFeaturedFrame0, {} )
+	-- 			local f55_local12 = function ( f79_arg0, f79_arg1 )
+	-- 				local f79_local0 = function ( f80_arg0, f80_arg1 )
+	-- 					if not f80_arg1.interrupted then
+	-- 						f80_arg0:beginAnimation( "keyframe", 139, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f80_arg0:setAlpha( 0 )
+	-- 					if f80_arg1.interrupted then
+	-- 						self.clipFinished( f80_arg0, f80_arg1 )
+	-- 					else
+	-- 						f80_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f79_arg1.interrupted then
+	-- 					f79_local0( f79_arg0, f79_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f79_arg0:beginAnimation( "keyframe", 150, false, false, CoD.TweenType.Linear )
+	-- 					f79_arg0:registerEventHandler( "transition_complete_keyframe", f79_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			featlineleft:completeAnimation()
+	-- 			self.featlineleft:setAlpha( 1 )
+	-- 			f55_local12( featlineleft, {} )
+	-- 			local f55_local13 = function ( f81_arg0, f81_arg1 )
+	-- 				if not f81_arg1.interrupted then
+	-- 					f81_arg0:beginAnimation( "keyframe", 150, false, false, CoD.TweenType.Linear )
+	-- 				end
+	-- 				f81_arg0:setAlpha( 0 )
+	-- 				if f81_arg1.interrupted then
+	-- 					self.clipFinished( f81_arg0, f81_arg1 )
+	-- 				else
+	-- 					f81_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 				end
+	-- 			end
+				
+	-- 			Action:completeAnimation()
+	-- 			self.Action:setAlpha( 1 )
+	-- 			f55_local13( Action, {} )
+	-- 			local f55_local14 = function ( f82_arg0, f82_arg1 )
+	-- 				if not f82_arg1.interrupted then
+	-- 					f82_arg0:beginAnimation( "keyframe", 289, false, false, CoD.TweenType.Linear )
+	-- 				end
+	-- 				f82_arg0:setAlpha( 0 )
+	-- 				if f82_arg1.interrupted then
+	-- 					self.clipFinished( f82_arg0, f82_arg1 )
+	-- 				else
+	-- 					f82_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 				end
+	-- 			end
+				
+	-- 			FeaturedOfflineText0:completeAnimation()
+	-- 			self.FeaturedOfflineText0:setAlpha( 1 )
+	-- 			f55_local14( FeaturedOfflineText0, {} )
+	-- 			local f55_local15 = function ( f83_arg0, f83_arg1 )
+	-- 				if not f83_arg1.interrupted then
+	-- 					f83_arg0:beginAnimation( "keyframe", 150, false, false, CoD.TweenType.Linear )
+	-- 				end
+	-- 				f83_arg0:setAlpha( 0 )
+	-- 				if f83_arg1.interrupted then
+	-- 					self.clipFinished( f83_arg0, f83_arg1 )
+	-- 				else
+	-- 					f83_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 				end
+	-- 			end
+				
+	-- 			OfflineAction:completeAnimation()
+	-- 			self.OfflineAction:setAlpha( 1 )
+	-- 			f55_local15( OfflineAction, {} )
+	-- 		end,
+	-- 		Intro = function ()
+	-- 			self:setupElementClipCounter( 17 )
+	-- 			local f84_local0 = function ( f85_arg0, f85_arg1 )
+	-- 				local f85_local0 = function ( f86_arg0, f86_arg1 )
+	-- 					if not f86_arg1.interrupted then
+	-- 						f86_arg0:beginAnimation( "keyframe", 219, true, false, CoD.TweenType.Bounce )
+	-- 					end
+	-- 					f86_arg0:setAlpha( 1 )
+	-- 					if f86_arg1.interrupted then
+	-- 						self.clipFinished( f86_arg0, f86_arg1 )
+	-- 					else
+	-- 						f86_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f85_arg1.interrupted then
+	-- 					f85_local0( f85_arg0, f85_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f85_arg0:beginAnimation( "keyframe", 610, false, false, CoD.TweenType.Linear )
+	-- 					f85_arg0:registerEventHandler( "transition_complete_keyframe", f85_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			FEMemberBlurPanelContainer0:completeAnimation()
+	-- 			self.FEMemberBlurPanelContainer0:setAlpha( 0 )
+	-- 			f84_local0( FEMemberBlurPanelContainer0, {} )
+	-- 			local f84_local1 = function ( f87_arg0, f87_arg1 )
+	-- 				local f87_local0 = function ( f88_arg0, f88_arg1 )
+	-- 					if not f88_arg1.interrupted then
+	-- 						f88_arg0:beginAnimation( "keyframe", 219, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f88_arg0:setRGB( 0, 0, 0 )
+	-- 					f88_arg0:setAlpha( 0.2 )
+	-- 					if f88_arg1.interrupted then
+	-- 						self.clipFinished( f88_arg0, f88_arg1 )
+	-- 					else
+	-- 						f88_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f87_arg1.interrupted then
+	-- 					f87_local0( f87_arg0, f87_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f87_arg0:beginAnimation( "keyframe", 610, false, false, CoD.TweenType.Linear )
+	-- 					f87_arg0:registerEventHandler( "transition_complete_keyframe", f87_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			BlackBack:completeAnimation()
+	-- 			self.BlackBack:setRGB( 0, 0, 0 )
+	-- 			self.BlackBack:setAlpha( 0 )
+	-- 			f84_local1( BlackBack, {} )
+	-- 			local f84_local2 = function ( f89_arg0, f89_arg1 )
+	-- 				local f89_local0 = function ( f90_arg0, f90_arg1 )
+	-- 					if not f90_arg1.interrupted then
+	-- 						f90_arg0:beginAnimation( "keyframe", 219, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f90_arg0:setAlpha( 1 )
+	-- 					if f90_arg1.interrupted then
+	-- 						self.clipFinished( f90_arg0, f90_arg1 )
+	-- 					else
+	-- 						f90_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f89_arg1.interrupted then
+	-- 					f89_local0( f89_arg0, f89_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f89_arg0:beginAnimation( "keyframe", 610, false, false, CoD.TweenType.Linear )
+	-- 					f89_arg0:registerEventHandler( "transition_complete_keyframe", f89_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			CardsList:completeAnimation()
+	-- 			self.CardsList:setAlpha( 0 )
+	-- 			f84_local2( CardsList, {} )
+	-- 			FeaturedLabel:completeAnimation()
+	-- 			self.FeaturedLabel:setAlpha( 0 )
+	-- 			self.clipFinished( FeaturedLabel, {} )
+	-- 			local f84_local3 = function ( f91_arg0, f91_arg1 )
+	-- 				local f91_local0 = function ( f92_arg0, f92_arg1 )
+	-- 					if not f92_arg1.interrupted then
+	-- 						f92_arg0:beginAnimation( "keyframe", 190, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f92_arg0:setAlpha( 1 )
+	-- 					if f92_arg1.interrupted then
+	-- 						self.clipFinished( f92_arg0, f92_arg1 )
+	-- 					else
+	-- 						f92_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f91_arg1.interrupted then
+	-- 					f91_local0( f91_arg0, f91_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f91_arg0:beginAnimation( "keyframe", 1000, false, false, CoD.TweenType.Linear )
+	-- 					f91_arg0:registerEventHandler( "transition_complete_keyframe", f91_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			FEFeaturedCardsContainerController:completeAnimation()
+	-- 			self.FEFeaturedCardsContainerController:setAlpha( 0 )
+	-- 			f84_local3( FEFeaturedCardsContainerController, {} )
+	-- 			local f84_local4 = function ( f93_arg0, f93_arg1 )
+	-- 				local f93_local0 = function ( f94_arg0, f94_arg1 )
+	-- 					if not f94_arg1.interrupted then
+	-- 						f94_arg0:beginAnimation( "keyframe", 290, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f94_arg0:setAlpha( 1 )
+	-- 					if f94_arg1.interrupted then
+	-- 						self.clipFinished( f94_arg0, f94_arg1 )
+	-- 					else
+	-- 						f94_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f93_arg1.interrupted then
+	-- 					f93_local0( f93_arg0, f93_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f93_arg0:beginAnimation( "keyframe", 899, false, false, CoD.TweenType.Linear )
+	-- 					f93_arg0:registerEventHandler( "transition_complete_keyframe", f93_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			pixelLL:completeAnimation()
+	-- 			self.pixelLL:setAlpha( 0 )
+	-- 			f84_local4( pixelLL, {} )
+	-- 			local f84_local5 = function ( f95_arg0, f95_arg1 )
+	-- 				local f95_local0 = function ( f96_arg0, f96_arg1 )
+	-- 					if not f96_arg1.interrupted then
+	-- 						f96_arg0:beginAnimation( "keyframe", 290, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f96_arg0:setAlpha( 1 )
+	-- 					if f96_arg1.interrupted then
+	-- 						self.clipFinished( f96_arg0, f96_arg1 )
+	-- 					else
+	-- 						f96_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f95_arg1.interrupted then
+	-- 					f95_local0( f95_arg0, f95_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f95_arg0:beginAnimation( "keyframe", 899, false, false, CoD.TweenType.Linear )
+	-- 					f95_arg0:registerEventHandler( "transition_complete_keyframe", f95_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			Image1:completeAnimation()
+	-- 			self.Image1:setAlpha( 0 )
+	-- 			f84_local5( Image1, {} )
+	-- 			local f84_local6 = function ( f97_arg0, f97_arg1 )
+	-- 				local f97_local0 = function ( f98_arg0, f98_arg1 )
+	-- 					if not f98_arg1.interrupted then
+	-- 						f98_arg0:beginAnimation( "keyframe", 290, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f98_arg0:setAlpha( 1 )
+	-- 					if f98_arg1.interrupted then
+	-- 						self.clipFinished( f98_arg0, f98_arg1 )
+	-- 					else
+	-- 						f98_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f97_arg1.interrupted then
+	-- 					f97_local0( f97_arg0, f97_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f97_arg0:beginAnimation( "keyframe", 899, false, false, CoD.TweenType.Linear )
+	-- 					f97_arg0:registerEventHandler( "transition_complete_keyframe", f97_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			pixelUR:completeAnimation()
+	-- 			self.pixelUR:setAlpha( 0 )
+	-- 			f84_local6( pixelUR, {} )
+	-- 			local f84_local7 = function ( f99_arg0, f99_arg1 )
+	-- 				local f99_local0 = function ( f100_arg0, f100_arg1 )
+	-- 					if not f100_arg1.interrupted then
+	-- 						f100_arg0:beginAnimation( "keyframe", 290, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f100_arg0:setAlpha( 1 )
+	-- 					if f100_arg1.interrupted then
+	-- 						self.clipFinished( f100_arg0, f100_arg1 )
+	-- 					else
+	-- 						f100_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f99_arg1.interrupted then
+	-- 					f99_local0( f99_arg0, f99_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f99_arg0:beginAnimation( "keyframe", 899, false, false, CoD.TweenType.Linear )
+	-- 					f99_arg0:registerEventHandler( "transition_complete_keyframe", f99_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			Image2:completeAnimation()
+	-- 			self.Image2:setAlpha( 0 )
+	-- 			f84_local7( Image2, {} )
+	-- 			local f84_local8 = function ( f101_arg0, f101_arg1 )
+	-- 				local f101_local0 = function ( f102_arg0, f102_arg1 )
+	-- 					if not f102_arg1.interrupted then
+	-- 						f102_arg0:beginAnimation( "keyframe", 290, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f102_arg0:setAlpha( 0.2 )
+	-- 					if f102_arg1.interrupted then
+	-- 						self.clipFinished( f102_arg0, f102_arg1 )
+	-- 					else
+	-- 						f102_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f101_arg1.interrupted then
+	-- 					f101_local0( f101_arg0, f101_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f101_arg0:beginAnimation( "keyframe", 899, false, false, CoD.TweenType.Linear )
+	-- 					f101_arg0:registerEventHandler( "transition_complete_keyframe", f101_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			emblemline0:completeAnimation()
+	-- 			self.emblemline0:setAlpha( 0 )
+	-- 			f84_local8( emblemline0, {} )
+	-- 			local f84_local9 = function ( f103_arg0, f103_arg1 )
+	-- 				local f103_local0 = function ( f104_arg0, f104_arg1 )
+	-- 					if not f104_arg1.interrupted then
+	-- 						f104_arg0:beginAnimation( "keyframe", 290, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f104_arg0:setAlpha( 1 )
+	-- 					if f104_arg1.interrupted then
+	-- 						self.clipFinished( f104_arg0, f104_arg1 )
+	-- 					else
+	-- 						f104_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f103_arg1.interrupted then
+	-- 					f103_local0( f103_arg0, f103_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f103_arg0:beginAnimation( "keyframe", 899, false, false, CoD.TweenType.Linear )
+	-- 					f103_arg0:registerEventHandler( "transition_complete_keyframe", f103_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			pixelMiddle:completeAnimation()
+	-- 			self.pixelMiddle:setAlpha( 0 )
+	-- 			f84_local9( pixelMiddle, {} )
+	-- 			local f84_local10 = function ( f105_arg0, f105_arg1 )
+	-- 				local f105_local0 = function ( f106_arg0, f106_arg1 )
+	-- 					if not f106_arg1.interrupted then
+	-- 						f106_arg0:beginAnimation( "keyframe", 360, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f106_arg0:setAlpha( 1 )
+	-- 					if f106_arg1.interrupted then
+	-- 						self.clipFinished( f106_arg0, f106_arg1 )
+	-- 					else
+	-- 						f106_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f105_arg1.interrupted then
+	-- 					f105_local0( f105_arg0, f105_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f105_arg0:beginAnimation( "keyframe", 779, false, false, CoD.TweenType.Linear )
+	-- 					f105_arg0:registerEventHandler( "transition_complete_keyframe", f105_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			FEFeaturedCardsTitleBox0:completeAnimation()
+	-- 			self.FEFeaturedCardsTitleBox0:setAlpha( 0 )
+	-- 			f84_local10( FEFeaturedCardsTitleBox0, {} )
+	-- 			local f84_local11 = function ( f107_arg0, f107_arg1 )
+	-- 				local f107_local0 = function ( f108_arg0, f108_arg1 )
+	-- 					if not f108_arg1.interrupted then
+	-- 						f108_arg0:beginAnimation( "keyframe", 219, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f108_arg0:setAlpha( 0.7 )
+	-- 					if f108_arg1.interrupted then
+	-- 						self.clipFinished( f108_arg0, f108_arg1 )
+	-- 					else
+	-- 						f108_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f107_arg1.interrupted then
+	-- 					f107_local0( f107_arg0, f107_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f107_arg0:beginAnimation( "keyframe", 610, false, false, CoD.TweenType.Linear )
+	-- 					f107_arg0:registerEventHandler( "transition_complete_keyframe", f107_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			FEFeaturedFrame0:completeAnimation()
+	-- 			self.FEFeaturedFrame0:setAlpha( 0 )
+	-- 			f84_local11( FEFeaturedFrame0, {} )
+	-- 			local f84_local12 = function ( f109_arg0, f109_arg1 )
+	-- 				local f109_local0 = function ( f110_arg0, f110_arg1 )
+	-- 					if not f110_arg1.interrupted then
+	-- 						f110_arg0:beginAnimation( "keyframe", 219, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f110_arg0:setAlpha( 1 )
+	-- 					if f110_arg1.interrupted then
+	-- 						self.clipFinished( f110_arg0, f110_arg1 )
+	-- 					else
+	-- 						f110_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f109_arg1.interrupted then
+	-- 					f109_local0( f109_arg0, f109_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f109_arg0:beginAnimation( "keyframe", 610, false, false, CoD.TweenType.Linear )
+	-- 					f109_arg0:registerEventHandler( "transition_complete_keyframe", f109_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			featlineleft:completeAnimation()
+	-- 			self.featlineleft:setAlpha( 0 )
+	-- 			f84_local12( featlineleft, {} )
+	-- 			local f84_local13 = function ( f111_arg0, f111_arg1 )
+	-- 				local f111_local0 = function ( f112_arg0, f112_arg1 )
+	-- 					if not f112_arg1.interrupted then
+	-- 						f112_arg0:beginAnimation( "keyframe", 190, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f112_arg0:setAlpha( 1 )
+	-- 					if f112_arg1.interrupted then
+	-- 						self.clipFinished( f112_arg0, f112_arg1 )
+	-- 					else
+	-- 						f112_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f111_arg1.interrupted then
+	-- 					f111_local0( f111_arg0, f111_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f111_arg0:beginAnimation( "keyframe", 1000, false, false, CoD.TweenType.Linear )
+	-- 					f111_arg0:registerEventHandler( "transition_complete_keyframe", f111_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			Action:completeAnimation()
+	-- 			self.Action:setAlpha( 0 )
+	-- 			f84_local13( Action, {} )
+	-- 			local f84_local14 = function ( f113_arg0, f113_arg1 )
+	-- 				local f113_local0 = function ( f114_arg0, f114_arg1 )
+	-- 					if not f114_arg1.interrupted then
+	-- 						f114_arg0:beginAnimation( "keyframe", 219, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f114_arg0:setAlpha( 1 )
+	-- 					if f114_arg1.interrupted then
+	-- 						self.clipFinished( f114_arg0, f114_arg1 )
+	-- 					else
+	-- 						f114_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f113_arg1.interrupted then
+	-- 					f113_local0( f113_arg0, f113_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f113_arg0:beginAnimation( "keyframe", 610, false, false, CoD.TweenType.Linear )
+	-- 					f113_arg0:registerEventHandler( "transition_complete_keyframe", f113_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			FeaturedOfflineText0:completeAnimation()
+	-- 			self.FeaturedOfflineText0:setAlpha( 0 )
+	-- 			f84_local14( FeaturedOfflineText0, {} )
+	-- 			local f84_local15 = function ( f115_arg0, f115_arg1 )
+	-- 				local f115_local0 = function ( f116_arg0, f116_arg1 )
+	-- 					if not f116_arg1.interrupted then
+	-- 						f116_arg0:beginAnimation( "keyframe", 190, false, false, CoD.TweenType.Linear )
+	-- 					end
+	-- 					f116_arg0:setAlpha( 1 )
+	-- 					if f116_arg1.interrupted then
+	-- 						self.clipFinished( f116_arg0, f116_arg1 )
+	-- 					else
+	-- 						f116_arg0:registerEventHandler( "transition_complete_keyframe", self.clipFinished )
+	-- 					end
+	-- 				end
+					
+	-- 				if f115_arg1.interrupted then
+	-- 					f115_local0( f115_arg0, f115_arg1 )
+	-- 					return 
+	-- 				else
+	-- 					f115_arg0:beginAnimation( "keyframe", 1000, false, false, CoD.TweenType.Linear )
+	-- 					f115_arg0:registerEventHandler( "transition_complete_keyframe", f115_local0 )
+	-- 				end
+	-- 			end
+				
+	-- 			OfflineAction:completeAnimation()
+	-- 			self.OfflineAction:setAlpha( 0 )
+	-- 			f84_local15( OfflineAction, {} )
+	-- 		end
+	-- 	},
+	-- 	OfflineState = {
+	-- 		DefaultClip = function ()
+	-- 			self:setupElementClipCounter( 19 )
+	-- 			FEMemberBlurPanelContainer0:completeAnimation()
+	-- 			self.FEMemberBlurPanelContainer0:setLeftRight( true, false, 26, 332 )
+	-- 			self.FEMemberBlurPanelContainer0:setTopBottom( true, false, 36, 126 )
+	-- 			self.FEMemberBlurPanelContainer0:setAlpha( 1 )
+	-- 			self.clipFinished( FEMemberBlurPanelContainer0, {} )
+	-- 			BlackBack:completeAnimation()
+	-- 			self.BlackBack:setLeftRight( true, false, 26, 332 )
+	-- 			self.BlackBack:setTopBottom( true, false, 36, 126 )
+	-- 			self.BlackBack:setAlpha( 0.2 )
+	-- 			self.clipFinished( BlackBack, {} )
+	-- 			CardsList:completeAnimation()
+	-- 			self.CardsList:setAlpha( 0 )
+	-- 			self.clipFinished( CardsList, {} )
+	-- 			FeaturedLabel:completeAnimation()
+	-- 			self.FeaturedLabel:setAlpha( 0 )
+	-- 			self.clipFinished( FeaturedLabel, {} )
+	-- 			FEFeaturedCardsContainerController:completeAnimation()
+	-- 			self.FEFeaturedCardsContainerController:setAlpha( 0 )
+	-- 			self.clipFinished( FEFeaturedCardsContainerController, {} )
+	-- 			pixelLL:completeAnimation()
+	-- 			self.pixelLL:setAlpha( 1 )
+	-- 			self.clipFinished( pixelLL, {} )
+	-- 			Image1:completeAnimation()
+	-- 			self.Image1:setAlpha( 1 )
+	-- 			self.clipFinished( Image1, {} )
+	-- 			pixelUR:completeAnimation()
+	-- 			self.pixelUR:setAlpha( 1 )
+	-- 			self.clipFinished( pixelUR, {} )
+	-- 			Image2:completeAnimation()
+	-- 			self.Image2:setAlpha( 1 )
+	-- 			self.clipFinished( Image2, {} )
+	-- 			emblemline0:completeAnimation()
+	-- 			self.emblemline0:setAlpha( 0.25 )
+	-- 			self.clipFinished( emblemline0, {} )
+	-- 			pixelMiddle:completeAnimation()
+	-- 			self.pixelMiddle:setAlpha( 1 )
+	-- 			self.clipFinished( pixelMiddle, {} )
+	-- 			FEFeaturedCardsTitleBox0:completeAnimation()
+	-- 			self.FEFeaturedCardsTitleBox0:setAlpha( 0 )
+	-- 			self.clipFinished( FEFeaturedCardsTitleBox0, {} )
+	-- 			FEFeaturedFrame0:completeAnimation()
+	-- 			self.FEFeaturedFrame0:setAlpha( 0.5 )
+	-- 			self.clipFinished( FEFeaturedFrame0, {} )
+	-- 			featlineleft:completeAnimation()
+	-- 			self.featlineleft:setAlpha( 0 )
+	-- 			self.clipFinished( featlineleft, {} )
+	-- 			Action:completeAnimation()
+	-- 			self.Action:setAlpha( 0 )
+	-- 			self.clipFinished( Action, {} )
+	-- 			FeaturedOfflineText0:completeAnimation()
+	-- 			self.FeaturedOfflineText0:setAlpha( 1 )
+	-- 			self.clipFinished( FeaturedOfflineText0, {} )
+	-- 			OfflineAction:completeAnimation()
+	-- 			self.OfflineAction:setAlpha( 1 )
+	-- 			self.clipFinished( OfflineAction, {} )
+	-- 			PlayGoDownloadProgressBar0:completeAnimation()
+	-- 			self.PlayGoDownloadProgressBar0:setAlpha( 1 )
+	-- 			self.clipFinished( PlayGoDownloadProgressBar0, {} )
+	-- 			PlayGoDownloadStatus0:completeAnimation()
+	-- 			self.PlayGoDownloadStatus0:setAlpha( 1 )
+	-- 			self.clipFinished( PlayGoDownloadStatus0, {} )
+	-- 		end
+	-- 	},
+	-- 	DownloadingState = {
+	-- 		DefaultClip = function ()
+	-- 			self:setupElementClipCounter( 19 )
+	-- 			FEMemberBlurPanelContainer0:completeAnimation()
+	-- 			self.FEMemberBlurPanelContainer0:setLeftRight( true, false, 26, 332 )
+	-- 			self.FEMemberBlurPanelContainer0:setTopBottom( true, false, 36, 126 )
+	-- 			self.FEMemberBlurPanelContainer0:setAlpha( 1 )
+	-- 			self.clipFinished( FEMemberBlurPanelContainer0, {} )
+	-- 			BlackBack:completeAnimation()
+	-- 			self.BlackBack:setLeftRight( true, false, 26, 332 )
+	-- 			self.BlackBack:setTopBottom( true, false, 36, 126 )
+	-- 			self.BlackBack:setAlpha( 0.2 )
+	-- 			self.clipFinished( BlackBack, {} )
+	-- 			CardsList:completeAnimation()
+	-- 			self.CardsList:setAlpha( 0 )
+	-- 			self.clipFinished( CardsList, {} )
+	-- 			FeaturedLabel:completeAnimation()
+	-- 			self.FeaturedLabel:setAlpha( 0 )
+	-- 			self.clipFinished( FeaturedLabel, {} )
+	-- 			FEFeaturedCardsContainerController:completeAnimation()
+	-- 			self.FEFeaturedCardsContainerController:setAlpha( 0 )
+	-- 			self.clipFinished( FEFeaturedCardsContainerController, {} )
+	-- 			pixelLL:completeAnimation()
+	-- 			self.pixelLL:setAlpha( 1 )
+	-- 			self.clipFinished( pixelLL, {} )
+	-- 			Image1:completeAnimation()
+	-- 			self.Image1:setAlpha( 1 )
+	-- 			self.clipFinished( Image1, {} )
+	-- 			pixelUR:completeAnimation()
+	-- 			self.pixelUR:setAlpha( 1 )
+	-- 			self.clipFinished( pixelUR, {} )
+	-- 			Image2:completeAnimation()
+	-- 			self.Image2:setAlpha( 1 )
+	-- 			self.clipFinished( Image2, {} )
+	-- 			emblemline0:completeAnimation()
+	-- 			self.emblemline0:setAlpha( 0.25 )
+	-- 			self.clipFinished( emblemline0, {} )
+	-- 			pixelMiddle:completeAnimation()
+	-- 			self.pixelMiddle:setAlpha( 1 )
+	-- 			self.clipFinished( pixelMiddle, {} )
+	-- 			FEFeaturedCardsTitleBox0:completeAnimation()
+	-- 			self.FEFeaturedCardsTitleBox0:setAlpha( 0 )
+	-- 			self.clipFinished( FEFeaturedCardsTitleBox0, {} )
+	-- 			FEFeaturedFrame0:completeAnimation()
+	-- 			self.FEFeaturedFrame0:setAlpha( 0.5 )
+	-- 			self.clipFinished( FEFeaturedFrame0, {} )
+	-- 			featlineleft:completeAnimation()
+	-- 			self.featlineleft:setAlpha( 0 )
+	-- 			self.clipFinished( featlineleft, {} )
+	-- 			Action:completeAnimation()
+	-- 			self.Action:setAlpha( 0 )
+	-- 			self.clipFinished( Action, {} )
+	-- 			FeaturedOfflineText0:completeAnimation()
+	-- 			self.FeaturedOfflineText0:setAlpha( 1 )
+	-- 			self.clipFinished( FeaturedOfflineText0, {} )
+	-- 			OfflineAction:completeAnimation()
+	-- 			self.OfflineAction:setAlpha( 0 )
+	-- 			self.clipFinished( OfflineAction, {} )
+	-- 			PlayGoDownloadProgressBar0:completeAnimation()
+	-- 			self.PlayGoDownloadProgressBar0:setAlpha( 1 )
+	-- 			self.clipFinished( PlayGoDownloadProgressBar0, {} )
+	-- 			PlayGoDownloadStatus0:completeAnimation()
+	-- 			self.PlayGoDownloadStatus0:setAlpha( 1 )
+	-- 			self.clipFinished( PlayGoDownloadStatus0, {} )
+	-- 		end
+	-- 	}
+	-- }
+	-- self:mergeStateConditions( {
+	-- 	{
+	-- 		stateName = "FeaturedCardsVisible",
+	-- 		condition = function ( menu, element, event )
+	-- 			local f119_local0 = FeaturedCards_IsEnabled( element, controller )
+	-- 			if f119_local0 then
+	-- 				f119_local0 = IsLive()
+	-- 				if f119_local0 then
+	-- 					if not PlayGoIsStillDownloading( controller ) then
+	-- 						f119_local0 = not IsGameLobbyExcept( "ZMLobbyOnline" )
+	-- 					else
+	-- 						f119_local0 = false
+	-- 					end
+	-- 				end
+	-- 			end
+	-- 			return f119_local0
+	-- 		end
+	-- 	},
+	-- 	{
+	-- 		stateName = "OfflineState",
+	-- 		condition = function ( menu, element, event )
+	-- 			local f120_local0
+	-- 			if not IsLive() and not PlayGoIsStillDownloading( controller ) then
+	-- 				f120_local0 = not IsGameLobbyExcept( "ZMLobbyOnline" )
+	-- 			else
+	-- 				f120_local0 = false
+	-- 			end
+	-- 			return f120_local0
+	-- 		end
+	-- 	},
+	-- 	{
+	-- 		stateName = "DownloadingState",
+	-- 		condition = function ( menu, element, event )
+	-- 			local f121_local0 = PlayGoIsStillDownloading( controller )
+	-- 			if f121_local0 then
+	-- 				f121_local0 = not IsGameLobbyExcept( "ZMLobbyOnline" )
+	-- 			end
+	-- 			return f121_local0
+	-- 		end
+	-- 	}
+	-- } )
+	-- self:subscribeToModel( Engine.GetModel( Engine.GetGlobalModel(), "FeaturedCardsRoot.Enabled" ), function ( modelRef )
+	-- 	menu:updateElementState( self, {
+	-- 		name = "model_validation",
+	-- 		menu = menu,
+	-- 		modelValue = Engine.GetModelValue( modelRef ),
+	-- 		modelName = "FeaturedCardsRoot.Enabled"
+	-- 	} )
+	-- end )
+	-- self:subscribeToModel( Engine.GetModel( Engine.GetGlobalModel(), "liveEventViewer.stream" ), function ( modelRef )
+	-- 	menu:updateElementState( self, {
+	-- 		name = "model_validation",
+	-- 		menu = menu,
+	-- 		modelValue = Engine.GetModelValue( modelRef ),
+	-- 		modelName = "liveEventViewer.stream"
+	-- 	} )
+	-- end )
+	-- self:subscribeToModel( Engine.GetModel( Engine.GetGlobalModel(), "autoevents.cycled" ), function ( modelRef )
+	-- 	menu:updateElementState( self, {
+	-- 		name = "model_validation",
+	-- 		menu = menu,
+	-- 		modelValue = Engine.GetModelValue( modelRef ),
+	-- 		modelName = "autoevents.cycled"
+	-- 	} )
+	-- end )
+	-- self:subscribeToModel( Engine.GetModel( Engine.GetGlobalModel(), "lobbyRoot.lobbyNetworkMode" ), function ( modelRef )
+	-- 	menu:updateElementState( self, {
+	-- 		name = "model_validation",
+	-- 		menu = menu,
+	-- 		modelValue = Engine.GetModelValue( modelRef ),
+	-- 		modelName = "lobbyRoot.lobbyNetworkMode"
+	-- 	} )
+	-- end )
+	-- self:subscribeToModel( Engine.GetModel( Engine.GetGlobalModel(), "lobbyRoot.lobbyNav" ), function ( modelRef )
+	-- 	menu:updateElementState( self, {
+	-- 		name = "model_validation",
+	-- 		menu = menu,
+	-- 		modelValue = Engine.GetModelValue( modelRef ),
+	-- 		modelName = "lobbyRoot.lobbyNav"
+	-- 	} )
+	-- end )
+	-- self:subscribeToModel( Engine.GetModel( Engine.GetGlobalModel(), "PlayGoDownloadProgress.progress" ), function ( modelRef )
+	-- 	menu:updateElementState( self, {
+	-- 		name = "model_validation",
+	-- 		menu = menu,
+	-- 		modelValue = Engine.GetModelValue( modelRef ),
+	-- 		modelName = "PlayGoDownloadProgress.progress"
+	-- 	} )
+	-- end )
+	-- self:subscribeToGlobalModel( controller, "MarketingRoot", "Updated", function ( modelRef )
+	-- 	FeaturedCardsUpdateCRMMessage( self, self, controller, "", menu )
+	-- end )
+	-- LUI.OverrideFunction_CallOriginalSecond( self, "close", function ( element )
+	-- 	element.FEMemberBlurPanelContainer0:close()
+	-- 	element.CardsList:close()
+	-- 	element.FEFeaturedCardsContainerController:close()
+	-- 	element.FEFeaturedCardsTitleBox0:close()
+	-- 	element.FEFeaturedFrame0:close()
+	-- 	element.Action:close()
+	-- 	element.FeaturedOfflineText0:close()
+	-- 	element.OfflineAction:close()
+	-- 	element.PlayGoDownloadProgressBar0:close()
+	-- 	element.PlayGoDownloadStatus0:close()
+	-- end )
+	
+	if PostLoadFunc then
+		PostLoadFunc( self, controller, menu )
+	end
+
+	self:setAlpha(0);
+
+	return self
+end
+
+local _setAlpha = LUI.UIElement.setAlpha
+LUI.UIElement.setAlpha = function(this, alpha)
+    if this and this.id == "FE_FeaturedCardsContainer" then
+        return _setAlpha(this, 0)
+    end
+    return _setAlpha(this, alpha)
+end

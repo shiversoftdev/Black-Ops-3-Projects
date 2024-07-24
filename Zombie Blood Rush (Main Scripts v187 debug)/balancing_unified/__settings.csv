@@ -1,0 +1,8 @@
+setting,value
+doubletap,1.333
+burst_dps_bottom,20000
+burst_dps_top,30000
+head_dps_bottom,40000
+head_dps_top,70000
+burst_time,4.0
+sustain_time,12.0

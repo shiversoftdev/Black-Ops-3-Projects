@@ -1,0 +1,23 @@
+﻿Freeze/Unfreeze memory value
+Suspend/Resume Process
+Inject DLL via:
+	Managed dll inject
+	SetWindowsHookEx
+Search memory via byte patterns
+Hijack processes for handles (rpc protocol)
+	Internal.dll?
+proc.MapFunction
+self doppelgang
+https://github.com/aaaddress1/PR0CESS/tree/main/miniGhosting
+Event dispatcher system:
+	- Emplace hooks such that an IPC event can fire and send info back to external
+Return address spoofing for x86 and x64
+
+Testing TODO:
+
+	float/double RPC
+
+Bug Fixes TODO:
+	
+	Process wait monitor for a closed process does not correctly work.
+	Still appears to be sporadic crashing sometimes in the process. I suspect todo with register values being corrupted.

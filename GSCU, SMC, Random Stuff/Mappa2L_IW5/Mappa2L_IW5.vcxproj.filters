@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\d3d">
+      <UniqueIdentifier>{3c0e1874-7f9a-45e7-8829-544646c2ce00}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\audiodefs.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\comdecl.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\D2D1.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\D2D1Helper.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\D2DBaseTypes.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\D2Derr.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\d3d9.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\d3d9caps.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\d3d9types.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\D3D10.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\D3D10_1.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\D3D10_1shader.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\D3D10effect.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\d3d10misc.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\d3d10sdklayers.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\D3D10shader.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\D3D11.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\D3D11SDKLayers.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\D3D11Shader.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\D3Dcommon.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\D3Dcompiler.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\D3DCSX.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\d3dx9.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\d3dx9anim.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\d3dx9core.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\d3dx9effect.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\d3dx9math.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\d3dx9mesh.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\d3dx9shader.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\d3dx9shape.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\d3dx9tex.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\d3dx9xof.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\D3DX10.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\d3dx10async.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\D3DX10core.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\D3DX10math.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\D3DX10mesh.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\D3DX10tex.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\D3DX11.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\D3DX11async.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\D3DX11core.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\D3DX11tex.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\Dcommon.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\dinput.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\dinputd.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\dsconf.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\dsetup.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\dsound.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\DWrite.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\dxdiag.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\DxErr.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\dxfile.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\DXGI.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\DXGIFormat.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\DXGIType.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\dxsdkver.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\gameux.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\PIXPlugin.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\rmxfguid.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\rmxftmpl.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\rpcsal.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\X3DAudio.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\xact3.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\xact3d3.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\xact3wb.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\XAPO.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\XAPOBase.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\XAPOFX.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\XAudio2.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\XAudio2fx.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\XDSP.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\XInput.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\xma2defs.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d\xnamath.h">
+      <Filter>Header Files\d3d</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="d3d\D3DX_DXGIFormatConvert.inl">
+      <Filter>Header Files\d3d</Filter>
+    </None>
+    <None Include="d3d\d3dx9math.inl">
+      <Filter>Header Files\d3d</Filter>
+    </None>
+    <None Include="d3d\D3DX10math.inl">
+      <Filter>Header Files\d3d</Filter>
+    </None>
+    <None Include="d3d\xnamathconvert.inl">
+      <Filter>Header Files\d3d</Filter>
+    </None>
+    <None Include="d3d\xnamathmatrix.inl">
+      <Filter>Header Files\d3d</Filter>
+    </None>
+    <None Include="d3d\xnamathmisc.inl">
+      <Filter>Header Files\d3d</Filter>
+    </None>
+    <None Include="d3d\xnamathvector.inl">
+      <Filter>Header Files\d3d</Filter>
+    </None>
+  </ItemGroup>
+</Project>

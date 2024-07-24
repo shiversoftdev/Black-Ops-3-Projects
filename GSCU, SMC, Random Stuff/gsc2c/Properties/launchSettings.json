@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "gsc2c": {
+      "commandName": "Project",
+      "commandLineArgs": "\"D:\\Modding\\Call of Duty\\multicod\\test\\scripts\\shared\\duplicaterender_mgr.gsc\" \"D:\\Modding\\Call of Duty\\multicod\\test\\output\""
+    }
+  }
+}

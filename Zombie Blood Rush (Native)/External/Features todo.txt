@@ -1,0 +1,26 @@
+﻿Freeze/Unfreeze memory value
+Suspend/Resume Process
+Inject DLL via:
+	ThreadEx.Hijack
+	LoadLibraryA/CreateRemoteThread
+	Manual Map (Lunar method, or upgrade features to match that of lunar's)
+	Managed dll inject
+	SetWindowsHookEx
+Search memory via byte patterns
+Hijack processes for handles (rpc protocol)
+	Internal.dll?
+proc.MapFunction
+self doppelgang
+https://github.com/aaaddress1/PR0CESS/tree/main/miniGhosting
+Event dispatcher system:
+	- Emplace hooks such that an IPC event can fire and send info back to external
+
+Testing TODO:
+
+	float/double RPC
+	32 bit thread hijacking
+
+Bug Fixes TODO:
+	
+	Process wait monitor for a closed process does not correctly work.
+	Still appears to be sporadic crashing sometimes in the process. I suspect todo with register values being corrupted.

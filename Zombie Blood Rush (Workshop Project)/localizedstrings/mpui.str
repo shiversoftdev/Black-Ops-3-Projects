@@ -1,0 +1,15 @@
+FILENOTES           "copyall"
+
+REFERENCE           MPUI_RETICLE_reflex_41
+LANG_ENGLISH        "ELO Dot"
+
+REFERENCE           MPUI_RETICLE_acog_41
+LANG_ENGLISH        "ELO Dot"
+
+REFERENCE           MPUI_RETICLE_ir_41
+LANG_ENGLISH        "ELO Dot"
+
+REFERENCE           MPUI_RETICLE_dualoptic_41
+LANG_ENGLISH        "ELO Dot"
+
+ENDMARKER

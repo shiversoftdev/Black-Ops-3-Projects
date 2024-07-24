@@ -1,0 +1,7 @@
+CHECKLIST:
+
+    1. Ensure gsc IS_DEBUG = false
+    2. Ensure mod lua IS_DEV = false, IS_DEBUG = false
+    3. Ensure DLL IS_DEV = false
+    4. Ensure workshop.json is the correct configuration
+    5. Check all languages in options->Build for languages

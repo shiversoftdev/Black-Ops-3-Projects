@@ -1,0 +1,15 @@
+D:\Modding\Call of Duty\Black Ops 3\Projects\t7zbr\balancing\quickbalance\quickbalance\obj\Debug\net6.0\quickbalance.GeneratedMSBuildEditorConfig.editorconfig
+D:\Modding\Call of Duty\Black Ops 3\Projects\t7zbr\balancing\quickbalance\quickbalance\obj\Debug\net6.0\quickbalance.AssemblyInfoInputs.cache
+D:\Modding\Call of Duty\Black Ops 3\Projects\t7zbr\balancing\quickbalance\quickbalance\obj\Debug\net6.0\quickbalance.AssemblyInfo.cs
+D:\Modding\Call of Duty\Black Ops 3\Projects\t7zbr\balancing\quickbalance\quickbalance\obj\Debug\net6.0\quickbalance.csproj.CoreCompileInputs.cache
+D:\Modding\Call of Duty\Black Ops 3\Projects\t7zbr\balancing\quickbalance\quickbalance\bin\Debug\net6.0\quickbalance.exe
+D:\Modding\Call of Duty\Black Ops 3\Projects\t7zbr\balancing\quickbalance\quickbalance\bin\Debug\net6.0\quickbalance.deps.json
+D:\Modding\Call of Duty\Black Ops 3\Projects\t7zbr\balancing\quickbalance\quickbalance\bin\Debug\net6.0\quickbalance.runtimeconfig.json
+D:\Modding\Call of Duty\Black Ops 3\Projects\t7zbr\balancing\quickbalance\quickbalance\bin\Debug\net6.0\quickbalance.dll
+D:\Modding\Call of Duty\Black Ops 3\Projects\t7zbr\balancing\quickbalance\quickbalance\bin\Debug\net6.0\quickbalance.pdb
+D:\Modding\Call of Duty\Black Ops 3\Projects\t7zbr\balancing\quickbalance\quickbalance\obj\Debug\net6.0\quickbalance.dll
+D:\Modding\Call of Duty\Black Ops 3\Projects\t7zbr\balancing\quickbalance\quickbalance\obj\Debug\net6.0\refint\quickbalance.dll
+D:\Modding\Call of Duty\Black Ops 3\Projects\t7zbr\balancing\quickbalance\quickbalance\obj\Debug\net6.0\quickbalance.pdb
+D:\Modding\Call of Duty\Black Ops 3\Projects\t7zbr\balancing\quickbalance\quickbalance\obj\Debug\net6.0\quickbalance.genruntimeconfig.cache
+D:\Modding\Call of Duty\Black Ops 3\Projects\t7zbr\balancing\quickbalance\quickbalance\obj\Debug\net6.0\ref\quickbalance.dll
+D:\Modding\Call of Duty\Black Ops 3\Projects\t7zbr\balancing\quickbalance\quickbalance\obj\Debug\net6.0\quickbalance.sourcelink.json

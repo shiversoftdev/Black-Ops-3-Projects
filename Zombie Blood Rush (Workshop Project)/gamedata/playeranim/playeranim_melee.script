@@ -1,0 +1,1530 @@
+EVENTS
+
+meleeswipe
+{
+#gametype ZM AND MP
+	// SWORD
+	playerAnimType sword, stance prone
+	{
+		torso pb_sword_prone_2arm_swing weaponTimeScale
+	}
+	playerAnimType sword, stance crouch
+	{
+		torso pb_sword_crouch_2arm_swing weaponTimeScale
+	}
+	playerAnimType sword
+	{
+		torso pb_sword_stand_2arm_swing weaponTimeScale
+	}
+#end_gametype
+}
+
+meleeattack
+{
+#gametype ZM	
+
+	// TURNED
+	playerAnimType turned
+	{
+		torso pt_zod_beast_melee
+	}
+#end_gametype
+
+#gametype CP AND ZM
+	// LASTSTAND
+	perk laststand
+	{
+		torso pt_laststand_melee_swipe
+	}
+#end_gametype
+#gametype CP
+	playerAnimType armblade, stance prone
+	{
+		torso pt_barehands_prone_chain_miss
+	}
+	playerAnimType armblade, stance crouch
+	{
+		torso pt_barehands_crouch_chain_miss
+	}
+	playerAnimType armblade
+	{
+		torso pt_barehands_stand_chain_miss
+	}
+	playerAnimType other, stance prone
+	{
+		torso pt_barehands_prone_chain_miss
+	}
+	playerAnimType other, stance crouch
+	{
+		torso pt_barehands_crouch_chain_miss
+	}
+	playerAnimType other
+	{
+		torso pt_barehands_stand_chain_miss
+	}
+#end_gametype
+
+
+	weapon ball, stance prone
+	{
+		torso pt_ball_prone_uplink_melee
+	}
+	weapon ball, stance crouch
+	{
+		torso pt_ball_crouch_uplink_melee
+	}
+	weapon ball
+	{
+		torso pt_ball_stand_uplink_melee
+	}
+#gametype MP
+	
+	playerAnimType armblade, meleecount 2
+	{
+		both pb_arm_blade_stand_melee_thrust_03 legrig legrig_arm_blade_stand_thrust
+	}
+
+	playerAnimType armblade, meleecount 1
+	{
+		both pb_arm_blade_stand_melee_thrust_02 legrig legrig_arm_blade_stand_thrust
+	}
+
+	playerAnimType armblade
+	{
+		both pb_arm_blade_stand_melee_thrust legrig legrig_arm_blade_stand_thrust
+	}
+#demo_version_at_least 27
+	weapon knife_ballistic, stance prone
+	{
+		torso pt_ballistic_knife_prone_melee weaponTimeScale
+	}
+	weapon knife_ballistic, stance crouch
+	{
+		torso pt_ballistic_knife_crouch_melee weaponTimeScale
+	}
+	weapon knife_ballistic
+	{
+		torso pt_ballistic_knife_stand_melee weaponTimeScale
+	}
+#end_demo_version_at_least
+#end_gametype
+
+	// BALLISTIC KNIFE
+	playerAnimType ballisticknife, stance prone
+	{
+		torso pt_b_knife_prone_melee
+	}
+	playerAnimType ballisticknife, stance crouch
+	{
+		torso pt_b_knife_crouch_melee
+	}
+	playerAnimType ballisticknife
+	{
+		torso pt_b_knife_stand_melee
+	}
+	// DUALWIELD
+	playerAnimType dualwield, swimtype surface
+	{
+		torso pt_dw_swim_melee_gunbutt_over noSwimAlign
+	}
+	playerAnimType dualwield, swimtype underwater
+	{
+		torso pt_dw_swim_melee_gunbutt noSwimAlign
+	}
+	playerAnimType dualwield, stance prone
+	{
+		torso pt_dw_prone_melee_gunbutt
+	}
+	playerAnimType dualwield, stance crouch
+	{
+		torso pt_dw_crouch_melee_gunbutt
+	}
+	playerAnimType dualwield
+	{
+		torso pt_dw_stand_melee_gunbutt
+	}
+	// PISTOL
+	weaponclass pistol AND pistol_spread, swimtype surface
+	{
+		torso pt_pistol_swim_melee_gunbutt_over noSwimAlign
+	}
+	weaponclass pistol AND pistol_spread, swimtype underwater
+	{
+		torso pt_pistol_swim_melee_gunbutt noSwimAlign
+	}
+	weaponclass pistol AND pistol_spread, stance prone
+	{
+		torso pb_pistol_prone_gunbutt_melee
+	}
+	weaponclass pistol AND pistol_spread, stance crouch
+	{
+		torso pb_pistol_crouch_gunbutt_melee
+	}
+	weaponclass pistol AND pistol_spread
+	{
+		torso pb_pistol_stand_gunbutt_melee
+		torso pt_pistol_fem_stand_melee_gunbutt female
+	}
+	// PISTOL, GRENADE
+	weaponclass grenade, weapontype grenade, stance prone, playerAnimType grenadeonly
+	{
+		torso pt_melee_prone_pistol
+		torso pt_pistol_fem_prone_melee female
+	}
+	weaponclass pistol AND pistol_spread, stance prone, playerAnimType grenadeonly
+	{
+		torso pt_melee_prone_pistol
+		torso pt_pistol_fem_prone_melee female
+	}
+	weaponclass grenade, weapontype grenade
+	{
+		torso pt_melee_pistol_1 duration 400
+		torso pt_melee_pistol_2 duration 350
+		torso pt_melee_pistol_3 duration 550
+		torso pt_melee_pistol_4 duration 400
+	}
+	weaponclass pistol AND pistol_spread
+	{
+		torso pt_melee_pistol_1 duration 400
+		torso pt_melee_pistol_2 duration 350
+		torso pt_melee_pistol_3 duration 550
+		torso pt_melee_pistol_4 duration 400
+	}
+	playerAnimType riotshield
+	{
+		torso pt_riotshield_stand_melee
+	}
+
+#gametype ZM
+#demo_version_at_least 28
+	// ONE INCH PUNCH
+////	perk oneinchpunch, playerAnimType hold, stance stand
+////	{
+////		torso pt_one_inch_punch_stand_hold
+////	}
+////	perk oneinchpunch, playerAnimType armminigun, stance stand
+////	{
+////		torso pt_one_inch_punch_stand_staff	
+////	}
+	perk oneinchpunch, stance prone
+	{
+		torso pt_1inchpunch_prone_melee
+	}
+	perk oneinchpunch, stance stand
+	{
+//		torso pt_one_inch_punch_stand
+		torso pt_1inchpunch_stand_melee
+	}
+	// STAFF
+	playerAnimType armminigun, stance prone
+	{
+		torso pt_staff_prone_melee
+	}
+	playerAnimType armminigun, stance crouch
+	{
+		torso pt_staff_crouch_melee
+	}
+	playerAnimType armminigun
+	{
+		torso pt_staff_stand_melee
+	}
+#end_demo_version_at_least
+#end_gametype
+
+
+#gametype MP
+#demo_version_at_least 25
+	weapon melee_prosthetic, stance prone
+	{
+		torso pt_prosthetic_arm_prone_melee_swipe weaponTimeScale
+	}
+	weapon melee_prosthetic, stance crouch
+	{
+		torso pt_prosthetic_arm_crouch_melee_swipe weaponTimeScale
+	}
+	weapon melee_prosthetic
+	{
+		torso pt_prosthetic_arm_stand_melee_swipe weaponTimeScale
+	}
+#end_demo_version_at_least
+#demo_version_at_least 21
+	// NUNCHUCKS
+	weapon melee_nunchuks, swimtype surface
+	{
+		torso pt_nunchucks_swim_melee_over weaponTimeScale noSwimAlign
+	}
+	weapon melee_nunchuks, swimtype underwater
+	{
+		torso pt_nunchucks_swim_melee weaponTimeScale noSwimAlign
+	}
+	weapon melee_nunchuks, wallrun_side left
+	{
+		torso pt_nunchucks_wall_run_melee_l
+	}
+	weapon melee_nunchuks, wallrun_side right
+	{
+		torso pt_nunchucks_wall_run_melee_r
+	}
+	weapon melee_nunchuks, stance prone
+	{
+		torso pt_nunchucks_prone_melee_swipe_a weaponTimeScale
+		torso pt_nunchucks_prone_melee_swipe_b weaponTimeScale
+	}
+	weapon melee_nunchuks, stance crouch
+	{
+		torso pt_nunchucks_crouch_melee_swipe_a weaponTimeScale
+		torso pt_nunchucks_crouch_melee_swipe_b weaponTimeScale
+	}
+	weapon melee_nunchuks
+	{
+		torso pt_nunchucks_stand_melee_swipe_a weaponTimeScale
+		torso pt_nunchucks_stand_melee_swipe_b weaponTimeScale
+	}
+#end_demo_version_at_least
+	// SWORD
+	playerAnimType sword, swimtype surface
+	{
+		torso pt_sword_swim_melee_over weaponTimeScale noSwimAlign
+	}
+	playerAnimType sword, swimtype underwater
+	{
+		torso pt_sword_swim_melee weaponTimeScale noSwimAlign
+	}
+	// ARMMINIGUN
+	playerAnimType armminigun, swimtype surface
+	{
+		torso pt_reaper_swim_gunbutt_over weaponTimeScale noSwimAlign
+	}
+	playerAnimType armminigun, swimtype underwater
+	{
+		torso pt_reaper_swim_gunbutt weaponTimeScale noSwimAlign
+	}
+	playerAnimType armminigun, stance prone
+	{
+		torso pt_reaper_prone_melee weaponTimeScale
+	}
+	playerAnimType armminigun, stance crouch
+	{
+		torso pt_reaper_crouch_melee weaponTimeScale
+	}
+	playerAnimType armminigun
+	{
+		torso pt_reaper_stand_melee weaponTimeScale
+	}
+	// CLUB
+	playerAnimType club, swimtype surface
+	{
+		torso pt_wrench_swim_melee_swipe_over noSwimAlign
+	}
+	playerAnimType club, swimtype underwater
+	{
+		torso pt_wrench_swim_melee_swipe noSwimAlign
+	}
+	playerAnimType club, stance prone
+	{
+		torso pt_wrench_prone_melee_swipe
+	}
+	playerAnimType club, stance crouch
+	{
+		torso pt_wrench_crouch_melee_swipe
+	}
+	playerAnimType club
+	{
+		torso pt_wrench_stand_melee_swipe
+	}
+#demo_version_at_least 26
+	weapon melee_crescent, stance stand
+	{
+		torso pt_boneglass_stand_melee_thrust	
+	}
+#end_demo_version_at_least
+#demo_version_at_least 25
+	weapon melee_chainsaw, stance stand
+	{
+		torso pt_boneglass_stand_melee_thrust	
+	}
+#end_demo_version_at_least
+#demo_version_at_least 20
+	weapon melee_boneglass, stance stand
+	{
+		torso pt_boneglass_stand_melee_thrust	
+	}
+#end_demo_version_at_least
+	// BRAWLER
+	playerAnimType brawler, swimtype surface
+	{
+		torso pt_knife_swim_melee_swipe_over noSwimAlign
+	}
+	playerAnimType brawler, swimtype underwater
+	{
+		torso pt_knife_swim_melee_swipe noSwimAlign
+	}
+#demo_version_at_least 22
+	// BOXING
+	weapon melee_boxing, stance prone
+	{
+		torso pt_boxing_gloves_prone_jabs_r
+	}
+	weapon melee_boxing, stance crouch
+	{
+		torso pt_boxing_gloves_crouch_jabs_r
+	}
+	weapon melee_boxing
+	{
+		torso pt_boxing_gloves_stand_jabs_r
+	}
+#end_demo_version_at_least
+	// BRAWLER
+	playerAnimType brawler, stance prone
+	{
+		torso pt_brawler_prone_melee_swipe
+		torso pt_brawler_fem_prone_melee_swipe female
+	}
+	playerAnimType brawler, stance crouch
+	{
+		torso pt_brawler_crouch_melee_swipe
+		torso pt_brawler_fem_crouch_melee_swipe female
+	}
+	playerAnimType brawler
+	{
+		torso pt_brawler_stand_melee_swipe
+		torso pt_brawler_fem_stand_melee_swipe female
+	}
+#end_gametype
+
+#demo_version_at_least 10
+#gametype ZM
+	weapon hero_gravityspikes_melee, wallrun_side left
+	{
+		torso pt_spikes_wall_run_melee_swipe_l
+	}
+	weapon hero_gravityspikes_melee, wallrun_side right
+	{
+		torso pt_spikes_wall_run_melee_swipe_r
+	}
+	weapon hero_gravityspikes_melee, stance crouch
+	{
+		torso pt_spikes_crouch_melee_swipe
+	}
+	weapon hero_gravityspikes_melee
+	{
+		torso pt_spikes_stand_melee_swipe
+	}
+#end_gametype
+#end_demo_version_at_least
+
+#gametype  MP
+#demo_version_at_least 15
+	// fireaxe
+	weapon melee_fireaxe, swimtype surface
+	{
+		torso pt_fireaxe_swim_melee_swipe noSwimAlign
+	}
+	weapon melee_fireaxe, swimtype underwater
+	{
+		torso pt_fireaxe_swim_melee_swipe noSwimAlign
+	}
+	weapon melee_fireaxe, stance prone
+	{
+		torso pt_fireaxe_prone_melee_swipe
+	}
+	weapon melee_fireaxe, stance crouch
+	{
+		torso pt_fireaxe_crouch_melee_swipe
+	}
+	weapon melee_fireaxe
+	{
+		torso pt_fireaxe_stand_melee_swipe
+	}
+	// mace
+	weapon melee_mace, swimtype surface
+	{
+		torso pt_mace_swim_melee_swipe noSwimAlign
+	}
+	weapon melee_mace, swimtype underwater
+	{
+		torso pt_mace_swim_melee_swipe noSwimAlign
+	}
+	weapon melee_mace, stance prone
+	{
+		torso pt_mace_prone_melee_swipe
+	}
+	weapon melee_mace, stance crouch
+	{
+		torso pt_mace_crouch_melee_swipe
+	}
+	weapon melee_mace
+	{
+		torso pt_mace_stand_melee_swipe
+	}
+#end_demo_version_at_least
+#end_gametype
+	// SINGLE KNIFE
+	playerAnimType singleknife, swimtype surface
+	{
+		torso pt_knife_swim_melee_swipe_over noSwimAlign
+	}
+	playerAnimType singleknife, swimtype underwater
+	{
+		torso pt_knife_swim_melee_swipe noSwimAlign
+	}
+	playerAnimType singleknife, stance prone
+	{
+		torso pt_knife_prone_melee_swipe
+	}
+	playerAnimType singleknife, stance crouch
+	{
+		torso pt_knife_crouch_melee_swipe
+		torso pt_knife_fem_crouch_melee_swipe female
+	}
+	playerAnimType singleknife
+	{
+		torso pt_knife_stand_melee_swipe
+		torso pt_knife_fem_stand_melee_swipe female
+	}
+#gametype ZM AND MP
+	// SWORD
+	playerAnimType sword, stance prone
+	{
+		torso pb_sword_prone_2arm_swing weaponTimeScale
+	}
+	playerAnimType sword, stance crouch
+	{
+		torso pb_sword_crouch_2arm_swing weaponTimeScale
+	}
+	playerAnimType sword
+	{
+		torso pb_sword_stand_2arm_swing weaponTimeScale
+	}
+#end_gametype
+#gametype MP AND ZM
+	// BOW
+	playerAnimType bow, swimtype surface
+	{
+		torso pt_bow_swim_gunbutt_over weaponTimeScale noSwimAlign
+	}
+	playerAnimType bow, swimtype underwater
+	{
+		torso pt_bow_swim_gunbutt weaponTimeScale noSwimAlign
+	}
+	playerAnimType bow, wallrun_side left
+	{
+		torso pt_bow_wall_run_melee_gunbutt_l
+	}
+	playerAnimType bow, wallrun_side right
+	{
+		torso pt_bow_wall_run_melee_gunbutt_r
+	}
+	playerAnimType bow, stance prone
+	{
+		torso pt_bow_prone_melee
+	}
+	playerAnimType bow, stance crouch
+	{
+		torso pt_bow_crouch_melee
+	}
+	playerAnimType bow
+	{
+		torso pt_bow_stand_melee
+	}
+#end_gametype
+	// RPG
+	weaponclass rocketlauncher, swimtype surface
+	{
+		torso pt_launcher_swim_gunbutt_over weaponTimeScale noSwimAlign
+	}
+	weaponclass rocketlauncher, swimtype underwater
+	{
+		torso pt_launcher_swim_gunbutt weaponTimeScale noSwimAlign
+	}
+	weaponclass rocketlauncher, wallrun_side left
+	{
+		torso pt_launcher_wall_run_melee_gunbutt_l
+	}
+	weaponclass rocketlauncher, wallrun_side right
+	{
+		torso pt_launcher_wall_run_melee_gunbutt_r
+	}
+	weaponclass rocketlauncher, stance prone
+	{
+		torso pt_launcher_prone_melee
+	}
+	weaponclass rocketlauncher, stance crouch
+	{
+		torso pt_launcher_crouch_melee
+	}
+	weaponclass rocketlauncher
+	{
+		torso pt_launcher_stand_melee
+	}
+	// SMG
+	weaponclass smg, swimtype surface
+	{
+		torso pt_rifle_swim_idle_gunbutt_over noSwimAlign
+	}
+	weaponclass smg, swimtype underwater
+	{
+		torso pt_rifle_swim_idle_gunbutt_melee noSwimAlign
+	}
+	weaponclass smg, stance prone
+	{
+		torso pb_rifle_prone_gunbutt_melee
+		torso pt_rifle_fem_prone_melee_gunbutt female
+	}
+	weaponclass smg, stance crouch
+	{
+		torso pb_rifle_crouch_gunbutt_melee
+		torso pt_rifle_fem_crouch_melee_gunbutt_swipe female
+	}
+	weaponclass smg
+	{
+		torso pb_rifle_stand_gunbutt_melee
+		torso pt_rifle_fem_stand_gunbutt_melee_swipe female
+	}
+	// PROJECTILE
+	weapontype projectile, swimtype surface
+	{
+		torso pt_rifle_swim_idle_gunbutt_over noSwimAlign
+	}
+	weapontype projectile, swimtype underwater
+	{
+		torso pt_rifle_swim_idle_gunbutt_melee noSwimAlign
+	}
+	weapontype projectile, stance prone
+	{
+		torso pb_rifle_prone_gunbutt_melee
+		torso pt_rifle_fem_prone_melee_gunbutt female
+	}
+	weapontype projectile, stance crouch
+	{
+		torso pb_rifle_crouch_gunbutt_melee
+		torso pt_rifle_fem_crouch_melee_gunbutt_swipe female
+	}
+	weapontype projectile
+	{
+		torso pb_rifle_stand_gunbutt_melee
+		torso pt_rifle_fem_stand_gunbutt_melee_swipe female
+	}
+	// RIFLE
+	weaponclass rifle, swimtype surface
+	{
+		torso pt_rifle_swim_idle_gunbutt_over noSwimAlign
+	}
+	weaponclass rifle, swimtype underwater
+	{
+		torso pt_rifle_swim_idle_gunbutt_melee noSwimAlign
+	}
+	weaponclass rifle, stance prone
+	{
+		torso pb_rifle_prone_gunbutt_melee
+		torso pt_rifle_fem_prone_melee_gunbutt female
+	}
+	weaponclass rifle, stance crouch
+	{
+		torso pb_rifle_crouch_gunbutt_melee
+		torso pt_rifle_fem_crouch_melee_gunbutt_swipe female
+	}
+	weaponclass rifle
+	{
+		torso pb_rifle_stand_gunbutt_melee
+		torso pt_rifle_fem_stand_gunbutt_melee_swipe female
+	}
+	// MG
+	weaponclass mg, swimtype surface
+	{
+		torso pt_rifle_swim_idle_gunbutt_over noSwimAlign
+	}
+	weaponclass mg, swimtype underwater
+	{
+		torso pt_rifle_swim_idle_gunbutt_melee noSwimAlign
+	}
+	weaponclass mg, stance prone
+	{
+		torso pb_rifle_prone_gunbutt_melee
+		torso pt_rifle_fem_prone_melee_gunbutt female
+	}
+	weaponclass mg, stance crouch
+	{
+		torso pb_rifle_crouch_gunbutt_melee
+		torso pt_rifle_fem_crouch_melee_gunbutt_swipe female
+	}
+	weaponclass mg
+	{
+		torso pb_rifle_stand_gunbutt_melee
+		torso pt_rifle_fem_stand_gunbutt_melee_swipe female
+	}
+	// SHOTGUN
+	weaponclass spread, swimtype surface
+	{
+		torso pt_rifle_swim_idle_gunbutt_over noSwimAlign
+	}
+	weaponclass spread, swimtype underwater
+	{
+		torso pt_rifle_swim_idle_gunbutt_melee noSwimAlign
+	}
+	weaponclass spread, stance prone
+	{
+		torso pb_rifle_prone_gunbutt_melee
+		torso pt_rifle_fem_prone_melee_gunbutt female
+	}
+	weaponclass spread, stance crouch
+	{
+		torso pb_rifle_crouch_gunbutt_melee
+		torso pt_rifle_fem_crouch_melee_gunbutt_swipe female
+	}
+	weaponclass spread
+	{
+		torso pb_rifle_stand_gunbutt_melee
+		torso pt_rifle_fem_stand_gunbutt_melee_swipe female
+	}
+	// DEFAULT
+	stance prone
+	{
+		torso pt_melee_prone
+	}
+	stance crouch
+	{
+		torso pt_melee_crouch_left2left
+	}
+	// if we are swimming, and we got here, just play the rifle melee
+	swimtype surface
+	{
+		torso pt_rifle_swim_idle_gunbutt_over noSwimAlign
+	}
+	swimtype underwater
+	{
+		torso pt_rifle_swim_idle_gunbutt_melee noSwimAlign
+	}
+	default
+	{
+		torso pt_melee_right2right_1 duration 400
+	}
+}
+
+meleeleft
+{
+#gametype ZM
+	// TURNED
+	playerAnimType turned
+	{
+		torso pt_zom_beast_grapple_yank_end
+		//pt_zombie_attack_left
+	}
+#end_gametype
+	// DEFAULT
+	stance prone
+	{
+		torso pt_melee_prone
+	}
+	stance crouch
+	{
+		torso pt_melee_crouch_left2left
+	}
+	default
+	{
+		torso pt_melee_right2right_1 duration 400
+	}
+}
+
+offhand_melee
+{
+#gametype MP
+	playerAnimType armblade, stance prone
+	{
+		torso pt_arm_blade_prone_melee_miss
+	}
+	playerAnimType armblade, stance crouch
+	{
+		torso pt_arm_blade_crouch_melee_miss
+	}
+	playerAnimType armblade, wallrun_side left
+	{
+		torso pt_arm_blade_wall_run_melee_miss_l
+	}
+	playerAnimType armblade, wallrun_side right
+	{
+		torso pt_arm_blade_wall_run_melee_miss_r 
+	}
+	playerAnimType armblade
+	{
+		torso pt_arm_blade_stand_melee_miss
+	}
+#end_gametype
+
+#gametype ZM
+	// TURNED
+	playerAnimType turned
+	{
+		torso pt_zom_beast_grapple_yank_end
+		//pt_zombie_attack_right
+	}
+#end_gametype
+#gametype ZM AND CP
+	// LASTSTAND
+	perk laststand
+	{
+		torso p_revive_down_melee_swipe
+	}
+#end_gametype
+	// GRENADE
+	weaponclass grenade, weapontype grenade, stance prone
+	{
+		torso pt_rifle_prone_knife_swipe
+	}
+	weaponclass grenade, weapontype grenade, stance crouch
+	{
+		torso pt_rifle_crouch_knife_swipe	
+	}
+	weaponclass grenade
+	{
+		torso pt_rifle_stand_knife_swipe
+	}
+	// HOLD
+	// *** LDS - NEED TO ADD PRONE ANIMS FOR HOLD WEAPONS
+	playerAnimType hold, swimtype surface
+	{
+		torso pt_hold_swim_melee_over grenadeAnim
+	}
+	playerAnimType hold, swimtype underwater
+	{
+		torso pt_hold_swim_melee_swipe grenadeAnim
+	}
+	playerAnimType hold, stance prone
+	{
+		torso pt_hold_melee_prone  grenadeAnim
+	}
+	playerAnimType hold
+	{
+		torso pt_melee_hold_1 grenadeAnim
+	}
+	// BALLISTIC KNIFE
+	playerAnimType ballisticknife, stance prone
+	{
+		torso pt_b_knife_prone_melee
+	}
+	playerAnimType ballisticknife, stance crouch
+	{
+		torso pt_b_knife_crouch_melee
+	}
+	playerAnimType ballisticknife
+	{
+		torso pt_b_knife_stand_melee
+	}
+	// SINGLE KNIFE
+	playerAnimType singleknife, stance prone
+	{
+		torso pt_knife_prone_melee_swipe
+	}
+	playerAnimType singleknife, stance crouch
+	{
+		torso pt_knife_crouch_melee_swipe
+		torso pt_knife_fem_crouch_melee_swipe female
+	}
+	playerAnimType singleknife
+	{
+		torso pt_knife_stand_melee_swipe
+		torso pt_knife_fem_stand_melee_swipe female
+	}
+	// RIOTSHIELD
+	playerAnimType riotshield
+	{
+		torso pt_riotshield_stand_melee
+	}
+	// DUALWIELD
+	playerAnimType dualwield, stance prone
+	{
+		torso pt_dw_prone_melee
+	}
+	playerAnimType dualwield
+	{
+		torso pt_dw_stand_melee_swipe blendTime 17 blendOutTime 17
+	}
+	
+#gametype MP AND ZM
+	// BOW
+	playerAnimType bow, stance prone
+	{
+		torso pt_bow_prone_melee	
+	}
+	playerAnimType bow, stance crouch
+	{
+		torso pt_bow_crouch_melee
+	}
+	playerAnimType bow
+	{
+		torso pt_bow_stand_melee
+	}
+#end_gametype	
+
+	// RPG
+	weaponclass rocketlauncher, stance prone
+	{
+		torso pt_launcher_prone_melee	
+	}
+	weaponclass rocketlauncher, stance crouch
+	{
+		torso pt_launcher_crouch_melee
+	}
+	weaponclass rocketlauncher
+	{
+		torso pt_launcher_stand_melee
+	}
+	// PISTOL
+	weaponclass pistol AND pistol_spread, stance prone
+	{
+		torso p_knife_prone_pistol_swipe
+	}
+	weaponclass pistol AND pistol_spread, stance crouch
+	{
+		torso p_knife_crouch_pistol_swipe
+	}
+	weaponclass pistol AND pistol_spread
+	{
+		torso p_knife_stand_pistol_swipe
+	}
+	// SMG
+	weaponclass smg, stance prone
+	{
+		torso pt_rifle_prone_knife_swipe
+	}
+	weaponclass smg, stance crouch
+	{
+		torso pt_rifle_crouch_knife_swipe
+	}
+	weaponclass smg
+	{
+		torso pt_rifle_stand_knife_swipe
+	}
+	// RIFLE
+	weaponclass rifle, stance prone
+	{
+		torso pt_rifle_prone_knife_swipe
+	}
+	weaponclass rifle, stance crouch
+	{
+		torso pt_rifle_crouch_knife_swipe
+	}
+	weaponclass rifle
+	{
+		torso pt_rifle_stand_knife_swipe	}
+	// MG
+	weaponclass mg, stance prone
+	{
+		torso pt_rifle_prone_knife_swipe
+	}
+	weaponclass mg, stance crouch
+	{
+		torso pt_rifle_crouch_knife_swipe
+	}
+	weaponclass mg
+	{
+		torso pt_rifle_stand_knife_swipe
+	}
+	// SHOTGUN
+	weaponclass spread, stance prone
+	{
+		torso pt_rifle_prone_knife_swipe
+	}
+	weaponclass spread, stance crouch
+	{
+		torso pt_rifle_crouch_knife_swipe
+	}
+	weaponclass spread
+	{
+		torso pt_rifle_stand_knife_swipe
+	}
+#gametype ZM
+#demo_version_at_least 20
+	weapon dragon_gauntlet, stance stand
+	{
+		torso pt_melee_right2right_1
+	}
+#end_demo_version_at_least
+#end_gametype
+	// DEFAULT
+	stance prone
+	{
+		torso pt_rifle_prone_knife_swipe
+	}
+	stance crouch
+	{
+		torso pt_rifle_crouch_knife_swipe
+	}
+	default
+	{
+		torso pt_rifle_stand_knife_swipe
+	}
+}
+
+#gametype CP
+offhand_takedown
+{
+	playerAnimType other
+	{
+		both pb_barehands_Stand_electro_static_strike
+	}
+	weaponpowerlevel 1 
+	{
+		both pb_barehands_Stand_electro_static_strike
+	}
+	
+	// Cybercom Takedown
+	default
+	{
+		both pb_barehands_stand_chain_strike_1
+		both pb_barehands_stand_chain_strike_2
+		both pb_barehands_stand_chain_strike_3
+	}
+}
+
+offhand_ravage_core
+{
+	default
+	{
+		both pb_ravage_core_stand_punch
+	}
+}
+#end_gametype
+
+
+#gametype MP
+offhand_contextual
+{
+	playerAnimType armblade, meleecount 2
+	{
+		both pb_arm_blade_stand_melee_thrust_03 legrig legrig_arm_blade_stand_thrust
+	}
+	playerAnimType armblade, meleecount 1
+	{
+		both pb_arm_blade_stand_melee_thrust_02 legrig legrig_arm_blade_stand_thrust
+	}
+	playerAnimType armblade
+	{
+		both pb_arm_blade_stand_melee_thrust legrig legrig_arm_blade_stand_thrust
+	}
+	default
+	{
+		both pb_arm_blade_stand_melee_thrust legrig legrig_arm_blade_stand_thrust
+	}
+}
+#end_gametype
+
+offhand_melee_charge
+{
+	// HOLD
+	playerAnimType hold, stance prone
+	{
+		torso pt_hold_melee_prone grenadeAnim
+	}
+	playerAnimType hold
+	{
+		torso pt_melee_hold_2 grenadeAnim
+	}
+	// DUALWIELD
+	playerAnimType dualwield AND ballisticknife, stance prone
+	{
+		torso pt_dw_prone_melee
+	}
+	playerAnimType dualwield AND ballisticknife
+	{
+		torso pt_dw_stand_melee_stick
+	}
+#gametype MP
+	// CLUB
+	playerAnimType club, stance crouch
+	{
+		torso pt_wrench_crouch_melee_stick
+	}
+	playerAnimType club
+	{
+		torso pt_wrench_stand_melee_stick
+	}
+#end_gametype
+
+#demo_version_at_least 10
+#gametype ZM
+	weapon hero_gravityspikes_melee, stance crouch
+	{
+		torso pt_spikes_crouch_melee_stick
+	}
+#end_gametype
+#end_demo_version_at_least
+
+#gametype MP
+#demo_version_at_least 26
+	weapon melee_crescent, stance stand
+	{
+		torso pt_boneglass_stand_melee_thrust	
+	}
+#end_demo_version_at_least
+#demo_version_at_least 25
+	weapon melee_chainsaw, stance stand
+	{
+		torso pt_boneglass_stand_melee_thrust	
+	}
+#end_demo_version_at_least
+#demo_version_at_least 15
+	weapon melee_boneglass, stance stand
+	{
+		torso pt_boneglass_stand_melee_thrust	
+	}
+#end_demo_version_at_least
+#end_gametype
+	// BALLISTIC KNIFE
+	playerAnimType ballisticknife, stance crouch
+	{
+		torso pt_b_knife_crouch_melee_stick
+	}
+	playerAnimType ballisticknife
+	{
+		torso pt_b_knife_stand_melee_stick
+	}
+	// SINGLE KNIFE
+	playerAnimType singleknife, stance crouch
+	{
+		torso pt_knife_crouch_melee_thrust
+	}
+	playerAnimType singleknife
+	{
+		torso pt_knife_stand_melee_thrust
+		torso pt_knife_fem_stand_thrust female
+	}
+	
+#gametype ZM
+	// SWORD
+	playerAnimType sword, stance prone
+	{
+		torso pt_sword_prone_melee_stick weaponTimeScale
+	}
+	playerAnimType sword, stance crouch
+	{
+		torso pt_sword_crouch_melee_stick weaponTimeScale
+	}
+	playerAnimType sword
+	{
+		torso pt_sword_stand_melee_stick weaponTimeScale
+	}
+#end_gametype
+
+#gametype MP AND ZM
+	// BOW
+	playerAnimType bow, stance crouch
+	{
+		torso pt_bow_crouch_melee
+	}
+	playerAnimType bow
+	{
+		torso pt_bow_stand_melee
+	}
+#end_gametype
+
+	// RPG
+	weaponclass rocketlauncher, stance crouch
+	{
+		torso pt_launcher_crouch_melee
+	}
+	weaponclass rocketlauncher
+	{
+		torso pt_launcher_stand_melee
+	}
+	// PISTOL
+	weaponclass pistol AND pistol_spread, stance crouch
+	{
+		torso p_knife_crouch_pistol
+	}
+	weaponclass pistol AND pistol_spread
+	{
+		torso p_knife_stand_pistol
+	}
+	// DEFAULT
+	stance crouch
+	{
+		torso p_knife_crouch_rifle
+	}
+	default
+	{
+		torso p_knife_stand_rifle
+	}
+}
+
+melee_charge
+{
+
+#gametype MP
+	weapon ball, stance prone
+	{
+		torso pt_ball_prone_uplink_melee
+	}
+	weapon ball, stance crouch
+	{
+		torso pt_ball_crouch_uplink_melee
+	}
+	weapon ball
+	{
+		torso pt_ball_stand_uplink_melee
+	}
+#demo_version_at_least 27
+	weapon knife_ballistic, stance prone
+	{
+		torso pt_ballistic_knife_prone_melee_stick
+	}
+	weapon knife_ballistic, stance crouch
+	{
+		torso pt_ballistic_knife_crouch_melee_stick
+	}
+	weapon knife_ballistic
+	{
+		torso pt_ballistic_knife_stand_melee_stick
+	}
+#end_demo_version_at_least
+#demo_version_at_least 26
+	weapon melee_crescent, stance stand
+	{
+		torso pt_boneglass_stand_melee_thrust	
+	}
+#end_demo_version_at_least
+#demo_version_at_least 25
+	weapon melee_prosthetic
+	{
+		torso pt_prosthetic_arm_stand_melee_swipe
+	}
+	weapon melee_chainsaw, stance stand
+	{
+		torso pt_boneglass_stand_melee_thrust	
+	}
+#end_demo_version_at_least
+#demo_version_at_least 21
+	// NUNCHUCKS
+	weapon melee_nunchuks
+	{
+		torso pt_nunchucks_stand_melee_strike
+	}
+	weapon melee_boneglass, stance stand
+	{
+		torso pt_boneglass_stand_melee_thrust	
+	}
+#end_demo_version_at_least
+	// ARMMINIGUN
+	playerAnimType armminigun
+	{
+		torso pt_reaper_stand_melee
+	}
+	playerAnimType armblade, meleecount 2
+	{
+		both pb_arm_blade_stand_melee_thrust_03 legrig legrig_arm_blade_stand_thrust
+	}
+	playerAnimType armblade, meleecount 1
+	{
+		both pb_arm_blade_stand_melee_thrust_02 legrig legrig_arm_blade_stand_thrust
+	}
+	playerAnimType armblade
+	{
+		both pb_arm_blade_stand_melee_thrust legrig legrig_arm_blade_stand_thrust
+	}
+#demo_version_at_least 22
+	// BOXING
+	weapon melee_boxing
+	{
+		torso pt_boxing_gloves_stand_melee_uppercut_r
+	}
+#end_demo_version_at_least
+	playerAnimType brawler
+	{
+		torso pb_brawler_stand_melee_thrust
+		torso pb_brawler_fem_stand_melee_thrust female
+	}
+	// CLUB
+	playerAnimType club, swimtype surface
+	{
+		torso pt_wrench_swim_melee_stick_over
+	}
+	playerAnimType club, stance crouch
+	{
+		torso pt_wrench_crouch_melee_stick
+	}
+	playerAnimType club
+	{
+		torso pt_wrench_stand_melee_stick
+	}
+#end_gametype
+
+#gametype ZM
+#demo_version_at_least 28
+	// ONE INCH PUNCH
+////	perk oneinchpunch, playerAnimType hold, stance stand
+////	{
+////		both pb_one_inch_punch_charge_hold
+////	}
+////	perk oneinchpunch, playerAnimType armminigun, stance stand
+////	{
+////		both pb_one_inch_punch_charge_staff
+////	}
+	perk oneinchpunch, stance stand
+	{
+//		both pb_one_inch_punch_charge
+		both pb_1inchpunch_stand_melee_charge
+	}
+	// STAFF
+	playerAnimType armminigun, stance prone
+	{
+//		torso pt_staff_prone_melee_charge
+		torso pt_staff_crouch_melee_charge
+	}
+	playerAnimType armminigun, stance crouch
+	{
+		torso pt_staff_crouch_melee_charge
+	}
+	playerAnimType armminigun
+	{
+		torso pt_staff_stand_melee_charge
+	}
+#end_demo_version_at_least
+#end_gametype
+
+#demo_version_at_least 10
+#gametype ZM
+	weapon hero_gravityspikes_melee, stance crouch
+	{
+		torso pt_spikes_crouch_melee_stick
+	}
+#end_gametype
+#end_demo_version_at_least
+
+	playerAnimType riotshield
+	{
+		both pb_riotshield_stand_charge
+	}
+	playerAnimType singleknife, swimtype underwater
+	{
+		torso pt_knife_swim_melee_swipe noSwimAlign
+	}
+	playerAnimType singleknife, swimtype surface
+	{
+		torso pt_knife_swim_melee_swipe_over noSwimAlign
+	}
+	playerAnimType singleknife
+	{
+		torso pt_knife_stand_melee_thrust
+		torso pt_knife_fem_stand_thrust female
+	}
+	// BALLISTIC KNIFE
+	playerAnimType ballisticknife, stance crouch
+	{
+		torso pt_b_knife_crouch_melee_stick
+	}
+	playerAnimType ballisticknife
+	{
+		torso pt_b_knife_stand_melee_stick
+	}
+	
+#gametype ZM AND MP
+	// SWORD
+	playerAnimType sword, stance prone
+	{
+		torso pb_sword_prone_2arm_swing weaponTimeScale
+	}
+	playerAnimType sword, stance crouch
+	{
+		torso pb_sword_crouch_2arm_swing weaponTimeScale
+	}
+	playerAnimType sword
+	{
+		torso pb_sword_stand_2arm_swing weaponTimeScale
+	}
+#end_gametype
+	
+	weaponclass pistol
+	{
+		torso pt_pistol_stand_melee_gunbutt_strike
+		torso pt_pistol_fem_stand_melee_gunbutt_strike female
+	}
+	default
+	{
+		torso pt_rifle_stand_melee_gunbutt_strike
+		torso pt_rifle_fem_stand_gunbutt_melee_strike female
+	}
+}
+
+meleeattack_left
+{
+	// BRAWLER
+	playerAnimType brawler, swimtype surface
+	{
+		torso pt_brawler_swim_over_melee_swipe_l noSwimAlign
+	}
+	playerAnimType brawler, swimtype underwater
+	{
+		torso pt_brawler_swim_melee_swipe_l noSwimAlign
+	}
+#gametype MP
+#demo_version_at_least 22
+	// BOXING
+	weapon melee_boxing, stance prone
+	{
+		torso pt_boxing_gloves_prone_jabs_l
+	}
+	weapon melee_boxing, stance crouch
+	{
+		torso pt_boxing_gloves_crouch_jabs_l
+	}
+	weapon melee_boxing
+	{
+		torso pt_boxing_gloves_stand_jabs_l
+	}
+#end_demo_version_at_least
+#end_gametype
+	// BRAWLER
+	playerAnimType brawler, stance prone
+	{
+		torso pt_brawler_prone_melee_swipe_l 
+	}
+	playerAnimType brawler, stance crouch
+	{
+		torso pt_brawler_crouch_melee_swipe_l
+	}
+	playerAnimType brawler
+	{
+		torso pt_brawler_stand_melee_swipe_l
+	}
+}
+
+melee_charge_left
+{
+#gametype MP
+#demo_version_at_least 22
+	// BOXING
+	weapon melee_boxing
+	{
+		torso pt_boxing_gloves_stand_melee_uppercut_l
+	}
+#end_demo_version_at_least
+#end_gametype
+	playerAnimType brawler
+	{
+		torso pb_brawler_stand_melee_thrust_l
+	}
+}
+
+melee_power
+{
+	playerAnimType singleknife, stance prone
+	{
+		torso pt_knife_prone_melee_swipe
+	}
+	playerAnimType singleknife, stance crouch
+	{
+		torso pt_knife_crouch_melee_swipe
+		torso pt_knife_fem_crouch_melee_swipe female
+	}
+	playerAnimType singleknife
+	{
+		torso pt_knife_stand_melee_swipe
+		torso pt_knife_fem_stand_melee_swipe female
+	}
+	
+#gametype ZM
+	playerAnimType sword, stance prone
+	{
+		torso pb_sword_prone_2arm_swing weaponTimeScale
+	}
+	playerAnimType sword, stance crouch
+	{
+		torso pb_sword_crouch_2arm_swing weaponTimeScale
+	}
+	playerAnimType sword
+	{
+		torso pb_sword_stand_2arm_swing weaponTimeScale
+	}
+#demo_version_at_least 10
+	weapon hero_gravityspikes_melee
+	{
+		both pb_spikes_slam_exit legrig pb_spikes_standjump_land 
+	}
+#end_demo_version_at_least
+#end_gametype
+
+// This is only used for in mp for the crossbow... change this if this is no longer true
+#gametype MP
+	weaponclass rifle, swimtype surface
+	{
+		torso pt_crossbow_swim_melee_bayonet_over
+	}
+	weaponclass rifle, swimtype underwater
+	{
+		torso pt_crossbow_swim_melee_bayonet
+	}
+	weaponclass rifle, stance prone
+	{
+		torso pt_crossbow_prone_melee_bayonet
+	}
+	weaponclass rifle, stance crouch
+	{
+		torso pt_crossbow_crouch_melee_bayonet
+	}
+	weaponclass rifle
+	{
+		torso pt_crossbow_stand_melee_bayonet
+	}
+#end_gametype
+
+	default
+	{
+		torso pt_rifle_stand_melee_gunbutt_strike
+	}
+}
+
+melee_power_left
+{
+
+#gametype ZM
+	playerAnimType sword, weaponpowerlevel 1, stance prone
+	{
+		torso pt_sword_prone_throw
+	}
+	playerAnimType sword, weaponpowerlevel 1, stance crouch
+	{
+		torso pt_sword_crouch_throw
+	}
+	playerAnimType sword, weaponpowerlevel 1
+	{
+		torso pt_sword_stand_throw
+	}
+	playerAnimType sword, stance prone
+	{
+		torso pb_sword_prone_excalibur weaponTimeScale
+	}
+	playerAnimType sword, stance crouch
+	{
+		torso pb_sword_crouch_excalibur weaponTimeScale
+	}
+	playerAnimType sword
+	{
+		torso pb_sword_stand_excalibur weaponTimeScale
+	}
+#demo_version_at_least 10
+	weapon hero_gravityspikes_melee, stance crouch
+	{
+		both pb_spikes_crouch_plant weaponTimeScale
+	}
+	weapon hero_gravityspikes_melee
+	{
+		both pb_spikes_stand_plant weaponTimeScale
+	}
+#end_demo_version_at_least
+#end_gametype
+
+	default
+	{
+		torso pt_rifle_stand_melee_gunbutt_strike
+	}
+}
+
+#gametype CP
+melee_offhand_prime
+{
+	default
+	{
+		torso pb_ravage_core_stand_pllout
+	}
+}
+#end_gametype

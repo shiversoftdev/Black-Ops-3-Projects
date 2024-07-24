@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32407.337
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BFD91E69-8642-4EF9-ACFF-022EC41AEFE6}"
+	ProjectSection(SolutionItems) = preProject
+		..\MigrationGuide.md = ..\MigrationGuide.md
+		..\readme.md = ..\readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C3EC1828-0A22-423E-8D56-A1E142B53149}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.VisualStudio.Project.12.0", "Src\CSharp\Microsoft.VisualStudio.Project.12.0.csproj", "{327218DC-7524-4FBC-95EE-36FB933F67B7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{64F79670-EDC5-4327-A723-7163B672F9F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomProject", "Samples\CSharp\CustomProject\Src\CustomProject.csproj", "{F4ADEBDB-CD20-4532-B4E3-FE7424F5369C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NestedProject", "Samples\CSharp\NestedProject\Src\NestedProject.csproj", "{E9B43C9E-60AA-4387-A955-CAFB7EFA8C27}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{327218DC-7524-4FBC-95EE-36FB933F67B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{327218DC-7524-4FBC-95EE-36FB933F67B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{327218DC-7524-4FBC-95EE-36FB933F67B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{327218DC-7524-4FBC-95EE-36FB933F67B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4ADEBDB-CD20-4532-B4E3-FE7424F5369C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4ADEBDB-CD20-4532-B4E3-FE7424F5369C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4ADEBDB-CD20-4532-B4E3-FE7424F5369C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4ADEBDB-CD20-4532-B4E3-FE7424F5369C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9B43C9E-60AA-4387-A955-CAFB7EFA8C27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9B43C9E-60AA-4387-A955-CAFB7EFA8C27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9B43C9E-60AA-4387-A955-CAFB7EFA8C27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9B43C9E-60AA-4387-A955-CAFB7EFA8C27}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F4ADEBDB-CD20-4532-B4E3-FE7424F5369C} = {64F79670-EDC5-4327-A723-7163B672F9F0}
+		{E9B43C9E-60AA-4387-A955-CAFB7EFA8C27} = {64F79670-EDC5-4327-A723-7163B672F9F0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {53D37DC0-D612-4DD1-AAFF-82FD4540A9BA}
+	EndGlobalSection
+EndGlobal

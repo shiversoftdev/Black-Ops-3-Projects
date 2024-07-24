@@ -1,0 +1,20 @@
+//==========================================================================
+// DEFINES
+//
+// These can be used to simplify the scripting, by defining replacement strings
+
+DEFINES
+// moveStatus
+set movestatus moving = walk AND run AND sprint
+set movestatus movingFast = run AND sprint
+
+// weaponclasses
+set weaponclass autofire = mg AND smg
+
+// playerAnimTypes
+set playerAnimType grenadeonly = all NOT briefcase
+
+#ADD_VEHICLE sitting_jeep tank drivers 1 gunners 1
+#ADD_VEHICLE huey default drivers 1 gunners 2 passengers 6
+#ADD_VEHICLE pbr default drivers 1 gunners 4 passengers 0
+

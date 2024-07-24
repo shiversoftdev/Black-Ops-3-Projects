@@ -1,0 +1,69 @@
+name,b,bi,bdt,bdti,h,hi,hdt,hdti,class,type,isdw,firetype,clipsize,maxammo
+pistol_burst,0,0,0,0,0,0,0,0,pistol,bullet,single,Burst,15,120
+iw8_x16_up,3663,5494.5,14652,21978,10991,16486.5,43964,65946,pistol,bullet,single,Full Auto,26,312
+none,0,0,0,0,0,0,0,0,rifle,bullet,single,Full Auto,0,0
+iw8_vlkrogue_up,46800,70200,187200,280800,140400,210600,561600,842400,spread,bullet,single,Single Shot,12,120
+zombie_ai_defaultmelee,45,67.5,90,135,45,67.5,90,135,melee,melee,single,Full Auto,0,0
+iw8_mini_uzi_up,4800,7200,19200,28800,14400,21600,57600,86400,smg,bullet,single,Full Auto,45,360
+iw8_uzi_up,3411,5116.5,13644,20466,10235,15352.5,40940,61410,smg,bullet,single,Full Auto,60,600
+iw8_striker45_up,3647,5470.5,14588,21882,14588,21882,58352,87528,smg,bullet,single,Full Auto,65,585
+iw8_sks_up,26400,39600,105600,158400,35200,52800,140800,211200,rifle,bullet,single,Full Auto,50,450
+iw8_sa87_up,17999,26998.5,71996,107994,29999,44998.5,119996,179994,rifle,bullet,single,Full Auto,150,750
+iw8_rpg7_up,7703,11554.5,15406,23109,0,0,0,0,rocketlauncher,projectile,single,Full Auto,10,60
+iw8_renetti_rdw_up,37500,56250,150000,225000,112500,168750,450000,675000,pistol,bullet,dw,Auto Burst,30,900
+iw8_renetti_ldw_up,37500,56250,150000,225000,112500,168750,450000,675000,pistol,bullet,dw,Auto Burst,30,0
+iw8_ram7_up,4242,6363,16968,25452,21212,31818,84848,127272,rifle,bullet,single,Full Auto,50,400
+iw8_r90_up,36960,55440,147840,221760,88800,133200,355200,532800,spread,bullet,single,Burst,36,432
+iw8_bizon_up,3624,5436,14496,21744,10874,16311,43496,65244,smg,bullet,single,Full Auto,128,768
+iw8_pkm_up,16235,24352.5,64940,97410,27058,40587,108232,162348,mg,bullet,single,Full Auto,300,900
+iw8_p90_up,10000,15000,40000,60000,14999,22498.5,59996,89994,smg,bullet,single,Full Auto,120,720
+iw8_origin12_up,67200,100800,268800,403200,161280,241920,645120,967680,spread,bullet,single,Full Auto,50,400
+iw8_vks_up,66666,99999,266664,399996,66666,99999,266664,399996,rifle,bullet,single,Full Auto,25,175
+iw8_oden_up,10120,15180,40480,60720,23520,35280,94080,141120,rifle,bullet,single,Full Auto,40,360
+iw8_mp7_up,5000,7500,20000,30000,15000,22500,60000,90000,smg,bullet,single,Full Auto,60,480
+iw8_mp5_up,8000,12000,32000,48000,12000,18000,48000,72000,smg,bullet,single,Full Auto,50,500
+iw8_model680_up,17921,26881.5,71684,107526,43043,64564.5,172172,258258,spread,bullet,single,Single Shot,20,200
+iw8_mk2carbine_up,51000,76500,204000,306000,63750,95625,255000,382500,rifle,bullet,single,Single Shot,12,120
+iw8_minigun_up,125000,187500,500000,750000,208333,312500,833332,1.25e+006,spread,bullet,single,Minigun,999,999
+iw8_mg34_up,16666,24999,66664,99996,41666,62499,166664,249996,mg,bullet,single,Full Auto,200,1000
+iw8_m91_up,13500,20250,54000,81000,22500,33750,90000,135000,mg,bullet,single,Full Auto,250,1000
+iw8_m19,0,0,0,0,0,0,0,0,pistol,bullet,single,Single Shot,17,85
+iw8_m19_up,66206,99309,264824,397236,99310,148965,397240,595860,spread,bullet,single,Full Auto,32,256
+iw8_m13_up,8813,13219.5,35252,52878,22033,33049.5,88132,132198,rifle,bullet,single,Full Auto,50,350
+iw8_m16a4_up,5624,8436,22496,33744,28124,42186,112496,168744,rifle,bullet,single,Full Auto,80,720
+iw8_m4a1_sniper_up,46666,69999,186664,279996,62222,93333,248888,373332,rifle,bullet,single,Full Auto,20,180
+iw8_m4a1_smg_up,5208,7812,20832,31248,15625,23437.5,62500,93750,smg,bullet,single,Full Auto,48,432
+iw8_m4a1_up,5156,7734,20624,30936,25781,38671.5,103124,154686,rifle,bullet,single,Full Auto,70,630
+iw8_kilo141_up,4714,7071,18856,28284,23571,35356.5,94284,141426,rifle,bullet,single,Full Auto,150,750
+iw8_kar98k_irons_up,17307,25960.5,69228,103842,21634,32451,86536,129804,rifle,bullet,single,Single Shot,10,80
+iw8_kar98k_scope_up,24230,36345,96920,145380,27692,41538,110768,166152,rifle,bullet,single,Single Shot,12,132
+iw8_g36k_up,3499,5248.5,13996,20994,17499,26248.5,69996,104994,rifle,bullet,single,Full Auto,50,450
+iw8_holger26_up,4874,7311,19496,29244,24374,36561,97496,146244,mg,bullet,single,Full Auto,200,1000
+frag_grenade,0,0,0,0,0,0,0,0,grenade,grenade,single,Full Auto,4,4
+iw8_hdr_up,30000,45000,120000,180000,33333,49999.5,133332,199998,rifle,bullet,single,Single Shot,12,144
+iw8_grau556_up,14142,21213,56568,84852,23571,35356.5,94284,141426,rifle,bullet,single,Full Auto,80,560
+iw8_fr556_up,4999,7498.5,19996,29994,24999,37498.5,99996,149994,rifle,bullet,single,Full Auto,60,420
+iw8_scar17s_up,8000,12000,32000,48000,24000,36000,96000,144000,rifle,bullet,single,Full Auto,50,750
+iw8_fal_up,115714,173571,462856,694284,144642,216963,578568,867852,rifle,bullet,single,Burst,45,405
+iw8_m21ebr_up,45000,67500,180000,270000,53280,79920,213120,319680,rifle,bullet,single,Single Shot,20,160
+iw8_ebr14_up,15600,23400,62400,93600,23400,35100,93600,140400,rifle,bullet,single,Single Shot,25,225
+iw8_dragunov_up,44333,66499.5,177332,265998,50666,75999,202664,303996,rifle,bullet,single,Single Shot,30,240
+iw8_ax50_up,166666,249999,666664,999996,166666,249999,666664,999996,spread,bullet,single,Single Shot,15,180
+iw8_aug_smg_up,3200,4800,12800,19200,9600,14400,38400,57600,smg,bullet,single,Full Auto,42,378
+iw8_aug_ar_up,3333,4999.5,13332,19998,16666,24999,66664,99996,rifle,bullet,single,Full Auto,75,600
+iw8_ak74u_up,4000,6000,16000,24000,20000,30000,80000,120000,rifle,bullet,single,Full Auto,50,400
+iw8_ak47_up,4166,6249,16664,24996,20833,31249.5,83332,124998,rifle,bullet,single,Full Auto,100,700
+iw8_1911_rdw_up,145833,218750,291666,437499,0,0,0,0,pistol,projectile,dw,Single Shot,13,130
+iw8_1911_ldw_up,21291,31936.5,42582,63873,0,0,0,0,pistol,projectile,dw,Single Shot,13,0
+iw8_725_up,56571,84856.5,226284,339426,0,0,0,0,spread,bullet,single,Single Shot,2,50
+iw8_357_up,12962,19443,51848,77772,14814,22221,59256,88884,pistol,bullet,single,Single Shot,12,132
+iw8_50gs_rdw_up,50000,75000,200000,300000,62500,93750,250000,375000,pistol,bullet,dw,Single Shot,13,364
+spudgun_v3_up,32400,48600,129600,194400,57600,86400,230400,345600,spread,bullet,single,Full Auto,24,192
+spudgun_v2_up,4081,6121.5,16324,24486,20408,30612,81632,122448,rifle,bullet,single,Full Auto,80,720
+spudgun_up,7777,11665.5,15554,23331,0,0,0,0,grenade,projectile,single,Single Shot,4,80
+raygun_mark2_upgraded,0,0,0,0,0,0,0,0,pistol,projectile,single,Burst,42,201
+otg_bo4_ray_gun_up,7084,10626,14168,21252,0,0,0,0,pistol,projectile,single,Single Shot,20,160
+spx_zombie_shield_upgraded,1,1.5,2,3,0,0,0,0,item,riotshield,single,Melee,0,0
+thundergun_upgraded,0,0,0,0,0,0,0,0,rifle,projectile,single,Single Shot,4,24
+tesla_gun_upgraded,1,1.5,2,3,0,0,0,0,rifle,projectile,single,Full Auto,6,30
+hero_annihilator,3500,5250,7000,10500,5000,7500,10000,15000,pistol,bullet,single,Single Shot,18,0

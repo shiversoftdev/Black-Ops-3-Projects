@@ -1,0 +1,19 @@
+EVENTS
+
+//==========================================================================
+//
+// All event anim states must be before this forceload
+//
+// NOTE: these do not get added to the animtree automatically. They must be listed manually in all_player.atr!
+
+forceload
+{
+	head
+	pf_casual_idle
+	pf_alert_idle
+	pf_firing
+	pf_melee
+	pf_pain
+	pf_death
+	fake_gunner_aim
+}

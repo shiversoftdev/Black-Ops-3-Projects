@@ -1,0 +1,6538 @@
+//==========================================================================
+// ANIMATIONS
+//
+//	NOTE: scripts are chosen by first-come-first-serve basis. The first match
+//	found is the one used.
+//
+// format:
+//
+// state <state description>
+// {
+//		<movement type>
+//		{
+//			[DEFAULT / <condition type> [<condition value>], ...]
+//			{
+//				<both/legs/torso/turret> <animation> [sound <filename>]
+//				<both/legs/torso/turret> <animation> [sound <filename>]
+//				...
+//			}
+//		}
+//	}
+//
+//	legend:
+//
+//	<state description>: relaxed, alert, combat
+//
+//	<movement type>: idle, idlecr, idleprone,
+//                   walk, walkbk, walkcr, walkcrbk, walkprone, walkpronebk.
+//                   run, runbk, runcr, runcrbk, 
+//                   straferight, strafeleft, turnright, turnleft
+//
+//	<condition type>: playerAnimType, weaponclass, position, enemy_weapon, mounted, movestatus, underhand, leaning, weapon_position, perk, cac, riotshieldnext
+//
+//	<condition value>:
+//
+//		playerAnimType: <weapon Player Anim Type in gdt>
+//		position: behind, infront, right, left
+//		enemy_weapon: <see weapon pickup names>
+//		mounted: mg42
+//		movestatus: <see movement types>
+//		underhand: <no values>
+//		leaning: right, left
+//		weaponclass: rifle, sniper, smg, mg, pistol, grenade, rocketlauncher, flamethrower, turret, non-player
+//		weapon_position: hip, ads
+//		direction: not, left, right - will never be left or right while moving backward
+//		perk: laststand, grenadedeath
+//		riotshieldnext: <no values>
+//		cac: <no values>
+//		swimtype: none, surface, underwater
+//
+// NOTES:
+// - The player walks when they are ADS, so they can not ADS while running.
+//
+
+ANIMATIONS
+
+STATE COMBAT
+{
+	idle
+	{
+#gametype ZM
+		// BEAST MODE
+		perk turned
+		{
+			both pb_zom_beast_idle
+		}	
+#end_gametype
+		
+		playerAnimType groundslam
+		{
+			// do nothing
+		}
+		mounted mg42, stance prone
+		{
+			both proneSAWgunner_aim turretanim
+		}
+		mounted mg42, stance crouch
+		{
+			both crouchSAWgunner_aim turretanim
+		}
+		mounted mg42
+		{
+			both standSAWgunner_aim turretanim
+		}
+		//// LASTSTAND
+#gametype MP
+		weapon gadget_resurrect, perk laststand
+		{
+			both pb_rejack_standby_idle	
+		}
+#demo_version_at_least 15
+		//BONEGLASS
+		weapon melee_boneglass, stance prone
+		{
+			both pb_knife_prone_idle
+		}
+		weapon melee_boneglass, stance crouch
+		{
+			both pb_knife_crouch_idle
+			both pb_knife_fem_crouch_idle female
+		}	
+		weapon melee_boneglass
+		{
+			both pb_boneglass_stand_idle	
+		}
+#end_demo_version_at_least
+#end_gametype
+
+#gametype CP AND ZM
+		perk laststand, playerAnimType singleknife
+		{
+			both pb_knife_laststand_idle
+		}
+		perk laststand, stance prone
+		{
+			both pb_laststand_idle
+		}
+		perk laststand, stance crouch
+		{
+			both pb_laststand_idle 
+		}
+		perk laststand
+		{
+			both pb_laststand_idle
+		}
+		
+		// REVIVER
+		playerAnimType reviver, stance prone
+		{
+			torso pt_rifle_prone_revive_cp
+		}
+		playerAnimType reviver, stance crouch
+		{
+		 	torso pt_rifle_crouch_revive_cp
+		}
+		playerAnimType reviver
+		{
+		  torso pt_rifle_stand_revive_cp
+		}
+#end_gametype
+
+#gametype ZM
+		// TURNED
+		playerAnimType turned
+		{
+			both pb_zom_beast_idle
+			//pb_zombie_idle
+		}	
+		// RADIO, used for perk bottles
+		playerAnimType radio
+		{
+		}
+#end_gametype
+
+		// ONEHANDED
+	// the only reason this set is MP only is memory issues post ship
+#gametype MP
+		playerAnimType onehanded, weapon_position ads, stance prone
+		{
+			both pb_pistol_1handed_prone_idle_ads
+		}
+		playerAnimType onehanded, weapon_position ads, stance crouch
+		{
+			both pb_pistol_1handed_crouch_idle_ads
+		}	
+		playerAnimType onehanded, weapon_position ads
+		{
+			both pb_pistol_1handed_stand_idle_ads
+		}
+#end_gametype
+		playerAnimType onehanded, stance prone
+		{
+			both pb_pistol_1handed_prone_idle
+		}
+		playerAnimType onehanded, stance crouch
+		{
+			both pb_pistol_1handed_crouch_idle
+		}	
+		playerAnimType onehanded
+		{
+			both pb_pistol_1handed_stand_idle
+		}
+		// TABLET
+		playerAnimType tablet, stance prone
+		{
+			both pb_v_tablet_prone_idle
+		}
+		playerAnimType tablet, stance crouch
+		{
+			both pb_v_tablet_crouch_idle
+		}	
+		playerAnimType tablet
+		{
+			both pb_v_tablet_stand_idle
+		}
+
+		// HATCHET
+		playerAnimType hatchet, stance prone
+		{
+			both pb_tomahawk_prone_idle
+		}
+		playerAnimType hatchet, stance crouch
+		{
+			both pb_tomahawk_crouch_idle
+		}
+		playerAnimType hatchet
+		{
+			both pb_tomahawk_stand_idle
+		}
+		// NONE
+		playerAnimType none, stance prone
+		{
+			both pb_prone_bombplant
+		}
+		playerAnimType none, stance crouch
+		{	
+			both pb_crouch_bombplant
+		}
+		playerAnimType none
+		{	
+			both pb_stand_bombplant
+		}
+		// RIOTSHIELD
+		playerAnimType riotshield, weapon_position ads, stance crouch
+		{
+			both pb_riotshield_crouch_idle_ads
+		}
+		playerAnimType riotshield, weapon_position raised, stance crouch
+		{
+			both pb_riotshield_crouch_deploy_idle
+		}
+		playerAnimType riotshield, weapon_position raised
+		{
+			both pb_riotshield_stand_deploy_idle
+		}
+		playerAnimType riotshield, stance crouch
+		{
+			both pb_riotshield_crouch_idle
+		}
+		playerAnimType riotshield, weapon_position ads
+		{
+			both pb_riotshield_stand_idle_ads
+		}
+		playerAnimType riotshield
+		{
+			both pb_riotshield_stand_idle
+		}
+		// 	 BOMB
+		playerAnimType briefcase, stance prone
+		{
+			both pb_briefcase_prone_idle
+		}
+		playerAnimType briefcase, stance crouch
+		{
+			both pb_briefcase_crouch_idle
+		}	
+		playerAnimType briefcase
+		{
+			both pb_briefcase_stand_idle
+		}
+		// MINIGUN
+		playerAnimType minigun, stance crouch
+		{
+			both pb_minigun_crouch_idle
+		}
+		playerAnimType minigun
+		{
+			both pb_minigun_stand_idle
+		}
+		
+#gametype ZM
+#demo_version_at_least 28
+		// STAFF
+		playerAnimType armminigun, stance prone
+		{
+			both pb_staff_prone_idle
+		}
+		playerAnimType armminigun, stance crouch
+		{
+			both pb_staff_crouch_idle
+		}
+		playerAnimType armminigun
+		{
+			both pb_staff_stand_idle
+		}
+#end_demo_version_at_least
+#end_gametype
+
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks, stance prone
+		{
+			both pb_nunchucks_prone_idle
+		}
+		weapon melee_nunchuks, stance crouch
+		{
+			both pb_nunchucks_crouch_idle
+		}
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_stand_idle
+		}
+#end_demo_version_at_least
+		// ARMMINIGUN
+		playerAnimType armminigun, stance prone, weapon_position ads
+		{
+			both pb_reaper_prone_idle_ads
+		}
+		playerAnimType armminigun, stance prone
+		{
+			both pb_reaper_prone_idle
+		}
+		playerAnimType armminigun, stance crouch, weapon_position ads
+		{
+			both pb_reaper_crouch_idle_ads
+		}
+		playerAnimType armminigun, stance crouch
+		{
+			both pb_reaper_crouch_idle
+		}
+		playerAnimType armminigun, weapon_position ads
+		{
+			both pb_reaper_stand_idle_ads
+		}
+		playerAnimType armminigun
+		{
+			both pb_reaper_stand_idle
+		}
+		// BRAWLER
+		playerAnimType brawler, stance prone
+		{
+			both pb_brawler_prone_idle
+			both pb_brawler_fem_prone_idle female
+		}
+		playerAnimType brawler, stance crouch
+		{
+			both pb_brawler_crouch_idle
+			both pb_brawler_fem_crouch_idle female
+		}
+		playerAnimType brawler
+		{
+			both pb_brawler_stand_idle
+			both pb_brawler_fem_stand_idle female
+		}
+		// CLUB
+		playerAnimType club, stance prone
+		{
+			both pb_wrench_prone_idle
+		}
+		playerAnimType club, stance crouch
+		{
+			both pb_wrench_crouch_idle
+		}
+		playerAnimType club
+		{
+			both pb_wrench_stand_idle
+		}
+#end_gametype
+
+#demo_version_at_least 10
+#gametype ZM
+		//SPIKES
+		weapon hero_gravityspikes_melee, stance prone
+		{
+			both pb_spikes_prone_idle
+		}
+		weapon hero_gravityspikes_melee, stance crouch
+		{
+			both pb_spikes_crouch_idle
+		}
+		weapon hero_gravityspikes_melee
+		{
+			both pb_spikes_stand_idle
+		}
+#end_gametype
+#end_demo_version_at_least
+
+		// HOLD
+#gametype ZM
+		//WEAPON zombie_cough
+		playerAnimType hold, weaponpowerlevel 6, stance prone
+		{
+			torso pt_rifle_prone_coughing_loop grenadeAnim
+		}
+		playerAnimType hold, weaponpowerlevel 6, stance crouch
+		{
+			torso pt_rifle_crouch_coughing_loop grenadeAnim
+		}
+		playerAnimType hold, weaponpowerlevel 6
+		{
+			torso pt_rifle_stand_coughing_loop grenadeAnim
+		}
+		//WEAPON fruit_eat_fail
+		playerAnimType hold, weaponpowerlevel 5, stance prone
+		{
+			torso pt_rifle_prone_eat_fruit_fail grenadeAnim
+		}
+		playerAnimType hold, weaponpowerlevel 5, stance crouch
+		{
+			torso pt_rifle_crouch_eat_fruit_fail grenadeAnim
+		}
+		playerAnimType hold, weaponpowerlevel 5
+		{
+			torso pt_rifle_stand_eat_fruit_fail grenadeAnim
+		}
+		//WEAPON fruit_eat_success
+		playerAnimType hold, weaponpowerlevel 4, stance prone
+		{
+			torso pt_rifle_prone_eat_fruit_success grenadeAnim
+		}
+		playerAnimType hold, weaponpowerlevel 4, stance crouch
+		{
+			torso pt_rifle_crouch_eat_fruit_success grenadeAnim
+		}
+		playerAnimType hold, weaponpowerlevel 4
+		{
+			torso pt_rifle_stand_eat_fruit_success grenadeAnim
+		}
+		//WEAPON zombie_spider_web_tear_zm
+		playerAnimType hold, weaponpowerlevel 3, stance prone
+		{
+			torso pt_knife_prone_web_slash grenadeAnim
+		}
+		playerAnimType hold, weaponpowerlevel 3, stance crouch
+		{
+			torso pt_knife_crouch_web_slash grenadeAnim
+		}
+		playerAnimType hold, weaponpowerlevel 3
+		{
+			torso pt_knife_stand_web_slash grenadeAnim
+		}
+#end_gametype
+		playerAnimType hold, stance prone
+		{
+			both pb_prone_hold grenadeAnim
+		}
+		playerAnimType hold, stance crouch
+		{
+			both pb_crouch_hold_idle grenadeAnim
+		}
+		playerAnimType hold
+		{
+			both pb_hold_idle grenadeAnim
+		}
+		playerAnimType ballisticknife, stance prone
+		{
+			both pb_b_knife_prone_idle
+		}
+		playerAnimType ballisticknife, stance crouch
+		{
+			both pb_b_knife_crouch_idle
+		}
+		playerAnimType ballisticknife
+		{
+			both pb_b_knife_stand_idle
+		}
+		//SINGLE KNIFE
+		playerAnimType singleknife, stance prone
+		{
+			both pb_knife_prone_idle
+		}
+		playerAnimType singleknife, lowready stance crouch
+		{
+			both pb_knife_crouch_idle_lowready
+		}
+		playerAnimType singleknife, stance crouch
+		{
+			both pb_knife_crouch_idle
+			both pb_knife_fem_crouch_idle female
+		}
+		playerAnimType singleknife, lowready
+		{
+			both pb_knife_stand_idle_lowready
+		}
+		playerAnimType singleknife
+		{
+			both pb_knife_stand_idle
+			both pb_knife_fem_stand_idle female
+		}
+		
+#gametype ZM AND MP
+		//SWORD
+		playerAnimType sword, stance prone
+		{
+			both pb_sword_prone_idle
+		}
+		playerAnimType sword, stance crouch
+		{
+			both pb_sword_crouch_idle
+		}
+		playerAnimType sword
+		{
+			both pb_sword_stand_idle
+		}
+#end_gametype
+		playerAnimType dualwield, stance crouch, weapon_position rest
+		{
+			both pb_dw_crouch_wall_detect_idle
+		}
+		playerAnimType dualwield, stance stand, weapon_position rest
+		{
+			both pb_dw_stand_wall_detect_idle
+		}
+		// DUALWIELD
+		playerAnimType dualwield, stance prone
+		{
+			both pb_dw_prone_idle
+		}
+		playerAnimType dualwield, stance crouch
+		{
+			both pb_dw_crouch_idle
+		}
+		playerAnimType dualwield
+		{
+			both pb_dw_stand_idle
+		}
+		//SPIKE LAUNCHER
+		playerAnimType spikelauncher, stance crouch
+		{
+			both pb_spike_launcher_crouch_idle
+		}
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_stand_idle
+		}
+		
+#gametype MP AND CP
+		// RADIO
+ 		playerAnimType radio, stance prone
+ 		{
+ 			both pb_supply_drop_prone_idle
+ 		}
+ 		playerAnimType radio, stance crouch
+ 		{
+ 			both pb_supply_drop_crouch_idle
+ 		}	
+ 		playerAnimType radio
+ 		{
+ 			both pb_supply_drop_stand_idle
+ 		}
+#end_gametype
+
+		// PISTOL
+		weaponclass pistol AND pistol_spread, weapon_position ads, stance prone
+		{
+			both pb_prone_aim_ads_pistol
+			both pb_pistol_fem_prone_idle_ads female
+		}
+		weaponclass pistol AND pistol_spread, stance prone
+		{
+			both pb_prone_aim_pistol
+			both pb_pistol_fem_prone_idle female
+		}
+		weaponclass pistol AND pistol_spread, lowready stance crouch
+		{
+			both pb_pistol_crouch_idle_lowready
+		}
+		weaponclass pistol AND pistol_spread, weapon_position ads, stance crouch
+		{
+			both pb_crouch_ads_pistol
+			both pb_pistol_fem_crouch_ads female
+		}
+		weaponclass pistol AND pistol_spread, stance crouch
+		{
+			both pb_crouch_alert_pistol
+			both pb_pistol_fem_crouch_idle female
+		}
+		weaponclass pistol AND pistol_spread, lowready
+		{
+			both pb_pistol_stand_idle_lowready
+		}
+		weaponclass pistol AND pistol_spread, weapon_position ads
+		{
+			both pb_stand_ads_pistol
+			both pb_pistol_fem_stand_idle_ads female
+		}
+		weaponclass pistol AND pistol_spread
+		{
+			both pb_stand_alert_pistol
+			both pb_pistol_fem_stand_idle female
+		}
+		
+#gametype MP AND ZM
+		// BOW
+		playerAnimType bow, stance prone
+  		{
+   			both pb_bow_prone_idle
+  		}
+  		playerAnimType bow, stance crouch
+		{
+   			both pb_bow_crouch_idle
+  		}
+		playerAnimType bow
+		{
+			both pb_bow_stand_idle
+		}
+#end_gametype
+		
+		// RPG
+		weaponclass rocketlauncher, stance prone
+  		{
+   			both pb_launcher_prone_idle_ads
+  		}
+		weaponclass rocketlauncher, lowready stance crouch
+		{
+   			both pb_launcher_crouch_idle_lowready
+		}
+		weaponclass rocketlauncher, weapon_position ads, stance crouch
+		{
+   			both pb_launcher_crouch_idle_ads
+		}
+  		weaponclass rocketlauncher, stance crouch
+		{
+   			both pb_launcher_crouch_idle
+  		}
+		weaponclass rocketlauncher, lowready
+		{
+			both pb_launcher_stand_idle_lowready
+		}
+		weaponclass rocketlauncher, weapon_position ads
+		{
+			both pb_launcher_stand_idle_ads
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_stand_idle
+		}
+		// GRENADE
+		weaponclass grenade, weapontype grenade, playerAnimType grenadeonly, stance prone
+		{
+			both pb_grenade_prone_idle grenadeAnim
+		}
+		weaponclass grenade, weapontype grenade, playerAnimType grenadeonly, stance crouch
+		{
+			both pb_grenade_crouch_idle grenadeAnim
+		}
+		weaponclass grenade, weapontype grenade, playerAnimType grenadeonly
+		{
+			both pb_grenade_stand_idle grenadeAnim 
+		}
+		weaponclass grenade, weapontype grenade, playerAnimType riotshield
+		{
+			both pb_riotshield_pullpin_grenade
+		}
+		// DEFAULT
+		weapon_position ads, stance prone
+		{
+			both pb_prone_aim_ads
+			both pb_rifle_fem_prone_idle_ads female
+		}
+		stance prone, weapon_position rest
+		{
+			both pb_prone_aim_wall_detect
+		}
+		stance prone
+		{
+			both pb_prone_aim
+			both pb_rifle_fem_prone_idle female
+		}
+		lowready stance crouch
+		{
+			both pb_rifle_crouch_idle_lowready
+		}
+		weapon_position ads, stance crouch
+		{
+			both pb_crouch_ads
+			both pb_rifle_fem_crouch_idle_ads female
+		}
+		stance crouch, weapon_position rest
+		{
+			both pb_crouch_alert_wall_detect
+		}
+		stance crouch // two handed rifle type weapon
+		{
+			both pb_crouch_alert
+			both pb_rifle_fem_crouch_idle female
+		}
+		lowready
+		{
+			both pb_rifle_stand_idle_lowready
+		}
+		weapon_position ads
+		{
+			both pb_stand_ads
+			both pb_rifle_fem_stand_idle_ads female
+		}
+		weapon_position rest
+		{
+			both pb_stand_alert_wall_detect
+		}
+		default // two handed rifle type weapon
+		{
+			both pb_stand_alert
+			both pb_rifle_fem_stand_idle female
+		}
+	}
+
+// STUMBLE
+	stumble
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		// RIOTSHIELD
+		playerAnimType riotshield, stance crouch, direction left, weapon_position ads
+		{
+			both pb_riotshield_crouch_stumble_l_ads
+		}
+		playerAnimType riotshield, stance crouch, direction right, weapon_position ads
+		{		
+			both pb_riotshield_crouch_stumble_r_ads
+		}
+		playerAnimType riotshield, stance crouch, direction backward, weapon_position ads
+		{
+			both pb_riotshield_crouch_stumble_b_ads
+		}
+		playerAnimType riotshield, stance crouch, direction forward, weapon_position ads
+		{
+			both pb_riotshield_crouch_stumble_f_ads
+		}
+		playerAnimType riotshield, stance crouch, direction left
+		{
+			both pb_riot_crouch_stumble_l
+		}
+		playerAnimType riotshield, stance crouch, direction right
+		{		
+			both pb_riot_crouch_stumble_r
+		}
+		playerAnimType riotshield, stance crouch, direction backward
+		{
+			both pb_riot_crouch_stumble_b
+		}
+		playerAnimType riotshield, stance crouch, direction forward
+		{
+			both pb_riot_crouch_stumble_f
+		}
+		playerAnimType riotshield, direction left, weapon_position ads
+		{
+			both pb_riotshield_stumble_l_ads
+		}
+		playerAnimType riotshield, direction right, weapon_position ads
+		{		
+			both pb_riotshield_stumble_r_ads
+		}
+		playerAnimType riotshield, direction backward, weapon_position ads
+		{
+			both pb_riotshield_stumble_b_ads
+		}
+		playerAnimType riotshield, direction forward, weapon_position ads
+		{
+			both pb_riotshield_stumble_f_ads
+		}
+		playerAnimType riotshield, direction left
+		{
+			both pb_riot_stumble_l
+		}
+		playerAnimType riotshield, direction right
+		{		
+			both pb_riot_stumble_r
+		}
+		playerAnimType riotshield, direction backward
+		{
+			both pb_riot_stumble_b
+		}
+		playerAnimType riotshield, direction forward
+		{
+			both pb_riot_stumble_f
+		}
+		
+#gametype ZM
+#demo_version_at_least 28
+		// STAFF
+		playerAnimType armminigun, direction left
+		{
+			both pb_staff_stumble_left
+		}
+		playerAnimType armminigun, direction right
+		{
+			both pb_staff_stumble_right
+		}
+		playerAnimType armminigun, direction backward
+		{
+			both pb_staff_stumble_back
+		}
+		playerAnimType armminigun
+		{
+			both pb_staff_stumble_forward
+		}
+#end_demo_version_at_least
+#end_gametype
+
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks, direction left
+		{
+			both pb_nunchucks_stumble_l
+		}
+		weapon melee_nunchuks, direction right
+		{		
+			both pb_nunchucks_stumble_r
+		}
+		weapon melee_nunchuks, direction backward
+		{
+			both pb_nunchucks_stumble_b
+		}
+		weapon melee_nunchuks, direction forward
+		{
+			both pb_nunchucks_stumble_f
+		}
+#end_demo_version_at_least
+#end_gametype
+#gametype MP AND ZM
+		// BOW
+		playerAnimType bow, direction left
+		{
+			both pb_bow_stumble_l
+		}
+		playerAnimType bow, direction right
+		{		
+			both pb_bow_stumble_r
+		}
+		playerAnimType bow, direction backward
+		{
+			both pb_bow_stumble_b
+		}
+		playerAnimType bow, direction forward
+		{
+			both pb_bow_stumble_f
+		}
+#end_gametype
+
+		// RPG
+		weaponclass rocketlauncher, direction left
+		{
+			both pb_launcher_stumble_l
+		}
+		weaponclass rocketlauncher, direction right
+		{		
+			both pb_launcher_stumble_r
+		}
+		weaponclass rocketlauncher, direction backward
+		{
+			both pb_launcher_stumble_b
+		}
+		weaponclass rocketlauncher, direction forward
+		{
+			both pb_launcher_stumble_f
+		}
+		// HOLD
+		playerAnimType hold, direction left
+		{
+			both pb_hold_stumble_left  grenadeAnim
+		}
+		playerAnimType hold, direction right
+		{
+			both pb_hold_stumble_right  grenadeAnim
+		}
+		playerAnimType hold, direction backward
+		{
+			both pb_hold_stumble_back  grenadeAnim
+		}
+		playerAnimType hold, direction forward
+		{
+			both pb_hold_stumble_forward  grenadeAnim
+		}
+		// BALL
+		weapon ball, direction left
+		{
+			both pb_hold_stumble_left  grenadeAnim
+		}
+		weapon ball, direction right
+		{
+			both pb_hold_stumble_right  grenadeAnim
+		}
+		weapon ball, direction backward
+		{
+			both pb_hold_stumble_back  grenadeAnim
+		}
+		weapon ball
+		{
+			both pb_hold_stumble_forward  grenadeAnim
+		}
+		// DUAL WIELD
+		playerAnimType dualwield AND ballisticknife, direction left
+		{
+			both pb_dw_stumble_left
+		}
+		playerAnimType dualwield AND ballisticknife, direction right
+		{
+			both pb_dw_stumble_right
+		}
+		playerAnimType dualwield AND ballisticknife, direction backward
+		{
+			both pb_dw_stumble_back
+		}
+		playerAnimType dualwield AND ballisticknife, direction forward
+		{
+			both pb_dw_stumble_forward
+		}
+		// WEAPONLESS KNIFE
+		playerAnimType singleknife, direction left
+		{
+			both pb_knife_stand_stumble_run_l
+		}
+		playerAnimType singleknife, direction right
+		{
+			both pb_knife_stand_stumble_run_r
+		}
+		playerAnimType singleknife, direction backward
+		{
+			both pb_knife_stand_stumble_run_b
+		}
+		playerAnimType singleknife
+		{
+			both pb_knife_stand_stumble_run_f
+		}
+		// PISTOL
+		weaponclass pistol AND pistol_spread, direction left
+		{
+			both pb_stumble_pistol_left
+		}
+		weaponclass pistol AND pistol_spread, direction right
+		{
+			both pb_stumble_pistol_right
+		}
+		weaponclass pistol AND pistol_spread, direction backward
+		{
+			both pb_stumble_pistol_back
+		}
+		weaponclass pistol AND pistol_spread, direction forward
+		{
+			both pb_stumble_pistol_forward
+		}
+		// GRENADE
+		weaponclass grenade, weapontype grenade, direction left, playerAnimType grenadeonly
+		{
+			both pb_stumble_grenade_left grenadeAnim
+		}
+		weaponclass grenade, weapontype grenade, direction right, playerAnimType grenadeonly
+		{
+			both pb_stumble_grenade_right grenadeAnim
+		}
+		weaponclass grenade, weapontype grenade, direction backward, playerAnimType grenadeonly
+		{
+			both pb_stumble_grenade_back grenadeAnim
+		}
+		weaponclass grenade, weapontype grenade, direction forward, playerAnimType grenadeonly
+		{
+			both pb_stumble_grenade_forward grenadeAnim
+		}
+		// DEFAULT
+		direction left
+		{
+			both pb_stumble_left
+		}
+		direction right
+		{
+			both pb_stumble_right
+		}
+		direction backward
+		{
+			both pb_stumble_back
+		}
+		default
+		{
+			both pb_stumble_forward
+		}
+	}
+
+// STUMBLE WALK
+	stumble_walk
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		// RIOTSHIELD
+		playerAnimType riotshield, direction left, weapon_position ads
+		{
+			both pb_riotshield_stumble_walk_l_ads
+		}
+		playerAnimType riotshield, direction right, weapon_position ads
+		{		
+			both pb_riotshield_stumble_walk_r_ads
+		}
+		playerAnimType riotshield, direction backward, weapon_position ads
+		{
+			both pb_riotshield_stumble_walk_b_ads
+		}
+		playerAnimType riotshield, direction forward, weapon_position ads
+		{
+			both pb_riotshield_stumble_walk_f_ads
+		}
+		playerAnimType riotshield, direction left
+		{
+			both pb_riot_stumble_walk_l
+		}
+		playerAnimType riotshield, direction right
+		{		
+			both pb_riot_stumble_walk_r
+		}
+		playerAnimType riotshield, direction backward
+		{
+			both pb_riot_stumble_walk_b
+		}
+		playerAnimType riotshield, direction forward
+		{
+			both pb_riot_stumble_walk_f
+		}
+		
+#gametype ZM
+#demo_version_at_least 28
+		// STAFF
+		playerAnimType armminigun, direction left
+		{
+			both pb_staff_stumble_walk_left
+		}
+		playerAnimType armminigun, direction right
+		{
+			both pb_staff_stumble_walk_right
+		}
+		playerAnimType armminigun, direction backward
+		{
+			both pb_staff_stumble_walk_back
+		}
+		playerAnimType armminigun
+		{
+			both pb_staff_stumble_walk_forward
+		}
+#end_demo_version_at_least
+#end_gametype
+
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks, direction left
+		{
+			both pb_nunchucks_stumble_walk_l
+		}
+		weapon melee_nunchuks, direction right
+		{		
+			both pb_nunchucks_stumble_walk_r
+		}
+		weapon melee_nunchuks, direction backward
+		{
+			both pb_nunchucks_stumble_walk_b
+		}
+		weapon melee_nunchuks, direction forward
+		{
+			both pb_nunchucks_stumble_walk_f
+		}
+#end_demo_version_at_least
+#end_gametype
+#gametype MP AND ZM
+		// BOW
+		playerAnimType bow, direction left
+		{
+			both pb_bow_stumble_walk_l
+		}
+		playerAnimType bow, direction right
+		{		
+			both pb_bow_stumble_walk_r
+		}
+		playerAnimType bow, direction backward
+		{
+			both pb_bow_stumble_walk_b
+		}
+		playerAnimType bow, direction forward
+		{
+			both pb_bow_stumble_walk_f
+		}
+#end_gametype
+
+		// RPG
+		weaponclass rocketlauncher, direction left
+		{
+			both pb_launcher_stumble_walk_l
+		}
+		weaponclass rocketlauncher, direction right
+		{		
+			both pb_launcher_stumble_walk_r
+		}
+		weaponclass rocketlauncher, direction backward
+		{
+			both pb_launcher_stumble_walk_b
+		}
+		weaponclass rocketlauncher, direction forward
+		{
+			both pb_launcher_stumble_walk_f
+		}
+		// HOLD
+		playerAnimType hold, direction left
+		{
+			both pb_hold_stumble_walk_left  grenadeAnim
+		}
+		playerAnimType hold, direction right
+		{
+			both pb_hold_stumble_walk_right  grenadeAnim
+		}
+		playerAnimType hold, direction backward
+		{
+			both pb_hold_stumble_walk_back  grenadeAnim
+		}
+		playerAnimType hold, direction forward
+		{
+			both pb_hold_stumble_walk_forward  grenadeAnim
+		}
+		// DUAL WIELD
+		playerAnimType dualwield AND ballisticknife, direction left
+		{
+			both pb_dw_stumble_walk_left
+		}
+		playerAnimType dualwield AND ballisticknife, direction right
+		{
+			both pb_dw_stumble_walk_right
+		}
+		playerAnimType dualwield AND ballisticknife, direction backward
+		{
+			both pb_dw_stumble_walk_back
+		}
+		playerAnimType dualwield AND ballisticknife, direction forward
+		{
+			both pb_dw_stumble_walk_forward
+		}
+		// WEAPONLESS KNIFE
+		playerAnimType singleknife, direction left
+		{
+			both pb_knife_stand_stumble_walk_l
+		}
+		playerAnimType singleknife, direction right
+		{
+			both pb_knife_stand_stumble_walk_r
+		}
+		playerAnimType singleknife, direction backward
+		{
+			both pb_knife_stand_stumble_walk_b
+		}
+		playerAnimType singleknife
+		{
+			both pb_knife_stand_stumble_walk_f
+		}
+		
+#gametype ZM AND MP
+		// SWORD
+		playerAnimType sword, direction left
+		{
+			both pb_sword_stand_stumble_walk_l
+		}
+		playerAnimType sword, direction right
+		{
+			both pb_sword_stand_stumble_walk_r
+		}
+		playerAnimType sword, direction backward
+		{
+			both pb_sword_stand_stumble_walk_b
+		}
+		playerAnimType sword
+		{
+			both pb_sword_stand_stumble_walk_f
+		}
+#end_gametype
+
+		// PISTOL, GRENADE
+		weaponclass pistol AND pistol_spread AND grenade, direction left, playerAnimType grenadeonly
+		{
+			both pb_stumble_pistol_walk_left
+		}
+		weaponclass pistol AND pistol_spread AND grenade, direction right, playerAnimType grenadeonly
+		{
+			both pb_stumble_pistol_walk_right
+		}
+		weaponclass pistol AND pistol_spread AND grenade, direction backward, playerAnimType grenadeonly
+		{
+			both pb_stumble_pistol_walk_back
+		}
+		weaponclass pistol AND pistol_spread AND grenade, direction forward, playerAnimType grenadeonly
+		{
+			both pb_stumble_pistol_walk_forward
+		}
+		// DEFAULT
+		direction left
+		{
+			both pb_stumble_walk_left
+		}
+		direction right
+		{
+			both pb_stumble_walk_right
+		}
+		direction backward
+		{
+			both pb_stumble_walk_back
+		}
+		default 
+		{
+			both pb_stumble_walk_forward
+		}
+	}
+
+
+// STUMBLE SPRINT
+	stumble_sprint
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+
+		weapon ball
+		{
+			both pb_hold_stumble_forward  grenadeAnim
+		}
+
+		playerAnimType hold
+		{
+			both pb_hold_stumble_forward  grenadeAnim
+		}
+
+#gametype MP AND CP
+		// RIOTSHIELD
+		playerAnimType riotshield
+		{
+			both pb_riotshield_sprint
+		}
+#end_gametype
+
+		// DEFAULT
+		default 
+		{
+			both pb_stumble_forward
+		}		
+	}
+	
+	shuffle
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		direction forward
+		{
+			both pb_rifle_stand_shuffle_f
+		}
+		direction backward,
+		{
+			both pb_rifle_stand_shuffle_b
+		}
+		direction left
+		{
+			both pb_rifle_stand_shuffle_l
+		}
+		direction right
+		{	
+			both pb_rifle_stand_shuffle_r
+		}
+	}
+
+	walk
+	{
+
+		// LASTSTAND - Knife
+		playerAnimType singleknife, perk laststand, direction forward
+		{
+			both pb_knife_laststand_crawl_f
+		}
+		playerAnimType singleknife, perk laststand, direction backward
+		{
+			both pb_knife_laststand_crawl_b
+		}
+		playerAnimType singleknife, perk laststand, direction right
+		{
+			both pb_knife_laststand_crawl_r
+		}
+		playerAnimType singleknife, perk laststand, direction left
+		{
+			both pb_knife_laststand_crawl_l
+		}
+		// LASTSTAND
+		perk laststand, direction forward
+		{
+			both pb_laststand_crawl_forward
+		}
+		perk laststand, direction backward
+		{
+			both pb_laststand_crawl_back
+		}
+		perk laststand, direction right
+		{
+			both pb_laststand_crawl_right
+		}
+		perk laststand, direction left
+		{
+			both pb_laststand_crawl_left
+		}
+
+		// NONE
+		// Crouch
+		playerAnimType none, stance crouch
+		{
+			both pb_crouch_walk_forward_unarmed
+		}
+		// Stand
+		playerAnimType none
+		{
+			both pb_stand_shoot_walk_forward_unarmed
+		}
+			
+#gametype ZM
+		// TURNED
+		playerAnimType turned, stance prone
+		{
+			// none
+		}
+		playerAnimType turned, stance crouch
+		{
+			// none
+		}
+		playerAnimType turned, direction forward
+		{
+			both pb_zom_beast_move_f
+		}
+		playerAnimType turned, direction backward
+		{
+			both pb_zom_beast_move_b
+		}
+		playerAnimType turned, direction left
+		{
+			both pb_zom_beast_move_l
+		}
+		playerAnimType turned, direction right
+		{
+			both pb_zom_beast_move_r
+		}
+		playerAnimType turned
+		{
+			// none
+		}
+#end_gametype
+
+
+		// RIOTSHIELD
+		playerAnimType riotshield, direction left, weapon_position ads, stance crouch
+		{
+			both pb_riotshield_walk_crouch_l_ads
+		}
+		playerAnimType riotshield, direction right, weapon_position ads, stance crouch
+		{
+			both pb_riotshield_walk_crouch_r_ads 
+		}
+		playerAnimType riotshield, direction backward, weapon_position ads, stance crouch
+		{
+			both pb_riotshield_walk_crouch_b_ads
+		}
+		playerAnimType riotshield, weapon_position ads, stance crouch
+		{
+			both pb_riotshield_walk_crouch_f_ads
+		}
+		playerAnimType riotshield, direction left, weapon_position ads
+		{
+			both pb_riotshield_walk_l_ads
+		}
+		playerAnimType riotshield, direction right, weapon_position ads
+		{
+			both pb_riotshield_walk_r_ads 
+		}
+		playerAnimType riotshield, direction backward, weapon_position ads
+		{
+			both pb_riotshield_walk_b_ads
+		}
+		playerAnimType riotshield, weapon_position ads
+		{
+			both pb_riotshield_walk_f_ads
+		}
+		playerAnimType riotshield, direction left
+		{
+			both pb_riotshield_walk_left
+		}
+		playerAnimType riotshield, direction right
+		{
+			both pb_riotshield_walk_right
+		}
+		playerAnimType riotshield, direction backward
+		{
+			both pb_riotshield_walk_back
+		}
+		playerAnimType riotshield
+		{
+			both pb_riotshield_walk_forward
+		}
+		// ONEHANDED
+		// Prone
+		playerAnimType onehanded, direction left, stance prone
+		{
+			both pb_pistol_1handed_prone_crawl_l
+		}
+		playerAnimType onehanded, direction right, stance prone
+		{
+			both pb_pistol_1handed_prone_crawl_r
+		}
+		playerAnimType onehanded, direction backward, stance prone
+		{
+			both pb_pistol_1handed_prone_crawl_b
+		}
+		playerAnimType onehanded, stance prone
+		{
+			both pb_pistol_1handed_prone_crawl_f
+		}
+
+		// HOLD
+		// Prone
+		playerAnimType hold, direction left, stance prone
+		{
+			both pb_prone_crawl_left_hold  grenadeAnim
+		}
+		playerAnimType hold, direction right, stance prone
+		{
+			both pb_prone_crawl_right_hold  grenadeAnim
+		}
+		playerAnimType hold, direction backward, stance prone
+		{
+			both pb_prone_crawl_back_hold  grenadeAnim
+		}
+		playerAnimType hold, stance prone
+		{
+			both pb_prone_crawl_hold  grenadeAnim
+		}
+
+		// Stand
+		playerAnimType hold
+		{
+			both locomotion_blend_hold  grenadeAnim
+		}
+
+		// DUALWIELD
+		// Prone
+		playerAnimType dualwield AND ballisticknife, direction left, stance prone
+		{
+			both pb_prone_dw_crawl_left
+		}
+		playerAnimType dualwield AND ballisticknife, direction right, stance prone
+		{
+			both pb_prone_dw_crawl_right
+		}
+		playerAnimType dualwield AND ballisticknife, direction backward, stance prone
+		{
+			both pb_prone_dw_crawl_back
+		}
+		playerAnimType dualwield AND ballisticknife, stance prone
+		{
+			both pb_prone_dw_crawl_forward
+		}
+		// Crouch
+		playerAnimType dualwield AND ballisticknife, stance crouch
+		{
+			both locomotion_blend_crouch_dw
+		}
+		// Stand
+		playerAnimType dualwield AND ballisticknife
+		{
+			both locomotion_blend_dw
+		}
+
+#gametype ZM
+#demo_version_at_least 28
+		// STAFF
+			// Prone
+			playerAnimType armminigun, direction left, stance prone
+			{
+				both pb_staff_prone_crawl_l
+			}
+			playerAnimType armminigun, direction right, stance prone
+			{
+				both pb_staff_prone_crawl_r
+			}
+			playerAnimType armminigun, direction backward, stance prone
+			{
+				both pb_staff_prone_crawl_b
+			}
+			playerAnimType armminigun, stance prone
+			{
+				both pb_staff_prone_crawl_f
+			}
+			// Crouch
+			playerAnimType armminigun, direction left, stance crouch
+			{
+				both pb_staff_crouch_walk_l
+			}
+			playerAnimType armminigun, direction right, stance crouch
+			{
+				both pb_staff_crouch_walk_r
+			}
+			playerAnimType armminigun, direction backward, stance crouch
+			{
+				both pb_staff_crouch_walk_b
+			}
+			playerAnimType armminigun, stance prone
+			{
+				both pb_staff_crouch_walk_f
+			}
+			// Stand
+			playerAnimType armminigun, direction left
+			{
+				both pb_staff_stand_walk_l
+			}
+			playerAnimType armminigun, direction right
+			{
+				both pb_staff_stand_walk_r
+			}
+			playerAnimType armminigun, direction backward
+			{
+				both pb_staff_stand_walk_b
+			}
+			playerAnimType armminigun
+			{
+				both pb_staff_stand_walk_f
+			}
+#end_demo_version_at_least
+#end_gametype
+
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		// Prone
+		weapon melee_nunchuks, direction left, stance prone
+		{
+			both pb_nunchucks_prone_crawl_l
+		}
+		weapon melee_nunchuks, direction right, stance prone
+		{
+			both pb_nunchucks_prone_crawl_r
+		}
+		weapon melee_nunchuks, direction backward, stance prone
+		{
+			both pb_nunchucks_prone_crawl_b
+		}
+		weapon melee_nunchuks, stance prone
+		{
+			both pb_nunchucks_prone_crawl_f
+		}
+		// crouch
+		weapon melee_nunchuks, stance crouch
+		{
+			both locomotion_blend_crouch_nunchucks
+		}
+		// Stand
+		weapon melee_nunchuks
+		{
+			both locomotion_blend_nunchucks
+		}
+#end_demo_version_at_least
+#end_gametype
+#gametype ZM AND MP
+		// SWORD
+		// Prone
+		playerAnimType sword, direction left, stance prone
+		{
+			both pb_sword_prone_crawl_l
+		}
+		playerAnimType sword, direction right, stance prone
+		{
+			both pb_sword_prone_crawl_r
+		}
+		playerAnimType sword, direction backward, stance prone
+		{
+			both pb_sword_prone_crawl_b
+		}
+		playerAnimType sword, stance prone
+		{
+			both pb_sword_prone_crawl_f
+		}
+#end_gametype
+
+		// BALLISTIC KNIFE
+		playerAnimType ballisticknife, direction left
+		{
+			both pb_b_knife_walk_left
+		}
+		playerAnimType ballisticknife, direction right
+		{
+			both pb_b_knife_walk_right
+		}
+		playerAnimType ballisticknife, direction backward
+		{
+			both pb_b_knife_walk_back
+		}
+		playerAnimType ballisticknife
+		{
+			both pb_b_knife_walk_forward
+		}
+
+#gametype ZM AND MP
+		// SWORD
+		playerAnimType sword, stance crouch
+		{
+			both locomotion_blend_crouch_sword
+		}
+		playerAnimType sword
+		{
+			both locomotion_blend_sword
+		}
+#end_gametype
+
+		// SPIKE LAUNCHER
+		// crouch
+		playerAnimType spikelauncher, stance crouch
+		{
+			both locomotion_blend_crouch_spikelauncher
+			both locomotion_blend_crouch_spikelauncher_female female
+		}
+		// Stand
+		playerAnimType spikelauncher
+		{
+			both locomotion_blend_spikelauncher
+			both locomotion_blend_spikelauncher_female female
+		}
+			
+		// MINIGUN
+		// Stand
+		playerAnimType minigun, direction left
+		{
+			both pb_minigun_stand_walk_left
+		}
+		playerAnimType minigun, direction right
+		{
+			both pb_minigun_stand_walk_right
+		}
+		playerAnimType minigun, direction backward
+		{
+			both pb_minigun_stand_walk_back
+		}
+		playerAnimType minigun
+		{
+			both pb_minigun_stand_walk
+		}
+
+#gametype MP
+		// ARMMINIGUN
+		// Prone
+		playerAnimType armminigun, direction left, stance prone
+		{
+			both pb_reaper_prone_crawl_l
+		}
+		playerAnimType armminigun, direction right, stance prone
+		{
+			both pb_reaper_prone_crawl_r
+		}
+		playerAnimType armminigun, direction backward, stance prone
+		{
+			both pb_reaper_prone_crawl_b
+		}
+		playerAnimType armminigun, stance prone
+		{
+			both pb_reaper_prone_crawl_f
+		}
+		// crouch
+		playerAnimType armminigun, stance crouch
+		{
+			both locomotion_blend_crouch_armminigun
+		}
+		// Stand
+		playerAnimType armminigun
+		{
+			both locomotion_blend_armminigun
+		}
+		//BRAWLER
+		// Prone
+		playerAnimType brawler, direction left, stance prone
+		{
+			both pb_brawler_prone_crawl_l
+		}
+		playerAnimType brawler, direction right, stance prone
+		{
+			both pb_brawler_prone_crawl_r
+		}
+		playerAnimType brawler, direction backward, stance prone
+		{
+			both pb_brawler_prone_crawl_b
+		}
+		playerAnimType brawler, stance prone
+		{
+			both pb_brawler_prone_crawl_f
+		}
+		// crouch
+		playerAnimType brawler, stance crouch
+		{
+			both locomotion_blend_crouch_brawler
+			both locomotion_blend_crouch_brawler_female female
+		}
+		// Stand
+		playerAnimType brawler
+		{
+			both locomotion_blend_brawler
+			both locomotion_blend_brawler_female female
+		}
+		// CLUB
+		// Prone
+		playerAnimType club, direction left, stance prone
+		{
+			both pb_wrench_prone_crawl_l
+		}
+		playerAnimType club, direction right, stance prone
+		{
+			both pb_wrench_prone_crawl_r
+		}
+		playerAnimType club, direction backward, stance prone
+		{
+			both pb_wrench_prone_crawl_b
+		}
+		playerAnimType club, stance prone
+		{
+			both pb_wrench_prone_crawl_f
+		}
+		// crouch
+		playerAnimType club, stance crouch
+		{
+			both locomotion_blend_crouch_wrench
+		}
+		// Stand
+		playerAnimType club
+		{
+			both locomotion_blend_wrench
+		}
+#end_gametype
+
+#demo_version_at_least 10
+#gametype ZM
+		//SPIKES
+		//Crouch
+		weapon hero_gravityspikes_melee, stance crouch
+		{
+			both locomotion_blend_crouch_spikes
+		}
+		//Stand
+		weapon hero_gravityspikes_melee
+		{
+			both locomotion_blend_spikes
+		}
+#end_gametype
+#end_demo_version_at_least
+
+		// SINGLE KNIFE
+		// Prone
+		playerAnimType singleknife, direction left, stance prone
+		{
+			both pb_knife_prone_crawl_left
+		}
+		playerAnimType singleknife, direction right, stance prone
+		{
+			both pb_knife_prone_crawl_right
+		}
+		playerAnimType singleknife, direction backward, stance prone
+		{
+			both pb_knife_prone_crawl_back
+		}
+		playerAnimType singleknife, stance prone
+		{
+			both pb_knife_prone_crawl_forward
+		}
+		// SINGLE KNIFE
+		playerAnimType singleknife, lowready stance crouch, direction left
+		{
+			both pb_knife_crouch_walk_lowready_l
+		}
+		playerAnimType singleknife, lowready stance crouch, direction right
+		{
+			both pb_knife_crouch_walk_lowready_r
+		}
+		playerAnimType singleknife, lowready stance crouch, direction backward
+		{
+			both pb_knife_crouch_walk_lowready_b
+		}
+		playerAnimType singleknife, lowready stance crouch
+		{
+			both pb_knife_crouch_walk_lowready_f
+		}
+		playerAnimType singleknife, stance crouch
+		{
+			both locomotion_blend_crouch_knife
+		}
+		playerAnimType singleknife, lowready direction left
+		{
+			both pb_knife_walk_lowready_l
+		}
+		playerAnimType singleknife, lowready direction right
+		{
+			both pb_knife_walk_lowready_r
+		}
+		playerAnimType singleknife, lowready direction backward
+		{
+			both pb_knife_walk_lowready_b
+		}
+		playerAnimType singleknife, lowready
+		{
+			both pb_knife_walk_lowready_f
+		}
+		playerAnimType singleknife
+		{
+			both locomotion_blend_knife
+			both locomotion_blend_knife_female female
+		}
+		
+
+#gametype MP AND ZM		
+		// BOW
+		// Prone
+		playerAnimType bow, direction left, stance prone
+		{
+			both pb_bow_prone_crawl_l
+		}
+		playerAnimType bow, direction right, stance prone
+		{
+			both pb_bow_prone_crawl_r
+		}
+		playerAnimType bow, direction backward, stance prone
+		{
+			both pb_bow_prone_crawl_b
+		}
+		playerAnimType bow, stance prone
+		{
+			both pb_bow_prone_crawl_f
+		}
+
+		playerAnimType bow, stance crouch 
+		{
+			both locomotion_blend_crouch_bow
+		}
+		playerAnimType bow
+		{
+			both locomotion_blend_bow
+		}
+#end_gametype
+
+		// ONEHANDED
+		playerAnimType onehanded, stance crouch 
+		{
+			both locomotion_blend_crouch_onehanded
+		}
+		playerAnimType onehanded
+		{
+			both locomotion_blend_onehanded
+		}
+#gametype MP AND CP
+		// RADIO
+		// PRONE
+		playerAnimType radio, direction left, stance prone
+		{
+			both pb_supply_drop_prone_crawl_l
+		}
+		playerAnimType radio, direction right, stance prone
+		{
+			both pb_supply_drop_prone_crawl_r
+		}
+		playerAnimType radio, direction backward, stance prone
+		{
+			both pb_supply_drop_prone_crawl_b
+		}
+		playerAnimType radio, stance prone
+		{
+			both pb_supply_drop_prone_crawl_f
+		}
+		playerAnimType radio, stance crouch 
+		{
+			both locomotion_blend_crouch_radio
+		}
+		playerAnimType radio
+		{
+			both locomotion_blend_radio
+		}
+#end_gametype
+
+		// RPG
+		// Prone
+		weaponclass rocketlauncher, direction left, stance prone
+		{
+			both pb_launcher_prone_crawl_l
+		}
+		weaponclass rocketlauncher, direction right, stance prone
+		{
+			both pb_launcher_prone_crawl_r
+		}
+		weaponclass rocketlauncher, direction backward, stance prone
+		{
+			both pb_launcher_prone_crawl_b
+		}
+		weaponclass rocketlauncher, stance prone
+		{
+			both pb_launcher_prone_crawl_f
+		}
+		// Crouch
+		weaponclass rocketlauncher, lowready direction left, stance crouch
+		{
+			both pb_launcher_crouch_walk_lowready_l
+		}
+		weaponclass rocketlauncher, lowready direction right, stance crouch 
+		{
+			both pb_launcher_crouch_walk_lowready_r
+		}
+		weaponclass rocketlauncher, lowready direction backward, stance crouch
+		{
+			both pb_launcher_crouch_walk_lowready_b
+		}
+		weaponclass rocketlauncher, lowready stance crouch 
+		{
+			both pb_launcher_crouch_walk_lowready_f
+		}
+		weaponclass rocketlauncher, stance crouch 
+		{
+			both locomotion_blend_crouch_launcher
+		}
+		// Stand
+		weaponclass rocketlauncher, lowready direction left
+		{
+			both pb_launcher_walk_lowready_l
+		}
+		weaponclass rocketlauncher, lowready direction right
+		{
+			both pb_launcher_walk_lowready_r
+		}
+		weaponclass rocketlauncher, lowready direction backward
+		{
+			both pb_launcher_walk_lowready_b
+		}
+		weaponclass rocketlauncher, lowready
+		{
+			both pb_launcher_walk_lowready_f
+		}
+		weaponclass rocketlauncher
+		{
+			both locomotion_blend_launcher
+		}
+
+		// PISTOL
+		// Prone
+		weaponclass pistol AND pistol_spread, direction left, stance prone
+		{
+			both pb_prone_pistol_crawl_left
+			both pb_pistol_fem_prone_crawl_l female
+		}
+		weaponclass pistol AND pistol_spread, direction right, stance prone
+		{
+			both pb_prone_pistol_crawl_right
+			both pb_pistol_fem_prone_crawl_r female
+		}
+		weaponclass pistol AND pistol_spread, direction backward, stance prone
+		{
+			both pb_prone_crawl_pistol_back
+			both pb_pistol_fem_prone_crawl_b female
+		}
+		weaponclass pistol AND pistol_spread, stance prone
+		{
+			both pb_prone_crawl_pistol
+			both pb_pistol_fem_prone_crawl_f female
+		}
+		// Crouch
+		weaponclass pistol AND pistol_spread, lowready direction left, stance crouch
+		{
+			both pb_pistol_crouch_walk_lowready_l
+		}
+		weaponclass pistol AND pistol_spread, lowready direction right, stance crouch
+		{
+			both pb_pistol_crouch_walk_lowready_r
+		}
+		weaponclass pistol AND pistol_spread, lowready direction backward, stance crouch
+		{
+			both pb_pistol_crouch_walk_lowready_b
+		}
+		weaponclass pistol AND pistol_spread, lowready stance crouch
+		{
+			both pb_pistol_crouch_walk_lowready_f
+		}
+		weaponclass pistol AND pistol_spread, playerAnimType grenadeonly, stance crouch
+		{
+			both locomotion_blend_crouch_pistol
+			both locomotion_blend_crouch_pistol_female female
+		}
+		// Stand
+		weaponclass pistol AND pistol_spread, lowready
+		{
+			both locomotion_blend_lowready_pistol
+		}
+		weaponclass pistol AND pistol_spread
+		{
+			both locomotion_blend_pistol
+			both locomotion_blend_pistol_female female
+		}
+
+		// GRENADE
+		// Prone
+		weaponclass grenade, weapontype grenade, direction left, playerAnimType grenadeonly, stance prone
+		{
+			both pb_prone_grenade_crawl_left grenadeAnim
+		}
+		weaponclass grenade, weapontype grenade, direction right, playerAnimType grenadeonly, stance prone
+		{
+			both pb_prone_grenade_crawl_right grenadeAnim
+		}
+		weaponclass grenade, weapontype grenade, direction backward, playerAnimType grenadeonly, stance prone
+		{
+			both pb_prone_grenade_crawl_back grenadeAnim
+		}
+		weaponclass grenade, weapontype grenade, playerAnimType grenadeonly, stance prone
+		{
+			both pb_prone_grenade_crawl grenadeAnim
+		}
+		// Crouch
+		weaponclass grenade, weapontype grenade, playerAnimType grenadeonly, stance crouch
+		{
+			both locomotion_blend_crouch_grenade grenadeAnim
+		}
+		// Stand
+		weaponclass grenade, weapontype grenade, playerAnimType grenadeonly
+		{
+			both locomotion_blend_grenade grenadeAnim
+		}
+
+		// DEFAULT
+		// Prone
+		direction left, stance prone
+		{
+			both pb_prone_crawl_left
+			both pb_rifle_fem_prone_crawl_l female
+		}
+		direction right, stance prone
+		{
+			both pb_prone_crawl_right
+			both pb_rifle_fem_prone_crawl_r female
+		}
+		direction backward, stance prone
+		{
+			both pb_prone_crawl_back
+			both pb_rifle_fem_prone_crawl_b female
+		}
+		direction forward, stance prone
+		{
+			both pb_prone_crawl
+			both pb_rifle_fem_prone_crawl_f female
+		}
+		// Crouch
+		lowready direction left, stance crouch
+		{
+			both pb_rifle_crouch_walk_lowready_l
+		}
+		lowready direction right, stance crouch
+		{
+			both pb_rifle_crouch_walk_lowready_r
+		}
+		lowready direction backward, stance crouch
+		{
+			both pb_rifle_crouch_walk_lowready_b
+		}
+		lowready direction forward, stance crouch
+		{
+			both pb_rifle_crouch_walk_lowready_f
+		}
+		stance crouch // two handed rifle type weapon
+		{
+			both locomotion_blend_crouch_rifle
+			both locomotion_blend_crouch_rifle_female female
+		}
+		// Stand
+        //direction forward, weaponclass rifle
+        //{
+        //    both pb_rifle_stand_shoot_walk_f_slow
+        //}
+		lowready
+		{
+			both locomotion_blend_lowready_default
+		}
+		default // two handed rifle type weapon
+		{
+			both locomotion_blend_default
+			both locomotion_blend_default_female female
+		}
+	}
+
+	sprint
+	{
+		// SWIMMING
+		playerAnimType dualwield, swimtype surface
+		{
+			both pb_dw_swim_sprint_over blendTime 400 blendOutTime 10
+		}
+		playerAnimType dualwield, swimtype underwater
+		{
+			both pb_dw_swim_sprint blendTime 400 blendOutTime 10
+		}	
+#gametype MP AND CP
+		playerAnimType radio, swimtype surface
+		{
+			both pb_supply_drop_swim_sprint_over blendTime 400 blendOutTime 10
+		}
+		playerAnimType radio, swimtype underwater
+		{
+			both pb_supply_drop_swim_sprint blendTime 400 blendOutTime 10
+		}	
+		playerAnimType radio
+		{
+			both locomotion_blend_sprint_lean_supply_drop blendOutTime 200
+		}
+#end_gametype
+		weaponclass pistol AND pistol_spread, swimtype surface
+		{
+			both pb_pistol_swim_sprint_over blendTime 400 blendOutTime 10
+		}
+		weaponclass pistol AND pistol_spread, swimtype underwater
+		{
+			both pb_pistol_swim_sprint blendTime 400 blendOutTime 10
+		}
+#gametype MP AND ZM
+		playerAnimType bow, swimtype surface
+		{
+			both pb_bow_swim_sprint_over blendTime 400 blendOutTime 10
+		}
+		playerAnimType bow, swimtype underwater
+		{
+			both pb_bow_swim_sprint blendTime 400 blendOutTime 10
+		}
+#end_gametype
+		weaponclass rocketlauncher, swimtype surface
+		{
+			both pb_launcher_swim_sprint_over blendTime 400	blendOutTime 10
+		}
+		weaponclass rocketlauncher, swimtype underwater
+		{
+			both pb_launcher_swim_sprint blendTime 400 blendOutTime 10
+		}	
+		weaponclass grenade, weapontype grenade, swimtype surface
+		{
+			both pb_grenade_swim_sprint_over blendTime 400	blendOutTime 10
+		}
+		weaponclass grenade, weapontype grenade, swimtype underwater
+		{
+			both pb_grenade_swim_sprint blendTime 400 blendOutTime 10
+		}	
+		playerAnimType singleknife, swimtype surface
+		{
+			both pb_knife_swim_sprint_over blendTime 400 blendOutTime 10	
+		}
+		playerAnimType singleknife, swimtype underwater
+		{
+			both pb_knife_swim_sprint blendTime 400 blendOutTime 10
+		}
+		
+#gametype ZM
+#demo_version_at_least 28
+		// STAFF
+		playerAnimType armminigun
+		{
+			both pb_staff_stand_sprint blendOutTime 200
+		}
+#end_demo_version_at_least
+#end_gametype
+
+#gametype MP
+#demo_version_at_least 21
+		weapon melee_nunchuks, swimtype surface
+		{
+			both pb_nunchucks_swim_sprint_over blendTime 400 blendOutTime 10
+		}
+		weapon melee_nunchuks, swimtype underwater
+		{
+			both pb_nunchucks_swim_sprint blendTime 400 blendOutTime 10
+		}
+#end_demo_version_at_least
+		playerAnimType sword, swimtype surface
+		{
+			both pb_sword_swim_sprint_over blendTime 400 blendOutTime 10
+		}
+		playerAnimType sword, swimtype underwater
+		{
+			both pb_sword_swim_sprint blendTime 400 blendOutTime 10
+		}
+		playerAnimType armminigun, swimtype surface
+		{
+			both pb_reaper_swim_sprint_over blendTime 400 blendOutTime 10
+		}
+		playerAnimType armminigun, swimtype underwater
+		{
+			both pb_reaper_swim_sprint blendTime 400 blendOutTime 10
+		}
+		playerAnimType brawler, swimtype surface
+		{
+			both pb_knife_swim_sprint_over blendTime 400 blendOutTime 10
+		}
+		playerAnimType brawler, swimtype underwater
+		{
+			both pb_knife_swim_sprint blendTime 400 blendOutTime 10
+		}
+		// CLUB
+		playerAnimType club, swimtype surface
+		{
+			both pb_wrench_swim_sprint_over blendTime 400 blendOutTime 10
+		}
+		playerAnimType club, swimtype underwater
+		{
+			both pb_wrench_swim_sprint blendTime 400 blendOutTime 10
+		}
+#end_gametype
+		// HOLD
+		playerAnimType hold, swimtype surface
+		{
+			both pb_hold_swim_sprint_over grenadeAnim blendOutTime 200
+		}
+		playerAnimType hold, swimtype underwater
+		{
+			both pb_hold_swim_sprint grenadeAnim blendOutTime 200
+		}	
+		playerAnimType hold, perk sprintfire
+		{
+			both locomotion_blend_hold  grenadeAnim
+		}
+		playerAnimType hold
+		{
+			both pb_sprint_hold  grenadeAnim blendOutTime 200
+		}
+		weapon ball, swimtype surface
+		{
+			both pb_hold_swim_sprint_over grenadeAnim blendOutTime 200
+		}
+		weapon ball, swimtype underwater
+		{
+			both pb_hold_swim_sprint grenadeAnim blendOutTime 200
+		}	
+		weapon ball, perk sprintfire
+		{
+			both locomotion_blend_hold  grenadeAnim
+		}
+		weapon ball
+		{
+			both pb_sprint_hold  grenadeAnim blendOutTime 200
+		}
+		swimtype surface
+		{
+			both pb_rifle_swim_sprint_over blendTime 400 blendOutTime 10
+		}
+		swimtype underwater
+		{
+			both pb_rifle_swim_sprint blendTime 400 blendOutTime 10
+		}
+		// NONE
+		playerAnimType none
+		{
+			both pb_sprint blendOutTime 200
+		}
+
+#gametype ZM
+		// TURNED
+		playerAnimType turned, direction forward
+		{
+			both pb_zom_beast_move_f
+		}
+		playerAnimType turned, direction backward
+		{
+			both pb_zom_beast_move_b
+		}
+		playerAnimType turned, direction left
+		{
+			both pb_zom_beast_move_l
+		}
+		playerAnimType turned, direction right
+		{
+			both pb_zom_beast_move_r
+		}
+		playerAnimType turned
+		{
+			// none
+		}
+#end_gametype
+		
+		playerAnimType riotshield, weapon_position ads
+		{
+			both pb_riotshield_sprint_ads
+		}
+		playerAnimType riotshield
+		{
+			both pb_riotshield_sprint
+		}
+#gametype MP
+		playerAnimType armminigun, perk sprintfire
+		{
+			both locomotion_blend_sprint_gungho_lean_reaper blendOutTime 200
+		}
+		// ARMMINIGUN
+		playerAnimType armminigun
+		{
+			both locomotion_blend_sprint_lean_armminigun blendOutTime 200
+		}
+		// BRAWLER
+		playerAnimType brawler
+		{
+			both locomotion_blend_sprint_lean_brawler blendOutTime 200
+			both locomotion_blend_sprint_lean_brawler_female blendOutTime 200 female
+		}
+		// CLUB
+		playerAnimType club
+		{
+			both locomotion_blend_sprint_lean_wrench blendOutTime 200
+		}
+#end_gametype
+#demo_version_at_least 10
+#gametype ZM
+		weapon hero_gravityspikes_melee
+		{
+			both locomotion_blend_sprint_lean_spikes blendOutTime 200
+		}
+#end_gametype
+#end_demo_version_at_least
+		playerAnimType dualwield AND ballisticknife, perk sprintfire
+		{
+			torso pt_dw_sprint_fire blendOutTime 200
+		}
+		playerAnimType dualwield AND ballisticknife
+		{
+			both pb_dw_sprint blendOutTime 200
+		}
+		// SINGLE KNIFE
+		playerAnimType singleknife, perk sprintfire
+		{
+			both locomotion_blend_knife
+			both locomotion_blend_knife_female female
+		}
+		playerAnimType singleknife 
+		{
+			both locomotion_blend_sprint_lean_knife blendOutTime 200
+			both locomotion_blend_sprint_lean_knife_female blendOutTime 200 female
+		}
+		
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks
+		{
+ 			both locomotion_blend_sprint_lean_nunchucks blendOutTime 200
+		}
+#end_demo_version_at_least
+#end_gametype		
+#gametype ZM AND MP
+		// SWORD
+		playerAnimType sword 
+		{
+ 			both locomotion_blend_sprint_lean_sword blendOutTime 200
+		}
+#end_gametype		
+		
+		// SPIKE LAUNCHER
+		playerAnimType spikelauncher
+		{
+ 			both locomotion_blend_sprint_lean_spikelauncher blendOutTime 200
+ 			both locomotion_blend_sprint_lean_spikelauncher_female blendOutTime 200 female
+		}
+		
+#gametype MP AND ZM
+		// BOW
+		playerAnimType bow
+		{
+			both locomotion_blend_sprint_lean_bow blendOutTime 200
+		}
+#end_gametype
+		
+		// RPG
+		weaponclass rocketlauncher, perk sprintfire
+		{
+			both pb_launcher_sprint_gungho
+		}
+		weaponclass rocketlauncher 
+		{
+			both locomotion_blend_sprint_lean_launcher blendOutTime 200
+		}
+		// PISTOL
+		weaponclass pistol AND pistol_spread, perk sprintfire
+		{
+			both pb_pistol_sprint_gungho
+			both pb_pistol_fem_sprint_gungho female
+		}
+		weaponclass pistol AND pistol_spread
+		{
+			both locomotion_blend_sprint_lean_pistol blendOutTime 200
+			both locomotion_blend_sprint_lean_pistol_female female blendOutTime 200
+		}
+		// SMG
+		weaponclass smg, perk sprintfire
+		{
+			both pb_smg_sprint_gungho
+		}
+		weaponclass smg
+		{
+			both locomotion_blend_sprint_lean_smg blendOutTime 200
+		}
+		// MG
+		weaponclass mg, perk sprintfire
+		{
+			both pb_lmg_sprint_gungho
+		}
+		weaponclass mg
+		{
+			both locomotion_blend_sprint_lean_lmg blendOutTime 200
+		}
+		playerAnimType onehanded
+		{
+			both locomotion_blend_onehanded
+		}
+		// GRENADE
+		weaponclass grenade, weapontype grenade, playerAnimType grenadeonly, perk sprintfire
+		{
+			both locomotion_blend_grenade grenadeAnim
+		}
+		weaponclass grenade, weapontype grenade, playerAnimType grenadeonly
+		{
+			both pb_grenade_sprint blendOutTime 200
+		}
+
+#gametype MP
+		perk sprintfire
+		{
+			both locomotion_blend_sprint_gungho_lean_rifle blendOutTime 200
+			both locomotion_blend_sprint_gungho_lean_rifle_female blendOutTime 200 female
+		}
+#end_gametype
+		
+		default
+		{
+			both locomotion_blend_sprint_lean_rifle blendOutTime 200
+			both locomotion_blend_sprint_lean_rifle_female blendOutTime 200 female
+		}
+	}
+	
+	doublejump
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		direction forward, weapon melee_nunchuks 
+		{
+			both pb_nunchucks_doublejump_loop_f blendtime 20 blendouttime 100
+		}
+		direction backward, weapon melee_nunchuks 
+		{
+			both pb_nunchucks_doublejump_loop_b blendtime 20 blendouttime 100
+		}
+		direction right, weapon melee_nunchuks 
+		{
+			both pb_nunchucks_doublejump_loop_r blendtime 20 blendouttime 100
+		}
+		direction left, weapon melee_nunchuks
+		{
+			both pb_nunchucks_doublejump_loop_l blendtime 20 blendouttime 100
+		}
+		weapon melee_nunchuks 
+		{
+ 			both pb_nunchucks_doublejump_loop blendtime 20 blendouttime 100
+		}
+#end_demo_version_at_least
+		// SWORD
+		direction forward, playerAnimType sword 
+		{
+			both pb_sword_doublejump_loop_f blendtime 20 blendouttime 100
+		}
+		direction backward, playerAnimType sword 
+		{
+			both pb_sword_doublejump_loop_b blendtime 20 blendouttime 100
+		}
+		direction right, playerAnimType sword 
+		{
+			both pb_sword_doublejump_loop_r blendtime 20 blendouttime 100
+		}
+		direction left, playerAnimType sword
+		{
+			both pb_sword_doublejump_loop_l blendtime 20 blendouttime 100
+		}
+		playerAnimType sword 
+		{
+ 			both pb_sword_doublejump_loop blendtime 20 blendouttime 100
+		}
+		// ARMMINIGUN
+		direction forward, playerAnimType armminigun 
+		{
+			both pb_reaper_doublejump_loop_f blendtime 20 blendouttime 100
+		}
+		direction backward, playerAnimType armminigun 
+		{
+			both pb_reaper_doublejump_loop_b blendtime 20 blendouttime 100
+		}
+		direction right, playerAnimType armminigun 
+		{
+			both pb_reaper_doublejump_loop_r blendtime 20 blendouttime 100
+		}
+		direction left, playerAnimType armminigun
+		{
+			both pb_reaper_doublejump_loop_l blendtime 20 blendouttime 100
+		}
+		playerAnimType armminigun 
+		{
+ 			both pb_reaper_doublejump_loop_f blendtime 20 blendouttime 100
+		}
+		// BRAWLER
+		direction forward, playerAnimType brawler 
+		{
+			both pb_brawler_doublejump_loop_f blendtime 20 blendouttime 100
+		}
+		direction backward, playerAnimType brawler 
+		{
+			both pb_brawler_doublejump_loop_b blendtime 20 blendouttime 100
+		}
+		direction right, playerAnimType brawler 
+		{
+			both pb_brawler_doublejump_loop_f blendtime 20 blendouttime 100
+		}
+		direction left, playerAnimType brawler
+		{
+			both pb_brawler_doublejump_loop_l blendtime 20 blendouttime 100
+		}
+		playerAnimType brawler 
+		{
+ 			both pb_brawler_doublejump_loop blendtime 20 blendouttime 100
+		}
+		// CLUB
+		playerAnimType club
+		{
+ 			both pb_wrench_doublejump_loop blendtime 20 blendouttime 100
+		}
+#end_gametype
+
+		// ONEHANDED
+		direction forward, playerAnimType onehanded 
+		{
+			both pb_pistol_1handed_doublejump_loop_f blendtime 20 blendouttime 100
+		}
+		direction backward, playerAnimType onehanded 
+		{
+			both pb_pistol_1handed_doublejump_loop_b blendtime 20 blendouttime 100
+		}
+		direction right, playerAnimType onehanded 
+		{
+			both pb_pistol_1handed_doublejump_loop_r blendtime 20 blendouttime 100
+		}
+		direction left, playerAnimType onehanded
+		{
+			both pb_pistol_1handed_doublejump_loop_l blendtime 20 blendouttime 100
+		}
+		playerAnimType onehanded 
+		{
+ 			both pb_pistol_1handed_doublejump_loop blendtime 20 blendouttime 100
+		}
+		// SPIKE LAUNCHER
+		direction forward, playerAnimType spikelauncher 
+		{
+			both pb_spike_launcher_doublejump_loop_f blendtime 20 blendouttime 100
+		}
+		direction backward, playerAnimType spikelauncher 
+		{
+			both pb_spike_launcher_doublejump_loop_b blendtime 20 blendouttime 100
+		}
+		direction right, playerAnimType spikelauncher 
+		{
+			both pb_spike_launcher_doublejump_loop_r blendtime 20 blendouttime 100
+		}
+		direction left, playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_doublejump_loop_l blendtime 20 blendouttime 100
+		}
+		playerAnimType spikelauncher 
+		{
+ 			both pb_spike_launcher_doublejump_loop blendtime 20 blendouttime 100
+		}
+		
+		// HATCHET
+		direction forward, playerAnimType hatchet 
+		{
+			both pb_tomahawk_doublejump_loop_f blendtime 20 blendouttime 100
+		}
+		direction backward, playerAnimType hatchet 
+		{
+			both pb_tomahawk_doublejump_loop_b blendtime 20 blendouttime 100
+		}
+		direction right, playerAnimType hatchet 
+		{
+			both pb_tomahawk_doublejump_loop_r blendtime 20 blendouttime 100
+		}
+		direction left, playerAnimType hatchet
+		{
+			both pb_tomahawk_doublejump_loop_l blendtime 20 blendouttime 100
+		}
+		playerAnimType hatchet 
+		{
+ 			both pb_tomahawk_doublejump_loop blendtime 20 blendouttime 100
+		}
+		// HOLD
+		direction forward, playerAnimType hold 
+		{
+			both pb_hold_doublejump_loop_f grenadeAnim blendtime 20 blendouttime 100
+		}
+		direction backward, playerAnimType hold 
+		{
+			both pb_hold_doublejump_loop_b grenadeAnim blendtime 20 blendouttime 100
+		}
+		direction right, playerAnimType hold 
+		{
+			both pb_hold_doublejump_loop_r grenadeAnim blendtime 20 blendouttime 100
+		}
+		direction left, playerAnimType hold
+		{
+			both pb_hold_doublejump_loop_l grenadeAnim blendtime 20 blendouttime 100
+		}
+		playerAnimType hold 
+		{
+ 			both pb_hold_doublejump_loop grenadeAnim blendtime 20 blendouttime 100
+		}
+		// GRENADE
+		weaponclass grenade, weapontype grenade, direction left, playerAnimType grenadeonly
+		{
+			both pb_grenade_doublejump_loop_l grenadeAnim blendouttime 100
+		}
+		weaponclass grenade, weapontype grenade, direction right, playerAnimType grenadeonly
+		{
+			both pb_grenade_doublejump_loop_r grenadeAnim blendouttime 100
+		}
+		weaponclass grenade, weapontype grenade, direction backward, playerAnimType grenadeonly
+		{
+			both pb_grenade_doublejump_loop_b grenadeAnim blendouttime 100
+		}
+		weaponclass grenade, weapontype grenade, direction forward, playerAnimType grenadeonly
+		{
+			both pb_grenade_doublejump_loop_f grenadeAnim blendouttime 100
+		}
+		weaponclass grenade, weapontype grenade, playerAnimType grenadeonly
+		{
+			both pb_grenade_doublejump_loop grenadeAnim blendouttime 100
+		}
+		// SINGLE KNIFE
+		direction forward, playerAnimType singleknife 
+		{
+			both pb_knife_doublejump_loop_f blendtime 20 blendouttime 100
+		}
+		direction backward, playerAnimType singleknife 
+		{
+			both pb_knife_doublejump_loop_b blendtime 20 blendouttime 100
+		}
+		direction right, playerAnimType singleknife 
+		{
+			both pb_knife_doublejump_loop_r blendtime 20 blendouttime 100
+		}
+		direction left, playerAnimType singleknife 
+		{
+			both pb_knife_doublejump_loop_l blendtime 20 blendouttime 100
+		}
+		playerAnimType singleknife 
+		{
+ 			both pb_knife_doublejump_loop blendtime 20 blendouttime 100
+		}
+		// DUALWIELD
+		direction forward, playerAnimType dualwield
+		{
+			both pb_dw_doublejump_loop_f grenadeAnim blendtime 20 blendouttime 100
+		}
+		direction backward, playerAnimType dualwield
+		{
+			both pb_dw_doublejump_loop_b grenadeAnim blendtime 20 blendouttime 100
+		}
+		direction right, playerAnimType dualwield
+		{
+			both pb_dw_doublejump_loop_r grenadeAnim blendtime 20 blendouttime 100
+		}
+		direction left, playerAnimType dualwield
+		{
+			both pb_dw_doublejump_loop_l grenadeAnim blendtime 20 blendouttime 100
+		}
+		playerAnimType dualwield
+		{
+ 			both pb_dw_doublejump_loop grenadeAnim blendtime 20 blendouttime 100
+		}
+#gametype MP AND CP
+		// RADIO
+		direction forward, playerAnimType radio 
+		{
+			both pb_supply_drop_doublejump_loop_f blendtime 20 blendouttime 100
+		}
+		direction backward, playerAnimType radio 
+		{
+			both pb_supply_drop_doublejump_loop_b blendtime 20 blendouttime 100
+		}
+		direction right, playerAnimType radio 
+		{
+			both pb_supply_drop_doublejump_loop_r blendtime 20 blendouttime 100
+		}
+		direction left, playerAnimType radio
+		{
+			both pb_spike_launcher_doublejump_loop_l blendtime 20 blendouttime 100
+		}
+		playerAnimType radio 
+		{
+ 			both pb_supply_drop_doublejump_loop blendtime 20 blendouttime 100
+		}
+#end_gametype
+		// PISTOL
+		direction forward, weaponclass pistol
+		{
+			both pb_pistol_doublejump_loop_f blendtime 20 blendouttime 100
+			both pb_pistol_fem_doublejump_loop_f female blendtime 20 blendouttime 100
+		}
+		direction backward, weaponclass pistol
+		{
+			both pb_pistol_doublejump_loop_b blendtime 20 blendouttime 100
+			both pb_pistol_fem_doublejump_loop_b female blendtime 20 blendouttime 100
+		}
+		direction right, weaponclass pistol
+		{
+			both pb_pistol_doublejump_loop_r blendtime 20 blendouttime 100
+			both pb_pistol_fem_doublejump_loop_r female blendtime 20 blendouttime 100
+		}
+		direction left, weaponclass pistol
+		{
+			both pb_pistol_doublejump_loop_l blendtime 20 blendouttime 100
+			both pb_pistol_fem_doublejump_loop_l female blendtime 20 blendouttime 100
+		}
+		weaponclass pistol
+		{
+			both pb_pistol_doublejump_loop blendtime 20 blendouttime 100
+			both pb_pistol_fem_doublejump_loop female blendtime 20 blendouttime 100
+		}
+		
+#gametype MP AND ZM
+		// BOW
+		direction forward, playerAnimType bow
+		{
+			both pb_bow_doublejump_loop_f blendtime 20 blendouttime 100
+		}
+		direction backward, playerAnimType bow
+		{
+			both pb_bow_doublejump_loop_b blendtime 20 blendouttime 100
+		}
+		direction right, playerAnimType bow
+		{
+			both pb_bow_doublejump_loop_r blendtime 20 blendouttime 100
+		}
+		direction left, playerAnimType bow
+		{
+			both pb_bow_doublejump_loop_l blendtime 20 blendouttime 100
+		}
+		playerAnimType bow
+		{
+			both pb_bow_doublejump_loop blendtime 20 blendouttime 100
+		}
+#end_gametype
+		
+		// RPG
+		direction forward, weaponclass rocketlauncher
+		{
+			both pb_launcher_doublejump_loop_f blendtime 20 blendouttime 100
+		}
+		direction backward, weaponclass rocketlauncher
+		{
+			both pb_launcher_doublejump_loop_b blendtime 20 blendouttime 100
+		}
+		direction right, weaponclass rocketlauncher
+		{
+			both pb_launcher_doublejump_loop_r blendtime 20 blendouttime 100
+		}
+		direction left, weaponclass rocketlauncher
+		{
+			both pb_launcher_doublejump_loop_l blendtime 20 blendouttime 100
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_doublejump_loop_f blendtime 20 blendouttime 100
+//			both pb_launcher_doublejump_loop blendtime 20 blendouttime 100
+		}
+		direction forward
+		{
+			both pb_rifle_doublejump_loop_f blendtime 20 blendouttime 100
+			both pb_rifle_fem_doublejump_loop_f blendtime 20 female blendouttime 100
+		}
+		direction backward
+		{
+			both pb_rifle_doublejump_loop_b blendtime 20 blendouttime 100
+			both pb_rifle_fem_doublejump_loop_b blendtime 20 female blendouttime 100
+		}
+		direction right
+		{
+			both pb_rifle_doublejump_loop_r blendtime 20 blendouttime 100
+			both pb_rifle_fem_doublejump_loop_r blendtime 20 female blendouttime 100
+		}
+		direction left
+		{
+			both pb_rifle_doublejump_loop_l blendtime 20 blendouttime 100
+			both pb_rifle_fem_doublejump_loop_l blendtime 20 female blendouttime 100
+		}
+		default
+		{
+			both pb_rifle_doublejump_loop blendtime 20 blendouttime 100
+			both pb_rifle_fem_doublejump_loop blendtime 20 female blendouttime 100
+		}
+	}
+
+	doublejump_in_air
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks 
+		{
+			both pb_nunchucks_doublejump_fall_loop blendouttime 100
+		}
+#end_demo_version_at_least
+		// SWORD
+		playerAnimType sword 
+		{
+			both pb_sword_doublejump_fall_loop blendouttime 100
+		}
+		// ARMMINIGUN
+		playerAnimType armminigun 
+		{
+			both pb_reaper_doublejump_fall_loop blendouttime 100
+		}
+		// BRAWLER
+		playerAnimType brawler 
+		{
+			both pb_brawler_doublejump_fall_loop blendouttime 100
+		}
+		// CLUB
+		playerAnimType club
+		{
+			both pb_wrench_doublejump_fall_loop blendouttime 100
+		}
+#end_gametype
+
+		// ONEHANDED
+		playerAnimType onehanded 
+		{
+			both pb_pistol_1handed_doublejump_fall_loop blendouttime 100
+		}
+		//SPIKE LAUNCHER
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_doublejump_fall_loop blendouttime 100
+		}
+		// HATCHET
+		playerAnimType hatchet 
+		{
+			both pb_tomahawk_doublejump_fall_loop blendouttime 100 legrig pb_grenade_doublejump_fall_loop blendouttime 100
+		}
+		// HOLD
+		playerAnimType hold 
+		{
+			both pb_hold_doublejump_fall_loop blendouttime 100 grenadeAnim
+		}
+		// GREANDE
+		weaponclass grenade, weapontype grenade, playerAnimType grenadeonly
+		{
+			both pb_grenade_doublejump_fall_loop blendouttime 100 grenadeAnim
+		}
+		// SINGLE KNIFE
+		playerAnimType singleknife 
+		{
+ 			both pb_knife_doublejump_fall_loop blendouttime 100 
+		}
+		// DW
+		playerAnimType dualwield
+		{
+			both pb_dw_doublejump_fall_loop blendouttime 100
+		}
+		
+#gametype MP AND ZM
+		// BOW
+		playerAnimType bow
+		{
+			both pb_bow_doublejump_fall_loop blendouttime 100
+		}
+#end_gametype
+
+#gametype MP AND CP
+		// RADIO
+		playerAnimType radio
+		{
+			both pb_supply_drop_doublejump_fall_loop blendouttime 100
+		}
+#end_gametype
+		// RPG
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_doublejump_fall_loop blendouttime 100
+		}
+		// PISTOL
+		weaponclass pistol
+		{
+			both pb_pistol_doublejump_fall_loop blendouttime 100
+			both pb_pistol_fem_doublejump_fall_loop blendouttime 100 female
+		}
+		default
+		{
+			both pb_rifle_doublejump_fall_loop blendouttime 100
+			both pb_rifle_fem_doublejump_fall_loop blendouttime 100 female
+		}
+	}
+	
+	run
+	{
+#gametype CP AND ZM
+		// LASTSTAND - Knife
+		playerAnimType singleknife, perk laststand, direction forward
+		{
+			both pb_knife_laststand_crawl_f
+		}
+		playerAnimType singleknife, perk laststand, direction backward
+		{
+			both pb_knife_laststand_crawl_b
+		}
+		playerAnimType singleknife, perk laststand, direction right
+		{
+			both pb_knife_laststand_crawl_r
+		}
+		playerAnimType singleknife, perk laststand, direction left
+		{
+			both pb_knife_laststand_crawl_l
+		}
+		// LASTSTAND
+		perk laststand, direction forward
+		{
+			both pb_laststand_crawl_forward
+		}
+		perk laststand, direction backward
+		{
+			both pb_laststand_crawl_back
+		}
+		perk laststand, direction right
+		{
+			both pb_laststand_crawl_right
+		}
+		perk laststand, direction left
+		{
+			both pb_laststand_crawl_left
+		}
+#end_gametype
+		// NONE
+			// Crouch
+			playerAnimType none, stance crouch
+			{
+				both locomotion_blend_crouch_pistol
+				both locomotion_blend_crouch_pistol_female female
+			}
+			// Stand
+			playerAnimType none
+			{
+				both locomotion_blend_pistol
+				both locomotion_blend_pistol_female female
+			}
+			
+#gametype ZM
+		// TURNED
+			playerAnimType turned, direction forward
+			{
+				both pb_zom_beast_move_f
+			}
+			playerAnimType turned, direction backward
+			{
+				both pb_zom_beast_move_b
+			}
+			playerAnimType turned, direction left
+			{
+				both pb_zom_beast_move_l
+			}
+			playerAnimType turned, direction right
+			{
+				both pb_zom_beast_move_r
+			}
+			playerAnimType turned
+			{
+				// none
+			}
+#end_gametype
+
+		// RIOTSHIELD
+			playerAnimType riotshield, direction left, stance crouch
+			{
+				both pb_riotshield_crouch_walk_l
+			}
+			playerAnimType riotshield, direction right, stance crouch
+			{
+				both pb_riotshield_crouch_walk_r
+			}
+			playerAnimType riotshield, direction backward, stance crouch
+			{
+				both pb_riotshield_crouch_walk_b
+			}
+			playerAnimType riotshield, stance crouch
+			{
+				both pb_riotshield_crouch_walk_f
+			}
+			playerAnimType riotshield, direction backward, weapon_position ads
+			{
+				both pb_riotshield_run_b_ads
+			}
+			playerAnimType riotshield, direction forward, weapon_position ads
+			{
+				both pb_riotshield_run_f_ads
+			}
+			playerAnimType riotshield, direction left, weapon_position ads
+			{
+				both pb_riotshield_run_l_ads
+			}
+			playerAnimType riotshield, direction right, weapon_position ads
+			{
+				both pb_riotshield_run_r_ads
+			}
+			playerAnimType riotshield, direction backward
+			{
+				both pb_riotshield_run_back
+			}
+			playerAnimType riotshield, direction forward
+			{
+				both pb_riotshield_run_forward
+			}
+			playerAnimType riotshield, direction left
+			{
+				both pb_riotshield_run_left
+			}
+			playerAnimType riotshield, direction right
+			{
+				both pb_riotshield_run_right
+			}
+		// HOLD
+			// Crouch
+			playerAnimType hold, stance crouch
+			{
+				both locomotion_blend_crouch_hold  grenadeAnim
+			}
+			// Stand
+			playerAnimType hold
+			{
+				both locomotion_blend_hold  grenadeAnim
+			}
+
+		// DUALWIELD
+			// Crouch
+			playerAnimType dualwield, stance crouch
+			{
+				both locomotion_blend_crouch_dw
+			}
+			// Stand
+			playerAnimType dualwield
+			{
+				both locomotion_blend_dw
+			}
+		// BALLISTIC KNIFE
+			// Crouch
+			playerAnimType ballisticknife, direction left, stance crouch
+			{
+				both pb_b_knife_crouch_run_left
+			}
+			playerAnimType ballisticknife, direction right, stance crouch
+			{
+				both pb_b_knife_crouch_run_right
+			}
+			playerAnimType ballisticknife, direction backward, stance crouch
+			{
+				both pb_b_knife_crouch_run_back
+			}
+			playerAnimType ballisticknife, stance crouch
+			{
+				both pb_b_knife_crouch_run_forward
+			}
+			// Stand
+			playerAnimType ballisticknife, direction left
+			{
+				both pb_b_knife_run_left
+			}
+			playerAnimType ballisticknife, direction right
+			{
+				both pb_b_knife_run_right
+			}
+			playerAnimType ballisticknife, direction backward
+			{
+				both pb_b_knife_run_back
+			}
+			playerAnimType ballisticknife
+			{
+				both pb_b_knife_run_forward
+			}
+#gametype ZM
+#demo_version_at_least 28
+		// STAFF
+			// Crouch
+			playerAnimType armminigun, direction left, stance crouch
+			{
+				both pb_staff_crouch_run_l
+			}
+			playerAnimType armminigun, direction right, stance crouch
+			{
+				both pb_staff_crouch_run_r
+			}
+			playerAnimType armminigun, direction backward, stance crouch
+			{
+				both pb_staff_crouch_run_b
+			}
+			playerAnimType armminigun, stance crouch
+			{
+				both pb_staff_crouch_run_f
+			}
+			// Stand
+			playerAnimType armminigun, direction left
+			{
+				both pb_staff_stand_run_l
+			}
+			playerAnimType armminigun, direction right
+			{
+				both pb_staff_stand_run_r
+			}
+			playerAnimType armminigun, direction backward
+			{
+				both pb_staff_stand_run_b
+			}
+			playerAnimType armminigun
+			{
+				both pb_staff_stand_run_f
+			}
+#end_demo_version_at_least
+#end_gametype
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+			// Crouch
+			weapon melee_nunchuks, stance crouch
+			{
+				both locomotion_blend_crouch_nunchucks
+			}
+			// Stand
+			weapon melee_nunchuks
+			{
+				both locomotion_blend_nunchucks
+			}
+#end_demo_version_at_least
+#end_gametype
+#gametype ZM AND MP
+		// SWORD
+			// Crouch
+			playerAnimType sword, stance crouch
+			{
+				both locomotion_blend_crouch_sword
+			}
+			// Stand
+			playerAnimType sword
+			{
+				both locomotion_blend_sword
+			}
+#end_gametype
+
+		// MINIGUN
+			// Crouch
+			playerAnimType minigun, direction left, stance crouch
+			{
+				both pb_minigun_crouch_run_left
+			}
+			playerAnimType minigun, direction right, stance crouch
+			{
+				both pb_minigun_crouch_run_right
+			}
+			playerAnimType minigun, direction backward, stance crouch
+			{
+				both pb_minigun_crouch_run_back
+			}
+			playerAnimType minigun, stance crouch
+			{
+				both pb_minigun_crouch_run_forward
+			}
+			// Stand
+			playerAnimType minigun, direction left
+			{
+				both pb_minigun_stand_run_left
+			}
+			playerAnimType minigun, direction right
+			{
+				both pb_minigun_stand_run_right
+			}
+			playerAnimType minigun, direction backward
+			{
+				both pb_minigun_stand_run_back
+			}
+			playerAnimType minigun
+			{
+				both pb_minigun_stand_run	
+			}
+		// ONEHANDED
+			playerAnimType onehanded, stance crouch 
+			{
+				both locomotion_blend_crouch_onehanded
+			}
+			playerAnimType onehanded
+			{
+				both locomotion_blend_onehanded
+			}
+			
+#gametype MP
+		// ARMMINIGUN
+			// Crouch
+			playerAnimType armminigun, stance crouch
+			{
+				both locomotion_blend_crouch_armminigun
+			}
+			// Stand
+			playerAnimType armminigun
+			{
+				both locomotion_blend_armminigun
+			}
+		// BRAWLER
+			// Crouch
+			playerAnimType brawler, stance crouch
+			{
+				both locomotion_blend_crouch_brawler
+				both locomotion_blend_crouch_brawler_female female
+			}
+			// Stand
+			playerAnimType brawler
+			{
+				both locomotion_blend_brawler
+				both locomotion_blend_brawler_female female
+			}
+			// WRENCH
+			// Crouch
+			playerAnimType club, stance crouch
+			{
+				both locomotion_blend_crouch_wrench
+			}
+			// Stand
+			playerAnimType club
+			{
+				both locomotion_blend_wrench
+			}
+#end_gametype
+
+#demo_version_at_least 10
+#gametype ZM
+		//SPIKES
+		//Crouch
+		weapon hero_gravityspikes_melee, stance crouch
+		{
+			both locomotion_blend_crouch_spikes
+		}
+		//Stand
+		weapon hero_gravityspikes_melee
+		{
+			both locomotion_blend_spikes
+		}
+#end_gametype
+#end_demo_version_at_least
+
+		// SINGLE KNIFE
+			// Crouch
+			playerAnimType singleknife, stance crouch
+			{
+				both locomotion_blend_crouch_knife
+			}
+			// Stand
+			playerAnimType singleknife, lowready direction left
+			{
+				both pb_knife_run_lowready_l
+			}
+			playerAnimType singleknife, lowready direction right
+			{
+				both pb_knife_run_lowready_r
+			}
+			playerAnimType singleknife, lowready direction backward
+			{
+				both pb_knife_run_lowready_b
+			}
+			playerAnimType singleknife, lowready
+			{
+				both pb_knife_run_lowready_f
+			}
+			playerAnimType singleknife
+			{
+				both locomotion_blend_knife
+				both locomotion_blend_knife_female female
+			}
+
+#gametype MP AND ZM
+		// BOW
+			playerAnimType bow, stance crouch
+			{
+				both locomotion_blend_crouch_bow
+			}
+			playerAnimType bow 
+			{
+				both locomotion_blend_bow
+			}
+#end_gametype
+
+#gametype MP AND CP
+		// RADIO
+			playerAnimType radio, stance crouch
+			{
+				both locomotion_blend_crouch_radio
+			}
+			playerAnimType radio 
+			{
+				both locomotion_blend_radio
+			}
+#end_gametype
+		// RPG
+			// Crouch
+			weaponclass rocketlauncher, stance crouch
+			{
+				both locomotion_blend_crouch_launcher
+			}
+			// Stand
+			weaponclass rocketlauncher, lowready direction left
+			{
+				both pb_launcher_run_lowready_l
+			}
+			weaponclass rocketlauncher, lowready direction right
+			{
+				both pb_launcher_run_lowready_r
+			}
+			weaponclass rocketlauncher, lowready direction backward
+			{
+				both pb_launcher_run_lowready_b
+			}
+			weaponclass rocketlauncher, lowready
+			{
+				both pb_launcher_run_lowready_f
+			}
+			weaponclass rocketlauncher 
+			{
+				both locomotion_blend_launcher
+			}
+
+		// PISTOL
+			// Crouch
+			weaponclass pistol AND pistol_spread, stance crouch
+			{
+				both locomotion_blend_crouch_pistol
+				both locomotion_blend_crouch_pistol_female female
+			}
+			// Stand
+			weaponclass pistol AND pistol_spread, slope up
+			{
+				both pb_pistol_stand_run_slopeup
+			}
+			weaponclass pistol AND pistol_spread, slope down
+			{
+				both pb_pistol_stand_run_slopedown
+			}
+			weaponclass pistol AND pistol_spread, lowready
+			{
+				both locomotion_blend_lowready_pistol
+			}
+			weaponclass pistol AND pistol_spread
+			{
+				both locomotion_blend_pistol
+				both locomotion_blend_pistol_female female
+			}
+		// SPIKE LAUNCHER
+			// Crouch
+			playerAnimType spikelauncher, stance crouch
+			{
+				both locomotion_blend_crouch_spikelauncher
+			}
+			// Stand
+			playerAnimType spikelauncher
+			{
+				both locomotion_blend_spikelauncher
+			}
+		// GRENADE
+			// Crouch
+			weaponclass grenade, weapontype grenade, playerAnimType grenadeonly, stance crouch
+			{
+				both locomotion_blend_crouch_grenade grenadeAnim
+			}
+			// Stand
+			weaponclass grenade, weapontype grenade, playerAnimType grenadeonly
+			{
+				both locomotion_blend_grenade grenadeAnim
+			}
+		// DEFAULT
+			// Crouch
+			stance crouch
+			{
+				both locomotion_blend_crouch_default
+				both locomotion_blend_crouch_default_female female
+			}
+			// Stand
+			lowready
+			{
+				both locomotion_blend_lowready_default
+			}
+			default
+			{
+				both locomotion_blend_default
+				both locomotion_blend_default_female female
+			}
+	}
+
+	climb
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		climbtype ladder, direction backward, playeranimtype riotshield
+		{
+			both pb_riot_climbdown
+		}
+		climbtype ladder, direction backward
+		{
+			both pb_rifle_ladder_climb_down
+		}
+		climbtype ladder, playeranimtype riotshield
+		{
+			both pb_riot_climbup
+		}
+		climbtype ladder
+		{
+			both pb_rifle_ladder_climb_up
+		}
+		climbtype wall, direction left
+		{
+			both pb_rifle_free_climb_left_loop
+		}
+		climbtype wall, direction right
+		{
+			both pb_rifle_free_climb_right_loop
+		}
+		climbtype wall, direction backward
+		{
+			both pb_rifle_free_climb_down
+		}
+		climbtype wall
+		{
+			both pb_rifle_free_climb_up
+		}
+		climbtype pipe, direction backward
+		{
+			both pb_rifle_pipe_climb_down
+		}
+		climbtype pipe
+		{
+			both pb_rifle_pipe_climb_up
+		}
+		default
+		{
+			// no animation
+		}
+	}
+	
+	climb_slide
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		climbtype ladder, direction backward
+		{
+			both pb_rifle_ladder_slide_down
+		}
+		climbtype wall, direction backward
+		{
+			both pb_rifle_free_climb_down
+		}
+		climbtype pipe, direction backward
+		{
+			both pb_rifle_pipe_slide_down
+		}
+		default
+		{
+			// no animation
+		}
+	}
+	
+	climb_enter_above
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		climbtype ladder
+		{
+			both pb_rifle_ladder_enter_back_above animrate .85
+		}
+		default
+		{
+			both pb_rifle_ladder_enter_back_above animrate .85
+		}
+	}
+	
+	climb_enter_ground
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		climbtype ladder
+		{
+			both pb_rifle_ladder_enter_below animrate .85
+		}
+		default
+		{
+			both pb_rifle_ladder_enter_below animrate .85
+		}
+	}
+	
+	climb_enter_air
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		climbtype ladder
+		{
+			both pb_rifle_ladder_jump_enter animrate .85
+		}
+		default
+		{
+			both pb_rifle_ladder_jump_enter animrate .85
+		}
+	}
+	
+	turnright
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		// LAST STAND
+		perk laststand, playerAnimType radio
+		{
+		}
+		perk laststand, playerAnimType singleknife
+		{
+			both pb_knife_laststand_turn_r90
+		}
+		perk laststand
+		{
+			both pb_laststand_turn_r90
+		}
+
+		// NONE
+		playerAnimType briefcase, stance prone
+		{
+			both pb_briefcase_prone_turn_r90
+		}
+		playerAnimType briefcase, stance crouch
+		{
+			both pb_briefcase_crouch_turn_r90
+		}
+		playerAnimType briefcase
+		{
+			both pb_briefcase_stand_turn_r90
+		}
+		// ONEHANDED
+		playerAnimType onehanded, stance prone
+		{
+			both pb_pistol_1handed_prone_turn_r90
+		}
+		playerAnimType onehanded, stance crouch
+		{
+			both pb_pistol_1handed_crouch_turn_r90
+		}
+		playerAnimType onehanded
+		{
+			both pb_pistol_1handed_stand_turn_r90
+		}
+		playerAnimType riotshield, stance crouch, weapon_position ads
+		{
+			both pb_riotshield_crouch_turn_r90_ads
+		}
+		playerAnimType riotshield, stance crouch
+		{
+			both pb_riotshield_crouch_turn_90r
+		}
+		playerAnimType riotshield, weapon_position ads
+		{
+			both pb_riotshield_stand_turn_r90_ads
+		}
+		playerAnimType riotshield
+		{
+			both pb_riotshield_stand_turn_90r
+		}
+		// HOLD
+		playerAnimType hold, stance prone
+		{
+			both pb_hold_prone_turn_90right  grenadeAnim
+		}
+		playerAnimType hold, stance crouch
+		{
+			both pb_hold_crouchturn_90right  grenadeAnim
+		}
+		playerAnimType hold
+		{
+			both pb_hold_turn_90right  grenadeAnim
+		}
+
+		// TABLET
+		playerAnimType tablet, stance prone
+		{
+			both pb_tablet_prone_idle
+		}
+		playerAnimType tablet, stance crouch
+		{
+			both pb_tablet_crouch_idle
+		}
+		playerAnimType tablet
+		{
+			both pb_v_tablet_stand_idle
+		}
+		// DUAL WIELD
+		playerAnimType dualwield AND ballisticknife, stance prone
+		{
+			both pb_dw_prone_turn_90right
+		}
+		playerAnimType dualwield AND ballisticknife, stance crouch
+		{
+			both pb_dw_crouchturn_90right
+		}
+		playerAnimType dualwield AND ballisticknife
+		{
+			both pb_dw_turn_90right
+		}
+		// SINGLE KNIFE
+		playerAnimType singleknife, stance prone
+		{
+			both pb_knife_prone_turn_90right
+		}
+		playerAnimType singleknife, lowready stance crouch
+		{
+			both pb_knife_crouch_turn_lowready_r90
+		}
+		playerAnimType singleknife, stance crouch
+		{
+			both pb_knife_crouch_turn_90right
+		}
+		playerAnimType singleknife, lowready
+		{
+			both pb_knife_stand_turn_lowready_r90
+		}
+		playerAnimType singleknife
+		{
+			both pb_knife_stand_turn_90right
+		}
+		
+#gametype ZM
+#demo_version_at_least 28
+		// STAFF
+		playerAnimType armminigun, stance prone
+		{
+			both pb_staff_prone_turn_r
+		}
+		playerAnimType armminigun, stance crouch
+		{
+			both pb_staff_crouch_turn_r90
+		}
+		playerAnimType armminigun
+		{
+			both pb_staff_stand_turn_r
+		}
+#end_demo_version_at_least
+#end_gametype
+
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks, stance prone
+		{
+			both pb_nunchucks_prone_turn_r90
+		}
+		weapon melee_nunchuks, stance crouch
+		{
+			both pb_nunchucks_crouch_turn_r90
+		}
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_stand_turn_r90
+		}
+#end_demo_version_at_least
+#end_gametype
+#gametype ZM AND MP
+		// SWORD
+		playerAnimType sword, stance prone
+		{
+			both pb_sword_prone_turn_r90
+		}
+		playerAnimType sword, stance crouch
+		{
+			both pb_sword_crouch_turn_r90
+		}
+		playerAnimType sword
+		{
+			both pb_sword_stand_turn_r90
+		}
+#end_gametype
+
+		// MINIGUN
+		playerAnimType minigun, stance crouch
+		{
+			both pb_minigun_crouch_turn_90right
+		}
+		playerAnimType minigun
+		{
+			both pb_minigun_stand_turn_90right
+		}
+		
+#gametype MP
+		// ARMMINIGUN
+		playerAnimType armminigun, stance prone
+		{
+			both pb_reaper_prone_turn_r90
+		}
+		playerAnimType armminigun, stance crouch
+		{
+			both pb_reaper_crouch_turn_r90
+		}
+		playerAnimType armminigun
+		{
+			both pb_reaper_stand_turn_r90
+		}
+		// BRAWLER
+		playerAnimType brawler, stance prone
+		{
+			both pb_brawler_prone_turn_r90
+		}
+		playerAnimType brawler, stance crouch
+		{
+			both pb_brawler_crouch_turn_r90
+		}
+		playerAnimType brawler
+		{
+			both pb_brawler_stand_turn_r90
+		}
+		// CLUB
+		playerAnimType club, stance prone
+		{
+			both pb_wrench_prone_turn_r90
+		}
+		playerAnimType club, stance crouch
+		{
+			both pb_wrench_crouch_turn_r90
+		}
+		playerAnimType club
+		{
+			both pb_wrench_stand_turn_r90
+		}
+#end_gametype
+
+#demo_version_at_least 10
+#gametype ZM
+		weapon hero_gravityspikes_melee, stance crouch
+		{
+			both pb_spikes_crouch_turn_r90
+		}
+		weapon hero_gravityspikes_melee
+		{
+			both pb_spikes_stand_turn_r90
+		}
+#end_gametype
+#end_demo_version_at_least
+
+		// SPIKE LAUNCHER
+		playerAnimType spikelauncher, stance crouch
+		{
+			both pb_spike_launcher_crouch_turn_r90
+		}
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_stand_turn_r90
+		}
+		
+#gametype MP AND ZM
+		// BOW
+		playerAnimType bow, stance prone
+		{
+			both pb_bow_prone_turn_r90
+		}
+		playerAnimType bow, stance crouch
+		{
+			both pb_bow_crouch_turn_r90
+		}
+		playerAnimType bow
+		{
+			both pb_bow_stand_turn_r90
+		}
+#end_gametype
+
+#gametype MP AND CP
+ 		// RADIO
+ 		playerAnimType radio, stance prone
+ 		{
+ 			both pb_supply_drop_prone_turn_r90
+ 		}
+ 		playerAnimType radio, stance crouch
+ 		{
+ 			both pb_supply_drop_crouchturn_r90
+ 		}
+ 		playerAnimType radio
+ 		{
+ 			both pb_supply_drop_stand_turn_r90
+ 		}
+#end_gametype
+		// RPG
+		weaponclass rocketlauncher, stance prone
+		{
+			both pb_launcher_prone_turn_r90
+		}
+		weaponclass rocketlauncher, lowready stance crouch
+		{
+			both pb_launcher_crouch_turn_lowready_r90
+		}
+		weaponclass rocketlauncher, stance crouch
+		{
+			both pb_launcher_crouch_turn_r90
+		}
+		weaponclass rocketlauncher, lowready
+		{
+			both pb_launcher_stand_turn_lowready_r90
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_stand_turn_r90
+		}
+		// GRENADE
+		weaponclass grenade, weapontype grenade, playerAnimType grenadeonly, stance prone
+		{
+			both pb_grenade_prone_turn_90right grenadeAnim
+		}
+		weaponclass grenade, weapontype grenade, playerAnimType grenadeonly, stance crouch
+		{
+			both pb_grenade_crouchturn_90right grenadeAnim
+		}
+		weaponclass grenade, weapontype grenade, playerAnimType grenadeonly
+		{
+			both pb_grenade_turn_90right grenadeAnim
+		}
+		// PISTOL
+		weaponclass pistol AND pistol_spread, stance prone
+		{
+			both pb_pistol_prone_turn_90right
+			both pb_pistol_fem_prone_turn_r90 female
+		}
+		weaponclass pistol AND pistol_spread, lowready stance crouch
+		{
+			both pb_pistol_crouch_turn_lowready_r90
+		}
+		weaponclass pistol AND pistol_spread, stance crouch
+		{
+			both pb_pistol_crouchturn_90right
+			both pb_pistol_fem_crouch_turn_r90 female
+		}
+		weaponclass pistol AND pistol_spread, lowready
+		{
+			both pb_pistol_stand_turn_lowready_r90
+		}
+		weaponclass pistol AND pistol_spread
+		{
+			both pb_pistol_turn_90right
+			both pb_pistol_fem_stand_turn_r90 female
+		}
+		// DEFAULT
+		stance prone
+		{
+			both pb_prone_turn_90right
+			both pb_rifle_fem_prone_turn_r90 female
+		}
+		lowready stance crouch
+		{
+			both pb_rifle_crouch_turn_lowready_r90
+		}
+		stance crouch
+		{
+			both pb_crouchturn_90right
+			both pb_rifle_fem_crouch_turn_r90 female
+		}
+		lowready
+		{
+			both pb_rifle_stand_turn_lowready_r90
+		}
+		default
+		{
+			both pb_turn_90right
+			both pb_rifle_fem_stand_turn_r90 female
+		}
+	}
+	turnleft
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		
+		// LAST STAND
+		perk laststand, playerAnimType radio
+		{
+		}
+		perk laststand, playerAnimType singleknife
+		{
+			both pb_knife_laststand_turn_l90
+		}
+		perk laststand
+		{
+			both pb_laststand_turn_l90
+		}
+
+		// NONE
+		playerAnimType briefcase, stance prone
+		{
+			both pb_briefcase_prone_turn_l90
+		}
+		playerAnimType briefcase, stance crouch
+		{
+			both pb_briefcase_crouch_turn_l90
+		}
+		playerAnimType briefcase
+		{
+			both pb_briefcase_stand_turn_l90
+		}
+		// ONEHANDED
+		playerAnimType onehanded, stance prone
+		{
+			both pb_pistol_1handed_prone_turn_l90
+		}
+		playerAnimType onehanded, stance crouch
+		{
+			both pb_pistol_1handed_crouch_turn_l90
+		}
+		playerAnimType onehanded
+		{
+			both pb_pistol_1handed_stand_turn_l90
+		}
+		// RIOTSHIELD
+		playerAnimType riotshield, stance crouch, weapon_position ads
+		{
+			both pb_riotshield_crouch_turn_l90_ads
+		}
+		playerAnimType riotshield, stance crouch
+		{
+			both pb_riotshield_crouch_turn_90l
+		}
+		playerAnimType riotshield, weapon_position ads
+		{
+			both pb_riotshield_stand_turn_l90_ads
+		}
+		playerAnimType riotshield
+		{
+			both pb_riotshield_stand_turn_90l
+		}
+		// HOLD
+		playerAnimType hold, stance prone
+		{
+			both pb_hold_prone_turn_90left  grenadeAnim
+		}
+		playerAnimType hold, stance crouch
+		{
+			both pb_hold_crouchturn_90left  grenadeAnim
+		}
+		playerAnimType hold
+		{
+			both pb_hold_turn_90left  grenadeAnim
+		}
+
+#gametype ZM		
+		// PERK BOTTLE
+		playerAnimType radio
+		{
+		}
+#end_gametype
+
+		// TABLET
+		playerAnimType tablet, stance prone
+		{
+			both pb_tablet_prone_idle
+		}
+		playerAnimType tablet, stance crouch
+		{
+			both pb_tablet_crouch_idle
+		}
+		playerAnimType tablet
+		{
+			both pb_v_tablet_stand_idle
+		}
+		// DUAL WIELD
+		playerAnimType dualwield AND ballisticknife, stance prone
+		{
+			both pb_dw_prone_turn_90left
+		}
+		playerAnimType dualwield AND ballisticknife, stance crouch
+		{
+			both pb_dw_crouchturn_90left
+		}
+		playerAnimType dualwield AND ballisticknife
+		{
+			both pb_dw_turn_90left
+		}
+		// SINGLE KNIFE
+		playerAnimType singleknife, stance prone
+		{
+			both pb_knife_prone_turn_90left
+		}
+		playerAnimType singleknife, lowready stance crouch
+		{
+			both pb_knife_crouch_turn_lowready_l90
+		}
+		playerAnimType singleknife, stance crouch
+		{
+			both pb_knife_crouch_turn_90left
+		}
+		playerAnimType singleknife, lowready
+		{
+			both pb_knife_stand_turn_lowready_l90
+		}
+		playerAnimType singleknife
+		{
+			both pb_knife_stand_turn_90left
+		}
+		
+#gametype ZM
+#demo_version_at_least 28
+		// STAFF
+		playerAnimType armminigun, stance prone
+		{
+			both pb_staff_prone_turn_l
+		}
+		playerAnimType armminigun, stance crouch
+		{
+			both pb_staff_crouch_turn_l90
+		}
+		playerAnimType armminigun
+		{
+			both pb_staff_stand_turn_l
+		}
+#end_demo_version_at_least
+#end_gametype
+
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks, stance prone
+		{
+			both pb_nunchucks_prone_turn_l90
+		}
+		weapon melee_nunchuks, stance crouch
+		{
+			both pb_nunchucks_crouch_turn_l90
+		}
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_stand_turn_l90
+		}
+#end_demo_version_at_least
+#end_gametype
+#gametype ZM AND MP
+		// SWORD
+		playerAnimType sword, stance prone
+		{
+			both pb_sword_prone_turn_l90
+		}
+		playerAnimType sword, stance crouch
+		{
+			both pb_sword_crouch_turn_l90
+		}
+		playerAnimType sword
+		{
+			both pb_sword_stand_turn_l90
+		}
+#end_gametype
+
+		// MINIGUN
+		playerAnimType minigun, stance crouch
+		{
+			both pb_minigun_crouch_turn_90left
+		}
+		playerAnimType minigun
+		{
+			both pb_minigun_stand_turn_90left
+		}
+		// SPIKE LAUNCHER
+		playerAnimType spikelauncher, stance crouch
+		{
+			both pb_spike_launcher_crouch_turn_l90
+		}
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_stand_turn_l90
+		}
+		
+#gametype MP
+		// ARMMINIGUN
+		playerAnimType armminigun, stance prone
+		{
+			both pb_reaper_prone_turn_l90
+		}
+		playerAnimType armminigun, stance crouch
+		{
+			both pb_reaper_crouch_turn_l90
+		}
+		playerAnimType armminigun
+		{
+			both pb_reaper_stand_turn_l90
+		}
+		// BRAWLER
+		playerAnimType brawler, stance prone
+		{
+			both pb_brawler_prone_turn_l90
+		}
+		playerAnimType brawler, stance crouch
+		{
+			both pb_brawler_crouch_turn_l90
+		}
+		playerAnimType brawler
+		{
+			both pb_brawler_stand_turn_l90
+		}
+		// CLUB
+		playerAnimType club, stance prone
+		{
+			both pb_wrench_prone_turn_l90
+		}
+		playerAnimType club, stance crouch
+		{
+			both pb_wrench_crouch_turn_l90
+		}
+		playerAnimType club
+		{
+			both pb_wrench_stand_turn_l90
+		}
+#end_gametype
+
+#demo_version_at_least 10
+#gametype ZM
+		weapon hero_gravityspikes_melee, stance crouch
+		{
+			both pb_spikes_crouch_turn_l90
+		}
+		weapon hero_gravityspikes_melee
+		{
+			both pb_spikes_stand_turn_l90
+		}
+#end_gametype
+#end_demo_version_at_least
+
+#gametype MP AND ZM
+		// BOW
+		playerAnimType bow, stance prone
+		{
+			both pb_bow_prone_turn_l90
+		}
+		playerAnimType bow, stance crouch
+		{
+			both pb_bow_crouch_turn_l90
+		}
+		playerAnimType bow
+		{
+			both pb_bow_stand_turn_l90
+		}
+#end_gametype
+
+#gametype MP AND CP
+		// RADIO
+		playerAnimType radio, stance prone
+		{
+			both pb_supply_drop_prone_turn_l90
+		}
+		playerAnimType radio, stance crouch
+		{
+			both pb_supply_drop_crouchturn_l90
+		}
+		playerAnimType radio
+		{
+			both pb_supply_drop_stand_turn_l90
+		}
+#end_gametype
+		// RPG
+		weaponclass rocketlauncher, stance prone
+		{
+			both pb_launcher_prone_turn_l90
+		}
+		weaponclass rocketlauncher, lowready stance crouch
+		{
+			both pb_launcher_crouch_turn_lowready_l90
+		}
+		weaponclass rocketlauncher, stance crouch
+		{
+			both pb_launcher_crouch_turn_l90
+		}
+		weaponclass rocketlauncher, lowready
+		{
+			both pb_launcher_stand_turn_lowready_l90
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_stand_turn_l90
+		}
+		// GRENADE
+		weaponclass grenade, weapontype grenade, playerAnimType grenadeonly, stance prone
+		{
+			both pb_grenade_prone_turn_90left grenadeAnim
+		}
+		weaponclass grenade, weapontype grenade, playerAnimType grenadeonly, stance crouch
+		{
+			both pb_grenade_crouchturn_90left grenadeAnim
+		}
+		weaponclass grenade, weapontype grenade, playerAnimType grenadeonly
+		{
+			both pb_grenade_turn_90left grenadeAnim
+		}
+		// PISTOL
+		weaponclass pistol AND pistol_spread, stance prone
+		{
+			both pb_pistol_prone_turn_90left
+			both pb_pistol_fem_prone_turn_l90 female
+		}
+		weaponclass pistol AND pistol_spread, lowready stance crouch
+		{
+			both pb_pistol_crouch_turn_lowready_l90
+		}
+		weaponclass pistol AND pistol_spread, stance crouch
+		{
+			both pb_pistol_crouchturn_90left
+			both pb_pistol_fem_crouch_turn_l90 female
+		}
+		weaponclass pistol AND pistol_spread, lowready
+		{
+			both pb_pistol_stand_turn_lowready_l90
+		}
+		weaponclass pistol AND pistol_spread
+		{
+			both pb_pistol_turn_90left
+			both pb_pistol_fem_stand_turn_l90 female
+		}
+		// DEFAULT
+		stance prone
+		{
+			both pb_prone_turn_90left
+			both pb_rifle_fem_prone_turn_l90 female
+		}
+		lowready stance crouch
+		{
+			both pb_rifle_crouch_turn_lowready_l90
+		}
+		stance crouch
+		{
+			both pb_crouchturn_90left
+			both pb_rifle_fem_crouch_turn_l90 female
+		}
+		lowready
+		{
+			both pb_rifle_stand_turn_lowready_l90
+		}
+		default
+		{
+			both pb_turn_90left
+			both pb_rifle_fem_stand_turn_l90 female
+		}
+	}
+	
+	// TRM STEP
+	trm_step_f
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		
+#gametype MP AND ZM
+		// BOW
+		playerAnimType bow
+		{
+			both pb_bow_mantle_wall_on_f_18
+		}
+#end_gametype
+
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_mantle_on_f_18
+		}
+#end_demo_version_at_least
+		// ARMMINIGUN
+		playerAnimType armminigun
+		{
+			both pb_reaper_mantle_wall_on_f_18
+		}
+#end_gametype
+		
+		// RIOTSHIELD
+		playerAnimType riotshield
+		{
+			both pb_riotshield_mantle_wall_on_f_18
+		}
+		//SPIKE LAUNCHER
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_mantle_on_f_18
+		}
+		playerAnimType dualwield
+		{
+			both pb_dw_mantle_wall_on_f_18
+		}
+		weaponclass pistol
+		{
+			both pb_rifle_mantle_on_f_18
+			both pb_pistol_fem_mantle_on_f_18 female
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_mantle_on_f_18
+		}
+		default
+		{
+			both pb_rifle_mantle_on_f_18
+		}
+	}
+
+	trm_step_b
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_mantle_on_b_18
+		}
+#end_demo_version_at_least
+		// ARMMINIGUN
+		playerAnimType armminigun
+		{
+			both pb_reaper_mantle_wall_on_b_18
+		}
+#end_gametype
+
+#gametype MP AND ZM
+		// BOW
+		playerAnimType bow
+		{
+			both pb_bow_mantle_wall_on_b_18
+		}
+#end_gametype
+		
+		// RIOTSHIELD
+		playerAnimType riotshield
+		{
+			both pb_riotshield_mantle_wall_on_b_18
+		}
+		//SPIKE LAUNCHER
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_mantle_on_b_18
+		}
+		playerAnimType dualwield
+		{
+			both pb_dw_mantle_wall_on_b_18
+		}
+		weaponclass pistol
+		{
+			both pb_rifle_mantle_on_b_18
+			both pb_pistol_fem_mantle_on_b_18 female
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_mantle_on_b_18
+		}
+		default
+		{
+			both pb_rifle_mantle_on_b_18
+		}
+	}
+			
+	trm_step_l
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		// RIOTSHIELD
+		playerAnimType riotshield
+		{
+			both pb_riotshield_mantle_wall_on_l_18
+		}
+		//SPIKE LAUNCHER
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_mantle_on_l_18
+		}
+		playerAnimType dualwield
+		{
+			both pb_dw_mantle_wall_on_l_18
+		}
+		weaponclass pistol
+		{
+			both pb_rifle_mantle_on_l_18
+			both pb_pistol_fem_mantle_on_l_18 female
+		}
+		
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_mantle_on_l_18
+		}
+#end_demo_version_at_least
+		// ARMMINIGUN
+		playerAnimType armminigun
+		{
+			both pb_reaper_mantle_wall_on_l_18
+		}
+#end_gametype
+
+#gametype MP AND ZM		
+		// BOW
+		playerAnimType bow
+		{
+			both pb_bow_mantle_wall_on_l_18
+		}
+#end_gametype
+		
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_mantle_on_l_18
+		}
+		default
+		{
+			both pb_rifle_mantle_on_l_18
+		}
+	}
+				
+	trm_step_r
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_mantle_on_r_18
+		}
+#end_demo_version_at_least
+		// ARMMINIGUN
+		playerAnimType armminigun
+		{
+			both pb_reaper_mantle_wall_on_r_18
+		}
+#end_gametype
+
+#gametype MP AND ZM
+		// BOW
+		playerAnimType bow
+		{
+			both pb_bow_mantle_wall_on_r_18
+		}
+#end_gametype
+
+		// RIOTSHIELD
+		playerAnimType riotshield
+		{
+			both pb_riotshield_mantle_wall_on_r_18
+		}
+		//SPIKE LAUNCHER
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_mantle_on_r_18
+		}
+		playerAnimType dualwield
+		{
+			both pb_dw_mantle_wall_on_r_18
+		}
+		weaponclass pistol
+		{
+			both pb_rifle_mantle_on_r_18
+			both pb_pistol_fem_mantle_on_r_18 female
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_mantle_on_r_18 
+		}
+		default
+		{
+			both pb_rifle_mantle_on_r_18
+		}
+	}
+
+	// TRM OVER
+	trm_over_low_vault
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_mantle_vault_over_36 legrig legrig_run_mantle_over_low_f
+		}
+#end_demo_version_at_least
+		// ARMMINIGUN
+		playerAnimType armminigun
+		{
+			both pb_reaper_mantle_vault_over_36 legrig legrig_run_mantle_over_low_f
+		}
+#end_gametype
+
+#gametype MP AMD ZM
+		playerAnimType bow
+		{
+			both pb_bow_mantle_vault_over_36 legrig legrig_run_mantle_over_low_f 
+		}
+#end_gametype
+
+		// RIOTSHIELD
+		playerAnimType riotshield
+		{
+			both pb_riotshield_mantle_vault_over_36 legrig legrig_run_mantle_over_low_f
+		}
+		playerAnimType dualwield
+		{
+			both pb_dw_mantle_vault_over_36 legrig legrig_run_mantle_over_low_f 
+		}
+		weaponclass pistol
+		{
+			both pb_rifle_mantle_vault_over_36 legrig legrig_run_mantle_over_low_f
+			both pb_pistol_fem_mantle_vault_over_36 legrig legrig_run_mantle_over_low_f female
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_mantle_vault_over_36 legrig legrig_run_mantle_over_low_f 
+		}
+		default
+		{
+			both pb_rifle_mantle_vault_over_36 legrig legrig_run_mantle_over_low_f
+		}
+	}
+
+	trm_over_low_f_36
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_mantle_over_low_f_36 legrig legrig_run_mantle_over_low_f
+		}
+#end_demo_version_at_least
+		// SWORD
+		playerAnimType sword
+		{
+			both pb_sword_mantle_over_low_f_36 legrig legrig_run_mantle_over_low_f
+		}
+		// ARMMINIGUN
+		playerAnimType armminigun
+		{
+			both pb_reaper_mantle_over_low_f_36 legrig legrig_run_mantle_over_low_f
+		}
+#end_gametype
+
+#gametype MP AND ZM		
+		// BOW
+		playerAnimType bow
+		{
+			both pb_bow_mantle_over_low_f_36 legrig legrig_run_mantle_over_low_f
+		}
+#end_gametype
+
+		// RIOTSHIELD
+		playerAnimType riotshield
+		{
+			both pb_riotshield_mantle_over_low_f_36 legrig legrig_run_mantle_over_low_f
+		}
+		//SPIKE LAUNCHER
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_mantle_over_low_f_36 legrig legrig_run_mantle_over_low_f
+		}
+		playerAnimType dualwield
+		{
+			both pb_dw_mantle_over_low_f_36 legrig legrig_run_mantle_over_low_f
+		}
+		weaponclass pistol
+		{
+			both pb_rifle_mantle_over_low_f_36 legrig legrig_run_mantle_over_low_f
+			both pb_pistol_fem_mantle_over_low_f_36 legrig legrig_run_mantle_over_low_f female
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_mantle_over_low_f_36 legrig legrig_run_mantle_over_low_f
+		}
+		default
+		{
+			both pb_rifle_mantle_over_low_f_36 legrig legrig_run_mantle_over_low_f
+		}
+	}
+		
+	trm_over_low_b_36
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_mantle_over_low_b_36
+		}
+#end_demo_version_at_least
+		// SWORD
+		playerAnimType sword
+		{
+			both pb_sword_mantle_over_low_b_36 legrig legrig_run_mantle_over_low_f
+		}
+		// ARMMINIGUN
+		playerAnimType armminigun
+		{
+			both pb_reaper_mantle_over_low_b_36
+		}
+#end_gametype
+
+#gametype MP AND ZM				
+		// BOW
+		playerAnimType bow
+		{
+			both pb_bow_mantle_over_low_b_36 legrig legrig_run_mantle_over_low_f
+		}
+#end_gametype
+
+		// RIOTSHIELD
+		playerAnimType riotshield
+		{
+			both pb_riotshield_mantle_over_low_b_36
+		}
+		//SPIKE LAUNCHER
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_mantle_over_low_b_36
+		}
+		playerAnimType dualwield
+		{
+			both pb_dw_mantle_over_low_b_36 legrig legrig_run_mantle_over_low_f
+		}
+		weaponclass pistol
+		{
+			both pb_rifle_mantle_over_low_b_36
+			both pb_pistol_fem_mantle_over_low_b_36 female
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_mantle_over_low_b_36
+		}
+		default
+		{
+			both pb_rifle_mantle_over_low_b_36
+		}
+	}
+
+	trm_over_low_l_36
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_mantle_over_low_l_36 legrig legrig_run_mantle_over_low_l
+		}
+#end_demo_version_at_least
+		// SWORD
+		playerAnimType sword
+		{
+			both pb_sword_mantle_over_low_l_36 legrig legrig_run_mantle_over_low_f
+		}
+		// ARMMINIGUN
+		playerAnimType armminigun
+		{
+			both pb_reaper_mantle_over_low_l_36 legrig legrig_run_mantle_over_low_l
+		}
+#end_gametype
+
+#gametype MP AND ZM		
+		playerAnimType bow
+		{
+			both pb_bow_mantle_over_low_l_36 legrig legrig_run_mantle_over_low_f
+		}
+#end_gametype
+
+		// RIOTSHIELD
+		playerAnimType riotshield
+		{
+			both pb_riotshield_mantle_over_low_l_36 legrig legrig_run_mantle_over_low_l
+		}
+		//SPIKE LAUNCHER
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_mantle_over_low_b_36 legrig legrig_run_mantle_over_low_l
+		}
+		playerAnimType dualwield
+		{
+			both pb_dw_mantle_over_low_l_36 legrig legrig_run_mantle_over_low_f
+		}
+		weaponclass pistol
+		{
+			both pb_rifle_mantle_over_low_l_36 legrig legrig_run_mantle_over_low_l
+			both pb_pistol_fem_mantle_over_low_l_36 legrig legrig_run_mantle_over_low_l female
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_mantle_over_low_l_36 legrig legrig_run_mantle_over_low_l
+		}
+		default
+		{
+			both pb_rifle_mantle_over_low_l_36 legrig legrig_run_mantle_over_low_l
+		}
+	}
+
+	trm_over_low_r_36
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_mantle_over_low_r_36
+		}
+#end_demo_version_at_least
+		// SWORD
+		playerAnimType sword
+		{
+			both pb_sword_mantle_over_low_r_36 legrig legrig_run_mantle_over_low_f
+		}
+		// ARMMINIGUN
+		playerAnimType armminigun
+		{
+			both pb_reaper_mantle_over_low_r_36
+		}
+#end_gametype
+
+#gametype MP AND ZM		
+		// BOW
+		playerAnimType bow
+		{
+			both pb_bow_mantle_over_low_r_36 legrig legrig_run_mantle_over_low_f
+		}
+#end_gametype
+
+		// RIOTSHIELD
+		playerAnimType riotshield
+		{
+			both pb_riotshield_mantle_over_low_r_36
+		}
+		//SPIKE LAUNCHER
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_mantle_over_low_r_36
+		}
+		playerAnimType dualwield
+		{
+			both pb_dw_mantle_over_low_r_36 legrig legrig_run_mantle_over_low_f
+		}
+		weaponclass pistol
+		{
+			both pb_rifle_mantle_over_low_r_36
+			both pb_pistol_fem_mantle_over_low_r_36 female
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_mantle_over_low_r_36 
+		}
+		default
+		{
+			both pb_rifle_mantle_over_low_r_36
+		}
+	}
+
+	trm_over_high_75
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_mantle_over_high_75
+		}
+#end_demo_version_at_least
+		// ARMMINIGUN
+		playerAnimType armminigun
+		{
+			both pb_reaper_mantle_wall_front_75
+		}
+#end_gametype
+
+#gametype MP AND ZM		
+		// BOW
+		playerAnimType bow
+		{
+			both pb_bow_mantle_over_high_75 
+		}
+#end_gametype
+
+		// RIOTSHIELD
+		playerAnimType riotshield
+		{
+			both pb_riotshield_mantle_wall_front_75
+		}
+		//SPIKE LAUNCHER
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_mantle_over_high_75
+		}
+		playerAnimType dualwield
+		{
+			both pb_dw_mantle_over_high_75 
+		}
+		weaponclass pistol
+		{
+			both pb_rifle_mantle_over_high_75
+			both pb_pistol_fem_mantle_over_high_75 female
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_mantle_over_high_75 
+		}
+		default
+		{
+			both pb_rifle_mantle_over_high_75
+		}
+	}
+
+	trm_over_high_100
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_mantle_over_high_100
+		}
+#end_demo_version_at_least
+		// ARMMINIGUN
+		playerAnimType armminigun
+		{
+			both pb_reaper_mantle_wall_front_100
+		}
+#end_gametype
+
+		// RIOTSHIELD
+		playerAnimType riotshield
+		{
+			both pb_riotshield_mantle_wall_front_100_all
+		}
+		//SPIKE LAUNCHER
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_mantle_over_high_100
+		}
+		playerAnimType dualwield
+		{
+			both pb_dw_mantle_over_high_100
+		}
+		weaponclass pistol
+		{
+			both pb_rifle_mantle_over_high_100
+			both pb_pistol_fem_mantle_over_high_100 female
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_mantle_over_high_100 
+		}
+		default
+		{
+			both pb_rifle_mantle_over_high_100
+		}
+	}
+
+	trm_over_high_140
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_mantle_over_high_140
+		}
+#end_demo_version_at_least
+		// ARMMINIGUN
+		playerAnimType armminigun
+		{
+			both pb_reaper_mantle_wall_front_140
+		}
+#end_gametype
+
+		// RIOTSHIELD
+		playerAnimType riotshield
+		{
+			both pb_riotshield_mantle_wall_front_140
+		}
+		//SPIKE LAUNCHER
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_mantle_over_high_140
+		}
+		playerAnimType dualwield
+		{
+			both pb_dw_mantle_over_high_140
+		}
+		weaponclass pistol
+		{
+			both pb_rifle_mantle_over_high_140
+			both pb_pistol_fem_mantle_over_high_140 female
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_mantle_over_high_140 
+		}
+		default
+		{
+			both pb_rifle_mantle_over_high_140
+		}
+	}
+
+	// TRM ON
+	trm_on_low_f_32
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_mantle_wall_jump_on_f_32
+		}
+#end_demo_version_at_least
+		// SWORD
+		playerAnimType sword
+		{
+			both pb_sword_mantle_wall_jump_in_f_32
+		}
+		// ARMMINIGUN
+		playerAnimType armminigun
+		{
+			both pb_reaper_mantle_wall_jump_in_32
+		}
+#end_gametype
+
+#gametype MP AND ZM		
+		// BOW
+		playerAnimType bow
+		{
+			both pb_bow_mantle_wall_jump_on_f_32 
+		}
+#end_gametype
+
+		// RIOTSHIELD
+		playerAnimType riotshield
+		{
+			both pb_riotshield_mantle_wall_jump_in_32
+		}
+		//SPIKE LAUNCHER
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_mantle_wall_jump_on_f_32
+		}
+		playerAnimType dualwield
+		{
+			both pb_dw_mantle_wall_jump_in_32 
+		}
+		weaponclass pistol
+		{
+			both pb_rifle_mantle_wall_jump_in_32
+			both pb_pistol_fem_mantle_wall_jump_in_32 female
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_mantle_wall_jump_on_f_32 
+		}
+		default
+		{
+			both pb_rifle_mantle_wall_jump_in_32
+		}
+	}
+
+	trm_on_low_b_32
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		
+#gametype MP		
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_mantle_wall_jump_on_b_32
+		}
+#end_demo_version_at_least
+		// SWORD
+		playerAnimType sword
+		{
+			both pb_sword_mantle_wall_jump_in_b_32
+		}
+		// ARMMINIGUN
+		playerAnimType armminigun
+		{
+			both pb_reaper_mantle_wall_jump_in_b_32
+		}
+#end_gametype
+
+#gametype MP AND ZM		
+		// BOW
+		playerAnimType bow
+		{
+			both pb_bow_mantle_wall_jump_on_b_32 
+		}
+#end_gametype
+
+		// RIOTSHIELD
+		playerAnimType riotshield
+		{
+			both pb_riotshield_mantle_wall_jump_in_b_32
+		}
+		//SPIKE LAUNCHER
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_mantle_on_b_32
+		}
+		playerAnimType dualwield
+		{
+			both pb_dw_mantle_wall_jump_in_b_32 
+		}
+		weaponclass pistol
+		{
+			both pb_rifle_mantle_on_b_32
+			both pb_pistol_fem_mantle_wall_jump_in_b_32 female
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_mantle_wall_jump_on_b_32 
+		}
+		default
+		{
+			both pb_rifle_mantle_on_b_32
+		}
+	}
+
+	trm_on_low_l_32
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_mantle_wall_jump_on_l_32
+		}
+#end_demo_version_at_least
+		// SWORD
+		playerAnimType sword
+		{
+			both pb_sword_mantle_wall_jump_in_l_32
+		}
+		// ARMMINIGUN
+		playerAnimType armminigun
+		{
+			both pb_reaper_mantle_wall_jump_in_l_32
+		}
+#end_gametype
+
+#gametype MP AND ZM	
+		// BOW
+		playerAnimType bow
+		{
+			both pb_bow_mantle_wall_jump_on_l_32 
+		}
+#end_gametype
+
+		// RIOTSHIELD
+		playerAnimType riotshield
+		{
+			both pb_riotshield_mantle_wall_jump_in_l_32
+		}
+		//SPIKE LAUNCHER
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_mantle_wall_jump_on_l_32
+		}
+		playerAnimType dualwield
+		{
+			both pb_dw_mantle_wall_jump_in_l_32 
+		}
+		weaponclass pistol
+		{
+			both pb_rifle_mantle_wall_jump_in_l_32
+			both pb_pistol_fem_mantle_wall_jump_in_l_32 female
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_mantle_wall_jump_on_l_32 
+		}
+		default
+		{
+			both pb_rifle_mantle_wall_jump_in_l_32
+		}
+	}
+
+	trm_on_low_r_32
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_mantle_wall_jump_on_r_32
+		}
+#end_demo_version_at_least
+		// SWORD
+		playerAnimType sword
+		{
+			both pb_sword_mantle_wall_jump_in_r_32 
+		}
+		// ARMMINIGUN
+		playerAnimType armminigun
+		{
+			both pb_reaper_mantle_wall_jump_in_r_32
+		}
+#end_gametype
+
+#gametype MP AND ZM	
+		//BOW
+		playerAnimType bow
+		{
+			both pb_bow_mantle_wall_jump_on_r_32 
+		}
+#end_gametype
+
+		// RIOTSHIELD
+		playerAnimType riotshield
+		{
+			both pb_riotshield_mantle_wall_jump_in_r_32
+		}
+		//SPIKE LAUNCHER
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_mantle_wall_jump_on_r_32
+		}
+		playerAnimType dualwield
+		{
+			both pb_dw_mantle_wall_jump_in_r_32 
+		}
+		weaponclass pistol
+		{
+			both pb_rifle_mantle_wall_jump_in_r_32
+			both pb_pistol_fem_mantle_wall_jump_in_r_32 female
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_mantle_wall_jump_on_r_32 
+		}
+		default
+		{
+			both pb_rifle_mantle_wall_jump_in_r_32
+		}
+	}
+
+	trm_on_med_f_60
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_mantle_wall_on_f_60
+		}
+#end_demo_version_at_least
+		// ARMMINIGUN
+		playerAnimType armminigun
+		{
+			both pb_reaper_mantle_wall_on_f_60
+		}
+#end_gametype
+
+#gametype MP AND ZM	
+		// BOW
+		playerAnimType bow
+		{
+			both pb_bow_mantle_wall_on_f_60
+		}
+#end_gametype
+
+		// RIOTSHIELD
+		playerAnimType riotshield
+		{
+			both pb_riotshield_mantle_wall_on_f_60
+		}
+		//SPIKE LAUNCHER
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_mantle_wall_jump_on_f_60
+		}
+		playerAnimType dualwield
+		{
+			both pb_dw_mantle_wall_on_f_60
+		}
+		weaponclass pistol
+		{
+			both pb_rifle_mantle_wall_jump_in_60
+			both pb_pistol_fem_mantle_wall_jump_in_60 female
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_mantle_wall_on_f_60 
+		}
+		default
+		{
+			both pb_rifle_mantle_wall_jump_in_60
+		}
+	}
+
+	trm_on_med_l_50
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		
+#gametype MP		
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_mantle_wall_left_50
+		}
+#end_demo_version_at_least
+		// ARMMINIGUN
+		playerAnimType armminigun
+		{
+			both pb_reaper_mantle_wall_left_50
+		}
+#end_gametype
+
+#gametype MP AND ZM	
+		// BOW
+		playerAnimType bow
+		{
+			both pb_bow_mantle_wall_left_50 
+		}
+#end_gametype
+		// RIOTSHIELD
+		playerAnimType riotshield
+		{
+			both pb_riotshield_mantle_wall_left_50
+		}
+		//SPIKE LAUNCHER
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_mantle_wall_left_50
+		}
+		playerAnimType dualwield
+		{
+			both pb_dw_mantle_wall_left_50 
+		}
+		weaponclass pistol
+		{
+			both pb_rifle_mantle_wall_left_50
+			both pb_pistol_fem_mantle_wall_left_50 female
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_mantle_wall_left_50 
+		}
+		default
+		{
+			both pb_rifle_mantle_wall_left_50
+		}
+	}
+
+	trm_on_med_r_50
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		
+#gametype MP	
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_mantle_wall_right_50
+		}
+#end_demo_version_at_least
+		// ARMMINIGUN
+		playerAnimType armminigun
+		{
+			both pb_reaper_mantle_wall_right_50
+		}
+#end_gametype
+
+#gametype MP AND ZM	
+		// BOW
+		playerAnimType bow
+		{
+			both pb_bow_mantle_wall_right_50 
+		}
+#end_gametype
+		// RIOTSHIELD
+		playerAnimType riotshield
+		{
+			both pb_riotshield_mantle_wall_right_50
+		}
+		//SPIKE LAUNCHER
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_mantle_wall_right_50
+		}
+		playerAnimType dualwield
+		{
+			both pb_dw_mantle_wall_right_50 
+		}
+		weaponclass pistol
+		{
+			both pb_rifle_mantle_wall_right_50
+			both pb_pistol_fem_mantle_wall_right_50 female
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_mantle_wall_right_50 
+		}
+		default
+		{
+			both pb_rifle_mantle_wall_right_50
+		}
+	}
+
+	trm_on_high_100
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		
+#gametype MP		
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_mantle_wall_front_100
+		}
+#end_demo_version_at_least
+		// ARMMINIGUN
+		playerAnimType armminigun
+		{
+			both pb_reaper_mantle_wall_front_100
+		}
+#end_gametype
+		
+		// RIOTSHIELD
+		playerAnimType riotshield
+		{
+			both pb_riotshield_mantle_wall_front_100_all
+		}
+		//SPIKE LAUNCHER
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_mantle_wall_front_100_all
+		}
+		playerAnimType dualwield
+		{
+			both pb_dw_mantle_wall_front_100 
+		}
+		weaponclass pistol
+		{
+			both pb_rifle_mantle_wall_front_100_all
+			both pb_pistol_fem_mantle_wall_front_100 female
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_mantle_wall_front_100 
+		}
+		default
+		{
+			both pb_rifle_mantle_wall_front_100_all
+		}
+	}
+	
+	trm_on_high_140
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		
+#gametype MP		
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_mantle_wall_front_140
+		}
+#end_demo_version_at_least
+		// ARMMINIGUN
+		playerAnimType armminigun
+		{
+			both pb_reaper_mantle_wall_front_140
+		}
+#end_gametype
+		
+		// RIOTSHIELD
+		playerAnimType riotshield
+		{
+			both pb_riotshield_mantle_wall_front_140
+		}
+		//SPIKE LAUNCHER
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_mantle_wall_front_140
+		}
+		playerAnimType dualwield
+		{
+			both pb_dw_mantle_wall_front_140 
+		}
+		weaponclass pistol
+		{
+			both pb_rifle_mantle_wall_front_140
+			both pb_pistol_fem_mantle_wall_front_140 female
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_mantle_wall_front_140 
+		}
+		default
+		{
+			both pb_rifle_mantle_wall_front_140
+		}
+	}
+	
+#gametype ZM
+	//==========
+	// PI - DAY : Mantle animations
+	mantle_up_57
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		perk fastmantle
+		{
+			both mp_mantle_up_57_fast animrate 2.5
+		}
+		// DEFAULT
+		default 
+		{
+			both mp_mantle_up_57
+		}
+	}
+	mantle_up_51
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		perk fastmantle
+		{
+			both mp_mantle_up_51_fast animrate 2.5
+		}
+		// DEFAULT
+		default 
+		{
+			both mp_mantle_up_51
+		}
+	}
+	mantle_up_45
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		perk fastmantle
+		{
+			both mp_mantle_up_45_fast animrate 2.5
+		}
+		// DEFAULT
+		default 
+		{
+			both mp_mantle_up_45
+		}
+	}
+	mantle_up_39
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		perk fastmantle
+		{
+			both mp_mantle_up_39_fast animrate 2.5
+		}
+		// DEFAULT
+		default 
+		{
+			both mp_mantle_up_39
+		}
+	}
+	mantle_up_33
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		perk fastmantle
+		{
+			both mp_mantle_up_33_fast animrate 2.5
+		}
+		// DEFAULT
+		default 
+		{
+			both mp_mantle_up_33
+		}
+	}
+	mantle_up_27
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		perk fastmantle
+		{
+			legs mp_mantle_up_27_fast animrate 2.5
+		}
+		// DEFAULT
+		default 
+		{
+			legs mp_mantle_up_27
+		}
+	}
+	mantle_up_21
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		perk fastmantle
+		{
+			legs mp_mantle_up_21_fast animrate 2.5
+		}
+		// DEFAULT
+		default 
+		{
+			legs mp_mantle_up_21
+		}
+	}
+	mantle_over_high
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		perk fastmantle
+		{
+			both mp_mantle_over_high_fast animrate 2.5
+		}
+		// DEFAULT
+		default 
+		{
+			both mp_mantle_over_high
+		}
+	}
+	mantle_over_mid
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		perk fastmantle
+		{
+			both mp_mantle_over_mid_fast animrate 2.5
+		}
+		// DEFAULT
+		default 
+		{
+			both mp_mantle_over_mid
+		}
+	}
+	mantle_over_low
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		perk fastmantle
+		{
+			legs mp_mantle_over_low_fast animrate 2.5
+		}
+		// DEFAULT
+		default 
+		{
+			legs mp_mantle_over_low
+		}
+	}
+#end_gametype
+	
+	slide_move
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		
+#gametype ZM
+#demo_version_at_least 28
+		playerAnimType armminigun
+		{
+			 //both pb_staff_dive2prone animrate 1
+		}
+#end_demo_version_at_least
+#end_gametype
+
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks, direction left
+		{
+			both pb_nunchucks_run_slide_l legrig legrig_run_slide_l
+		}
+		weapon melee_nunchuks, direction right
+		{
+			both pb_nunchucks_run_slide_r legrig legrig_run_slide_r 
+		}
+		weapon melee_nunchuks, direction backward
+		{
+			both pb_nunchucks_run_slide_b legrig legrig_run_slide_b
+		}
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_run_slide legrig legmodel_run_slide
+		}
+#end_demo_version_at_least
+		// ARMMINIGUN
+		playerAnimType armminigun, direction left
+		{
+			both pb_reaper_run_slide_l legrig legrig_run_slide_l
+		}
+		playerAnimType armminigun, direction right
+		{
+			both pb_reaper_run_slide_r legrig legrig_run_slide_r 
+		}
+		playerAnimType armminigun, direction backward
+		{
+			both pb_reaper_run_slide_b legrig legrig_run_slide_b
+		}
+		playerAnimType armminigun
+		{
+			both pb_reaper_run_slide legrig legmodel_run_slide
+		}
+		// CLUB
+		playerAnimType club
+		{
+			both pb_wrench_run_slide legrig legmodel_run_slide
+		}
+#end_gametype
+
+#demo_version_at_least 10
+#gametype ZM
+		weapon hero_gravityspikes_melee, direction left
+		{
+			both pb_spikes_run_slide_l legrig legrig_run_slide_l
+		}
+		weapon hero_gravityspikes_melee, direction right
+		{
+			both pb_spikes_run_slide_r legrig legrig_run_slide_r
+		}
+		weapon hero_gravityspikes_melee, direction forward
+		{
+			both pb_spikes_run_slide legrig legmodel_run_slide
+		}
+		weapon hero_gravityspikes_melee, direction backward
+		{
+			both pb_spikes_run_slide_b legrig legrig_run_slide_b
+		}
+#end_gametype
+#end_demo_version_at_least
+
+#gametype MP AND ZM	
+		// BOW
+		playerAnimType bow, direction left
+		{
+			both pb_bow_run_slide_l legrig legmodel_run_slide
+		}
+		playerAnimType bow, direction right
+		{
+			both pb_bow_run_slide_r legrig legmodel_run_slide
+		}
+		playerAnimType bow, direction forward
+		{
+			both pb_bow_run_slide legrig legmodel_run_slide
+		}
+		playerAnimType bow, direction backward
+		{
+			both pb_bow_run_slide_b legrig legmodel_run_slide
+		}
+#end_gametype
+
+		// ONEHANDED
+		playerAnimType onehanded, direction left
+		{
+			both pb_pistol_1handed_run_slide_l legrig legrig_run_slide_l
+		}
+		playerAnimType onehanded, direction right
+		{
+			both pb_pistol_1handed_run_slide_r legrig legrig_run_slide_r 
+		}
+		playerAnimType onehanded, direction backward
+		{
+			both pb_pistol_1handed_run_slide_b legrig legrig_run_slide_b
+		}
+		playerAnimType onehanded
+		{
+			both pb_pistol_1handed_run_slide legrig legmodel_run_slide
+		}
+		// RIOTSHIELD
+		playerAnimType riotshield, direction left
+		{
+			both pb_riotshield_run_slide legrig legrig_run_slide_l
+		}
+		playerAnimType riotshield, direction right
+		{
+			both pb_riotshield_run_slide legrig legrig_run_slide_r 
+		}
+		playerAnimType riotshield, direction backward
+		{
+			both pb_riotshield_run_slide legrig legrig_run_slide_b
+		}
+		playerAnimType riotshield
+		{
+			both pb_riotshield_run_slide legrig legmodel_run_slide
+		}
+		
+#gametype ZM AND MP
+		// SWORD
+		playerAnimType sword
+		{
+			both pb_sword_run_slide legrig legmodel_run_slide
+		}
+#end_gametype
+
+		// SPIKE LAUNCHER
+		playerAnimType spikelauncher, direction left
+		{
+			both pb_spike_launcher_run_slide_l legrig legrig_run_slide_l
+		}
+		playerAnimType spikelauncher, direction right
+		{
+			both pb_spike_launcher_run_slide_r legrig legrig_run_slide_r 
+		}
+		playerAnimType spikelauncher, direction backward
+		{
+			both pb_spike_launcher_run_slide_b legrig legrig_run_slide_b
+		}
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_run_slide legrig legmodel_run_slide
+		}
+		// HOLD
+		playerAnimType hold, direction left
+		{
+			both pb_hold_run_slide legrig legrig_run_slide_l
+		}
+		playerAnimType hold, direction right
+		{
+			both pb_hold_run_slide legrig legrig_run_slide_r 
+		}
+		playerAnimType hold, direction forward
+		{
+			both pb_hold_run_slide legrig legmodel_run_slide
+		}
+		playerAnimType hold, direction backward
+		{
+			both pb_hold_run_slide legrig legrig_run_slide_b
+		}
+		// DUALWIELD
+		playerAnimType dualwield, direction left
+		{
+			both pb_dw_run_slide_l legrig legmodel_run_slide
+		}
+		playerAnimType dualwield, direction right
+		{
+			both pb_dw_run_slide_r legrig legmodel_run_slide
+		}
+		playerAnimType dualwield, direction forward
+		{
+			both pb_dw_run_slide legrig legmodel_run_slide
+		}
+		playerAnimType dualwield, direction backward
+		{
+			both pb_dw_run_slide_b legrig legmodel_run_slide
+		}
+#gametype MP AND CP
+		// RADIO
+		playerAnimType radio, direction left
+		{
+			both pb_supply_drop_run_slide_l legrig legrig_run_slide_l
+		}
+		playerAnimType radio, direction right
+		{
+			both pb_supply_drop_run_slide_r legrig legrig_run_slide_r 
+		}
+		playerAnimType radio, direction backward
+		{
+			both pb_supply_drop_run_slide_b legrig legrig_run_slide_b
+		}
+		playerAnimType radio
+		{
+			both pb_supply_drop_run_slide legrig legmodel_run_slide
+		}
+#end_gametype
+		// PISTOL
+		weaponclass pistol, direction left
+		{
+			both pb_rifle_run_slide_l legrig legrig_run_slide_l
+			both pb_pistol_fem_run_slide_l legrig legrig_run_slide_l female
+		}
+		weaponclass pistol, direction right
+		{
+			both pb_rifle_run_slide_r legrig legrig_run_slide_r 
+			both pb_pistol_fem_run_slide_r legrig legrig_run_slide_r  female
+		}
+		weaponclass pistol, direction forward
+		{
+			both pb_rifle_run_slide legrig legmodel_run_slide
+			both pb_pistol_fem_run_slide legrig legmodel_run_slide female
+		}
+		weaponclass pistol, direction backward
+		{
+			both pb_rifle_run_slide_b legrig legrig_run_slide_b
+			both pb_pistol_fem_run_slide_b legrig legrig_run_slide_b female
+		}
+		// GRENADE
+		weaponclass grenade, weapontype grenade, direction left
+		{
+			both pb_grenade_run_slide_l legrig legrig_run_slide_l
+		}
+		weaponclass grenade, weapontype grenade, direction right
+		{
+			both pb_grenade_run_slide_r legrig legrig_run_slide_r 
+		}
+		weaponclass grenade, weapontype grenade, direction forward
+		{
+			both pb_grenade_run_slide legrig legmodel_run_slide
+		}
+		weaponclass grenade, weapontype grenade, direction backward
+		{
+			both pb_grenade_run_slide_b legrig legrig_run_slide_b
+		}
+
+		// RPG
+		weaponclass rocketlauncher, direction left
+		{
+			both pb_launcher_run_slide_l legrig legrig_run_slide_l
+		}
+		weaponclass rocketlauncher, direction right
+		{
+			both pb_launcher_run_slide_r legrig legrig_run_slide_r 
+		}
+		weaponclass rocketlauncher, direction forward
+		{
+			both pb_launcher_run_slide legrig legmodel_run_slide
+		}
+		weaponclass rocketlauncher, direction backward
+		{
+			both pb_launcher_run_slide_b legrig legrig_run_slide_b
+		}
+		
+#gametype MP AND ZM
+		// BOW
+		playerAnimType bow, direction left
+		{
+			both pb_bow_run_slide_l legrig legrig_run_slide_l
+		}
+		playerAnimType bow, direction right
+		{
+			both pb_bow_run_slide_r legrig legrig_run_slide_r
+		}
+		playerAnimType bow, direction forward
+		{
+			both pb_bow_run_slide legrig legmodel_run_slide
+		}
+		playerAnimType bow, direction backward
+		{
+			both pb_bow_run_slide_b legrig legrig_run_slide_b
+		}
+#end_gametype
+
+		// DEFAULT
+		direction left
+		{
+			both pb_rifle_run_slide_l legrig legrig_run_slide_l
+			both pb_rifle_fem_run_slide_l legrig legrig_run_slide_l female
+		}
+		direction right
+		{
+			both pb_rifle_run_slide_r legrig legrig_run_slide_r
+			both pb_rifle_fem_run_slide_r legrig legrig_run_slide_r female
+		}
+		direction forward
+		{
+			both pb_rifle_run_slide legrig legmodel_run_slide
+			both pb_rifle_fem_run_slide legrig legmodel_run_slide female
+		}
+		direction backward
+		{
+			both pb_rifle_run_slide_b legrig legrig_run_slide_b
+			both pb_rifle_fem_run_slide_b legrig legrig_run_slide_b female
+		}
+		// DEFAULT
+		default
+		{
+			both pb_rifle_run_slide legrig legmodel_run_slide
+			both pb_rifle_fem_run_slide legrig legmodel_run_slide female
+		}
+	}
+
+	juke_move
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks, direction left
+		{
+			both pb_nunchucks_dodge_run_long_l blendouttime 33  blendtime 33
+		}
+		weapon melee_nunchuks, direction right
+		{
+			both pb_nunchucks_dodge_run_long_r blendouttime 33  blendtime 33
+		}
+		weapon melee_nunchuks, direction backward
+		{
+			both pb_nunchucks_dodge_run_long_b blendouttime 33  blendtime 33
+		}
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_dodge_run_long_f blendouttime 33  blendtime 33
+		}
+#end_demo_version_at_least
+#end_gametype
+		//SPIKE LAUNCHER
+		playerAnimType spikelauncher, direction left
+		{
+			both pb_spike_launcher_dodge_run_long_l blendouttime 33  blendtime 33
+		}
+		playerAnimType spikelauncher, direction right
+		{
+			both pb_spike_launcher_dodge_run_long_r blendouttime 33  blendtime 33
+		}
+		playerAnimType spikelauncher, direction backward
+		{
+			both pb_spike_launcher_dodge_run_long_b blendouttime 33  blendtime 33
+		}
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_dodge_run_long_f blendouttime 33  blendtime 33
+		}
+		
+		#gametype CP
+		
+		//gadget_unstoppable_force
+		weapon gadget_unstoppable_force
+		{
+			both pb_barehands_unstoppable_force_sprint_f
+		}
+		
+		weapon gadget_unstoppable_force_upgraded
+		{
+			both pb_barehands_unstoppable_force_sprint_f
+		}
+		
+		#end_gametype
+		// DUALWIELD
+		playerAnimType dualwield, direction left
+		{
+			both pb_dw_dodge_run_long_l blendouttime 33  blendtime 33
+		}
+		playerAnimType dualwield, direction right
+		{
+			both pb_dw_dodge_run_long_r blendouttime 33  blendtime 33
+		}
+		playerAnimType dualwield, direction backward
+		{
+			both pb_dw_dodge_run_long_b blendouttime 33  blendtime 33
+		}
+		playerAnimType dualwield
+		{
+			both pb_dw_dodge_run_long_f blendouttime 33  blendtime 33
+		}
+		// RPG
+		weaponclass rocketlauncher, direction left
+		{
+			both pb_launcher_dodge_run_long_l blendouttime 33  blendtime 33
+		}
+		weaponclass rocketlauncher, direction right
+		{
+			both pb_launcher_dodge_run_long_r blendouttime 33  blendtime 33
+		}
+		weaponclass rocketlauncher, direction backward
+		{
+			both pb_launcher_dodge_run_long_b blendouttime 33  blendtime 33
+		}
+		weaponclass rocketlauncher
+		{
+			both pb_launcher_dodge_run_long_f blendouttime 33  blendtime 33
+		}
+		direction left, weapon_position ads
+		{
+			both pb_rifle_dodge_run_long_ads_l  blendouttime 33  blendtime 33
+		}
+		direction right, weapon_position ads
+		{
+			both pb_rifle_dodge_run_long_ads_r blendouttime 33  blendtime 33
+		}
+		direction left
+		{
+			both pb_rifle_dodge_run_long_l blendouttime 33  blendtime 33
+		}
+		direction right
+		{
+			both pb_rifle_dodge_run_long_r blendouttime 33  blendtime 33
+		}
+		direction backward, weaponclass pistol AND pistol_spread, weapon_position ads
+		{
+			both pb_pistol_dodge_run_long_ads_b blendouttime 33  blendtime 33
+		}
+		direction backward, weaponclass pistol AND pistol_spread
+		{
+			both pb_pistol_dodge_run_long_b blendouttime 33  blendtime 33
+		}
+		direction backward, playerAnimType singleknife
+		{
+			both pb_knife_dodge_run_long_b blendouttime 33  blendtime 33
+		}
+		direction backward, weapon_position ads
+		{
+			both pb_rifle_dodge_run_long_ads_b blendouttime 33  blendtime 33
+		}
+		direction backward
+		{
+			both pb_rifle_dodge_run_long_b blendouttime 33  blendtime 33
+		}
+		default
+		{
+			both pb_rifle_dodge_run_long_f blendouttime 33  blendtime 33
+		}
+	}
+	
+	juke_move_short
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		direction left, weapon_position ads
+		{
+			both pb_rifle_dodge_run_short_ads_l
+		}
+		direction right, weapon_position ads
+		{
+			both pb_rifle_dodge_run_short_ads_r
+		}
+		direction left
+		{
+			both pb_rifle_dodge_run_short_l
+		}
+		direction right
+		{
+			both pb_rifle_dodge_run_short_r
+		}
+		direction backward
+		{
+			both pb_rifle_dodge_run_long_b
+		}
+		default
+		{
+		}
+	}
+
+	wallrun
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			// none
+		}
+		
+#demo_version_at_least 30
+#gametype MP
+		// CHINA LAKE
+		wallrun_side right, weapon launcher_ex41
+		{
+			both pb_rifle_wall_run_r_loop
+			both pb_rifle_fem_wall_run_r_loop female
+		}
+		wallrun_side left, weapon launcher_ex41
+		{
+			both pb_rifle_wall_run_l_loop
+			both pb_rifle_fem_wall_run_l_loop female
+		}
+#end_gametype
+#end_demo_version_at_least
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		wallrun_side right, weapon melee_nunchuks
+		{
+			both pb_nunchucks_wall_run_r_loop
+		}
+		wallrun_side left, weapon melee_nunchuks
+		{
+			both pb_nunchucks_wall_run_l_loop
+		}
+#end_demo_version_at_least
+		// SWORD
+		wallrun_side right, playerAnimType sword
+		{
+			both pb_sword_wall_run_r_loop
+		}
+		wallrun_side left, playerAnimType sword
+		{
+			both pb_sword_wall_run_l_loop
+		}
+		// ARMMINIGUN
+		wallrun_side right, playerAnimType armminigun
+		{
+			both pb_reaper_wall_run_r_loop
+		}
+		wallrun_side left, playerAnimType armminigun
+		{
+			both pb_reaper_wall_run_l_loop
+		}
+		// BRAWLER
+		wallrun_side right, playerAnimType brawler
+		{
+			both pb_brawler_wall_run_r_loop
+		}
+		wallrun_side left, playerAnimType brawler
+		{
+			both pb_brawler_wall_run_l_loop
+		}
+		// CLUB
+		wallrun_side right, playerAnimType club
+		{
+			both pb_wrench_wall_run_r_loop
+		}
+		wallrun_side left, playerAnimType club
+		{
+			both pb_wrench_wall_run_l_loop
+		}
+#end_gametype
+
+#demo_version_at_least 10
+#gametype ZM
+		wallrun_side right, weapon hero_gravityspikes_melee
+		{
+			both pb_spikes_wall_run_r_loop
+		}
+		wallrun_side left, weapon hero_gravityspikes_melee
+		{
+			both pb_spikes_wall_run_l_loop
+		}
+#end_gametype
+#end_demo_version_at_least
+
+#gametype MP AND ZM
+		// BOW
+		wallrun_side right, playerAnimType bow
+		{
+			both pb_bow_wall_run_r_loop
+		}
+		wallrun_side left, playerAnimType bow
+		{
+			both pb_bow_wall_run_l_loop
+		}
+#end_gametype
+
+		// ONEHANDED
+		wallrun_side right, playerAnimType onehanded
+		{
+			both pb_pistol_1handed_wall_run_r_loop
+		}
+		wallrun_side left, playerAnimType onehanded
+		{
+			both pb_pistol_1handed_wall_run_l_loop
+		}
+		// RIOTSHIELD
+		wallrun_side right, playerAnimType riotshield
+		{
+			both pb_riotshield_wall_run_r_loop
+		}
+		wallrun_side left, playerAnimType riotshield
+		{
+			both pb_riotshield_wall_run_l_loop
+		}
+		// KNIFE
+		wallrun_side right, playerAnimType singleknife
+		{
+			both pb_knife_wall_run_r_loop
+		}
+		wallrun_side left, playerAnimType singleknife
+		{
+			both pb_knife_wall_run_l_loop
+		}
+		// HOLD
+		wallrun_side right, playerAnimType hold
+		{
+			both pb_hold_wall_run_r_loop
+		}
+		wallrun_side left, playerAnimType hold
+		{
+			both pb_hold_wall_run_l_loop
+		}
+		// SPIKE LAUNCHER
+		wallrun_side right, playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_wall_run_r_loop
+		}
+		wallrun_side left, playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_wall_run_l_loop
+		}
+		// DUALWIELD
+		wallrun_side right, playerAnimType dualwield
+		{
+			both pb_dw_wall_run_r_loop
+		}
+		wallrun_side left, playerAnimType dualwield
+		{
+			both pb_dw_wall_run_l_loop
+		}
+#gametype MP AND CP
+		// RADIO
+		wallrun_side right, playerAnimType radio
+		{
+			both pb_supply_drop_wall_run_r_loop
+		}
+		wallrun_side left, playerAnimType radio
+		{
+			both pb_supply_drop_wall_run_l_loop
+		}
+#end_gametype
+		// PISTOL
+		wallrun_side right, weaponclass pistol
+		{
+			both pb_pistol_wall_run_r_loop
+			both pb_pistol_fem_wall_run_r_loop female
+		}
+		wallrun_side left, weaponclass pistol
+		{
+			both pb_pistol_wall_run_l_loop
+			both pb_pistol_fem_wall_run_l_loop female
+		}
+		// GRENADE
+		wallrun_side right, weaponclass grenade
+		{
+			both pb_grenade_wall_run_r_loop
+		}
+		wallrun_side left, weaponclass grenade
+		{
+			both pb_grenade_wall_run_l_loop
+		}
+		// RPG
+		wallrun_side right, weaponclass rocketlauncher
+		{
+			both pb_launcher_wall_run_r_loop
+		}
+		wallrun_side left, weaponclass rocketlauncher
+		{
+			both pb_launcher_wall_run_l_loop
+		}
+		wallrun_side right
+		{
+			both pb_rifle_wall_run_r_loop
+			both pb_rifle_fem_wall_run_r_loop female
+		}
+		wallrun_side left
+		{
+			both pb_rifle_wall_run_l_loop
+			both pb_rifle_fem_wall_run_l_loop female
+		}
+		default
+		{
+		}
+	}
+	
+	falling
+	{
+		// BEAST MODE
+		playerAnimType turned
+		{
+			both pb_zom_beast_fall_loop blendouttime 100 blendtime 450
+		}
+
+#gametype MP
+#demo_version_at_least 21
+		// NUNCHUCKS
+		weapon melee_nunchuks
+		{
+			both pb_nunchucks_standjump_fall_loop blendouttime 100 blendtime 450
+		}
+#end_demo_version_at_least
+		// ARMMINIGUN
+		playerAnimType armminigun
+		{
+			both pb_reaper_standjump_fall_loop blendouttime 100 blendtime 450
+		}
+		// BRAWLER
+		playerAnimType brawler
+		{
+			both pb_brawler_standjump_fall_loop blendouttime 100 blendtime 450
+		}
+		// CLUB
+		playerAnimType club
+		{
+			both pb_wrench_standjump_fall_loop blendouttime 100 blendtime 450
+		}
+#end_gametype
+
+#demo_version_at_least 10
+#gametype ZM
+		weapon hero_gravityspikes_melee, movestatus movingFast
+		{
+			both pb_spikes_runjump_fall_loop blendouttime 100 blendtime 450
+		}
+		weapon hero_gravityspikes_melee
+		{
+			both pb_spikes_standjump_fall_loop blendouttime 100 blendtime 450
+		}
+#end_gametype
+#end_demo_version_at_least
+
+		// ONEHANDED
+		playerAnimType onehanded
+		{
+			both pb_pistol_1handed_standjump_fall_loop blendouttime 100 blendtime 450
+		}
+#gametype MP AND ZM
+		// BOW
+		playerAnimType bow
+		{
+ 			both pb_bow_standjump_fall_loop blendouttime 100 blendtime 450
+		}
+#end_gametype
+
+		// RIOTSHIELD
+		playerAnimType riotshield
+		{
+			both pb_riotshield_standjump_fall_loop blendouttime 100 blendtime 450
+		}
+		// HATCHET
+		playerAnimType hatchet 
+		{
+			both pb_tomahawk_standjump_fall_loop blendouttime 100 blendtime 450
+		}
+		// HOLD
+		playerAnimType hold 
+		{
+			both pb_hold_standjump_fall_loop blendouttime 100 grenadeAnim blendtime 450
+		}
+		// SPIKE LAUNCHER
+		playerAnimType spikelauncher
+		{
+			both pb_spike_launcher_standjump_fall_loop blendouttime 100 blendtime 450
+		}
+		// GREANDE
+		weaponclass grenade, weapontype grenade, playerAnimType grenadeonly
+		{
+			both pb_grenade_standjump_fall_loop blendouttime 100 blendtime 450
+		}
+		// SINGLE KNIFE
+		playerAnimType singleknife 
+		{
+ 			both pb_knife_standjump_fall_loop blendouttime 100 blendtime 450
+		}
+#gametype ZM AND MP
+		// SWORD
+		playerAnimType sword 
+		{
+ 			both pb_sword_standjump_fall_loop blendouttime 100 blendtime 450
+		}
+#end_gametype
+		// DUALWIELD
+		playerAnimType dualwield
+		{
+			both pb_dw_standjump_fall_loop blendouttime 100 blendtime 450
+		}
+#gametype MP AND CP
+		// RADIO
+		playerAnimType radio
+		{
+ 			both pb_supply_drop_standjump_fall_loop blendouttime 100 blendtime 450
+		}
+#end_gametype
+		// RPG
+		weaponclass rocketlauncher 
+		{
+ 			both pb_launcher_standjump_fall_loop blendouttime 100 blendtime 450
+		}
+		// PISTOL
+		weaponclass pistol
+		{
+			both pb_pistol_standjump_fall_loop blendouttime 100 blendtime 450
+			both pb_pistol_fem_standjump_fall_loop blendouttime 100 female blendtime 450
+		}
+		stance crouch
+		{
+			both pb_rifle_crouchjump_fall_loop blendouttime 100 blendtime 450
+		}
+		stance stand
+		{
+			both pb_rifle_standjump_fall_loop blendouttime 100 blendtime 450
+			both pb_rifle_fem_standjump_fall_loop blendouttime 100 blendtime 450 female
+		}
+		default
+		{
+		}
+	}
+}

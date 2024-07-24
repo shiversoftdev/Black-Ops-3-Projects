@@ -1,0 +1,28 @@
+﻿Possible approach for brushmodels:
+
+	1.a Check to see if R_GetBrushModel indexes line up with CM_GetBrushModel
+		- If so, we have all the data we need to render the brush models
+	1.b
+		- If not: thats OK, we can try to take the clipmap surfs and use sorted verts to locate the proper GFX face indexes for the brushes. Since they are emitted sequentially, the first face with a point on our first surf plane with a matching mat will be our brush faces start. 
+		
+	2. Write code to collect/dump all verts, surfs, indices, mats, texts, etc. (all data we need from the remote that exist in arrays) so we dont have to do a ton of cross reads.
+	
+	3. Give the first attempt at dumping the brushmodels to a .map format by using both CM and GFXWorld data!
+	
+	
+	Notes:
+	
+		- GfxBrushModel indices do line up.
+		- GfxBrushModel can have 0 faces, in which case the clipmap faces wont line up, but if there are 0 faces we can just draw the clipmap with caulk for all the faces since there are no UVs or anything to worry about
+		- Is *0 possibly the world brush? It certainly seems like it could be due to a massive amount of faces.
+		- Brushes with 0 sides have 0 sides because of axial sides. All brushes are assumed to have at least 6 faces (one for each axial normal). Brushes with more than this have all their additional sides stored in brush->sides.
+			- See CM_BuildAxialPlanes for their default ordering in engine. (-x, x, -y, y, -z, z)
+			
+		- edge count is the number of edges for the plane (so a box brush with only axial planes would have 6 edgecount values of 4, 0 for numsides, and first adjacent side offsets would all be < 6)
+		
+		- ASSUMPTION:
+			- cplane_s.dist is the distance to follow the normal from the bound midpoint to place the plane.
+			
+		- we can verify tri matches with material index comparisons
+
+		http://www.songho.ca/math/plane/plane.html

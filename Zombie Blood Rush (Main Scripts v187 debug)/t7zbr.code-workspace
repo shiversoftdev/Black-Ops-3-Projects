@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Call of Duty Black Ops III\\mods\\t7_zbr"
+		}
+	],
+	"settings": {
+		"compile-hero.disable-compile-files-on-did-save-code": false
+	}
+}

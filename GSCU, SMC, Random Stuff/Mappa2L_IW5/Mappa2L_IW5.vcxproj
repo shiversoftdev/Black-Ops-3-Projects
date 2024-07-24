@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{0fc82e11-249f-44f9-a67e-8ca6f08b06a9}</ProjectGuid>
+    <RootNamespace>Mappa2LIW5</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)Mappa2L\bin\x86\$(Configuration)</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)Mappa2L\bin\x86\$(Configuration)</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;MAPPA2LIW5_EXPORTS;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <DebugInformationFormat>None</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>copy /b /y "$(SolutionDir)Mappa2L\bin\x86\$(Configuration)\$(ProjectName).dll" "$(SolutionDir)Mappa2L\$(ProjectName).dll"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;MAPPA2LIW5_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <DebugInformationFormat>None</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>copy /b /y "$(SolutionDir)Mappa2L\bin\x86\$(Configuration)\$(ProjectName).dll" "$(SolutionDir)Mappa2L\$(ProjectName).dll"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;MAPPA2LIW5_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;MAPPA2LIW5_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="d3d\audiodefs.h" />
+    <ClInclude Include="d3d\comdecl.h" />
+    <ClInclude Include="d3d\D2D1.h" />
+    <ClInclude Include="d3d\D2D1Helper.h" />
+    <ClInclude Include="d3d\D2DBaseTypes.h" />
+    <ClInclude Include="d3d\D2Derr.h" />
+    <ClInclude Include="d3d\D3D10.h" />
+    <ClInclude Include="d3d\D3D10effect.h" />
+    <ClInclude Include="d3d\d3d10misc.h" />
+    <ClInclude Include="d3d\d3d10sdklayers.h" />
+    <ClInclude Include="d3d\D3D10shader.h" />
+    <ClInclude Include="d3d\D3D10_1.h" />
+    <ClInclude Include="d3d\D3D10_1shader.h" />
+    <ClInclude Include="d3d\D3D11.h" />
+    <ClInclude Include="d3d\D3D11SDKLayers.h" />
+    <ClInclude Include="d3d\D3D11Shader.h" />
+    <ClInclude Include="d3d\d3d9.h" />
+    <ClInclude Include="d3d\d3d9caps.h" />
+    <ClInclude Include="d3d\d3d9types.h" />
+    <ClInclude Include="d3d\D3Dcommon.h" />
+    <ClInclude Include="d3d\D3Dcompiler.h" />
+    <ClInclude Include="d3d\D3DCSX.h" />
+    <ClInclude Include="d3d\D3DX10.h" />
+    <ClInclude Include="d3d\d3dx10async.h" />
+    <ClInclude Include="d3d\D3DX10core.h" />
+    <ClInclude Include="d3d\D3DX10math.h" />
+    <ClInclude Include="d3d\D3DX10mesh.h" />
+    <ClInclude Include="d3d\D3DX10tex.h" />
+    <ClInclude Include="d3d\D3DX11.h" />
+    <ClInclude Include="d3d\D3DX11async.h" />
+    <ClInclude Include="d3d\D3DX11core.h" />
+    <ClInclude Include="d3d\D3DX11tex.h" />
+    <ClInclude Include="d3d\d3dx9.h" />
+    <ClInclude Include="d3d\d3dx9anim.h" />
+    <ClInclude Include="d3d\d3dx9core.h" />
+    <ClInclude Include="d3d\d3dx9effect.h" />
+    <ClInclude Include="d3d\d3dx9math.h" />
+    <ClInclude Include="d3d\d3dx9mesh.h" />
+    <ClInclude Include="d3d\d3dx9shader.h" />
+    <ClInclude Include="d3d\d3dx9shape.h" />
+    <ClInclude Include="d3d\d3dx9tex.h" />
+    <ClInclude Include="d3d\d3dx9xof.h" />
+    <ClInclude Include="d3d\Dcommon.h" />
+    <ClInclude Include="d3d\dinput.h" />
+    <ClInclude Include="d3d\dinputd.h" />
+    <ClInclude Include="d3d\dsconf.h" />
+    <ClInclude Include="d3d\dsetup.h" />
+    <ClInclude Include="d3d\dsound.h" />
+    <ClInclude Include="d3d\DWrite.h" />
+    <ClInclude Include="d3d\dxdiag.h" />
+    <ClInclude Include="d3d\DxErr.h" />
+    <ClInclude Include="d3d\dxfile.h" />
+    <ClInclude Include="d3d\DXGI.h" />
+    <ClInclude Include="d3d\DXGIFormat.h" />
+    <ClInclude Include="d3d\DXGIType.h" />
+    <ClInclude Include="d3d\dxsdkver.h" />
+    <ClInclude Include="d3d\gameux.h" />
+    <ClInclude Include="d3d\PIXPlugin.h" />
+    <ClInclude Include="d3d\rmxfguid.h" />
+    <ClInclude Include="d3d\rmxftmpl.h" />
+    <ClInclude Include="d3d\rpcsal.h" />
+    <ClInclude Include="d3d\X3DAudio.h" />
+    <ClInclude Include="d3d\xact3.h" />
+    <ClInclude Include="d3d\xact3d3.h" />
+    <ClInclude Include="d3d\xact3wb.h" />
+    <ClInclude Include="d3d\XAPO.h" />
+    <ClInclude Include="d3d\XAPOBase.h" />
+    <ClInclude Include="d3d\XAPOFX.h" />
+    <ClInclude Include="d3d\XAudio2.h" />
+    <ClInclude Include="d3d\XAudio2fx.h" />
+    <ClInclude Include="d3d\XDSP.h" />
+    <ClInclude Include="d3d\XInput.h" />
+    <ClInclude Include="d3d\xma2defs.h" />
+    <ClInclude Include="d3d\xnamath.h" />
+    <ClInclude Include="framework.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="d3d\D3DX10math.inl" />
+    <None Include="d3d\d3dx9math.inl" />
+    <None Include="d3d\D3DX_DXGIFormatConvert.inl" />
+    <None Include="d3d\xnamathconvert.inl" />
+    <None Include="d3d\xnamathmatrix.inl" />
+    <None Include="d3d\xnamathmisc.inl" />
+    <None Include="d3d\xnamathvector.inl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

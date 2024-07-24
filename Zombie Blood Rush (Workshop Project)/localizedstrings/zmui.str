@@ -1,0 +1,111 @@
+FILENOTES           "copyall"
+
+REFERENCE           BGB_KILLING_TIME_HINT
+LANG_ENGLISH        "Press ^3[{+actionslot 1}] ^7 to activate\nFreeze players and zombies in place"
+
+REFERENCE           BGB_ARMS_GRACE_HINT
+LANG_ENGLISH        "Auto-activates when respawned\nRespawn with a damage boost and helpful perks"
+
+REFERENCE           BGB_BURNED_OUT_HINT
+LANG_ENGLISH        "Auto-activates when melee'd\nBurn nearby enemies when hurt"
+
+REFERENCE           BGB_COAGULANT_HINT
+LANG_ENGLISH        "Auto-activates when downed\nCharge by taking damage. Explode when downed. Become immune to nukes"
+
+REFERENCE           BGB_IMPATIENT_HINT
+LANG_ENGLISH        "Auto-activates on death\nRespawn instantly. Regain Impatient upon respawn"
+
+REFERENCE           BGB_IN_PLAIN_SIGHT_HINT
+LANG_ENGLISH        "Press ^3[{+actionslot 1}] ^7 to activate\nYou are invisible to enemies for 10 seconds"
+
+REFERENCE           BGB_PHOENIX_UP_HINT
+LANG_ENGLISH        "Auto-activates when downed\nKeep your perks when downed"
+
+REFERENCE           BGB_POP_SHOCKS_HINT
+LANG_ENGLISH        "Auto-activates when melee attacking\nElectrocutes nearby enemies"
+
+REFERENCE           BGB_UNQUENCHABLE_HINT
+LANG_ENGLISH        "Earn cash back for perk purchases"
+
+REFERENCE           BGB_CRAWL_SPACE_HINT
+LANG_ENGLISH        "Press ^3[{+actionslot 1}] ^7 to activate\nAll nearby zombies become crawlers\nAll nearby players are forced into prone position"
+
+REFERENCE           BGB_HEAD_DRAMA_HINT
+LANG_ENGLISH        "Lasts for 3 rounds or 3 player kills\nAny bullet which hits an enemy will damage its head"
+
+REFERENCE           BGB_UNDEAD_MAN_WALKING_HINT
+LANG_ENGLISH        "Lasts 60 seconds\nSlow down all enemies to a shambling speed"
+
+REFERENCE           BGB_FEAR_IN_HEADLIGHTS_HINT
+LANG_ENGLISH        "Press ^3[{+actionslot 1}] ^7 to activate\nEnemies seen by you will not move"
+
+REFERENCE           BGB_BULLET_BOOST_HINT
+LANG_ENGLISH        "Press ^3[{+actionslot 1}] ^7 to activate\nAcquire an alternate ammo type on your current gun"
+
+REFERENCE           BGB_MIND_BLOWN_HINT
+LANG_ENGLISH        "Press ^3[{+actionslot 1}] ^7 to activate\nGib the heads of all the zombies you can see\nStun nearby players with an electric shock"
+
+REFERENCE           BGB_NEAR_DEATH_EXPERIENCE_HINT
+LANG_ENGLISH        "When downed, get teleported to a safe location and keep all perks"
+
+REFERENCE           BGB_NEWTONIAN_NEGATION_HINT
+LANG_ENGLISH        "Lasts 25 minutes\nEnemies killed fall straight up"
+
+REFERENCE           BGB_ROUND_ROBBIN_HINT
+LANG_ENGLISH        "Press ^3[{+actionslot 1}] ^7 to activate\nEnds the current round. Gain 5000 points"
+
+REFERENCE           BGB_BOARD_TO_DEATH_HINT
+LANG_ENGLISH        "Lasts for 5 minutes\nRepairing a board will kill all nearby enemies"
+
+REFERENCE           BGB_IDLE_EYES_HINT
+LANG_ENGLISH        "Press ^3[{+actionslot 1}] ^7 to activate\nZombies will ignore you"
+
+REFERENCE           BGB_POWER_VACUUM_HINT
+LANG_ENGLISH        "Lasts for one full round\nMore power ups can drop each round"
+
+REFERENCE           BGB_EXTRA_CREDIT_HINT
+LANG_ENGLISH        "Press ^3[{+actionslot 1}] ^7 to activate\nSpawns a personal 2500 point power up"
+
+REFERENCE           BGB_FATAL_CONTRAPTION_HINT
+LANG_ENGLISH        "Press ^3[{+actionslot 1}] ^7 to activate\nSpawn a Death Machine power up"
+
+REFERENCE           BGB_REIGN_DROPS_HINT
+LANG_ENGLISH        "Press ^3[{+actionslot 1}] ^7 to activate\nSpawns one of each of the core nine power ups"
+
+REFERENCE           BGB_LUCKY_CRIT_HINT
+LANG_ENGLISH        "Improves your chance of activating an Alternate Ammo Type and increases its damage against players"
+
+REFERENCE           BGB_ARMAMENTAL_ACCOMPLISHMENT_HINT
+LANG_ENGLISH        "Improved weapon handling, immune to emps, and delay explosive timers"
+
+REFERENCE           BGB_ALWAYS_DONE_SWIFTLY_HINT
+LANG_ENGLISH        "Improved aiming and sprinting. Immune to fall damage and move quietly"
+
+REFERENCE           BGB_FIRING_ON_ALL_CYLINDERS_HINT
+LANG_ENGLISH        "Improved sprinting and move more quietly"
+
+REFERENCE           BGB_NOW_YOU_SEE_ME_HINT
+LANG_ENGLISH        "Press ^3[{+actionslot 1}] ^7 to activate\nAll enemies will attack you"
+
+REFERENCE           BGB_TONE_DEATH_HINT
+LANG_ENGLISH        "Auto-activates when killing an enemy\nSilly sounds play when enemies are killed"
+
+REFERENCE           BGB_UNBEARABLE_HINT
+LANG_ENGLISH        "Lasts until death\nMagic box is discounted and never leaves"
+
+REFERENCE           BGB_DANGER_CLOSEST_HINT
+LANG_ENGLISH        "Temporary shield from explosives with a limited charge"
+
+REFERENCE           X_POINTS
+LANG_ENGLISH        "&&1 Points"
+
+REFERENCE           X_ROUND
+LANG_ENGLISH        "Round &&1"
+
+REFERENCE           GAMETYPE_ZBR
+LANG_ENGLISH        "Classic"
+
+REFERENCE           GAMETYPE_ZHUNT
+LANG_ENGLISH        "Hunted"
+
+ENDMARKER

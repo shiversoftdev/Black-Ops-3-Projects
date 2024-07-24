@@ -1,0 +1,1784 @@
+//==========================================================================
+// LOCMOTIVE BLENDS
+//
+// Consists of 2 types of blends:
+//
+// dir_blend: contains sets of blends that represent 360 degrees of angular motion at a particular movement rate
+//
+// speed_blend: lists a set of dir_blends at different movement rates, for a given weapon type
+//
+
+LOCOMOTIVE_BLENDS
+
+// RIFLE CROUCH RUN
+
+dir_blend crouch_run_360_default
+{
+    1		pb_crouch_run_forward				0       pb_rifle_crouch_shoot_run_fr			45
+	1		pb_rifle_crouch_shoot_run_fr		45		pb_crouch_run_right						90
+	1		pb_crouch_run_right					90		pb_rifle_crouch_shoot_run_rb			135
+	2		pb_rifle_crouch_shoot_run_br		135		pb_crouch_run_back						180
+	2		pb_crouch_run_back					180		pb_rifle_crouch_shoot_run_bl			225
+	3		pb_rifle_crouch_shoot_run_lb		225		pb_crouch_run_left						270
+	3		pb_crouch_run_left					270		pb_rifle_crouch_shoot_run_lf			315
+	1		pb_rifle_crouch_shoot_run_fl		315		pb_crouch_run_forward					360
+}
+
+dir_blend crouch_run_360_default_female
+{
+    1		pb_rifle_fem_crouch_run_f			0       pb_rifle_fem_crouch_run_fr45			45
+	1		pb_rifle_fem_crouch_run_fr45		45		pb_rifle_fem_crouch_run_r				90
+	1		pb_rifle_fem_crouch_run_r			90		pb_rifle_fem_crouch_run_rb45			135
+	2		pb_rifle_fem_crouch_run_br45		135		pb_rifle_fem_crouch_run_b				180
+	2		pb_rifle_fem_crouch_run_b			180		pb_rifle_fem_crouch_run_bl45			225
+	3		pb_rifle_fem_crouch_run_lb45		225		pb_rifle_fem_crouch_run_l				270
+	3		pb_rifle_fem_crouch_run_l			270		pb_rifle_fem_crouch_run_lf45			315
+	1		pb_rifle_fem_crouch_run_fl45		315		pb_rifle_fem_crouch_run_f				360
+}
+
+speed_blend locomotion_blend_crouch_default crouch_run_360_default
+speed_blend locomotion_blend_crouch_default_female crouch_run_360_default_female
+
+// RIFLE WALK
+
+dir_blend walk_360_default
+{
+    1      pb_stand_shoot_walk_forward     0       pb_combatwalk_45_fr             45
+    1      pb_combatwalk_45_fr             45      pb_stand_shoot_walk_right       90
+    1      pb_stand_shoot_walk_right       90      pb_combatwalk_45_rb             135
+    2      pb_combatwalk_45_br             135     pb_stand_shoot_walk_back        180
+    2      pb_stand_shoot_walk_back        180     pb_combatwalk_45_bl             225
+    3      pb_combatwalk_45_lb             225     pb_stand_shoot_walk_left        270
+    3      pb_stand_shoot_walk_left        270     pb_combatwalk_45_lf             315
+    1      pb_combatwalk_45_fl             315     pb_stand_shoot_walk_forward     360
+}
+
+dir_blend walk_360_default_female
+{
+    1      pb_rifle_fem_walk_f     		   0       pb_rifle_fem_walk_fr45          45
+    1      pb_rifle_fem_walk_fr45          45      pb_rifle_fem_walk_r       	   90
+    1      pb_rifle_fem_walk_r       	   90      pb_rifle_fem_walk_rb45          135
+    2      pb_rifle_fem_walk_br45          135     pb_rifle_fem_walk_b        	   180
+    2      pb_rifle_fem_walk_b        	   180     pb_rifle_fem_walk_bl45          225
+    3      pb_rifle_fem_walk_lb45          225     pb_rifle_fem_walk_l        	   270
+    3      pb_rifle_fem_walk_l        	   270     pb_rifle_fem_walk_lf45          315
+    1      pb_rifle_fem_walk_fl45          315     pb_rifle_fem_walk_f     		   360
+}
+
+// RIFLE LOWREADY WALK
+
+dir_blend walk_lowready_360_default
+{
+    1      pb_rifle_walk_lowready_f              0       pb_rifle_walk_lowready_fr45              45
+    1      pb_rifle_walk_lowready_fr45           45      pb_rifle_walk_lowready_r                 90
+    1      pb_rifle_walk_lowready_r              90      pb_rifle_walk_lowready_rb45              135
+    2      pb_rifle_walk_lowready_br45           135     pb_rifle_walk_lowready_b      		      180
+    2      pb_rifle_walk_lowready_b  		     180     pb_rifle_walk_lowready_bl45              225
+    3      pb_rifle_walk_lowready_lb45           225     pb_rifle_walk_lowready_l                 270
+    3      pb_rifle_walk_lowready_l              270     pb_rifle_walk_lowready_lf45              315
+    1      pb_rifle_walk_lowready_fl45           315     pb_rifle_walk_lowready_f                 360
+}
+
+// RIFLE RUN
+
+dir_blend run_360_default
+{
+    1      pb_combatrun_forward_loop           0       pb_combatrun_45_fr                      45
+    1      pb_combatrun_45_fr                  45      pb_combatrun_right_loop                 90
+    1      pb_combatrun_right_loop             90      pb_combatrun_45_rb                      135
+    2      pb_combatrun_45_br                  135     pb_combatrun_forward_loop_reversed      180
+    2      pb_combatrun_forward_loop_reversed  180     pb_combatrun_45_bl                      225
+    3      pb_combatrun_45_lb                  225     pb_combatrun_left_loop                  270
+    3      pb_combatrun_left_loop              270     pb_combatrun_45_lf                      315
+    1      pb_combatrun_45_fl                  315     pb_combatrun_forward_loop               360
+}
+
+dir_blend run_360_default_female
+{
+    1      pb_rifle_fem_run_f           	   0       pb_rifle_fem_run_fr45                   45
+    1      pb_rifle_fem_run_fr45               45      pb_rifle_fem_run_r                 	   90
+    1      pb_rifle_fem_run_r             	   90      pb_rifle_fem_run_rb45                   135
+    2      pb_rifle_fem_run_br45               135     pb_rifle_fem_run_b      				   180
+    2      pb_rifle_fem_run_b  				   180     pb_rifle_fem_run_bl45                   225
+    3      pb_rifle_fem_run_lb45               225     pb_rifle_fem_run_l                  	   270
+    3      pb_rifle_fem_run_l              	   270     pb_rifle_fem_run_lf45                   315
+    1      pb_rifle_fem_run_fl45               315     pb_rifle_fem_run_f               	   360
+}
+
+speed_blend locomotion_blend_default walk_360_default run_360_default
+speed_blend locomotion_blend_default_female walk_360_default_female run_360_default_female
+
+// RIFLE LOWREADY RUN
+
+dir_blend run_lowready_360_default
+{
+    1      pb_rifle_run_lowready_f              0       pb_rifle_run_lowready_fr45              45
+    1      pb_rifle_run_lowready_fr45           45      pb_rifle_run_lowready_r                 90
+    1      pb_rifle_run_lowready_r              90      pb_rifle_run_lowready_rb45              135
+    2      pb_rifle_run_lowready_br45           135     pb_rifle_run_lowready_b      		    180
+    2      pb_rifle_run_lowready_b  		    180     pb_rifle_run_lowready_bl45              225
+    3      pb_rifle_run_lowready_lb45           225     pb_rifle_run_lowready_l                 270
+    3      pb_rifle_run_lowready_l              270     pb_rifle_run_lowready_lf45              315
+    1      pb_rifle_run_lowready_fl45           315     pb_rifle_run_lowready_f                 360
+}
+
+speed_blend locomotion_blend_lowready_default walk_lowready_360_default run_lowready_360_default
+
+// RIFLE CROUCH RUN
+
+dir_blend crouch_run_360_rifle
+{
+	1	pb_rifle_crouch_shoot_run_f		0		pb_rifle_crouch_shoot_run_fr	45
+	1	pb_rifle_crouch_shoot_run_fr	45		pb_rifle_crouch_shoot_run_r		90
+	1	pb_rifle_crouch_shoot_run_r		90		pb_rifle_crouch_shoot_run_rb	135
+	2	pb_rifle_crouch_shoot_run_br	135		pb_rifle_crouch_shoot_run_b		180
+	2	pb_rifle_crouch_shoot_run_b		180		pb_rifle_crouch_shoot_run_bl	225
+	3	pb_rifle_crouch_shoot_run_lb	225		pb_rifle_crouch_shoot_run_l		270
+	3	pb_rifle_crouch_shoot_run_l		270		pb_rifle_crouch_shoot_run_lf	315
+	1	pb_rifle_crouch_shoot_run_fl	315		pb_rifle_crouch_shoot_run_f		360
+}
+
+dir_blend crouch_walk_360_rifle_female
+{
+	1	pb_rifle_fem_crouch_walk_f		0		pb_rifle_fem_crouch_walk_fr45	45
+	1	pb_rifle_fem_crouch_walk_fr45	45		pb_rifle_fem_crouch_walk_r		90
+	1	pb_rifle_fem_crouch_walk_r		90		pb_rifle_fem_crouch_run_rb45	135
+	2	pb_rifle_fem_crouch_walk_br45	135		pb_rifle_fem_crouch_walk_b		180
+	2	pb_rifle_fem_crouch_walk_b		180		pb_rifle_fem_crouch_walk_bl45	225
+	3	pb_rifle_fem_crouch_walk_lb45	225		pb_rifle_fem_crouch_walk_l		270
+	3	pb_rifle_fem_crouch_walk_l		270		pb_rifle_fem_crouch_walk_lf45	315
+	1	pb_rifle_fem_crouch_walk_fl45	315		pb_rifle_fem_crouch_walk_f		360
+}
+
+speed_blend locomotion_blend_crouch_rifle crouch_run_360_rifle
+speed_blend locomotion_blend_crouch_rifle_female crouch_walk_360_rifle_female
+
+// PISTOL CROUCH RUN
+
+dir_blend crouch_run_360_pistol
+{
+    1		pb_pistol_crouch_run_f				0       pb_pistol_crouch_run_45_fr				45
+	1		pb_pistol_crouch_run_45_fr			45		pb_pistol_crouch_run_r					90
+	1		pb_pistol_crouch_run_r				90		pb_pistol_crouch_run_45_rb				135
+	2		pb_pistol_crouch_run_45_br			135		pb_pistol_crouch_run_b					180
+	2		pb_pistol_crouch_run_b				180		pb_pistol_crouch_run_45_bl				225
+	3		pb_pistol_crouch_run_45_lb			225		pb_pistol_crouch_run_l					270
+	3		pb_pistol_crouch_run_l				270		pb_pistol_crouch_run_45_lf				315
+	1		pb_pistol_crouch_run_45_fl			315		pb_pistol_crouch_run_f					360
+}
+
+dir_blend crouch_run_360_pistol_female
+{
+    1		pb_pistol_fem_crouch_run_f				0       pb_pistol_fem_crouch_run_45_fr				45
+	1		pb_pistol_fem_crouch_run_45_fr			45		pb_pistol_fem_crouch_run_r					90
+	1		pb_pistol_fem_crouch_run_r				90		pb_pistol_fem_crouch_run_45_rb				135
+	2		pb_pistol_fem_crouch_run_45_br			135		pb_pistol_fem_crouch_run_b					180
+	2		pb_pistol_fem_crouch_run_b				180		pb_pistol_fem_crouch_run_45_bl				225
+	3		pb_pistol_fem_crouch_run_45_lb			225		pb_pistol_fem_crouch_run_l					270
+	3		pb_pistol_fem_crouch_run_l				270		pb_pistol_fem_crouch_run_45_lf				315
+	1		pb_pistol_fem_crouch_run_45_fl			315		pb_pistol_fem_crouch_run_f					360
+}
+
+
+// PISTOL CROUCH WALK
+
+dir_blend crouch_walk_360_pistol
+{
+    1		pb_pistol_crouch_walk_f				0       pb_pistol_crouch_walk_45_fr			45
+	1		pb_pistol_crouch_walk_45_fr			45		pb_pistol_crouch_walk_r				90
+	1		pb_pistol_crouch_walk_r				90		pb_pistol_crouch_walk_45_rb			135
+	2		pb_pistol_crouch_walk_45_br			135		pb_pistol_crouch_walk_b				180
+	2		pb_pistol_crouch_walk_b				180		pb_pistol_crouch_walk_45_bl			225
+	3		pb_pistol_crouch_walk_45_lb			225		pb_pistol_crouch_walk_l				270
+	3		pb_pistol_crouch_walk_l				270		pb_pistol_crouch_walk_45_lf			315
+	1		pb_pistol_crouch_walk_45_fl			315		pb_pistol_crouch_walk_f				360
+}
+
+dir_blend crouch_walk_360_pistol_female
+{
+    1		pb_pistol_fem_crouch_walk_f				0       pb_pistol_fem_crouch_walk_45_fr			45
+	1		pb_pistol_fem_crouch_walk_45_fr			45		pb_pistol_fem_crouch_walk_r				90
+	1		pb_pistol_fem_crouch_walk_r				90		pb_pistol_fem_crouch_walk_45_rb			135
+	2		pb_pistol_fem_crouch_walk_45_br			135		pb_pistol_fem_crouch_walk_b				180
+	2		pb_pistol_fem_crouch_walk_b				180		pb_pistol_fem_crouch_walk_45_bl			225
+	3		pb_pistol_fem_crouch_walk_45_lb			225		pb_pistol_fem_crouch_walk_l				270
+	3		pb_pistol_fem_crouch_walk_l				270		pb_pistol_fem_crouch_walk_45_lf			315
+	1		pb_pistol_fem_crouch_walk_45_fl			315		pb_pistol_fem_crouch_walk_f				360
+}
+
+speed_blend locomotion_blend_crouch_pistol crouch_walk_360_pistol crouch_run_360_pistol
+speed_blend locomotion_blend_crouch_pistol_female crouch_walk_360_pistol_female crouch_run_360_pistol_female
+
+// PISTOL WALK
+
+dir_blend walk_360_pistol
+{
+    1      pb_combatwalk_forward_loop_pistol	0		pb_pistol_walk_45_fr					45
+    1      pb_pistol_walk_45_fr					45		pb_combatwalk_right_loop_pistol			90
+    1      pb_combatwalk_right_loop_pistol		90		pb_pistol_walk_45_rb					135
+    2      pb_pistol_walk_45_br					135		pb_combatwalk_back_loop_pistol			180
+    2      pb_combatwalk_back_loop_pistol		180		pb_pistol_walk_45_bl					225
+    3      pb_pistol_walk_45_lb					225		pb_combatwalk_left_loop_pistol			270
+    3      pb_combatwalk_left_loop_pistol		270		pb_pistol_walk_45_lf					315
+    1      pb_pistol_walk_45_fl					315		pb_combatwalk_forward_loop_pistol		360
+}
+
+dir_blend walk_360_pistol_female
+{
+    1		pb_pistol_fem_stand_walk_f				0       pb_pistol_fem_stand_walk_45_fr			45
+	1		pb_pistol_fem_stand_walk_45_fr			45		pb_pistol_fem_stand_walk_r				90
+	1		pb_pistol_fem_stand_walk_r				90		pb_pistol_fem_stand_walk_45_rb			135
+	2		pb_pistol_fem_stand_walk_45_br			135		pb_pistol_fem_stand_walk_b				180
+	2		pb_pistol_fem_stand_walk_b				180		pb_pistol_fem_stand_walk_45_bl			225
+	3		pb_pistol_fem_stand_walk_45_lb			225		pb_pistol_fem_stand_walk_l				270
+	3		pb_pistol_fem_stand_walk_l				270		pb_pistol_fem_stand_walk_45_lf			315
+	1		pb_pistol_fem_stand_walk_45_fl			315		pb_pistol_fem_stand_walk_f				360
+}
+
+// PISTOL RUN
+
+dir_blend run_360_pistol
+{
+    1      pb_pistol_run_fast					0		pb_pistol_run_45_fr						45
+    1      pb_pistol_run_45_fr					45		pb_combatrun_right_loop_pistol			90
+    1      pb_combatrun_right_loop_pistol		90		pb_pistol_run_45_rb						135
+    2      pb_pistol_run_45_br					135		pb_combatrun_back_loop_pistol			180
+    2      pb_combatrun_back_loop_pistol		180		pb_pistol_run_45_bl						225
+    3      pb_pistol_run_45_lb					225		pb_combatrun_left_loop_pistol			270
+    3      pb_combatrun_left_loop_pistol		270     pb_pistol_run_45_lf						315
+    1      pb_pistol_run_45_fl					315		pb_pistol_run_fast						360
+}
+
+dir_blend run_360_pistol_female
+{
+    1		pb_pistol_fem_stand_run_f				0       pb_pistol_fem_stand_run_45_fr				45
+	1		pb_pistol_fem_stand_run_45_fr			45		pb_pistol_fem_stand_run_r					90
+	1		pb_pistol_fem_stand_run_r				90		pb_pistol_fem_stand_run_45_rb				135
+	2		pb_pistol_fem_stand_run_45_br			135		pb_pistol_fem_stand_run_b					180
+	2		pb_pistol_fem_stand_run_b				180		pb_pistol_fem_stand_run_45_bl				225
+	3		pb_pistol_fem_stand_run_45_lb			225		pb_pistol_fem_stand_run_l					270
+	3		pb_pistol_fem_stand_run_l				270		pb_pistol_fem_stand_run_45_lf				315
+	1		pb_pistol_fem_stand_run_45_fl			315		pb_pistol_fem_stand_run_f					360
+}
+
+speed_blend locomotion_blend_pistol walk_360_pistol run_360_pistol
+speed_blend locomotion_blend_pistol_female walk_360_pistol_female run_360_pistol_female
+
+// PISTOL LOWREADY WALK
+
+dir_blend walk_lowready_360_pistol
+{
+    1      pb_pistol_walk_lowready_f            0       pb_pistol_walk_lowready_fr              45
+    1      pb_pistol_walk_lowready_fr           45      pb_pistol_walk_lowready_r               90
+    1      pb_pistol_walk_lowready_r            90      pb_pistol_walk_lowready_rb              135
+    2      pb_pistol_walk_lowready_br           135     pb_pistol_walk_lowready_b      		    180
+    2      pb_pistol_walk_lowready_b  		    180     pb_pistol_walk_lowready_bl              225
+    3      pb_pistol_walk_lowready_lb           225     pb_pistol_walk_lowready_l               270
+    3      pb_pistol_walk_lowready_l            270     pb_pistol_walk_lowready_lf              315
+    1      pb_pistol_walk_lowready_fl           315     pb_pistol_walk_lowready_f               360
+}
+
+// PISTOL LOWREADY RUN
+
+dir_blend run_lowready_360_pistol
+{
+    1      pb_pistol_run_lowready_f            0       pb_pistol_run_lowready_fr              45
+    1      pb_pistol_run_lowready_fr           45      pb_pistol_run_lowready_r               90
+    1      pb_pistol_run_lowready_r            90      pb_pistol_run_lowready_rb              135
+    2      pb_pistol_run_lowready_br           135     pb_pistol_run_lowready_b      		  180
+    2      pb_pistol_run_lowready_b  		   180     pb_pistol_run_lowready_bl              225
+    3      pb_pistol_run_lowready_lb           225     pb_pistol_run_lowready_l               270
+    3      pb_pistol_run_lowready_l            270     pb_pistol_run_lowready_lf              315
+    1      pb_pistol_run_lowready_fl           315     pb_pistol_run_lowready_f               360
+}
+
+speed_blend locomotion_blend_lowready_pistol walk_lowready_360_pistol run_lowready_360_pistol
+
+// DW CROUCH RUN
+
+dir_blend crouch_run_360_dw
+{
+    1		pb_dw_crouch_run_forward		0       pb_dw_crouch_run_45_fr				45
+	1		pb_dw_crouch_run_45_fr			45		pb_dw_crouch_run_r					90
+	1		pb_dw_crouch_run_r				90		pb_dw_crouch_run_45_rb				135
+	2		pb_dw_crouch_run_45_br			135		pb_dw_crouch_run_back				180
+	2		pb_dw_crouch_run_back			180		pb_dw_crouch_run_45_bl				225
+	3		pb_dw_crouch_run_45_lb			225		pb_dw_crouch_run_l					270
+	3		pb_dw_crouch_run_l				270		pb_dw_crouch_run_45_lf				315
+	1		pb_dw_crouch_run_45_fl			315		pb_dw_crouch_run_forward			360
+}
+
+
+// DW CROUCH WALK
+
+dir_blend crouch_walk_360_dw
+{
+    1		pb_dw_crouch_walk_f				0       pb_dw_crouch_walk_45_fr				45
+	1		pb_dw_crouch_walk_45_fr			45		pb_dw_crouch_walk_r					90
+	1		pb_dw_crouch_walk_r				90		pb_dw_crouch_walk_45_rb				135
+	2		pb_dw_crouch_walk_45_br			135		pb_dw_crouch_walk_b					180
+	2		pb_dw_crouch_walk_b				180		pb_dw_crouch_walk_45_bl				225
+	3		pb_dw_crouch_walk_45_lb			225		pb_dw_crouch_walk_l					270
+	3		pb_dw_crouch_walk_l				270		pb_dw_crouch_walk_45_lf				315
+	1		pb_dw_crouch_walk_45_fl			315		pb_dw_crouch_walk_f					360
+}
+
+speed_blend locomotion_blend_crouch_dw crouch_walk_360_dw crouch_run_360_dw
+
+// DW WALK
+
+dir_blend walk_360_dw
+{
+    1      pb_dw_walk_f						0		pb_dw_walk_45_fr					45
+    1      pb_dw_walk_45_fr					45		pb_dw_walk_r						90
+    1      pb_dw_walk_r						90		pb_dw_walk_45_rb					135
+    2      pb_dw_walk_45_br					135		pb_dw_walk_b 						180
+    2      pb_dw_walk_b 					180		pb_dw_walk_45_bl					225
+    3      pb_dw_walk_45_lb					225		pb_dw_walk_l						270
+    3      pb_dw_walk_l						270     pb_dw_walk_45_lf					315
+    1      pb_dw_walk_45_fl					315		pb_dw_walk_f						360
+}
+
+
+// DW RUN
+
+dir_blend run_360_dw
+{
+    1      pb_dw_stand_run_f				0		pb_dw_stand_run_45_fr				45
+    1      pb_dw_stand_run_45_fr			45		pb_dw_stand_run_r					90
+    1      pb_dw_stand_run_r				90		pb_dw_stand_run_45_rb				135
+    2      pb_dw_stand_run_45_br			135		pb_dw_stand_run_b 					180
+    2      pb_dw_stand_run_b 				180		pb_dw_stand_run_45_bl				225
+    3      pb_dw_stand_run_45_lb			225		pb_dw_stand_run_l					270
+    3      pb_dw_stand_run_l				270     pb_dw_stand_run_45_lf				315
+    1      pb_dw_stand_run_45_fl			315		pb_dw_stand_run_f					360
+}
+
+speed_blend locomotion_blend_dw walk_360_dw run_360_dw
+
+// LAUNCHER CROUCH RUN
+
+dir_blend crouch_run_360_launcher
+{
+    1		pb_launcher_crouch_run_f				0       pb_launcher_crouch_run_45_fr				45
+	1		pb_launcher_crouch_run_45_fr			45		pb_launcher_crouch_run_r					90
+	1		pb_launcher_crouch_run_r				90		pb_launcher_crouch_run_45_rb				135
+	2		pb_launcher_crouch_run_45_br			135		pb_launcher_crouch_run_b					180
+	2		pb_launcher_crouch_run_b				180		pb_launcher_crouch_run_45_bl				225
+	3		pb_launcher_crouch_run_45_lb			225		pb_launcher_crouch_run_l					270
+	3		pb_launcher_crouch_run_l				270		pb_launcher_crouch_run_45_lf				315
+	1		pb_launcher_crouch_run_45_fl			315		pb_launcher_crouch_run_f					360
+}
+
+// LAUNCHER CROUCH WALK
+
+dir_blend crouch_walk_360_launcher
+{
+    1		pb_launcher_crouch_walk_f				0       pb_launcher_crouch_walk_45_fr			45
+	1		pb_launcher_crouch_walk_45_fr			45		pb_launcher_crouch_walk_r				90
+	1		pb_launcher_crouch_walk_r				90		pb_launcher_crouch_walk_45_rb			135
+	2		pb_launcher_crouch_walk_45_br			135		pb_launcher_crouch_walk_b				180
+	2		pb_launcher_crouch_walk_b				180		pb_launcher_crouch_walk_45_bl			225
+	3		pb_launcher_crouch_walk_45_lb			225		pb_launcher_crouch_walk_l				270
+	3		pb_launcher_crouch_walk_l				270		pb_launcher_crouch_walk_45_lf			315
+	1		pb_launcher_crouch_walk_45_fl			315		pb_launcher_crouch_walk_f				360
+}
+
+speed_blend locomotion_blend_crouch_launcher crouch_walk_360_launcher crouch_run_360_launcher
+
+// LAUNCHER WALK
+
+dir_blend walk_360_launcher
+{
+    1		pb_launcher_stand_walk_f				0       pb_launcher_stand_walk_45_fr			45
+	1		pb_launcher_stand_walk_45_fr			45		pb_launcher_stand_walk_r				90
+	1		pb_launcher_stand_walk_r				90		pb_launcher_stand_walk_45_rb			135
+	2		pb_launcher_stand_walk_45_br			135		pb_launcher_stand_walk_b				180
+	2		pb_launcher_stand_walk_b				180		pb_launcher_stand_walk_45_bl			225
+	3		pb_launcher_stand_walk_45_lb			225		pb_launcher_stand_walk_l				270
+	3		pb_launcher_stand_walk_l				270		pb_launcher_stand_walk_45_lf			315
+	1		pb_launcher_stand_walk_45_fl			315		pb_launcher_stand_walk_f				360
+}
+
+// LAUNCHER RUN
+
+dir_blend run_360_launcher
+{
+    1		pb_launcher_stand_run_f				0       pb_launcher_stand_run_45_fr				45
+	1		pb_launcher_stand_run_45_fr			45		pb_launcher_stand_run_r					90
+	1		pb_launcher_stand_run_r				90		pb_launcher_stand_run_45_rb				135
+	2		pb_launcher_stand_run_45_br			135		pb_launcher_stand_run_b					180
+	2		pb_launcher_stand_run_b				180		pb_launcher_stand_run_45_bl				225
+	3		pb_launcher_stand_run_45_lb			225		pb_launcher_stand_run_l					270
+	3		pb_launcher_stand_run_l				270		pb_launcher_stand_run_45_lf				315
+	1		pb_launcher_stand_run_45_fl			315		pb_launcher_stand_run_f					360
+}
+
+
+speed_blend locomotion_blend_launcher walk_360_launcher run_360_launcher
+
+#gametype MP AND ZM
+// BOW CROUCH RUN
+
+dir_blend crouch_run_360_bow
+{
+    1		pb_bow_crouch_run_f				0       pb_bow_crouch_run_45_fr				45
+	1		pb_bow_crouch_run_45_fr			45		pb_bow_crouch_run_r					90
+	1		pb_bow_crouch_run_r				90		pb_bow_crouch_run_45_rb				135
+	2		pb_bow_crouch_run_45_br			135		pb_bow_crouch_run_b					180
+	2		pb_bow_crouch_run_b				180		pb_bow_crouch_run_45_bl				225
+	3		pb_bow_crouch_run_45_lb			225		pb_bow_crouch_run_l					270
+	3		pb_bow_crouch_run_l				270		pb_bow_crouch_run_45_lf				315
+	1		pb_bow_crouch_run_45_fl			315		pb_bow_crouch_run_f					360
+}
+
+// BOW CROUCH WALK
+
+dir_blend crouch_walk_360_bow
+{
+    1		pb_bow_crouch_walk_f				0       pb_bow_crouch_walk_45_fr			45
+	1		pb_bow_crouch_walk_45_fr			45		pb_bow_crouch_walk_r				90
+	1		pb_bow_crouch_walk_r				90		pb_bow_crouch_walk_45_rb			135
+	2		pb_bow_crouch_walk_45_br			135		pb_bow_crouch_walk_b				180
+	2		pb_bow_crouch_walk_b				180		pb_bow_crouch_walk_45_bl			225
+	3		pb_bow_crouch_walk_45_lb			225		pb_bow_crouch_walk_l				270
+	3		pb_bow_crouch_walk_l				270		pb_bow_crouch_walk_45_lf			315
+	1		pb_bow_crouch_walk_45_fl			315		pb_bow_crouch_walk_f				360
+}
+
+speed_blend locomotion_blend_crouch_bow crouch_walk_360_bow crouch_run_360_bow
+
+// BOW WALK
+
+dir_blend walk_360_bow
+{
+    1		pb_bow_stand_walk_f				0       pb_bow_stand_walk_45_fr			45
+	1		pb_bow_stand_walk_45_fr			45		pb_bow_stand_walk_r				90
+	1		pb_bow_stand_walk_r				90		pb_bow_stand_walk_45_rb			135
+	2		pb_bow_stand_walk_45_br			135		pb_bow_stand_walk_b				180
+	2		pb_bow_stand_walk_b				180		pb_bow_stand_walk_45_bl			225
+	3		pb_bow_stand_walk_45_lb			225		pb_bow_stand_walk_l				270
+	3		pb_bow_stand_walk_l				270		pb_bow_stand_walk_45_lf			315
+	1		pb_bow_stand_walk_45_fl			315		pb_bow_stand_walk_f				360
+}
+
+// BOW RUN
+
+dir_blend run_360_bow
+{
+    1		pb_bow_stand_run_f				0       pb_bow_stand_run_45_fr				45
+	1		pb_bow_stand_run_45_fr			45		pb_bow_stand_run_r					90
+	1		pb_bow_stand_run_r				90		pb_bow_stand_run_45_rb				135
+	2		pb_bow_stand_run_45_br			135		pb_bow_stand_run_b					180
+	2		pb_bow_stand_run_b				180		pb_bow_stand_run_45_bl				225
+	3		pb_bow_stand_run_45_lb			225		pb_bow_stand_run_l					270
+	3		pb_bow_stand_run_l				270		pb_bow_stand_run_45_lf				315
+	1		pb_bow_stand_run_45_fl			315		pb_bow_stand_run_f					360
+}
+
+speed_blend locomotion_blend_bow walk_360_bow run_360_bow
+#end_gametype
+
+#gametype MP
+// BRAWLER CROUCH RUN
+dir_blend crouch_run_360_brawler
+{
+    1		pb_brawler_crouch_run_f			0       pb_brawler_crouch_run_fr		45
+	1		pb_brawler_crouch_run_rf		45		pb_brawler_crouch_run_r			90
+	1		pb_brawler_crouch_run_r			90		pb_brawler_crouch_run_rb		135
+	2		pb_brawler_crouch_run_br		135		pb_brawler_crouch_run_b			180
+	2		pb_brawler_crouch_run_b			180		pb_brawler_crouch_run_bl		225
+	3		pb_brawler_crouch_run_lb		225		pb_brawler_crouch_run_l			270
+	3		pb_brawler_crouch_run_l			270		pb_brawler_crouch_run_lf		315
+	1		pb_brawler_crouch_run_fl		315		pb_brawler_crouch_run_f			360
+}
+
+dir_blend crouch_run_360_brawler_female
+{
+    1		pb_brawler_fem_crouch_run_f			0       pb_brawler_fem_crouch_run_fr		45
+	1		pb_brawler_fem_crouch_run_rf		45		pb_brawler_fem_crouch_run_r			90
+	1		pb_brawler_fem_crouch_run_r			90		pb_brawler_fem_crouch_run_rb		135
+	2		pb_brawler_fem_crouch_run_br		135		pb_brawler_fem_crouch_run_b			180
+	2		pb_brawler_fem_crouch_run_b			180		pb_brawler_fem_crouch_run_bl		225
+	3		pb_brawler_fem_crouch_run_lb		225		pb_brawler_fem_crouch_run_l			270
+	3		pb_brawler_fem_crouch_run_l			270		pb_brawler_fem_crouch_run_lf		315
+	1		pb_brawler_fem_crouch_run_fl		315		pb_brawler_fem_crouch_run_f			360
+}
+
+speed_blend locomotion_blend_crouch_brawler crouch_run_360_brawler
+speed_blend locomotion_blend_crouch_brawler_female crouch_run_360_brawler_female
+
+//BRAWLER WALK
+
+dir_blend walk_360_brawler
+{
+    1		pb_brawler_stand_walk_f			0       pb_brawler_stand_walk_fr		45
+	1		pb_brawler_stand_walk_rf		45		pb_brawler_stand_walk_r			90
+	1		pb_brawler_stand_walk_r			90		pb_brawler_stand_walk_rb		135
+	2		pb_brawler_stand_walk_br		135		pb_brawler_stand_walk_b			180
+	2		pb_brawler_stand_walk_b			180		pb_brawler_stand_walk_bl		225
+	3		pb_brawler_stand_walk_lb		225		pb_brawler_stand_walk_l			270
+	3		pb_brawler_stand_walk_l			270		pb_brawler_stand_walk_lf		315
+	1		pb_brawler_stand_walk_fl		315		pb_brawler_stand_walk_f			360
+}
+
+dir_blend walk_360_brawler_female
+{
+    1		pb_brawler_fem_stand_walk_f			0       pb_brawler_fem_stand_walk_fr		45
+	1		pb_brawler_fem_stand_walk_rf		45		pb_brawler_fem_stand_walk_r			90
+	1		pb_brawler_fem_stand_walk_r			90		pb_brawler_fem_stand_walk_rb		135
+	2		pb_brawler_fem_stand_walk_br		135		pb_brawler_fem_stand_walk_b			180
+	2		pb_brawler_fem_stand_walk_b			180		pb_brawler_fem_stand_walk_bl		225
+	3		pb_brawler_fem_stand_walk_lb		225		pb_brawler_fem_stand_walk_l			270
+	3		pb_brawler_fem_stand_walk_l			270		pb_brawler_fem_stand_walk_lf		315
+	1		pb_brawler_fem_stand_walk_fl		315		pb_brawler_fem_stand_walk_f			360
+}
+
+//BRAWLER RUN
+
+dir_blend run_360_brawler
+{
+    1		pb_brawler_stand_run_f			0       pb_brawler_stand_run_fr			45
+	1		pb_brawler_stand_run_rf			45		pb_brawler_stand_run_r			90
+	1		pb_brawler_stand_run_r			90		pb_brawler_stand_run_rb			135
+	2		pb_brawler_stand_run_br			135		pb_brawler_stand_run_b			180
+	2		pb_brawler_stand_run_b			180		pb_brawler_stand_run_bl			225
+	3		pb_brawler_stand_run_lb			225		pb_brawler_stand_run_l			270
+	3		pb_brawler_stand_run_l			270		pb_brawler_stand_run_lf			315
+	1		pb_brawler_stand_run_fl			315		pb_brawler_stand_run_f			360
+}
+
+dir_blend run_360_brawler_female
+{
+	1		pb_brawler_fem_stand_run_f			0       pb_brawler_fem_stand_run_fr			45
+	1		pb_brawler_fem_stand_run_rf			45		pb_brawler_fem_stand_run_r			90
+	1		pb_brawler_fem_stand_run_r			90		pb_brawler_fem_stand_run_rb			135
+	2		pb_brawler_fem_stand_run_br			135		pb_brawler_fem_stand_run_b			180
+	2		pb_brawler_fem_stand_run_b			180		pb_brawler_fem_stand_run_bl			225
+	3		pb_brawler_fem_stand_run_lb			225		pb_brawler_fem_stand_run_l			270
+	3		pb_brawler_fem_stand_run_l			270		pb_brawler_fem_stand_run_lf			315
+	1		pb_brawler_fem_stand_run_fl			315		pb_brawler_fem_stand_run_f			360
+}
+
+speed_blend locomotion_blend_brawler walk_360_brawler run_360_brawler
+speed_blend locomotion_blend_brawler_female walk_360_brawler_female run_360_brawler_female
+
+// BRAWLER CROUCH RUN
+dir_blend crouch_run_360_wrench
+{
+  1		pb_wrench_crouch_run_f			0     pb_wrench_crouch_run_45_fr		45
+	1		pb_wrench_crouch_run_45_rf	45		pb_wrench_crouch_run_r				90
+	1		pb_wrench_crouch_run_r			90		pb_wrench_crouch_run_45_rl		135
+	2		pb_wrench_crouch_run_45_br	135		pb_wrench_crouch_run_b				180
+	2		pb_wrench_crouch_run_b			180		pb_wrench_crouch_run_45_bl		225
+	3		pb_wrench_crouch_run_45_lb	225		pb_wrench_crouch_run_l				270
+	3		pb_wrench_crouch_run_l			270		pb_wrench_crouch_run_45_lf		315
+	1		pb_wrench_crouch_run_45_fl	315		pb_wrench_crouch_run_f				360
+}
+
+speed_blend locomotion_blend_crouch_wrench crouch_run_360_wrench
+
+// CLUB WALK
+
+dir_blend walk_360_wrench
+{
+  1		pb_wrench_walk_f		0     pb_wrench_walk_fr		45
+	1		pb_wrench_walk_rf		45		pb_wrench_walk_r		90
+	1		pb_wrench_walk_r		90		pb_wrench_walk_rb		135
+	2		pb_wrench_walk_br		135		pb_wrench_walk_b		180
+	2		pb_wrench_walk_b		180		pb_wrench_walk_bl		225
+	3		pb_wrench_walk_lb		225		pb_wrench_walk_l		270
+	3		pb_wrench_walk_l		270		pb_wrench_walk_lf		315
+	1		pb_wrench_walk_fl		315		pb_wrench_walk_f		360
+}
+
+// CLUB RUN
+
+dir_blend run_360_wrench
+{
+  1		pb_wrench_stand_run_f			0     pb_wrench_run_fr		45
+	1		pb_wrench_run_rf		45		pb_wrench_stand_run_r			90
+	1		pb_wrench_stand_run_r			90		pb_wrench_run_rb		135
+	2		pb_wrench_run_br		135		pb_wrench_stand_run_b			180
+	2		pb_wrench_stand_run_b			180		pb_wrench_run_bl		225
+	3		pb_wrench_run_lb		225		pb_wrench_stand_run_l			270
+	3		pb_wrench_stand_run_l			270		pb_wrench_run_lf		315
+	1		pb_wrench_run_fl		315		pb_wrench_stand_run_f			360
+}
+
+speed_blend locomotion_blend_wrench walk_360_wrench run_360_wrench
+
+#end_gametype
+
+#demo_version_at_least 10
+#gametype ZM
+
+// SPIKES WALK
+
+dir_blend walk_360_spikes
+{
+	1		pb_spikes_stand_walk_f			0       pb_spikes_stand_walk_45_fr		45
+	1		pb_spikes_stand_walk_45_rf		45		pb_spikes_stand_walk_r			90
+	1		pb_spikes_stand_walk_r			90		pb_spikes_stand_walk_45_rb		135
+	2		pb_spikes_stand_walk_45_br		135		pb_spikes_stand_walk_b			180
+	2		pb_spikes_stand_walk_b			180		pb_spikes_stand_walk_45_bl		225
+	3		pb_spikes_stand_walk_45_lb		225		pb_spikes_stand_walk_l			270
+	3		pb_spikes_stand_walk_l			270		pb_spikes_stand_walk_45_lf		315
+	1		pb_spikes_stand_walk_45_fl		315		pb_spikes_stand_walk_f			360
+}
+
+// SPIKES RUN
+
+dir_blend run_360_spikes
+{
+	1		pb_spikes_stand_run_f			0       pb_spikes_stand_run_45_fr		45
+	1		pb_spikes_stand_run_45_rf		45		pb_spikes_stand_run_r			90
+	1		pb_spikes_stand_run_r			90		pb_spikes_stand_run_45_rb		135
+	2		pb_spikes_stand_run_45_br		135		pb_spikes_stand_run_b			180
+	2		pb_spikes_stand_run_b			180		pb_spikes_stand_run_45_bl		225
+	3		pb_spikes_stand_run_45_lb		225		pb_spikes_stand_run_l			270
+	3		pb_spikes_stand_run_l			270		pb_spikes_stand_run_45_lf		315
+	1		pb_spikes_stand_run_45_fl		315		pb_spikes_stand_run_f			360
+}
+
+speed_blend locomotion_blend_spikes walk_360_spikes run_360_spikes
+
+//SPIKES CROUCH RUN
+
+dir_blend crouch_run_360_spikes
+{
+	1		pb_spikes_crouch_run_f			0       pb_spikes_crouch_run_45_fr		45
+	1		pb_spikes_crouch_run_45_rf		45		pb_spikes_crouch_run_r			90
+	1		pb_spikes_crouch_run_r			90		pb_spikes_crouch_run_45_rb		135
+	2		pb_spikes_crouch_run_45_br		135		pb_spikes_crouch_run_b			180
+	2		pb_spikes_crouch_run_b			180		pb_spikes_crouch_run_45_bl		225
+	3		pb_spikes_crouch_run_45_lb		225		pb_spikes_crouch_run_l			270
+	3		pb_spikes_crouch_run_l			270		pb_spikes_crouch_run_45_lf		315
+	1		pb_spikes_crouch_run_45_fl		315		pb_spikes_crouch_run_f			360
+}
+
+speed_blend locomotion_blend_crouch_spikes crouch_run_360_spikes
+
+#end_gametype
+#end_demo_version_at_least
+
+// ONEHANDED CROUCH WALK
+
+dir_blend crouch_walk_360_onehanded
+{
+    1		pb_pistol_1handed_crouch_walk_f				0       pb_pistol_1handed_crouch_walk_45_fr			45
+	1		pb_pistol_1handed_crouch_walk_45_fr			45		pb_pistol_1handed_crouch_walk_r				90
+	1		pb_pistol_1handed_crouch_walk_r				90		pb_pistol_1handed_crouch_walk_45_rb			135
+	2		pb_pistol_1handed_crouch_walk_45_br			135		pb_pistol_1handed_crouch_walk_b				180
+	2		pb_pistol_1handed_crouch_walk_b				180		pb_pistol_1handed_crouch_walk_45_bl			225
+	3		pb_pistol_1handed_crouch_walk_45_lb			225		pb_pistol_1handed_crouch_walk_l				270
+	3		pb_pistol_1handed_crouch_walk_l				270		pb_pistol_1handed_crouch_walk_45_lf			315
+	1		pb_pistol_1handed_crouch_walk_45_fl			315		pb_pistol_1handed_crouch_walk_f				360
+}
+
+speed_blend locomotion_blend_crouch_onehanded crouch_walk_360_onehanded
+
+// ONEHANDED WALK
+dir_blend walk_360_onehanded
+{
+    1		pb_pistol_1handed_walk_f				0       pb_pistol_1handed_walk_45_fr			45
+	1		pb_pistol_1handed_walk_45_fr			45		pb_pistol_1handed_walk_r				90
+	1		pb_pistol_1handed_walk_r				90		pb_pistol_1handed_walk_45_rb			135
+	2		pb_pistol_1handed_walk_45_br			135		pb_pistol_1handed_walk_b				180
+	2		pb_pistol_1handed_walk_b				180		pb_pistol_1handed_walk_45_bl			225
+	3		pb_pistol_1handed_walk_45_lb			225		pb_pistol_1handed_walk_l				270
+	3		pb_pistol_1handed_walk_l				270		pb_pistol_1handed_walk_45_lf			315
+	1		pb_pistol_1handed_walk_45_fl			315		pb_pistol_1handed_walk_f				360
+}
+
+// ONEHANDED RUN
+
+dir_blend run_360_onehanded
+{
+    1		pb_pistol_1handed_run_f				0       pb_pistol_1handed_run_45_fr				45
+	1		pb_pistol_1handed_run_45_fr			45		pb_pistol_1handed_run_r					90
+	1		pb_pistol_1handed_run_r				90		pb_pistol_1handed_run_45_rb				135
+	2		pb_pistol_1handed_run_45_br			135		pb_pistol_1handed_run_b					180
+	2		pb_pistol_1handed_run_b				180		pb_pistol_1handed_run_45_bl				225
+	3		pb_pistol_1handed_run_45_lb			225		pb_pistol_1handed_run_l					270
+	3		pb_pistol_1handed_run_l				270		pb_pistol_1handed_run_45_lf				315
+	1		pb_pistol_1handed_run_45_fl			315		pb_pistol_1handed_run_f					360
+}
+
+speed_blend locomotion_blend_onehanded walk_360_onehanded run_360_onehanded
+
+// RADIO WALK
+dir_blend walk_360_radio
+{
+	1	pb_supply_drop_stand_walk_f		0		pb_supply_drop_stand_walk_45_fr	45
+	1	pb_supply_drop_stand_walk_45_rf	45		pb_supply_drop_stand_walk_r		90
+	1	pb_supply_drop_stand_walk_r		90		pb_supply_drop_stand_walk_45_rb	135
+	2	pb_supply_drop_stand_walk_45_br	135		pb_supply_drop_stand_walk_b		180
+	2	pb_supply_drop_stand_walk_b		180		pb_supply_drop_stand_walk_45_bl	225
+	3	pb_supply_drop_stand_walk_45_lb	225		pb_supply_drop_stand_walk_l		270
+	3	pb_supply_drop_stand_walk_l		270		pb_supply_drop_stand_walk_45_lf	315
+	1	pb_supply_drop_stand_walk_45_fl	315		pb_supply_drop_stand_walk_f		360
+}
+
+// RADIO RUN
+dir_blend run_360_radio
+{
+	1	pb_supply_drop_stand_run_f		0		pb_supply_drop_stand_run_45_fr	45
+	1	pb_supply_drop_stand_run_45_rf	45		pb_supply_drop_stand_run_r		90
+	1	pb_supply_drop_stand_run_r		90		pb_supply_drop_stand_run_45_rb	135
+	2	pb_supply_drop_stand_run_45_br	135		pb_supply_drop_stand_run_b		180
+	2	pb_supply_drop_stand_run_b		180		pb_supply_drop_stand_run_45_bl	225
+	3	pb_supply_drop_stand_run_45_lb	225		pb_supply_drop_stand_run_l		270
+	3	pb_supply_drop_stand_run_l		270		pb_supply_drop_stand_run_45_lf	315
+	1	pb_supply_drop_stand_run_45_fl	315		pb_supply_drop_stand_run_f		360
+}
+
+speed_blend locomotion_blend_radio walk_360_radio run_360_radio
+
+// RADIO CROUCH WALK
+dir_blend crouch_walk_360_radio
+{
+	1	pb_supply_drop_crouch_walk_f		0		pb_supply_drop_crouch_walk_fr		45
+	1	pb_supply_drop_crouch_walk_fr		45		pb_supply_drop_crouch_walk_r		90
+	1	pb_supply_drop_crouch_walk_r		90		pb_supply_drop_crouch_walk_rb		135
+	2	pb_supply_drop_crouch_walk_br		135		pb_supply_drop_crouch_walk_b		180
+	2	pb_supply_drop_crouch_walk_b		180		pb_supply_drop_crouch_walk_bl		225
+	3	pb_supply_drop_crouch_walk_lb		225		pb_supply_drop_crouch_walk_l		270
+	3	pb_supply_drop_crouch_walk_l		270		pb_supply_drop_crouch_walk_lf		315
+	1	pb_supply_drop_crouch_walk_fl		315		pb_supply_drop_crouch_walk_f		360
+}
+
+speed_blend locomotion_blend_crouch_radio crouch_walk_360_radio
+
+// KNIFE CROUCH RUN
+
+dir_blend crouch_run_360_knife
+{
+	1	pb_knife_crouch_run_f		0		pb_knife_crouch_run_fr		45
+	1	pb_knife_crouch_run_fr		45		pb_knife_crouch_run_r		90
+	1	pb_knife_crouch_run_r		90		pb_knife_crouch_run_rb		135
+	2	pb_knife_crouch_run_br		135		pb_knife_crouch_run_b		180
+	2	pb_knife_crouch_run_b		180		pb_knife_crouch_run_bl		225
+	3	pb_knife_crouch_run_lb		225		pb_knife_crouch_run_l		270
+	3	pb_knife_crouch_run_l		270		pb_knife_crouch_run_lf		315
+	1	pb_knife_crouch_run_fl		315		pb_knife_crouch_run_f		360
+}
+
+speed_blend locomotion_blend_crouch_knife crouch_run_360_knife
+
+// KNIFE RUN
+
+dir_blend run_360_knife
+{
+	1	pb_knife_run_f		0		pb_knife_run_fr		45
+	1	pb_knife_run_fr		45		pb_knife_run_r		90
+	1	pb_knife_run_r		90		pb_knife_run_rb		135
+	2	pb_knife_run_br		135		pb_knife_run_b		180
+	2	pb_knife_run_b		180		pb_knife_run_bl		225
+	3	pb_knife_run_lb		225		pb_knife_run_l		270
+	3	pb_knife_run_l		270		pb_knife_run_lf		315
+	1	pb_knife_run_fl		315		pb_knife_run_f		360
+}
+
+dir_blend run_360_knife_female
+{
+	1	pb_knife_fem_stand_run_f		0		pb_knife_fem_stand_run_fr		45
+	1	pb_knife_fem_stand_run_fr		45		pb_knife_fem_stand_run_r		90
+	1	pb_knife_fem_stand_run_r		90		pb_knife_fem_stand_run_rb		135
+	2	pb_knife_fem_stand_run_br		135		pb_knife_fem_stand_run_b		180
+	2	pb_knife_fem_stand_run_b		180		pb_knife_fem_stand_run_bl		225
+	3	pb_knife_fem_stand_run_lb		225		pb_knife_fem_stand_run_l		270
+	3	pb_knife_fem_stand_run_l		270		pb_knife_fem_stand_run_lf		315
+	1	pb_knife_fem_stand_run_fl		315		pb_knife_fem_stand_run_f		360
+}
+
+// KNIFE WALK
+
+dir_blend walk_360_knife
+{
+	1	pb_knife_walk_f		0		pb_knife_walk_fr	45
+	1	pb_knife_walk_fr	45		pb_knife_walk_r		90
+	1	pb_knife_walk_r		90		pb_knife_walk_rb	135
+	2	pb_knife_walk_br	135		pb_knife_walk_b		180
+	2	pb_knife_walk_b		180		pb_knife_walk_bl	225
+	3	pb_knife_walk_lb	225		pb_knife_walk_l		270
+	3	pb_knife_walk_l		270		pb_knife_walk_lf	315
+	1	pb_knife_walk_fl	315		pb_knife_walk_f		360
+}
+
+dir_blend walk_360_knife_female
+{
+	1	pb_knife_fem_stand_walk_f		0		pb_knife_fem_stand_walk_fr	45
+	1	pb_knife_fem_stand_walk_fr		45		pb_knife_fem_stand_walk_r	90
+	1	pb_knife_fem_stand_walk_r		90		pb_knife_fem_stand_walk_rb	135
+	2	pb_knife_fem_stand_walk_br		135		pb_knife_fem_stand_walk_b	180
+	2	pb_knife_fem_stand_walk_b		180		pb_knife_fem_stand_walk_bl	225
+	3	pb_knife_fem_stand_walk_lb		225		pb_knife_fem_stand_walk_l	270
+	3	pb_knife_fem_stand_walk_l		270		pb_knife_fem_stand_walk_lf	315
+	1	pb_knife_fem_stand_walk_fl		315		pb_knife_fem_stand_walk_f	360
+}
+
+speed_blend locomotion_blend_knife walk_360_knife run_360_knife
+speed_blend locomotion_blend_knife_female walk_360_knife_female run_360_knife_female
+
+#gametype ZM
+// SWORD CROUCH RUN
+
+dir_blend crouch_run_360_sword
+{
+	1	pb_sword_crouch_run_f		0		pb_sword_crouch_run_fr		45
+	1	pb_sword_crouch_run_fr		45		pb_sword_crouch_run_r		90
+	1	pb_sword_crouch_run_r		90		pb_sword_crouch_run_rb		135
+	2	pb_sword_crouch_run_br		135		pb_sword_crouch_run_b		180
+	2	pb_sword_crouch_run_b		180		pb_sword_crouch_run_bl		225
+	3	pb_sword_crouch_run_lb		225		pb_sword_crouch_run_l		270
+	3	pb_sword_crouch_run_l		270		pb_sword_crouch_run_lf		315
+	1	pb_sword_crouch_run_fl		315		pb_sword_crouch_run_f		360
+}
+
+speed_blend locomotion_blend_crouch_sword crouch_run_360_sword
+
+// SWORD RUN
+
+dir_blend run_360_sword
+{
+	1	pb_sword_run_f		0		pb_sword_run_fr		45
+	1	pb_sword_run_fr		45		pb_sword_run_r		90
+	1	pb_sword_run_r		90		pb_sword_run_rb		135
+	2	pb_sword_run_br		135		pb_sword_run_b		180
+	2	pb_sword_run_b		180		pb_sword_run_bl		225
+	3	pb_sword_run_lb		225		pb_sword_run_l		270
+	3	pb_sword_run_l		270		pb_sword_run_lf		315
+	1	pb_sword_run_fl		315		pb_sword_run_f		360
+}
+
+// SWORD WALK
+
+dir_blend walk_360_sword
+{
+	1	pb_sword_walk_f		0		pb_sword_walk_fr	45
+	1	pb_sword_walk_fr	45		pb_sword_walk_r		90
+	1	pb_sword_walk_r		90		pb_sword_walk_rb	135
+	2	pb_sword_walk_br	135		pb_sword_walk_b		180
+	2	pb_sword_walk_b		180		pb_sword_walk_bl	225
+	3	pb_sword_walk_lb	225		pb_sword_walk_l		270
+	3	pb_sword_walk_l		270		pb_sword_walk_lf	315
+	1	pb_sword_walk_fl	315		pb_sword_walk_f		360
+}
+
+speed_blend locomotion_blend_sword walk_360_sword run_360_sword
+#end_gametype
+
+// GRENADE RUN
+
+dir_blend run_360_grenade
+{
+	1	pb_grenade_run_f		0		pb_grenade_run_fr		45
+	1	pb_grenade_run_fr		45		pb_grenade_run_r		90
+	1	pb_grenade_run_r		90		pb_grenade_run_rb		135
+	2	pb_grenade_run_br		135		pb_grenade_run_b		180
+	2	pb_grenade_run_b		180		pb_grenade_run_bl		225
+	3	pb_grenade_run_lb		225		pb_grenade_run_l		270
+	3	pb_grenade_run_l		270		pb_grenade_run_lf		315
+	1	pb_grenade_run_fl		315		pb_grenade_run_f		360
+}
+
+speed_blend locomotion_blend_grenade run_360_grenade
+
+// GRENADE CROUCH WALK
+
+dir_blend crouch_walk_360_grenade
+{
+	1	pb_grenade_crouch_walk_f		0		pb_grenade_crouch_walk_fr		45
+	1	pb_grenade_crouch_walk_fr		45		pb_grenade_crouch_walk_r		90
+	1	pb_grenade_crouch_walk_r		90		pb_grenade_crouch_walk_rb		135
+	2	pb_grenade_crouch_walk_br		135		pb_grenade_crouch_walk_b		180
+	2	pb_grenade_crouch_walk_b		180		pb_grenade_crouch_walk_bl		225
+	3	pb_grenade_crouch_walk_lb		225		pb_grenade_crouch_walk_l		270
+	3	pb_grenade_crouch_walk_l		270		pb_grenade_crouch_walk_lf		315
+	1	pb_grenade_crouch_walk_fl		315		pb_grenade_crouch_walk_f		360
+}
+
+speed_blend locomotion_blend_crouch_grenade crouch_walk_360_grenade
+
+// HOLD CROUCH RUN
+
+dir_blend crouch_run_360_hold
+{
+	1	pb_hold_crouch_run_f		0		pb_hold_crouch_run_45_fr	45
+	1	pb_hold_crouch_run_45_fr	45		pb_hold_crouch_run_r		90
+	1	pb_hold_crouch_run_r		90		pb_hold_crouch_run_45_rb	135
+	2	pb_hold_crouch_run_45_br	135		pb_hold_crouch_run_b		180
+	2	pb_hold_crouch_run_b		180		pb_hold_crouch_run_45_bl	225
+	3	pb_hold_crouch_run_45_lb	225		pb_hold_crouch_run_l		270
+	3	pb_hold_crouch_run_l		270		pb_hold_crouch_run_45_lf	315
+	1	pb_hold_crouch_run_45_fl	315		pb_hold_crouch_run_f		360
+}
+
+speed_blend locomotion_blend_crouch_hold crouch_run_360_hold
+
+// HOLD RUN
+
+dir_blend run_360_hold
+{
+	1	pb_hold_run_f		0		pb_hold_run_45_fr	45
+	1	pb_hold_run_45_fr	45		pb_hold_run_r		90
+	1	pb_hold_run_r		90		pb_hold_run_45_rb	135
+	2	pb_hold_run_45_br	135		pb_hold_run_b		180
+	2	pb_hold_run_b		180		pb_hold_run_45_bl	225
+	3	pb_hold_run_45_lb	225		pb_hold_run_l		270
+	3	pb_hold_run_l		270		pb_hold_run_45_lf	315
+	1	pb_hold_run_45_fl	315		pb_hold_run_f		360
+}
+
+speed_blend locomotion_blend_hold run_360_hold
+
+#gametype MP
+#demo_version_at_least 21
+// NUNCHUCKS CROUCH RUN
+dir_blend crouch_run_360_nunchucks
+{
+    1		pb_nunchucks_crouch_run_f		0       pb_nunchucks_crouch_run_45_fr	45
+	1		pb_nunchucks_crouch_run_45_rf	45		pb_nunchucks_crouch_run_r		90
+	1		pb_nunchucks_crouch_run_r		90		pb_nunchucks_crouch_run_45_rb	135
+	2		pb_nunchucks_crouch_run_45_br	135		pb_nunchucks_crouch_run_b		180
+	2		pb_nunchucks_crouch_run_b		180		pb_nunchucks_crouch_run_45_bl	225
+	3		pb_nunchucks_crouch_run_45_lb	225		pb_nunchucks_crouch_run_l		270
+	3		pb_nunchucks_crouch_run_l		270		pb_nunchucks_crouch_run_45_lf	315
+	1		pb_nunchucks_crouch_run_45_fl	315		pb_nunchucks_crouch_run_f		360
+}
+
+// NUNCHUCKS CROUCH WALK
+dir_blend crouch_walk_360_nunchucks
+{
+    1		pb_nunchucks_crouch_walk_f		0       pb_nunchucks_crouch_walk_45_fr	45
+	1		pb_nunchucks_crouch_walk_45_rf	45		pb_nunchucks_crouch_walk_r		90
+	1		pb_nunchucks_crouch_walk_r		90		pb_nunchucks_crouch_walk_45_rb	135
+	2		pb_nunchucks_crouch_walk_45_br	135		pb_nunchucks_crouch_walk_b		180
+	2		pb_nunchucks_crouch_walk_b		180		pb_nunchucks_crouch_walk_45_bl	225
+	3		pb_nunchucks_crouch_walk_45_lb	225		pb_nunchucks_crouch_walk_l		270
+	3		pb_nunchucks_crouch_walk_l		270		pb_nunchucks_crouch_walk_45_lf	315
+	1		pb_nunchucks_crouch_walk_45_fl	315		pb_nunchucks_crouch_walk_f		360
+}
+
+speed_blend locomotion_blend_crouch_nunchucks crouch_walk_360_nunchucks crouch_run_360_nunchucks
+
+//NUNCHUCKS WALK
+
+dir_blend walk_360_nunchucks
+{
+    1		pb_nunchucks_stand_walk_f		0       pb_nunchucks_stand_walk_45_fr	45
+	1		pb_nunchucks_stand_walk_45_rf	45		pb_nunchucks_stand_walk_r		90
+	1		pb_nunchucks_stand_walk_r		90		pb_nunchucks_stand_walk_45_rb	135
+	2		pb_nunchucks_stand_walk_45_br	135		pb_nunchucks_stand_walk_b		180
+	2		pb_nunchucks_stand_walk_b		180		pb_nunchucks_stand_walk_45_bl	225
+	3		pb_nunchucks_stand_walk_45_lb	225		pb_nunchucks_stand_walk_l		270
+	3		pb_nunchucks_stand_walk_l		270		pb_nunchucks_stand_walk_45_lf	315
+	1		pb_nunchucks_stand_walk_45_fl	315		pb_nunchucks_stand_walk_f		360
+}
+
+//NUNCHUCKS RUN
+
+dir_blend run_360_nunchucks
+{
+    1		pb_nunchucks_stand_run_f		0       pb_nunchucks_stand_run_45_fr	45
+	1		pb_nunchucks_stand_run_45_rf	45		pb_nunchucks_stand_run_r		90
+	1		pb_nunchucks_stand_run_r		90		pb_nunchucks_stand_run_45_rb	135
+	2		pb_nunchucks_stand_run_45_br	135		pb_nunchucks_stand_run_b		180
+	2		pb_nunchucks_stand_run_b		180		pb_nunchucks_stand_run_45_bl	225
+	3		pb_nunchucks_stand_run_45_lb	225		pb_nunchucks_stand_run_l		270
+	3		pb_nunchucks_stand_run_l		270		pb_nunchucks_stand_run_45_lf	315
+	1		pb_nunchucks_stand_run_45_fl	315		pb_nunchucks_stand_run_f		360
+}
+
+speed_blend locomotion_blend_nunchucks walk_360_nunchucks run_360_nunchucks
+#end_demo_version_at_least
+
+// ARMMINIGUN CROUCH RUN
+
+dir_blend crouch_run_360_armminigun
+{
+	1	pb_reaper_crouch_run_f		0		pb_reaper_crouch_run_fr		45
+	1	pb_reaper_crouch_run_fr		45		pb_reaper_crouch_run_r		90
+	1	pb_reaper_crouch_run_r		90		pb_reaper_crouch_run_rb		135
+	2	pb_reaper_crouch_run_br		135		pb_reaper_crouch_run_b		180
+	2	pb_reaper_crouch_run_b		180		pb_reaper_crouch_run_bl		225
+	3	pb_reaper_crouch_run_lb		225		pb_reaper_crouch_run_l		270
+	3	pb_reaper_crouch_run_l		270		pb_reaper_crouch_run_lf		315
+	1	pb_reaper_crouch_run_fl		315		pb_reaper_crouch_run_f		360
+}
+
+speed_blend locomotion_blend_crouch_armminigun crouch_run_360_armminigun crouch_run_360_armminigun
+
+// ARMMINIGUN RUN
+
+dir_blend run_360_armminigun
+{
+	1	pb_reaper_stand_run_f		0		pb_reaper_stand_run_fr45	45
+	1	pb_reaper_stand_run_fr45	45		pb_reaper_stand_run_r		90
+	1	pb_reaper_stand_run_r		90		pb_reaper_stand_run_rb45	135
+	2	pb_reaper_stand_run_br45	135		pb_reaper_stand_run_b		180
+	2	pb_reaper_stand_run_b		180		pb_reaper_stand_run_bl45	225
+	3	pb_reaper_stand_run_lb45	225		pb_reaper_stand_run_l		270
+	3	pb_reaper_stand_run_l		270		pb_reaper_stand_run_lf45	315
+	1	pb_reaper_stand_run_fl45	315		pb_reaper_stand_run_f		360
+}
+
+// ARMMINIGUN WALK
+
+dir_blend walk_360_armminigun
+{
+	1	pb_reaper_stand_walk_f		0		pb_reaper_stand_walk_fr45	45
+	1	pb_reaper_stand_walk_fr45	45		pb_reaper_stand_walk_r		90
+	1	pb_reaper_stand_walk_r		90		pb_reaper_stand_walk_rb45	135
+	2	pb_reaper_stand_walk_br45	135		pb_reaper_stand_walk_b		180
+	2	pb_reaper_stand_walk_b		180		pb_reaper_stand_walk_bl45	225
+	3	pb_reaper_stand_walk_lb45	225		pb_reaper_stand_walk_l		270
+	3	pb_reaper_stand_walk_l		270		pb_reaper_stand_walk_lf45	315
+	1	pb_reaper_stand_walk_fl45	315		pb_reaper_stand_walk_f		360
+}
+
+speed_blend locomotion_blend_armminigun walk_360_armminigun run_360_armminigun
+#end_gametype
+
+// SPIKE LAUNCHER CROUCH RUN
+
+dir_blend crouch_run_360_spikelauncher
+{
+	1	pb_spike_launcher_crouch_run_f			0		pb_spike_launcher_crouch_run_45_fr		45
+	1	pb_spike_launcher_crouch_run_45_fr		45		pb_spike_launcher_crouch_run_r			90
+	1	pb_spike_launcher_crouch_run_r			90		pb_spike_launcher_crouch_run_45_rb		135
+	2	pb_spike_launcher_crouch_run_45_br		135		pb_spike_launcher_crouch_run_b			180
+	2	pb_spike_launcher_crouch_run_b			180		pb_spike_launcher_crouch_run_45_bl		225
+	3	pb_spike_launcher_crouch_run_45_lb		225		pb_spike_launcher_crouch_run_l			270
+	3	pb_spike_launcher_crouch_run_l			270		pb_spike_launcher_crouch_run_45_lf		315
+	1	pb_spike_launcher_crouch_run_45_fl		315		pb_spike_launcher_crouch_run_f			360
+}
+
+dir_blend crouch_run_360_spikelauncher_female
+{
+	1	pb_spike_launcher_fem_crouch_run_f			0		pb_spike_launcher_fem_crouch_run_fr45		45
+	1	pb_spike_launcher_fem_crouch_run_fr45		45		pb_spike_launcher_fem_crouch_run_r			90
+	1	pb_spike_launcher_fem_crouch_run_r			90		pb_spike_launcher_fem_crouch_run_rb45		135
+	2	pb_spike_launcher_fem_crouch_run_br45		135		pb_spike_launcher_fem_crouch_run_b			180
+	2	pb_spike_launcher_fem_crouch_run_b			180		pb_spike_launcher_fem_crouch_run_bl45		225
+	3	pb_spike_launcher_fem_crouch_run_lb45		225		pb_spike_launcher_fem_crouch_run_l			270
+	3	pb_spike_launcher_fem_crouch_run_l			270		pb_spike_launcher_fem_crouch_run_lf45		315
+	1	pb_spike_launcher_fem_crouch_run_fl45		315		pb_spike_launcher_fem_crouch_run_f			360
+}
+
+speed_blend locomotion_blend_crouch_spikelauncher crouch_run_360_spikelauncher
+speed_blend locomotion_blend_crouch_spikelauncher_female crouch_run_360_spikelauncher_female
+
+// SPIKE LAUNCHER RUN
+
+dir_blend run_360_spikelauncher
+{
+	1	pb_spike_launcher_run_f			0		pb_spike_launcher_run_45_fr		45
+	1	pb_spike_launcher_run_45_rf		45		pb_spike_launcher_run_r			90
+	1	pb_spike_launcher_run_r			90		pb_spike_launcher_run_45_rb		135
+	2	pb_spike_launcher_run_45_br		135		pb_spike_launcher_run_b			180
+	2	pb_spike_launcher_run_b			180		pb_spike_launcher_run_45_bl		225
+	3	pb_spike_launcher_run_45_lb		225		pb_spike_launcher_run_l			270
+	3	pb_spike_launcher_run_l			270		pb_spike_launcher_run_45_lf		315
+	1	pb_spike_launcher_run_45_fl		315		pb_spike_launcher_run_f			360
+}
+
+dir_blend run_360_spikelauncher_female
+{
+	1	pb_spike_launcher_fem_run_f			0		pb_spike_launcher_fem_run_45_fr		45
+	1	pb_spike_launcher_fem_run_45_fr		45		pb_spike_launcher_fem_run_r			90
+	1	pb_spike_launcher_fem_run_r			90		pb_spike_launcher_fem_run_45_rb		135
+	2	pb_spike_launcher_fem_run_45_br		135		pb_spike_launcher_fem_run_b			180
+	2	pb_spike_launcher_fem_run_b			180		pb_spike_launcher_fem_run_45_bl		225
+	3	pb_spike_launcher_fem_run_45_lb		225		pb_spike_launcher_fem_run_l			270
+	3	pb_spike_launcher_fem_run_l			270		pb_spike_launcher_fem_run_45_lf		315
+	1	pb_spike_launcher_fem_run_45_fl		315		pb_spike_launcher_fem_run_f			360
+}
+
+// SPIKE LAUNCHER WALK
+
+dir_blend walk_360_spikelauncher
+{
+	1	pb_spike_launcher_walk_f		0		pb_spike_launcher_walk_45_fr	45
+	1	pb_spike_launcher_walk_45_rf	45		pb_spike_launcher_walk_r		90
+	1	pb_spike_launcher_walk_r		90		pb_spike_launcher_walk_45_rb	135
+	2	pb_spike_launcher_walk_45_br	135		pb_spike_launcher_walk_b		180
+	2	pb_spike_launcher_walk_b		180		pb_spike_launcher_walk_45_bl	225
+	3	pb_spike_launcher_walk_45_lb	225		pb_spike_launcher_walk_l		270
+	3	pb_spike_launcher_walk_l		270		pb_spike_launcher_walk_45_lf	315
+	1	pb_spike_launcher_walk_45_fl	315		pb_spike_launcher_walk_f		360
+}
+
+dir_blend walk_360_spikelauncher_female
+{
+	1	pb_spike_launcher_fem_walk_f		0		pb_spike_launcher_fem_walk_45_fr	45
+	1	pb_spike_launcher_fem_walk_45_fr	45		pb_spike_launcher_fem_walk_r		90
+	1	pb_spike_launcher_fem_walk_r		90		pb_spike_launcher_fem_walk_45_rb	135
+	2	pb_spike_launcher_fem_walk_45_br	135		pb_spike_launcher_fem_walk_b		180
+	2	pb_spike_launcher_fem_walk_b		180		pb_spike_launcher_fem_walk_45_bl	225
+	3	pb_spike_launcher_fem_walk_45_lb	225		pb_spike_launcher_fem_walk_l		270
+	3	pb_spike_launcher_fem_walk_l		270		pb_spike_launcher_fem_walk_45_lf	315
+	1	pb_spike_launcher_fem_walk_45_fl	315		pb_spike_launcher_fem_walk_f		360
+}
+
+speed_blend locomotion_blend_spikelauncher walk_360_spikelauncher run_360_spikelauncher
+speed_blend locomotion_blend_spikelauncher_female walk_360_spikelauncher_female run_360_spikelauncher_female
+
+// SWIM UNDER
+
+dir_blend swim_360_hold
+{
+	1	pb_hold_swim_move_f			0		pb_hold_swim_move_45_fr	45
+	1	pb_hold_swim_move_45_fr		45		pb_hold_swim_move_r		90
+	1	pb_hold_swim_move_r			90		pb_hold_swim_move_45_br	135
+	2	pb_hold_swim_move_45_br		135		pb_hold_swim_move_b		180
+	2	pb_hold_swim_move_b			180		pb_hold_swim_move_45_bl	225
+	3	pb_hold_swim_move_45_bl		225		pb_hold_swim_move_l		270
+	3	pb_hold_swim_move_l			270		pb_hold_swim_move_45_fl	315
+	1	pb_hold_swim_move_45_fl		315		pb_hold_swim_move_f		360
+}
+
+speed_blend locomotion_blend_swim_hold swim_360_hold
+
+dir_blend swim_360_knife
+{
+	1	pb_knife_swim_move_f			0		pb_knife_swim_move_45_fr	45
+	1	pb_knife_swim_move_45_fr		45		pb_knife_swim_move_r			90
+	1	pb_knife_swim_move_r			90		pb_knife_swim_move_45_br	135
+	2	pb_knife_swim_move_45_br		135		pb_knife_swim_move_b			180
+	2	pb_knife_swim_move_b			180		pb_knife_swim_move_45_bl	225
+	3	pb_knife_swim_move_45_bl		225		pb_knife_swim_move_l			270
+	3	pb_knife_swim_move_l			270		pb_knife_swim_move_45_fl	315
+	1	pb_knife_swim_move_45_fl		315		pb_knife_swim_move_f			360
+}
+
+speed_blend locomotion_blend_swim_knife swim_360_knife
+
+dir_blend swim_360_launcher
+{
+	1	pb_launcher_swim_move_f		0		pb_launcher_swim_move_45_fr	45
+	1	pb_launcher_swim_move_45_fr	45		pb_launcher_swim_move_r		90
+	1	pb_launcher_swim_move_r		90		pb_launcher_swim_move_45_br	135
+	2	pb_launcher_swim_move_45_br	135		pb_launcher_swim_move_b		180
+	2	pb_launcher_swim_move_b		180		pb_launcher_swim_move_45_bl	225
+	3	pb_launcher_swim_move_45_bl	225		pb_launcher_swim_move_l		270
+	3	pb_launcher_swim_move_l		270		pb_launcher_swim_move_45_fl	315
+	1	pb_launcher_swim_move_45_fl	315		pb_launcher_swim_move_f		360
+}
+
+speed_blend locomotion_blend_swim_launcher swim_360_launcher
+
+dir_blend swim_360_dw
+{
+	1	pb_dw_swim_move_f		0		pb_dw_swim_move_45_fr	45
+	1	pb_dw_swim_move_45_fr	45		pb_dw_swim_move_r		90
+	1	pb_dw_swim_move_r		90		pb_dw_swim_move_45_br	135
+	2	pb_dw_swim_move_45_br	135		pb_dw_swim_move_b		180
+	2	pb_dw_swim_move_b		180		pb_dw_swim_move_45_bl	225
+	3	pb_dw_swim_move_45_bl	225		pb_dw_swim_move_l		270
+	3	pb_dw_swim_move_l		270		pb_dw_swim_move_45_fl	315
+	1	pb_dw_swim_move_45_fl	315		pb_dw_swim_move_f		360
+}
+
+speed_blend locomotion_blend_swim_dw swim_360_dw
+
+#gametype MP AND ZM
+dir_blend swim_360_bow
+{
+	1	pb_bow_swim_move_f		0		pb_bow_swim_move_45_fr	45
+	1	pb_bow_swim_move_45_fr	45		pb_bow_swim_move_r		90
+	1	pb_bow_swim_move_r		90		pb_bow_swim_move_45_br	135
+	2	pb_bow_swim_move_45_br	135		pb_bow_swim_move_b		180
+	2	pb_bow_swim_move_b		180		pb_bow_swim_move_45_bl	225
+	3	pb_bow_swim_move_45_bl	225		pb_bow_swim_move_l		270
+	3	pb_bow_swim_move_l		270		pb_bow_swim_move_45_fl	315
+	1	pb_bow_swim_move_45_fl	315		pb_bow_swim_move_f		360
+}
+
+speed_blend locomotion_blend_swim_bow swim_360_bow
+#end_gametype
+
+dir_blend swim_360_radio
+{
+	1	pb_supply_drop_swim_move_f		0		pb_supply_drop_swim_move_45_fr	45
+	1	pb_supply_drop_swim_move_45_rf	45		pb_supply_drop_swim_move_r		90
+	1	pb_supply_drop_swim_move_r		90		pb_supply_drop_swim_move_45_rb	135
+	2	pb_supply_drop_swim_move_45_br	135		pb_supply_drop_swim_move_b		180
+	2	pb_supply_drop_swim_move_b		180		pb_supply_drop_swim_move_45_bl	225
+	3	pb_supply_drop_swim_move_45_lb	225		pb_supply_drop_swim_move_l		270
+	3	pb_supply_drop_swim_move_l		270		pb_supply_drop_swim_move_45_lf	315
+	1	pb_supply_drop_swim_move_45_fl	315		pb_supply_drop_swim_move_f		360
+}
+
+speed_blend locomotion_blend_swim_radio swim_360_radio
+
+dir_blend swim_360_pistol
+{
+	1	pb_pistol_swim_move_f		0		pb_pistol_swim_move_45_fr	45
+	1	pb_pistol_swim_move_45_fr	45		pb_pistol_swim_move_r		90
+	1	pb_pistol_swim_move_r		90		pb_pistol_swim_move_45_br	135
+	2	pb_pistol_swim_move_45_br	135		pb_pistol_swim_move_b		180
+	2	pb_pistol_swim_move_b		180		pb_pistol_swim_move_45_bl	225
+	3	pb_pistol_swim_move_45_bl	225		pb_pistol_swim_move_l		270
+	3	pb_pistol_swim_move_l		270		pb_pistol_swim_move_45_fl	315
+	1	pb_pistol_swim_move_45_fl	315		pb_pistol_swim_move_f		360
+}
+
+speed_blend locomotion_blend_swim_pistol swim_360_pistol
+
+dir_blend swim_360_rifle
+{
+	1	pb_rifle_swim_move_f		0		pb_rifle_swim_move_45_fr	45
+	1	pb_rifle_swim_move_45_fr	45		pb_rifle_swim_move_r		90
+	1	pb_rifle_swim_move_r		90		pb_rifle_swim_move_45_br	135
+	2	pb_rifle_swim_move_45_br	135		pb_rifle_swim_move_b		180
+	2	pb_rifle_swim_move_b		180		pb_rifle_swim_move_45_bl	225
+	3	pb_rifle_swim_move_45_bl	225		pb_rifle_swim_move_l		270
+	3	pb_rifle_swim_move_l		270		pb_rifle_swim_move_45_fl	315
+	1	pb_rifle_swim_move_45_fl	315		pb_rifle_swim_move_f		360
+}
+
+speed_blend locomotion_blend_swim_rifle swim_360_rifle
+
+dir_blend swim_360_grenade
+{
+	1	pb_grenade_swim_move_f		0		pb_grenade_swim_move_45_fr	45
+	1	pb_grenade_swim_move_45_fr	45		pb_grenade_swim_move_r		90
+	1	pb_grenade_swim_move_r		90		pb_grenade_swim_move_45_br	135
+	2	pb_grenade_swim_move_45_br	135		pb_grenade_swim_move_b		180
+	2	pb_grenade_swim_move_b		180		pb_grenade_swim_move_45_bl	225
+	3	pb_grenade_swim_move_45_bl	225		pb_grenade_swim_move_l		270
+	3	pb_grenade_swim_move_l		270		pb_grenade_swim_move_45_fl	315
+	1	pb_grenade_swim_move_45_fl	315		pb_grenade_swim_move_f		360
+}
+
+speed_blend locomotion_blend_swim_grenade swim_360_grenade
+
+#gametype MP
+
+#demo_version_at_least 21
+dir_blend swim_360_nunchucks
+{
+	1	pb_nunchucks_swim_move_f		0		pb_nunchucks_swim_move_45_fr	45
+	1	pb_nunchucks_swim_move_45_fr	45		pb_nunchucks_swim_move_r		90
+	1	pb_nunchucks_swim_move_r		90		pb_nunchucks_swim_move_45_br	135
+	2	pb_nunchucks_swim_move_45_br	135		pb_nunchucks_swim_move_b		180
+	2	pb_nunchucks_swim_move_b		180		pb_nunchucks_swim_move_45_bl	225
+	3	pb_nunchucks_swim_move_45_bl	225		pb_nunchucks_swim_move_l		270
+	3	pb_nunchucks_swim_move_l		270		pb_nunchucks_swim_move_45_fl	315
+	1	pb_nunchucks_swim_move_45_fl	315		pb_nunchucks_swim_move_f		360
+}
+
+speed_blend locomotion_blend_swim_nunchucks swim_360_nunchucks
+#end_demo_version_at_least
+
+dir_blend swim_360_armminigun
+{
+	1	pb_reaper_swim_move_f		0		pb_reaper_swim_move_45_fr	45
+	1	pb_reaper_swim_move_45_fr	45		pb_reaper_swim_move_r		90
+	1	pb_reaper_swim_move_r		90		pb_reaper_swim_move_45_rb	135
+	2	pb_reaper_swim_move_45_rb	135		pb_reaper_swim_move_b		180
+	2	pb_reaper_swim_move_b		180		pb_reaper_swim_move_45_lb	225
+	3	pb_reaper_swim_move_45_lb	225		pb_reaper_swim_move_l		270
+	3	pb_reaper_swim_move_l		270		pb_reaper_swim_move_45_fl	315
+	1	pb_reaper_swim_move_45_fl	315		pb_reaper_swim_move_f		360
+}
+
+speed_blend locomotion_blend_swim_armminigun swim_360_armminigun
+
+dir_blend swim_360_wrench
+{
+	1	pb_wrench_swim_move_f		0		pb_wrench_swim_move_45_fr	45
+	1	pb_wrench_swim_move_45_fr	45		pb_wrench_swim_move_r		90
+	1	pb_wrench_swim_move_r		90		pb_wrench_swim_move_45_rb	135
+	2	pb_wrench_swim_move_45_rb	135		pb_wrench_swim_move_b		180
+	2	pb_wrench_swim_move_b		180		pb_wrench_swim_move_45_lb	225
+	3	pb_wrench_swim_move_45_lb	225		pb_wrench_swim_move_l		270
+	3	pb_wrench_swim_move_l		270		pb_wrench_swim_move_45_fl	315
+	1	pb_wrench_swim_move_45_fl	315		pb_wrench_swim_move_f		360
+}
+
+speed_blend locomotion_blend_swim_wrench swim_360_wrench
+#end_gametype
+
+// SWIM OVER
+
+dir_blend swim_over_360_pistol
+{
+	1	pb_pistol_swim_move_over_f		0		pb_pistol_swim_move_over_45_fr	45
+	1	pb_pistol_swim_move_over_45_fr	45		pb_pistol_swim_move_over_r		90
+	1	pb_pistol_swim_move_over_r		90		pb_pistol_swim_move_over_45_br	135
+	2	pb_pistol_swim_move_over_45_br	135		pb_pistol_swim_move_over_b		180
+	2	pb_pistol_swim_move_over_b		180		pb_pistol_swim_move_over_45_bl	225
+	3	pb_pistol_swim_move_over_45_bl	225		pb_pistol_swim_move_over_l		270
+	3	pb_pistol_swim_move_over_l		270		pb_pistol_swim_move_over_45_fl	315
+	1	pb_pistol_swim_move_over_45_fl	315		pb_pistol_swim_move_over_f		360
+}
+
+speed_blend locomotion_blend_swim_over_pistol swim_over_360_pistol
+
+dir_blend swim_over_360_launcher
+{
+	1	pb_launcher_swim_move_over_f		0		pb_launcher_swim_move_over_45_fr	45
+	1	pb_launcher_swim_move_over_45_fr	45		pb_launcher_swim_move_over_r		90
+	1	pb_launcher_swim_move_over_r		90		pb_launcher_swim_move_over_45_br	135
+	2	pb_launcher_swim_move_over_45_br	135		pb_launcher_swim_move_over_b		180
+	2	pb_launcher_swim_move_over_b		180		pb_launcher_swim_move_over_45_bl	225
+	3	pb_launcher_swim_move_over_45_bl	225		pb_launcher_swim_move_over_l		270
+	3	pb_launcher_swim_move_over_l		270		pb_launcher_swim_move_over_45_fl	315
+	1	pb_launcher_swim_move_over_45_fl	315		pb_launcher_swim_move_over_f		360
+}
+
+speed_blend locomotion_blend_swim_over_launcher swim_over_360_launcher
+
+dir_blend swim_over_360_dw
+{
+	1	pb_dw_swim_move_over_f		0		pb_dw_swim_move_over_45_fr	45
+	1	pb_dw_swim_move_over_45_fr	45		pb_dw_swim_move_over_r		90
+	1	pb_dw_swim_move_over_r		90		pb_dw_swim_move_over_45_br	135
+	2	pb_dw_swim_move_over_45_br	135		pb_dw_swim_move_over_b		180
+	2	pb_dw_swim_move_over_b		180		pb_dw_swim_move_over_45_bl	225
+	3	pb_dw_swim_move_over_45_bl	225		pb_dw_swim_move_over_l		270
+	3	pb_dw_swim_move_over_l		270		pb_dw_swim_move_over_45_fl	315
+	1	pb_dw_swim_move_over_45_fl	315		pb_dw_swim_move_over_f		360
+}
+
+speed_blend locomotion_blend_swim_over_dw swim_over_360_dw
+
+#gametype MP AND ZM
+dir_blend swim_over_360_bow
+{
+	1	pb_bow_swim_move_over_f		0		pb_bow_swim_move_over_45_fr	45
+	1	pb_bow_swim_move_over_45_fr	45		pb_bow_swim_move_over_r		90
+	1	pb_bow_swim_move_over_r		90		pb_bow_swim_move_over_45_br	135
+	2	pb_bow_swim_move_over_45_br	135		pb_bow_swim_move_over_b		180
+	2	pb_bow_swim_move_over_b		180		pb_bow_swim_move_over_45_bl	225
+	3	pb_bow_swim_move_over_45_bl	225		pb_bow_swim_move_over_l		270
+	3	pb_bow_swim_move_over_l		270		pb_bow_swim_move_over_45_fl	315
+	1	pb_bow_swim_move_over_45_fl	315		pb_bow_swim_move_over_f		360
+}
+
+speed_blend locomotion_blend_swim_over_bow swim_over_360_bow
+#end_gametype
+
+dir_blend swim_over_360_radio
+{
+	1	pb_supply_drop_swim_move_over_f		0		pb_supply_drop_swim_move_over_45_fr	45
+	1	pb_supply_drop_swim_move_over_45_rf	45		pb_supply_drop_swim_move_over_r		90
+	1	pb_supply_drop_swim_move_over_r		90		pb_supply_drop_swim_move_over_45_rb	135
+	2	pb_supply_drop_swim_move_over_45_br	135		pb_supply_drop_swim_move_over_b		180
+	2	pb_supply_drop_swim_move_over_b		180		pb_supply_drop_swim_move_over_45_bl	225
+	3	pb_supply_drop_swim_move_over_45_lb	225		pb_supply_drop_swim_move_over_l		270
+	3	pb_supply_drop_swim_move_over_l		270		pb_supply_drop_swim_move_over_45_lf	315
+	1	pb_supply_drop_swim_move_over_45_fl	315		pb_supply_drop_swim_move_over_f		360
+}
+
+speed_blend locomotion_blend_swim_over_radio swim_over_360_radio
+
+dir_blend swim_over_360_hold
+{
+	1	pb_hold_swim_move_over_f			0		pb_hold_swim_move_over_45_fr	45
+	1	pb_hold_swim_move_over_45_fr		45		pb_hold_swim_move_over_r		90
+	1	pb_hold_swim_move_over_r			90		pb_hold_swim_move_over_45_br	135
+	2	pb_hold_swim_move_over_45_br		135		pb_hold_swim_move_over_b		180
+	2	pb_hold_swim_move_over_b			180		pb_hold_swim_move_over_45_bl	225
+	3	pb_hold_swim_move_over_45_bl		225		pb_hold_swim_move_over_l		270
+	3	pb_hold_swim_move_over_l			270		pb_hold_swim_move_over_45_fl	315
+	1	pb_hold_swim_move_over_45_fl		315		pb_hold_swim_move_over_f		360
+}
+
+speed_blend locomotion_blend_swim_over_hold swim_over_360_hold
+
+dir_blend swim_over_360_knife
+{
+	1	pb_knife_swim_move_over_f		0		pb_knife_swim_move_over_45_fr	45
+	1	pb_knife_swim_move_over_45_fr	45		pb_knife_swim_move_over_r		90
+	1	pb_knife_swim_move_over_r		90		pb_knife_swim_move_over_45_br	135
+	2	pb_knife_swim_move_over_45_br	135		pb_knife_swim_move_over_b		180
+	2	pb_knife_swim_move_over_b		180		pb_knife_swim_move_over_45_lb	225
+	3	pb_knife_swim_move_over_45_bl	225		pb_knife_swim_move_over_l		270
+	3	pb_knife_swim_move_over_l		270		pb_knife_swim_move_over_45_lf	315
+	1	pb_knife_swim_move_over_45_fl	315		pb_knife_swim_move_over_f		360
+}
+
+speed_blend locomotion_blend_swim_over_knife swim_over_360_knife
+
+dir_blend swim_over_360_rifle
+{
+	1	pb_rifle_swim_move_over_f		0		pb_rifle_swim_move_over_45_fr	45
+	1	pb_rifle_swim_move_over_45_fr	45		pb_rifle_swim_move_over_r		90
+	1	pb_rifle_swim_move_over_r		90		pb_rifle_swim_move_over_45_br	135
+	2	pb_rifle_swim_move_over_45_br	135		pb_rifle_swim_move_over_b		180
+	2	pb_rifle_swim_move_over_b		180		pb_rifle_swim_move_over_45_bl	225
+	3	pb_rifle_swim_move_over_45_bl	225		pb_rifle_swim_move_over_l		270
+	3	pb_rifle_swim_move_over_l		270		pb_rifle_swim_move_over_45_fl	315
+	1	pb_rifle_swim_move_over_45_fl	315		pb_rifle_swim_move_over_f		360
+}
+
+speed_blend locomotion_blend_swim_over_rifle swim_over_360_rifle
+
+dir_blend swim_over_360_grenade
+{
+	1	pb_grenade_swim_move_over_f		0		pb_grenade_swim_move_over_45_fr	45
+	1	pb_grenade_swim_move_over_45_fr	45		pb_grenade_swim_move_over_r		90
+	1	pb_grenade_swim_move_over_r		90		pb_grenade_swim_move_over_45_br	135
+	2	pb_grenade_swim_move_over_45_br	135		pb_grenade_swim_move_over_b		180
+	2	pb_grenade_swim_move_over_b		180		pb_grenade_swim_move_over_45_bl	225
+	3	pb_grenade_swim_move_over_45_bl	225		pb_grenade_swim_move_over_l		270
+	3	pb_grenade_swim_move_over_l		270		pb_grenade_swim_move_over_45_fl	315
+	1	pb_grenade_swim_move_over_45_fl	315		pb_grenade_swim_move_over_f		360
+}
+
+speed_blend locomotion_blend_swim_over_grenade swim_over_360_grenade
+
+#gametype MP
+
+#demo_version_at_least 21
+dir_blend swim_over_360_nunchucks
+{
+	1	pb_nunchucks_swim_move_over_f		0		pb_nunchucks_swim_move_over_45_fr	45
+	1	pb_nunchucks_swim_move_over_45_fr	45		pb_nunchucks_swim_move_over_r		90
+	1	pb_nunchucks_swim_move_over_r		90		pb_nunchucks_swim_move_over_45_br	135
+	2	pb_nunchucks_swim_move_over_45_br	135		pb_nunchucks_swim_move_over_b		180
+	2	pb_nunchucks_swim_move_over_b		180		pb_nunchucks_swim_move_over_45_bl	225
+	3	pb_nunchucks_swim_move_over_45_bl	225		pb_nunchucks_swim_move_over_l		270
+	3	pb_nunchucks_swim_move_over_l		270		pb_nunchucks_swim_move_over_45_fl	315
+	1	pb_nunchucks_swim_move_over_45_fl	315		pb_nunchucks_swim_move_over_f		360
+}
+
+speed_blend locomotion_blend_swim_over_nunchucks swim_over_360_nunchucks
+#end_demo_version_at_least
+
+dir_blend swim_over_360_armminigun
+{
+	1	pb_reaper_swim_move_over_f		0		pb_reaper_swim_move_over_45_fr	45
+	1	pb_reaper_swim_move_over_45_fr	45		pb_reaper_swim_move_over_r		90
+	1	pb_reaper_swim_move_over_r		90		pb_reaper_swim_move_over_45_br	135
+	2	pb_reaper_swim_move_over_45_br	135		pb_reaper_swim_move_over_b		180
+	2	pb_reaper_swim_move_over_b		180		pb_reaper_swim_move_over_45_bl	225
+	3	pb_reaper_swim_move_over_45_bl	225		pb_reaper_swim_move_over_l		270
+	3	pb_reaper_swim_move_over_l		270		pb_reaper_swim_move_over_45_fl	315
+	1	pb_reaper_swim_move_over_45_fl	315		pb_reaper_swim_move_over_f		360
+}
+
+speed_blend locomotion_blend_swim_over_armminigun swim_over_360_armminigun
+
+dir_blend swim_over_360_wrench
+{
+	1	pb_wrench_swim_move_over_f		0		pb_wrench_swim_move_over_45_fr	45
+	1	pb_wrench_swim_move_over_45_fr	45		pb_wrench_swim_move_over_r		90
+	1	pb_wrench_swim_move_over_r		90		pb_wrench_swim_move_over_45_br	135
+	2	pb_wrench_swim_move_over_45_br	135		pb_wrench_swim_move_over_b		180
+	2	pb_wrench_swim_move_over_b		180		pb_wrench_swim_move_over_45_bl	225
+	3	pb_wrench_swim_move_over_45_bl	225		pb_wrench_swim_move_over_l		270
+	3	pb_wrench_swim_move_over_l		270		pb_wrench_swim_move_over_45_fl	315
+	1	pb_wrench_swim_move_over_45_fl	315		pb_wrench_swim_move_over_f		360
+}
+
+speed_blend locomotion_blend_swim_over_wrench swim_over_360_wrench
+#end_gametype
+
+// SPRINT LEANS
+
+dir_blend sprint_lean_rifle_set
+{
+	1		pb_rifle_sprint_lean_r			-120		pb_rifle_sprint					0
+	1		pb_rifle_sprint					0			pb_rifle_sprint_lean_l			120
+}
+
+dir_blend sprint_lean_rifle_set_female
+{
+	1		pb_rifle_fem_sprint_lean_r		-120		pb_rifle_fem_sprint				0
+	1		pb_rifle_fem_sprint				0			pb_rifle_fem_sprint_lean_l		120
+}
+
+turn_blend locomotion_blend_sprint_lean_rifle sprint_lean_rifle_set
+turn_blend locomotion_blend_sprint_lean_rifle_female sprint_lean_rifle_set_female
+
+#gametype MP
+dir_blend sprint_gungho_lean_rifle_set
+{
+	1		pb_rifle_sprint_gungho_lean_r			-120		pb_rifle_sprint_gungho					0
+	1		pb_rifle_sprint_gungho					0			pb_rifle_sprint_gungho_lean_l			120
+}
+
+dir_blend sprint_gungho_lean_rifle_set_female
+{
+	1		pb_rifle_fem_sprint_gungho_lean_r		-120		pb_rifle_fem_sprint_gungho				0
+	1		pb_rifle_fem_sprint_gungho				0			pb_rifle_fem_sprint_gungho_lean_l		120
+}
+
+turn_blend locomotion_blend_sprint_gungho_lean_rifle sprint_gungho_lean_rifle_set
+turn_blend locomotion_blend_sprint_gungho_lean_rifle_female sprint_gungho_lean_rifle_set_female
+
+dir_blend sprint_gungho_lean_reaper_set
+{
+	1		pb_reaper_stand_sprint_gungho_lean_r 			-120		pb_reaper_stand_sprint_gungho					0
+	1		pb_reaper_stand_sprint_gungho					0			pb_reaper_stand_sprint_gungho_lean_l			120
+}
+
+turn_blend locomotion_blend_sprint_gungho_lean_reaper sprint_gungho_lean_reaper_set
+
+#end_gametype
+
+dir_blend sprint_lean_pistol_set
+{
+	1		pb_pistol_sprint_lean_r			-120		pb_pistol_sprint					0
+	1		pb_pistol_sprint				0			pb_pistol_sprint_lean_l				120
+}
+
+dir_blend sprint_lean_pistol_set_female
+{
+	1		pb_pistol_fem_stand_sprint_lean_r			-120		pb_pistol_fem_stand_sprint					0
+	1		pb_pistol_fem_stand_sprint				0			pb_pistol_fem_stand_sprint_lean_l				120
+}
+
+turn_blend locomotion_blend_sprint_lean_pistol sprint_lean_pistol_set
+turn_blend locomotion_blend_sprint_lean_pistol_female sprint_lean_pistol_set_female
+
+dir_blend sprint_lean_lmg_set
+{
+	1		pb_lmg_sprint_lean_r			-120		pb_lmg_sprint					0
+	1		pb_lmg_sprint				0			pb_lmg_sprint_lean_l				120
+}
+
+turn_blend locomotion_blend_sprint_lean_lmg sprint_lean_lmg_set
+
+dir_blend sprint_lean_smg_set
+{
+	1		pb_smg_sprint_lean_r			-120		pb_smg_sprint					0
+	1		pb_smg_sprint				0			pb_smg_sprint_lean_l				120
+}
+
+turn_blend locomotion_blend_sprint_lean_smg sprint_lean_smg_set
+
+dir_blend sprint_lean_launcher_set
+{
+	1		pb_launcher_stand_sprint_lean_r			-120		pb_launcher_stand_sprint					0
+	1		pb_launcher_stand_sprint				0			pb_launcher_stand_sprint_lean_l				120
+}
+
+turn_blend locomotion_blend_sprint_lean_launcher sprint_lean_launcher_set
+
+#gametype MP AND ZM
+dir_blend sprint_lean_bow_set
+{
+	1		pb_bow_stand_sprint_lean_r			-120		pb_bow_stand_sprint					0
+	1		pb_bow_stand_sprint				0			pb_bow_stand_sprint_lean_l				120
+}
+
+turn_blend locomotion_blend_sprint_lean_bow sprint_lean_bow_set
+#end_gametype
+
+dir_blend sprint_lean_onehanded_set
+{
+	1		pb_pistol_1handed_sprint_lean_r			-120		pb_pistol_1handed_sprint					0
+	1		pb_pistol_1handed_sprint				0			pb_pistol_1handed_sprint_lean_l				120
+}
+
+turn_blend locomotion_blend_sprint_lean_onehanded sprint_lean_onehanded_set
+
+dir_blend sprint_lean_supply_drop_set
+{
+	1		pb_supply_drop_sprint_lean_r		-120		pb_supply_drop_sprint					0
+	1		pb_supply_drop_sprint				0			pb_supply_drop_sprint_lean_l			120
+}
+
+turn_blend locomotion_blend_sprint_lean_supply_drop sprint_lean_supply_drop_set
+
+dir_blend sprint_lean_dw_set
+{
+	1		pb_dw_sprint_lean_r			-120		pb_dw_stand_sprint_f 					0
+	1		pb_dw_stand_sprint_f 		0			pb_dw_sprint_lean_l						120
+}
+
+turn_blend locomotion_blend_sprint_lean_dw sprint_lean_dw_set
+
+dir_blend sprint_lean_knife_set
+{
+	1		pb_knife_sprint_lean_r			-120		pb_knife_sprint					0
+	1		pb_knife_sprint					0			pb_knife_sprint_lean_l			120
+}
+
+dir_blend sprint_lean_knife_set_female
+{
+	1		pb_knife_fem_sprint_lean_r			-120		pb_knife_fem_sprint					0
+	1		pb_knife_fem_sprint					0			pb_knife_fem_sprint_lean_l			120
+}
+
+turn_blend locomotion_blend_sprint_lean_knife sprint_lean_knife_set
+turn_blend locomotion_blend_sprint_lean_knife_female sprint_lean_knife_set_female
+
+#gametype ZM
+dir_blend sprint_lean_sword_set
+{
+	1		pb_sword_sprint_lean_r			-120		pb_sword_sprint					0
+	1		pb_sword_sprint					0			pb_sword_sprint_lean_l			120
+}
+
+turn_blend locomotion_blend_sprint_lean_sword sprint_lean_sword_set
+#end_gametype
+
+#gametype MP
+#demo_version_at_least 21
+dir_blend sprint_lean_nunchucks_set
+{
+	1		pb_nunchucks_stand_sprint_lean_r	-120		pb_nunchucks_stand_sprint			0
+	1		pb_nunchucks_stand_sprint			0			pb_nunchucks_stand_sprint_lean_l	120
+}
+
+turn_blend locomotion_blend_sprint_lean_nunchucks sprint_lean_nunchucks_set
+#end_demo_version_at_least
+
+dir_blend sprint_lean_armminigun_set
+{
+	1		pb_reaper_stand_sprint_lean_r	-120		pb_reaper_stand_sprint_f		0
+	1		pb_reaper_stand_sprint_f		0			pb_reaper_stand_sprint_lean_l	120
+}
+
+turn_blend locomotion_blend_sprint_lean_armminigun sprint_lean_armminigun_set
+
+dir_blend sprint_lean_brawler_set
+{
+	1		pb_brawler_sprint_lean_r	-120		pb_brawler_sprint_f				0
+	1		pb_brawler_sprint_f			0			pb_brawler_sprint_lean_l		120
+}
+
+dir_blend sprint_lean_brawler_set_female
+{
+	1		pb_brawler_fem_sprint_lean_r	-120		pb_brawler_fem_sprint				0
+	1		pb_brawler_fem_sprint			0			pb_brawler_fem_sprint_lean_l		120
+}
+
+turn_blend locomotion_blend_sprint_lean_brawler sprint_lean_brawler_set
+turn_blend locomotion_blend_sprint_lean_brawler_female sprint_lean_brawler_set_female
+
+dir_blend sprint_lean_wrench_set
+{
+	1		pb_wrench_sprint_lean_r	-120		pb_wrench_sprint				0
+	1		pb_wrench_sprint			0			pb_wrench_sprint_lean_l		120
+}
+turn_blend locomotion_blend_sprint_lean_wrench sprint_lean_wrench_set
+
+#end_gametype
+
+#demo_version_at_least 10
+#gametype ZM
+dir_blend sprint_lean_spikes_set
+{
+	1		pb_spikes_stand_sprint_lean_r	-120		pb_spikes_stand_sprint			0
+	1		pb_spikes_stand_sprint			0			pb_spikes_stand_sprint_lean_l	120
+}
+
+turn_blend locomotion_blend_sprint_lean_spikes sprint_lean_spikes_set
+
+#end_gametype
+#end_demo_version_at_least
+
+dir_blend sprint_lean_spikelauncher_set
+{
+	1		pb_spike_launcher_sprint_lean_r	-120		pb_spike_launcher_sprint		0
+	1		pb_spike_launcher_sprint		0			pb_spike_launcher_sprint_lean_l	120
+}
+
+dir_blend sprint_lean_spikelauncher_set_female
+{
+	1		pb_spike_launcher_fem_sprint_lean_r	-120		pb_spike_launcher_fem_sprint		0
+	1		pb_spike_launcher_fem_sprint		0			pb_spike_launcher_fem_sprint_lean_l	120
+}
+
+turn_blend locomotion_blend_sprint_lean_spikelauncher sprint_lean_spikelauncher_set
+turn_blend locomotion_blend_sprint_lean_spikelauncher_female sprint_lean_spikelauncher_set_female
+
+//---------------------------------------------------------------------
+// DEMO VERSION 10 AFTER THIS LINE
+
+#gametype MP
+
+dir_blend swim_360_sword
+{
+	1	pb_sword_swim_move_f		0		pb_sword_swim_move_45_fr	45
+	1	pb_sword_swim_move_45_fr	45		pb_sword_swim_move_r		90
+	1	pb_sword_swim_move_r		90		pb_sword_swim_move_45_br	135
+	2	pb_sword_swim_move_45_br	135		pb_sword_swim_move_b		180
+	2	pb_sword_swim_move_b		180		pb_sword_swim_move_45_bl	225
+	3	pb_sword_swim_move_45_bl	225		pb_sword_swim_move_l		270
+	3	pb_sword_swim_move_l		270		pb_sword_swim_move_45_fl	315
+	1	pb_sword_swim_move_45_fl	315		pb_sword_swim_move_f		360
+}
+
+speed_blend locomotion_blend_swim_sword swim_360_sword
+
+// SWORD CROUCH RUN
+
+dir_blend crouch_run_360_sword
+{
+	1	pb_sword_crouch_run_f		0		pb_sword_crouch_run_fr		45
+	1	pb_sword_crouch_run_fr		45		pb_sword_crouch_run_r		90
+	1	pb_sword_crouch_run_r		90		pb_sword_crouch_run_rb		135
+	2	pb_sword_crouch_run_br		135		pb_sword_crouch_run_b		180
+	2	pb_sword_crouch_run_b		180		pb_sword_crouch_run_bl		225
+	3	pb_sword_crouch_run_lb		225		pb_sword_crouch_run_l		270
+	3	pb_sword_crouch_run_l		270		pb_sword_crouch_run_lf		315
+	1	pb_sword_crouch_run_fl		315		pb_sword_crouch_run_f		360
+}
+
+speed_blend locomotion_blend_crouch_sword crouch_run_360_sword
+
+// SWORD RUN
+
+dir_blend run_360_sword
+{
+	1	pb_sword_run_f		0		pb_sword_run_fr		45
+	1	pb_sword_run_fr		45		pb_sword_run_r		90
+	1	pb_sword_run_r		90		pb_sword_run_rb		135
+	2	pb_sword_run_br		135		pb_sword_run_b		180
+	2	pb_sword_run_b		180		pb_sword_run_bl		225
+	3	pb_sword_run_lb		225		pb_sword_run_l		270
+	3	pb_sword_run_l		270		pb_sword_run_lf		315
+	1	pb_sword_run_fl		315		pb_sword_run_f		360
+}
+
+// SWORD WALK
+
+dir_blend walk_360_sword
+{
+	1	pb_sword_walk_f		0		pb_sword_walk_fr	45
+	1	pb_sword_walk_fr	45		pb_sword_walk_r		90
+	1	pb_sword_walk_r		90		pb_sword_walk_rb	135
+	2	pb_sword_walk_br	135		pb_sword_walk_b		180
+	2	pb_sword_walk_b		180		pb_sword_walk_bl	225
+	3	pb_sword_walk_lb	225		pb_sword_walk_l		270
+	3	pb_sword_walk_l		270		pb_sword_walk_lf	315
+	1	pb_sword_walk_fl	315		pb_sword_walk_f		360
+}
+
+speed_blend locomotion_blend_sword walk_360_sword run_360_sword
+
+dir_blend swim_over_360_sword
+{
+	1	pb_sword_swim_move_over_f		0		pb_sword_swim_move_over_45_fr	45
+	1	pb_sword_swim_move_over_45_fr	45		pb_sword_swim_move_over_r		90
+	1	pb_sword_swim_move_over_r		90		pb_sword_swim_move_over_45_br	135
+	2	pb_sword_swim_move_over_45_br	135		pb_sword_swim_move_over_b		180
+	2	pb_sword_swim_move_over_b		180		pb_sword_swim_move_over_45_bl	225
+	3	pb_sword_swim_move_over_45_bl	225		pb_sword_swim_move_over_l		270
+	3	pb_sword_swim_move_over_l		270		pb_sword_swim_move_over_45_fl	315
+	1	pb_sword_swim_move_over_45_fl	315		pb_sword_swim_move_over_f		360
+}
+
+speed_blend locomotion_blend_swim_over_sword swim_over_360_sword
+
+dir_blend sprint_lean_sword_set
+{
+	1		pb_sword_sprint_lean_r			-120		pb_sword_sprint					0
+	1		pb_sword_sprint					0			pb_sword_sprint_lean_l			120
+}
+
+turn_blend locomotion_blend_sprint_lean_sword sprint_lean_sword_set
+
+#end_gametype
+
+//---------------------------------------------------------------------
+// DEMO VERSION 11 AFTER THIS LINE

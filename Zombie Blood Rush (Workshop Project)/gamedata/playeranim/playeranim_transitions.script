@@ -1,0 +1,1134 @@
+EVENTS
+
+prone_to_crouch
+{
+	weapon zbr_emote_animset_1
+    {
+        both t7_loot_gesture_boast_poplock
+    }
+	// BEAST MODE
+	playerAnimType turned
+	{
+		// none 
+	}
+	
+#gametype MP
+	// RESURRECT
+	weapon gadget_resurrect
+	{
+		both pb_rejack_activate_2_crouch  allowMovementInterrupt
+	}
+#demo_version_at_least 21
+	// NUNCHUCKS
+	weapon melee_nunchuks, movestatus moving
+	{
+		both pb_nunchucks_prone2crouchrun duration 626 blendouttime 33
+	}
+	weapon melee_nunchuks
+	{
+		both pb_nunchucks_prone2crouch
+	}
+#end_demo_version_at_least
+	// ARMMINIGUN
+	nextPlayerAnimType armminigun, movestatus moving
+	{
+		both pb_reaper_prone2crouchrun duration 626 blendouttime 33
+	}
+	nextPlayerAnimType armminigun
+	{
+		both pb_reaper_prone2crouch
+	}
+	// BRAWLER
+	nextPlayerAnimType brawler, movestatus moving
+	{
+		both pb_brawler_prone2crouchrun duration 626 blendouttime 33
+	}
+	nextPlayerAnimType brawler
+	{
+		both pb_brawler_prone2crouch
+		both pb_brawler_fem_prone2crouch female
+	}
+	// CLUB
+	playerAnimType club
+	{
+		both pb_wrench_prone2crouch
+	}
+#end_gametype
+
+#gametype ZM
+#demo_version_at_least 28
+	// STAFF
+	nextPlayerAnimType armminigun, movestatus moving, direction backward
+	{
+		both pb_staff_prone2crouch allowMovementInterrupt
+	}
+	nextPlayerAnimType armminigun, movestatus moving
+	{
+		both pb_staff_prone2crouchrun duration 626 blendouttime 33
+	}
+	nextPlayerAnimType armminigun
+	{
+		both pb_staff_prone2crouch allowMovementInterrupt
+	}
+#end_demo_version_at_least
+#end_gametype
+
+
+#gametype MP AND ZM
+	// BOW
+	nextPlayerAnimType bow, movestatus moving
+	{
+		both pb_bow_prone2crouchrun duration 626 blendouttime 33
+	}
+#end_gametype
+
+	// NONE
+	nextPlayerAnimType briefcase
+	{
+		both pb_briefcase_prone2crouch allowMovementInterrupt
+	}
+	// RIOTSHIELD
+	nextPlayerAnimType riotshield
+	{
+		both pb_riotshield_prone2crouch
+	}
+	// ONEHANDED
+	nextPlayerAnimType onehanded, movestatus moving, direction backward
+	{
+		both pb_pistol_1handed_prone2crouch allowMovementInterrupt
+	}
+	nextPlayerAnimType onehanded, movestatus moving
+	{
+		both pb_pistol_1handed_prone2crouchrun duration 626 blendouttime 33
+	}
+	nextPlayerAnimType onehanded
+	{
+		both pb_pistol_1handed_prone2crouch allowMovementInterrupt
+	}
+	// HOLD
+	nextPlayerAnimType hold, movestatus moving, direction backward
+	{
+		both pb_hold_prone2crouch  grenadeAnim allowMovementInterrupt
+	}
+	nextPlayerAnimType hold, movestatus moving
+	{
+		both pb_hold_prone2crouchrun  grenadeAnim duration 626 blendouttime 33
+	}
+	nextPlayerAnimType hold
+	{
+		both pb_hold_prone2crouch  grenadeAnim allowMovementInterrupt
+	}
+	// DUALWIELD
+	nextPlayerAnimType dualwield AND ballisticknife, movestatus moving, direction backward
+	{
+		both pb_dw_prone2crouch allowMovementInterrupt
+	}
+	nextPlayerAnimType dualwield AND ballisticknife, movestatus moving
+	{
+		both pb_dw_prone2crouchrun duration 626 blendouttime 33
+	}
+	nextPlayerAnimType dualwield AND ballisticknife
+	{
+		both pb_dw_prone2crouch allowMovementInterrupt
+	}
+#gametype MP AND CP
+	// RADIO
+	nextPlayerAnimType radio, movestatus moving
+	{
+		both pb_supply_drop_prone2crouchrun  duration 626 blendouttime 33
+	}
+#end_gametype
+
+#gametype MP AND ZM
+	nextPlayerAnimType bow, movestatus stationary
+	{
+		both pb_bow_prone2crouch allowMovementInterrupt
+	}
+#end_gametype
+	// RPG
+	nextweaponclass rocketlauncher, movestatus moving
+	{
+		both pb_launcher_prone2crouchrun duration 626 blendouttime 33
+	}
+	nextWeaponclass rocketlauncher, movestatus stationary
+	{
+		both pb_launcher_prone2crouch allowMovementInterrupt
+	}
+	// GRENADE
+	nextweaponclass grenade, weapontype grenade, playerAnimType grenadeonly, movestatus moving, direction backward
+	{
+		both pb_grenade_prone2crouch allowMovementInterrupt
+	}
+	nextweaponclass grenade, weapontype grenade, playerAnimType grenadeonly , movestatus moving
+	{
+		both pb_grenade_prone2crouchrun duration 626 blendouttime 33
+	}
+	nextweaponclass grenade, weapontype grenade, playerAnimType grenadeonly
+	{
+		both pb_grenade_prone2crouch allowMovementInterrupt
+	}
+	// PISTOL
+	nextweaponclass pistol AND pistol_spread, movestatus moving, direction backward
+	{
+		both pb_prone2crouch_pistol allowMovementInterrupt
+		both pb_pistol_fem_prone2crouch female allowMovementInterrupt
+	}
+	nextweaponclass pistol AND pistol_spread, movestatus moving
+	{
+		both pb_prone2crouchrun_pistol duration 626 blendouttime 33
+		both pb_pistol_fem_prone2crouch_run female duration 626 blendouttime 33
+	}
+	nextweaponclass pistol AND pistol_spread
+	{
+		both pb_prone2crouch_pistol allowMovementInterrupt
+		both pb_pistol_fem_prone2crouch female allowMovementInterrupt
+	}
+	// RIFLE
+	nextWeaponclass rifle, movestatus moving, direction backward
+	{
+		both pb_prone2crouchrun_back duration 700 blendouttime 67
+	}
+	nextWeaponclass rifle, movestatus moving, direction right
+	{
+		both pb_prone2crouchrun_right duration 667 blendouttime 67
+	}
+	nextWeaponclass rifle, movestatus moving, direction left
+	{
+		both pb_prone2crouchrun_left duration 467 blendouttime 67
+	}
+	nextWeaponclass rifle, movestatus moving
+	{
+		both pb_prone2crouchrun duration 600 blendouttime 170
+		both pb_rifle_fem_prone2crouch_run duration 600 blendouttime 170 female
+	}
+	nextWeaponclass rifle
+	{
+		both pb_prone2crouch allowMovementInterrupt
+		both pb_rifle_fem_prone2crouch allowMovementInterrupt female
+	}
+	// HOLD
+	playerAnimType hold, movestatus moving, direction backward
+	{
+		both pb_hold_prone2crouch  grenadeAnim allowMovementInterrupt
+	}
+	playerAnimType hold, movestatus moving
+	{
+		both pb_hold_prone2crouchrun  grenadeAnim duration 626 blendouttime 33
+	}
+	playerAnimType hold
+	{
+		both pb_hold_prone2crouch  grenadeAnim allowMovementInterrupt
+	}
+	// DUALWIELD
+	playerAnimType dualwield AND ballisticknife, movestatus moving, direction backward
+	{
+		both pb_dw_prone2crouch allowMovementInterrupt
+	}
+	playerAnimType dualwield AND ballisticknife, movestatus moving
+	{
+		both pb_dw_prone2crouchrun duration 626 blendouttime 33
+	}
+	playerAnimType dualwield AND ballisticknife
+	{
+		both pb_dw_prone2crouch allowMovementInterrupt
+	}
+	// SINGLE KNIFE
+	playerAnimType singleknife, movestatus moving, direction backward
+	{
+		both pb_knife_prone2crouch allowMovementInterrupt
+	}
+	playerAnimType singleknife, movestatus moving
+	{
+		both pb_knife_prone2crouchrun duration 626 blendouttime 33
+	}
+	playerAnimType singleknife
+	{
+		both pb_knife_prone2crouch allowMovementInterrupt
+	}
+#gametype ZM AND MP
+	// SWORD
+	playerAnimType sword, movestatus moving, direction backward
+	{
+		both pb_sword_prone2crouch allowMovementInterrupt
+	}
+	playerAnimType sword, movestatus moving
+	{
+		both pb_sword_prone2crouch_run duration 626 blendouttime 33
+	}
+	playerAnimType sword
+	{
+		both pb_sword_prone2crouch allowMovementInterrupt
+	}
+#end_gametype
+
+#gametype MP AND ZM
+	// BOW
+	playerAnimType bow, movestatus stationary
+	{
+		both pb_bow_prone2crouch allowMovementInterrupt
+	}
+#end_gametype
+	
+#gametype MP AND CP
+	// RADIO
+	playerAnimType radio, movestatus stationary
+	{
+		both pb_supply_drop_prone2crouch allowMovementInterrupt
+	}
+#end_gametype
+	// RPG
+	weaponclass rocketlauncher, movestatus stationary
+	{
+		both pb_launcher_prone2crouch allowMovementInterrupt
+	}
+	// GRENADE
+	weaponclass grenade, weapontype grenade, playerAnimType grenadeonly, movestatus moving, direction backward
+	{
+		both pb_grenade_prone2crouch allowMovementInterrupt
+	}
+	weaponclass grenade, weapontype grenade, playerAnimType grenadeonly , movestatus moving
+	{
+		both pb_grenade_prone2crouchrun duration 626 blendouttime 33
+	}
+	weaponclass grenade, weapontype grenade, playerAnimType grenadeonly
+	{
+		both pb_grenade_prone2crouch allowMovementInterrupt
+	}
+	// PISTOL
+	weaponclass pistol AND pistol_spread, movestatus moving, direction backward
+	{
+		both pb_prone2crouch_pistol allowMovementInterrupt
+		both pb_pistol_fem_prone2crouch female allowMovementInterrupt
+	}
+	weaponclass pistol AND pistol_spread, movestatus moving
+	{
+		both pb_prone2crouchrun_pistol duration 626 blendouttime 33
+		both pb_pistol_fem_prone2crouch_run female duration 626 blendouttime 33
+	}
+	weaponclass pistol AND pistol_spread
+	{
+		both pb_prone2crouch_pistol allowMovementInterrupt
+		both pb_pistol_fem_prone2crouch female allowMovementInterrupt
+	}
+	// DEFAULT
+	movestatus moving, direction backward
+	{
+		both pb_prone2crouchrun_back duration 700 blendouttime 67
+	}
+	movestatus moving, direction right
+	{
+		both pb_prone2crouchrun_right duration 667 blendouttime 67
+	}
+	movestatus moving, direction left
+	{
+		both pb_prone2crouchrun_left duration 467 blendouttime 67
+	}
+	movestatus moving
+	{
+		both pb_prone2crouchrun duration 600 blendouttime 170
+		both pb_rifle_fem_prone2crouch_run duration 600 blendouttime 170 female
+	}
+	default
+	{
+		both pb_prone2crouch allowMovementInterrupt
+		both pb_rifle_fem_prone2crouch allowMovementInterrupt female
+	}
+}
+
+prone_to_stand
+{
+	weapon zbr_emote_animset_1
+    {
+        both t7_loot_gesture_goodgame_bow
+    }
+	// BEAST MODE
+	playerAnimType turned
+	{
+		// none 
+	}
+
+#gametype MP
+	// RESURRECT
+	weapon gadget_resurrect, movestatus moving
+	{
+		both pb_rejack_activate_2_sprint
+	}
+	weapon gadget_resurrect
+	{
+		both pb_rejack_activate_2_stand allowMovementInterrupt
+	}
+#demo_version_at_least 21
+	// NUNCHUCKS
+	weapon melee_nunchuks, movestatus moving
+	{
+		both pb_nunchucks_prone2sprint
+	}
+	weapon melee_nunchuks
+	{
+		both pb_nunchucks_prone2stand allowMovementInterrupt
+	}
+#end_demo_version_at_least
+	// ARMMINIGUN
+	nextPlayerAnimType armminigun, movestatus moving
+	{
+		both pb_reaper_prone2sprint
+	}
+	nextPlayerAnimType armminigun
+	{
+		both pb_reaper_prone2stand allowMovementInterrupt
+	}
+	// BRAWLER
+	nextPlayerAnimType brawler, movestatus moving
+	{
+		both pb_brawler_prone2sprint
+	}
+	nextPlayerAnimType brawler
+	{
+		both pb_brawler_prone2stand allowMovementInterrupt
+		both pb_brawler_fem_prone2stand allowMovementInterrupt female
+	}
+	// CLUB
+	playerAnimType club, movestatus moving
+	{
+		both pb_wrench_prone2sprint
+	}
+	playerAnimType club
+	{
+		both pb_wrench_prone2stand
+	}
+#end_gametype
+#gametype ZM
+#demo_version_at_least 28
+	// STAFF
+	nextPlayerAnimType armminigun, movestatus moving
+	{
+		both pb_staff_prone2run
+	}
+	nextPlayerAnimType armminigun
+	{
+		both pb_staff_prone2stand allowMovementInterrupt
+	}
+#end_demo_version_at_least
+#end_gametype
+
+#gametype MP AND ZM
+	// BOW
+	nextPlayerAnimType bow, movestatus moving
+	{
+		both pb_bow_prone2sprint allowMovementInterrupt
+	}
+	nextPlayerAnimType bow
+	{
+		both pb_bow_prone2stand allowMovementInterrupt
+	}
+#end_gametype
+
+	// ONEHANDED
+	nextPlayerAnimType onehanded, movestatus moving
+	{
+		both pb_pistol_1handed_prone2sprint
+	}
+	nextPlayerAnimType onehanded
+	{
+		both pb_pistol_1handed_prone2stand allowMovementInterrupt
+	}
+	// HOLD
+	nextPlayerAnimType hold, movestatus moving
+	{
+		both pb_hold_prone2sprint  grenadeAnim
+	}
+	nextPlayerAnimType hold
+	{
+		both pb_hold_prone2stand  grenadeAnim allowMovementInterrupt
+	}
+	// DUALWIELD
+	nextPlayerAnimType dualwield AND ballisticknife, movestatus moving
+	{
+		both pb_dw_prone2sprint
+	}
+	nextPlayerAnimType dualwield AND ballisticknife
+	{
+		both pb_dw_prone2stand allowMovementInterrupt
+	}
+	// SINGLE KNIFE
+	nextPlayerAnimType singleknife, movestatus moving
+	{
+		both pb_knife_prone2sprint
+	}
+	nextPlayerAnimType singleknife
+	{
+		both pb_knife_prone2stand allowMovementInterrupt
+	}
+	
+#gametype ZM AND MP
+	// SWORD
+	nextPlayerAnimType sword, movestatus moving
+	{
+		both pb_sword_prone2sprint
+	}
+	nextPlayerAnimType sword
+	{
+		both pb_sword_prone2stand allowMovementInterrupt
+	}
+	// SWORD
+	playerAnimType sword, movestatus moving
+	{
+		both pb_sword_prone2sprint 
+	}
+	playerAnimType sword
+	{
+		both pb_sword_prone2stand allowMovementInterrupt
+	}
+#end_gametype
+
+#gametype MP AND CP
+	nextPlayerAnimType radio
+	{
+		both pb_supply_drop_prone2stand allowMovementInterrupt
+	}	
+#end_gametype
+	// GRENADE
+	nextweaponclass grenade, weapontype grenade, playerAnimType grenadeonly, movestatus moving
+	{
+		both pb_grenade_prone2sprint
+	}
+	nextweaponclass grenade, weapontype grenade, playerAnimType grenadeonly
+	{
+		both pb_grenade_prone2stand allowMovementInterrupt
+	}
+	movestatus moving, direction backward
+	{
+		both pb_prone2crouchrun_back duration 700 blendouttime 67
+	}
+	// PISTOL
+	nextweaponclass pistol AND pistol_spread, movestatus moving
+	{
+		both pb_prone2sprint_pistol
+		both pb_pistol_fem_prone2sprint female
+	}
+	nextweaponclass pistol AND pistol_spread
+	{
+		both pb_prone2stand_pistol allowMovementInterrupt
+		both pb_pistol_fem_prone2stand female allowMovementInterrupt
+	}
+	// RIFLE
+	nextWeaponclass rifle, movestatus moving
+	{
+		both pb_prone2sprint
+		both pb_rifle_fem_prone2sprint female
+	}
+	nextWeaponclass rifle
+	{
+		both pb_prone2stand allowMovementInterrupt
+		both pb_rifle_fem_prone2stand allowMovementInterrupt female
+	}
+#gametype MP AND CP
+	// RADIO
+	nextPlayerAnimType radio, movestatus moving
+	{
+		both pb_supply_drop_prone2sprint allowMovementInterrupt
+	}
+#end_gametype
+	// RPG
+	nextWeaponclass rocketlauncher, movestatus moving
+	{
+		both pb_launcher_prone2sprint allowMovementInterrupt
+	}
+	nextWeaponclass rocketlauncher
+	{
+		both pb_launcher_prone2stand allowMovementInterrupt
+	}
+	// HOLD
+	playerAnimType hold, movestatus moving
+	{
+		both pb_hold_prone2sprint grenadeAnim 
+	}
+	playerAnimType hold
+	{
+		both pb_hold_prone2stand  grenadeAnim allowMovementInterrupt
+	}	
+	// DUALWIELD
+	playerAnimType dualwield AND ballisticknife, movestatus moving
+	{
+		both pb_dw_prone2sprint 
+	}
+	playerAnimType dualwield AND ballisticknife
+	{
+		both pb_dw_prone2stand allowMovementInterrupt
+	}
+	// SINGLE KNIFE
+	playerAnimType singleknife, movestatus moving
+	{
+		both pb_knife_prone2sprint 
+	}
+	playerAnimType singleknife
+	{
+		both pb_knife_prone2stand allowMovementInterrupt
+	}
+	// GRENADE
+	weaponclass grenade, weapontype grenade, playerAnimType grenadeonly, movestatus moving
+	{
+		both pb_grenade_prone2sprint 
+	}
+	weaponclass grenade, weapontype grenade, playerAnimType grenadeonly
+	{
+		both pb_grenade_prone2stand allowMovementInterrupt
+	}
+	movestatus moving, direction backward
+	{
+		both pb_prone2crouchrun_back duration 700 blendouttime 67
+	}
+	// PISTOL
+	weaponclass pistol AND pistol_spread, movestatus moving
+	{
+		both pb_prone2sprint_pistol  
+		both pb_pistol_fem_prone2sprint female 
+	}
+	weaponclass pistol AND pistol_spread
+	{
+		both pb_prone2stand_pistol allowMovementInterrupt
+		both pb_pistol_fem_prone2sprint female allowMovementInterrupt  
+	}
+	// DEFAULT
+	movestatus moving
+	{
+		both pb_prone2sprint 
+		both pb_rifle_fem_prone2sprint   female
+	}
+	default
+	{
+		both pb_prone2stand allowMovementInterrupt
+		both pb_rifle_fem_prone2stand allowMovementInterrupt female
+	}
+}
+
+prone_to_sprint
+{
+	weapon zbr_emote_animset_1
+    {
+        both t7_loot_gesture_goodgame_bunny_hop
+    }
+	// HOLD
+	nextPlayerAnimType hold
+	{
+		both pb_hold_prone2sprint grenadeAnim 
+	}
+	// DUALWIELD
+	nextPlayerAnimType dualwield AND ballisticknife
+	{
+		both pb_dw_prone2sprint 
+	}
+	// SINGLE KNIFE
+	nextPlayerAnimType singleknife
+	{
+		both pb_knife_prone2sprint 
+	}
+#gametype MP
+#demo_version_at_least 21
+	// NUNCHUCKS
+	weapon melee_nunchuks
+	{
+		both pb_nunchucks_prone2sprint
+	}
+#end_demo_version_at_least
+	// ARMMINIGUN
+	nextPlayerAnimType armminigun
+	{
+		both pb_reaper_prone2sprint
+	}
+	// BRAWLER
+	nextPlayerAnimType brawler
+	{
+		both pb_brawler_prone2sprint 
+	}
+#end_gametype
+#gametype ZM
+#demo_version_at_least 28
+	// STAFF
+	nextPlayerAnimType armminigun
+	{
+		both pb_staff_prone2sprint
+	}
+#end_demo_version_at_least
+#end_gametype
+
+#gametype ZM AND MP
+	// SWORD
+	nextPlayerAnimType sword
+	{
+		both pb_sword_prone2sprint 
+	}
+	// SWORD
+	playerAnimType sword
+	{
+		both pb_sword_prone2sprint 
+	}
+#end_gametype
+
+	// GRENADE
+	nextweaponclass grenade, weapontype grenade, playerAnimType grenadeonly
+	{
+		both pb_grenade_prone2sprint 
+	}
+	// PISTOL
+	nextWeaponclass pistol AND pistol_spread
+	{
+		both pb_prone2sprint_pistol 
+		both pb_pistol_fem_prone2sprint female 
+	}
+	// RIFLE
+	nextWeaponclass rifle
+	{
+		both pb_prone2sprint 
+		both pb_rifle_fem_prone2sprint female 
+	}
+
+	// HOLD
+	playerAnimType hold
+	{
+		both pb_hold_prone2sprint grenadeAnim 
+	}
+	// DUALWIELD
+	playerAnimType dualwield AND ballisticknife
+	{
+		both pb_dw_prone2sprint 
+	}
+	// SINGLE KNIFE
+	playerAnimType singleknife
+	{
+		both pb_knife_prone2sprint 
+	}
+	// GRENADE
+	weaponclass grenade, weapontype grenade, playerAnimType grenadeonly
+	{
+		both pb_grenade_prone2sprint 
+	}
+	// PISTOL
+	weaponclass pistol AND pistol_spread
+	{
+		both pb_prone2sprint_pistol 
+		both pb_pistol_fem_prone2sprint female 
+	}
+	// DEFAULT
+	default
+	{
+		both pb_prone2sprint 
+		both pb_rifle_fem_prone2sprint female 
+	}
+}
+
+crouch_to_prone
+{
+	weapon zbr_emote_animset_1
+    {
+        both t7_loot_gesture_boast_so_fresh
+    }
+	// BEAST MODE
+	playerAnimType turned
+	{
+		// none 
+	}
+	// ONEHANDED
+	nextPlayerAnimType onehanded
+	{
+		both pb_pistol_1handed_crouch2prone legrig legrig_crouch2prone 
+	}
+	
+#gametype MP
+#demo_version_at_least 21
+	// NUNCHUCKS
+	weapon melee_nunchuks
+	{
+		both pb_nunchucks_crouch2prone legrig legrig_crouch2prone 
+	}
+#end_demo_version_at_least
+	// ARMMINIGUN
+	nextPlayerAnimType armminigun
+	{
+		both pb_reaper_crouch2prone legrig legrig_crouch2prone 
+	}
+	// BRAWLER
+	nextPlayerAnimType brawler
+	{
+		both pb_brawler_crouch2prone legrig legrig_crouch2prone 
+	}
+	// CLUB
+	playerAnimType club
+	{
+		both pb_wrench_crouch2prone legrig legrig_crouch2prone 
+	}
+#end_gametype
+
+#gametype ZM
+#demo_version_at_least 28
+	// STAFF
+	nextPlayerAnimType armminigun
+	{
+		both pb_staff_crouch2prone
+	}
+#end_demo_version_at_least
+#end_gametype
+
+#gametype MP AND ZM
+	// BOW
+	nextPlayerAnimType bow
+	{
+		both pb_bow_crouch2prone legrig legrig_crouch2prone 
+	}
+	// BOW
+	playerAnimType bow
+	{
+		both pb_bow_crouch2prone legrig legrig_crouch2prone 
+	}
+#end_gametype
+
+	// NONE
+	nextPlayerAnimType briefcase
+	{
+		both pb_briefcase_crouch2prone legrig legrig_crouch2prone 
+	}
+	// HOLD
+	nextPlayerAnimType hold
+	{
+		both pb_hold_crouch2prone legrig legrig_crouch2prone   grenadeAnim
+	}
+	// DUAL WIELD
+	nextPlayerAnimType dualwield AND ballisticknife
+	{
+		both pb_dw_crouch2prone legrig legrig_crouch2prone 
+	}
+	// SINGLE KNIFE
+	nextPlayerAnimType singleknife
+	{
+		both pb_knife_crouch2prone legrig legrig_crouch2prone 
+	}
+	
+#gametype ZM AND MP
+	// SWORD
+	nextPlayerAnimType sword
+	{
+		both pb_sword_crouch2prone legrig legrig_crouch2prone 
+	}
+	// SWORD
+	playerAnimType sword
+	{
+		both pb_sword_crouch2prone legrig legrig_crouch2prone 
+	}
+#end_gametype
+
+#gametype MP AND CP
+	// RADIO
+	nextPlayerAnimType radio
+	{
+		both pb_supply_drop_crouch2prone legrig legrig_crouch2prone 
+	}
+#end_gametype
+	// RPG
+	nextWeaponclass rocketlauncher
+	{
+		both pb_launcher_crouch2prone legrig legrig_crouch2prone 
+	}
+	// GRENADE
+	nextweaponclass grenade, weapontype grenade, playerAnimType grenadeonly
+	{
+		both pb_grenade_crouch2prone legrig legrig_crouch2prone 
+	}
+	// PISTOL
+	nextWeaponclass pistol AND pistol_spread
+	{
+		both pb_crouch2prone_pistol legrig legrig_crouch2prone 
+		both pb_pistol_fem_crouch2prone legrig legrig_crouch2prone female
+	}
+	// DEFAULT
+	nextWeaponclass rifle
+	{
+		both pb_crouch2prone legrig legrig_crouch2prone
+		both pb_rifle_fem_crouch2prone female
+	}
+	// HOLD
+	playerAnimType hold
+	{
+		both pb_hold_crouch2prone legrig legrig_crouch2prone grenadeAnim
+	}
+	// DUAL WIELD
+	playerAnimType dualwield AND ballisticknife
+	{
+		both pb_dw_crouch2prone legrig legrig_crouch2prone 
+	}
+	// SINGLE KNIFE
+	playerAnimType singleknife
+	{
+		both pb_knife_crouch2prone legrig legrig_crouch2prone 
+	}
+#gametype MP AND CP
+	// RADIO
+	playerAnimType radio
+	{
+		both pb_supply_drop_crouch2prone legrig legrig_crouch2prone 
+	}
+#end_gametype
+	// RPG
+	weaponclass rocketlauncher
+	{
+		both pb_launcher_crouch2prone legrig legrig_crouch2prone 
+	}
+	// GRENADE
+	weaponclass grenade, weapontype grenade, playerAnimType grenadeonly
+	{
+		both pb_grenade_crouch2prone legrig legrig_crouch2prone 
+	}
+	// PISTOL
+	weaponclass pistol AND pistol_spread
+	{
+		both pb_crouch2prone_pistol legrig legrig_crouch2prone 
+		both pb_pistol_fem_crouch2prone legrig legrig_crouch2prone  female
+	}
+	// DEFAULT
+	default
+	{
+		both pb_crouch2prone legrig legrig_crouch2prone 
+		both pb_rifle_fem_crouch2prone legrig legrig_crouch2prone female
+	}
+}
+
+crouch_to_stand
+{
+	weapon zbr_emote_animset_1
+    {
+        both t7_loot_gesture_boast_yogging
+    }
+	// BEAST MODE
+	playerAnimType turned
+	{
+		// none 
+	}
+	// HOLD
+	playerAnimType hold, movestatus moving
+	{
+		// Play no animation, just blend
+	}
+	playerAnimType hold
+	{
+		both pb_hold_crouch2stand  grenadeAnim
+	}
+	// DUAL WIELD
+	playerAnimType dualwield AND ballisticknife, movestatus moving
+	{
+		// Play no animation, just blend
+	}
+	playerAnimType dualwield AND ballisticknife
+	{
+		both pb_dw_crouch2stand
+	}
+	// PISTOL
+	weaponclass pistol AND pistol_spread, movestatus moving
+	{
+		// Play no animation, just blend
+	}
+	weaponclass pistol AND pistol_spread
+	{
+		both pb_pistol_crouch2stand
+	}
+	// DEFAULT
+	movestatus moving
+	{
+		// Play no animation, just blend
+	}
+	default
+	{
+		both pb_rifle_crouch2stand
+	}
+}
+
+stand_to_crouch
+{
+	weapon zbr_emote_animset_1
+    {
+        both t7_loot_gesture_boast_three_amigos
+    }
+	// BEAST MODE
+	playerAnimType turned
+	{
+		// none 
+	}
+	// HOLD
+	playerAnimType hold, movestatus moving
+	{
+		// Play no animation, just blend
+	}
+	playerAnimType hold
+	{
+		both pb_hold_stand2crouch  grenadeAnim
+	}
+	// DUAL WIELD
+	playerAnimType dualwield AND ballisticknife, movestatus moving
+	{
+		// Play no animation, just blend
+	}
+	playerAnimType dualwield AND ballisticknife
+	{
+		both pb_dw_stand2crouch
+	}
+	// PISTOL
+	weaponclass pistol AND pistol_spread, movestatus moving
+	{
+		// Play no animation, just blend
+	}
+	weaponclass pistol AND pistol_spread
+	{
+		both pb_pistol_stand2crouch
+		both pb_pistol_fem_stand2crouch female
+	}
+	// DEFAULT
+	movestatus moving
+	{
+		// Play no animation, just blend
+	}
+	default
+	{
+		both pb_rifle_stand2crouch
+	}
+}
+
+#gametype ZM AND CP
+stand_to_laststand
+{
+	// BEAST MODE
+	playerAnimType turned
+	{
+		// none 
+	}
+	default
+	{
+		both pb_laststand_stand2laststand
+	}
+}
+
+crouch_to_laststand
+{
+	// BEAST MODE
+	playerAnimType turned
+	{
+		// none 
+	}
+	default
+	{
+		both pb_laststand_crouch2laststand
+	}
+}
+
+prone_to_laststand
+{
+	// BEAST MODE
+	playerAnimType turned
+	{
+		// none 
+	}
+	default
+	{
+		both pb_laststand_prone2laststand
+	}
+}
+
+laststand_to_stand
+{
+	// BEAST MODE
+	playerAnimType turned
+	{
+		// none 
+	}
+	default
+	{
+		both pb_laststand_2stand blendOutTime 200
+	}
+}
+
+laststand_to_crouch
+{
+	// BEAST MODE
+	playerAnimType turned
+	{
+		// none 
+	}
+	movestatus moving
+	{
+		both pb_laststand_2crouch_run
+	}
+	default
+	{
+		both pb_laststand_2crouch
+	}
+}
+
+laststand_to_prone
+{
+	weapon zbr_emote_animset_1
+    {
+        both t7_loot_gesture_boast_clucked_up
+    }
+	// BEAST MODE
+	playerAnimType turned
+	{
+		// none 
+	}
+	default
+	{
+		both pb_laststand_2prone
+	}
+}
+#end_gametype
+
+#gametype MP
+stand_to_rejack
+{
+	// BEAST MODE
+	playerAnimType turned
+	{
+		// none 
+	}
+	default
+	{
+		both pb_rejack_stand_death
+	}
+}
+
+crouch_to_rejack
+{
+	// BEAST MODE
+	playerAnimType turned
+	{
+		// none 
+	}
+	default
+	{
+		both pb_rejack_crouch_death
+	}
+}
+
+prone_to_rejack
+{
+	// BEAST MODE
+	playerAnimType turned
+	{
+		// none 
+	}
+	default
+	{
+		both pb_rejack_prone_death
+	}
+}
+
+swim_to_rejack
+{
+	// BEAST MODE
+	playerAnimType turned
+	{
+		// none 
+	}
+	default
+	{
+		both pb_rejack_swim_death
+	}
+}
+#end_gametype
+

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Document Version="2">
+    <Protection InputFileName="embedded.dll" Options="263112" VMCodeSectionName=".text" VMComplexity="30" VMInstances="4" VMVersion="1">
+        <Messages>
+            <Message Id="0">Incompatible third party software detected. ECODE: 1001</Message>
+            <Message Id="1">Incompatible third party software detected. ECODE: 1002</Message>
+            <Message Id="2">Incompatible third party software detected. ECODE: 1003</Message>
+            <Message Id="3">Incompatible third party software detected. ECODE: 1004</Message>
+            <Message Id="4">Incompatible third party software detected. ECODE: 1005</Message>
+        </Messages>
+        <Folders />
+        <Procedures>
+            <Procedure MapAddress='VMProtectMarker &quot;anticheat hook enabler&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;anticheat hook disabler&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;anticheat callbacks gsc&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;check if competitior for lua&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;check if dev for lua&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;init discord function pointers&quot;' Options="0" />
+            <Procedure MapAddress='VMProtectMarker &quot;discord anticheat callbacks&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;discord anticheat setup&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;is dev check&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;check dev id&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;check if allowed to hold dev id&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;invitational start&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;check devs invitational&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;allowed invitationals emblem&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;Main arxan hooks disable&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;Main arxan hooks enable&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;Entrypoint&quot;' Options="0" />
+            <Procedure MapAddress='VMProtectMarker &quot;script crc patch&quot;' Options="0" />
+            <Procedure MapAddress='VMProtectMarker &quot;load config&quot;' Options="0" />
+            <Procedure MapAddress='VMProtectMarker &quot;net protection init&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;net protection strings&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;ANTICHEAT_REASON_VM631&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;anticheat_static::fast_quit_reason626&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;ANTICHEAT_REASON_BAD_DVAR240&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;init function refs&quot;' Options="0" />
+            <Procedure MapAddress='VMProtectMarker &quot;init_static_values&quot;' Options="0" />
+            <Procedure MapAddress='VMProtectMarker &quot;anticheat ii&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;anticheat callbacks run&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;badtext&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;imgui&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;dvars&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;Disable Hooks fn&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;dispatch arxan exceptions&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;Arxan Evasion&quot;' Options="0" />
+            <Procedure MapAddress='VMProtectMarker &quot;asset protection init&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;asset unprotection&quot;' Options="0" />
+            <Procedure MapAddress='VMProtectMarker &quot;Builtins&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;ANTICHEAT_REASON_BADEMBLEM90&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;ANTICHEAT_REASON_BADEMBLEM134&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;ANTICHEAT_REASON_BADEMBLEM107&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;ANTICHEAT_REASON_BADEMBLEM62&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;deedeedoodoo&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;googoogaagaa&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;CMD_MenuResponseCached_f_hook&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;CMD_MenuResponse_f_hook&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;EnableDiscordSDK&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;Load Mod&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;prepread start&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;prepwrite start&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;Patch disconnect&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;runpatching start&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;runpatching start2&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;zbr_init_luavm&quot;' Options="0" CompilationType="1" />
+            <Procedure MapAddress='VMProtectMarker &quot;LM Dispatch&quot;' Options="0" CompilationType="1" />
+        </Procedures>
+        <Objects>
+            <Object Type="Resource" Name="Cursor\1\1033" ExcludedFromPacking="1" />
+            <Object Type="Resource" Name="Cursor\2\1033" ExcludedFromPacking="1" />
+            <Object Type="Resource" Name="Icon\3\1033" ExcludedFromPacking="1" />
+            <Object Type="Resource" Name="Cursor Group\106\1033" ExcludedFromPacking="1" />
+            <Object Type="Resource" Name="Cursor Group\107\1033" ExcludedFromPacking="1" />
+            <Object Type="Resource" Name="Icon Group\108\1033" ExcludedFromPacking="1" />
+            <Object Type="Resource" Name="Manifest\2\1033" ExcludedFromPacking="1" />
+        </Objects>
+    </Protection>
+    <Script />
+</Document>

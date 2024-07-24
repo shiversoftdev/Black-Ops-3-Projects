@@ -1,0 +1,640 @@
+EVENTS
+
+DEATH
+{
+	// LASTSTAND
+	//perk laststand, dmgType suicide
+	//{
+	//	both pb_laststand_suicide_death
+	//}
+	// LASTSTAND
+	weapon gadget_resurrect
+	{
+		both pb_rejack_final_death
+	}
+	perk laststand
+	{
+		both pb_laststand_death
+	}
+	// SLIDE
+	hitlocation hit_head, dmgDirection front, movestatus slide
+	{
+		both pb_death_run_slide_headshot_f
+	}
+	hitlocation hit_head, dmgDirection back, movestatus slide
+	{
+		both pb_death_run_slide_headshot_b
+	}
+	hitlocation hit_head, dmgDirection left, movestatus slide
+	{
+		both pb_death_run_slide_headshot_l
+	}
+	hitlocation hit_head, dmgDirection right, movestatus slide
+	{
+		both pb_death_run_slide_headshot_r
+	}
+	movestatus slide
+	{
+		both pb_death_rifle_slide_f
+		both pb_death_rifle_slide_f_alt1
+	}
+	movestatus wallrun, wallrun_side left
+	{
+		both pb_rifle_wall_run_l_death
+	}
+	movestatus wallrun, wallrun_side right
+	{
+		both pb_rifle_wall_run_r_death
+	}
+	movestatus doublejump
+	{
+		both pb_death_rifle_doublejump
+	}
+	///// BEES
+	dmgType fireflies, swimtype surface
+	{
+		both pb_death_swim_over_nanobots
+	}
+	dmgType fireflies, swimtype underwater
+	{
+		both pb_death_swim_nanobots
+	}
+	dmgType fireflies, inair
+	{
+		both pb_death_air_nanobots 
+	}
+	dmgType fireflies, stance prone
+	{
+		both pb_death_prone_nanobots 
+	}
+	dmgType fireflies, stance crouch
+	{
+		both pb_death_crouch_nanobots 
+	}
+	dmgType fireflies
+	{
+		both pb_death_nanobots 
+	}
+	///// BURNED
+	dmgType burned, stance prone
+	{
+		both pb_death_prone_fire
+	}
+	dmgType burned, stance crouch
+	{
+		both pb_death_crouch_fire
+	}
+	dmgType burned
+	{
+		both pb_death_stand_fire
+	}
+	stance prone
+	{
+		both pb_prone_death_quickdeath
+	}
+	dmgType falling
+	{
+		both pb_rifle_fall2death 
+	}
+	//// GAS
+	//dmgType gas, stance crouch
+	//{
+	//	both pb_crouch_death_fetal
+	//	both pb_crouch_death_falltohands
+	//}
+	//dmgType gas
+	//{
+	//	both pb_stand_death_head_collapse
+	//	both pb_stand_death_neckdeath_thrash
+	//}
+	// EXPLOSIVE
+	dmgType explosive, dmgDirection front
+	{
+		both pb_death_flyback
+		both pb_death_flatonback
+		both pb_death_flyback_far
+		both pb_death_armslegsforward
+		both pb_death_armslegsforward_b
+		both pb_death_upontoback
+	}
+	dmgType explosive, dmgDirection back
+	{
+		both pb_death_forwardtoface
+		both pb_death_faceplant
+	}
+	dmgType explosive, dmgDirection left
+	{
+		both pb_death_legsout_right
+		both pb_death_jackiespin_right
+	}
+	dmgType explosive, dmgDirection right
+	{
+		both pb_death_legsout_left
+		both pb_death_jackiespin_left
+	}
+	dmgType explosive
+	{
+		both pb_death_jackiespin_inplace
+		both pb_death_jackiespin_vertical
+	}
+	dmgType energy_weapon, dmgDirection front
+	{
+		both pb_death_energy_f
+	}
+	dmgType energy_weapon, dmgDirection back
+	{
+		both pb_death_energy_b
+	}
+	dmgType energy_weapon, dmgDirection left
+	{
+		both pb_death_energy_l
+	}
+	dmgType energy_weapon, dmgDirection right
+	{
+		both pb_death_energy_r
+	}
+	// SHOTGUN 
+	dmgType normal_shotgun, dmgDirection front, stance crouch
+	{
+		both pb_crouch_death_shotgun_front
+	}
+	dmgType normal_shotgun, dmgDirection back, stance crouch
+	{
+		both pb_crouch_death_shotgun_back
+	}
+	dmgType normal_shotgun, dmgDirection left, stance crouch
+	{
+		both pb_crouch_death_shotgun_left
+	}
+	dmgType normal_shotgun, dmgDirection right, stance crouch
+	{
+		both pb_crouch_death_shotgun_right
+	}
+	dmgType normal_shotgun, dmgDirection front
+	{
+		both pb_death_shotgun_front
+	}
+	dmgType normal_shotgun, dmgDirection back
+	{
+		both pb_death_shotgun_back
+	}
+	dmgType normal_shotgun, dmgDirection left
+	{
+		both pb_death_shotgun_left
+	}
+	dmgType normal_shotgun, dmgDirection right
+	{
+		both pb_death_shotgun_right
+	}
+	// MELEE BAT
+	dmgType meleebat, dmgDirection front, stance crouch
+	{
+		both pb_death_crouch_bat_f
+	}
+	dmgType meleebat, dmgDirection back, stance crouch
+	{
+		both pb_death_crouch_bat_b
+	}
+	dmgType meleebat, dmgDirection left, stance crouch
+	{
+		both pb_death_crouch_bat_l
+	}
+	dmgType meleebat, dmgDirection right, stance crouch
+	{
+		both pb_death_crouch_bat_r
+	}
+	dmgType meleebat, dmgDirection front
+	{
+		both pb_death_stand_bat_f
+	}
+	dmgType meleebat, dmgDirection back
+	{
+		both pb_death_stand_bat_b
+	}
+	dmgType meleebat, dmgDirection left
+	{
+		both pb_death_stand_bat_l
+	}
+	dmgType meleebat, dmgDirection right
+	{
+		both pb_death_stand_bat_r
+	}
+	// MELEE BASH
+	dmgType meleebash, dmgDirection front, stance crouch
+	{
+		both pb_death_crouch_shieldbash_f
+	}
+	dmgType meleebash, dmgDirection back, stance crouch
+	{
+		both pb_death_crouch_shieldbash_b
+	}
+	dmgType meleebash, dmgDirection left, stance crouch
+	{
+		both pb_death_crouch_shieldbash_l
+	}
+	dmgType meleebash, dmgDirection right, stance crouch
+	{
+		both pb_death_crouch_shieldbash_r
+	}
+	dmgType meleebash, dmgDirection front
+	{
+		both pb_death_shieldbash_f
+	}
+	dmgType meleebash, dmgDirection back
+	{
+		both pb_death_shieldbash_b
+	}
+	dmgType meleebash, dmgDirection left
+	{
+		both pb_death_shieldbash_l
+	}
+	dmgType meleebash, dmgDirection right
+	{
+		both pb_death_shieldbash_r
+	}
+	// MELEE 
+	dmgType melee, dmgDirection front, stance crouch
+	{
+		both pb_death_melee_front
+	}
+	dmgType melee, dmgDirection back, stance crouch
+	{
+		both pb_crouch_death_melee_back
+	}
+	dmgType melee, dmgDirection left, stance crouch
+	{
+		both pb_crouch_death_melee_left
+	}
+	dmgType melee, dmgDirection right, stance crouch
+	{
+		both pb_crouch_death_melee_right
+	}
+	dmgType melee, dmgDirection front
+	{
+		both pb_death_melee_front
+	}
+	dmgType melee, dmgDirection back
+	{
+		both pb_death_melee_back
+		both pb_death_melee_back_v2
+	}
+	dmgType melee, dmgDirection left
+	{
+		both pb_death_melee_left
+	}
+	dmgType melee, dmgDirection right
+	{
+		both pb_death_melee_right
+	}
+	// MELEE ASSASSINATE
+	dmgtype meleeassassinate, dmgdirection above_left
+	{
+		both pb_knife_stand_melee_death_above_back
+	}
+	dmgtype meleeassassinate, dmgdirection above_right
+	{
+		both pb_knife_stand_melee_death_above_back
+	}
+	dmgtype meleeassassinate, dmgdirection above_front
+	{
+		both pb_knife_stand_melee_death_above_back
+	}
+	dmgtype meleeassassinate, dmgdirection above_back
+	{
+		both pb_knife_stand_melee_death_above_back
+	}
+	dmgtype meleeassassinate, stance prone, dmgdirection left
+	{
+		both pb_rifle_st2pr_assassination_death_left allowMovementInterrupt synchronized
+	}
+	dmgtype meleeassassinate, stance prone, dmgdirection right
+	{
+		both pb_rifle_st2pr_assassination_death_right allowMovementInterrupt synchronized
+	}
+	dmgtype meleeassassinate, dmgdirection back
+	{
+		both pb_rifle_stand_assassination_death_back_v1 allowMovementInterrupt synchronized
+	}
+	dmgType meleeassassinate, dmgDirection front, stance crouch
+	{
+		both pb_crouch_death_melee_front allowMovementInterrupt synchronized
+	}
+	dmgType meleeassassinate, dmgDirection left, stance crouch
+	{
+		both pb_crouch_death_melee_left allowMovementInterrupt synchronized
+	}
+	dmgType meleeassassinate, dmgDirection right, stance crouch
+	{
+		both pb_crouch_death_melee_right allowMovementInterrupt synchronized
+	}
+	dmgType meleeassassinate, dmgDirection front
+	{
+		both pb_rifle_stand_contextual_melee_death_front allowMovementInterrupt synchronized
+	}
+	dmgType meleeassassinate, dmgDirection back 
+	{
+		both pb_rifle_stand_contextual_melee_death_back allowMovementInterrupt synchronized
+	}
+	dmgType meleeassassinate, dmgDirection left 
+	{
+		both pb_rifle_stand_contextual_melee_death_left allowMovementInterrupt synchronized
+	}
+	dmgType meleeassassinate, dmgDirection right
+	{
+		both pb_rifle_stand_contextual_melee_death_right allowMovementInterrupt synchronized
+	}
+
+	dmgtype meleearmblade, dmgdirection front
+	{
+		both pb_death_stand_arm_blade_f		
+	}
+	dmgtype meleearmblade, dmgdirection back
+	{
+		both pb_death_stand_arm_blade_b
+	}
+	dmgtype meleearmblade, dmgdirection left
+	{
+		both pb_death_stand_arm_blade_l
+	}
+	dmgtype meleearmblade, dmgdirection right
+	{
+		both pb_death_stand_arm_blade_r
+	}
+
+	// MELEE CHARGE
+	dmgtype meleecharge, dmgdirection above_left
+	{
+		both pb_knife_stand_melee_death_above_back
+	}
+	dmgtype meleecharge, dmgdirection above_right
+	{
+		both pb_knife_stand_melee_death_above_back
+	}
+	dmgtype meleecharge, dmgdirection above_front
+	{
+		both pb_knife_stand_melee_death_above_back
+	}
+	dmgtype meleecharge, dmgdirection above_back
+	{
+		both pb_knife_stand_melee_death_above_back
+	}
+	dmgtype meleecharge, stance crouch, dmgdirection front
+	{
+		both pb_knife_crouch_contextual_melee_death_front_45d
+	}
+	dmgtype meleecharge, stance crouch, dmgdirection back
+	{
+		both pb_knife_crouch_contextual_melee_death_back_45d
+	}
+	dmgtype meleecharge, stance crouch, dmgdirection left
+	{
+		both pb_knife_crouch_contextual_melee_death_left_45d
+	}
+	dmgtype meleecharge, stance crouch, dmgdirection right
+	{
+		both pb_knife_crouch_contextual_melee_death_right_45d
+	}
+	dmgtype meleecharge, dmgdirection front
+	{
+		both pb_death_stand_combatknife_f
+	}
+	dmgtype meleecharge, dmgdirection back
+	{
+		both pb_death_stand_combatknife_b
+	}
+	dmgtype meleecharge, dmgdirection left
+	{
+		both pb_death_stand_combatknife_l
+	}
+	dmgtype meleecharge, dmgdirection right
+	{
+		both pb_death_stand_combatknife_r
+	}
+	// FLAGGED AS ELECTRIFIED
+	dmgtype electrified, inair
+	{
+		both pb_death_fall_loop_lightning_gun
+	}
+	dmgtype electrified, stance prone
+	{
+		both pb_death_prone_lightning_gun
+	}
+	dmgtype electrified, stance crouch
+	{
+		both pb_death_crouch_lightning_gun
+		both pb_death_crouch_lightning_gun_V2
+		both pb_death_crouch_lightning_gun_V3
+	}
+	dmgtype electrified
+	{
+		both pb_death_stand_lightning_gun
+		both pb_death_stand_lightning_gun_V2
+		both pb_death_stand_lightning_gun_V3
+	}
+	// FLAGGED AS ANNIHILATOR
+	dmgtype annihilator, dmgdirection back
+	{
+		both pb_death_annihilator_b
+	}
+	dmgtype annihilator, dmgdirection left
+	{
+		both pb_death_annihilator_l
+	}
+	dmgtype annihilator, dmgdirection right
+	{
+		both pb_death_annihilator_r
+	}
+	dmgtype annihilator
+	{
+		both pb_death_annihilator_f
+	}
+	// FLAGGED AS BOWPARTIALCHARGE
+	dmgtype bowpartialcharge, dmgdirection back, stance crouch
+	{
+		both pb_death_crouch_bow_partial_charge_b
+	}
+	dmgtype bowpartialcharge, dmgdirection left, stance crouch
+	{
+		both pb_death_crouch_bow_partial_charge_l
+	}
+	dmgtype bowpartialcharge, dmgdirection right, stance crouch
+	{
+		both pb_death_crouch_bow_partial_charge_r
+	}
+	dmgtype bowpartialcharge, stance crouch
+	{
+		both pb_death_crouch_bow_partial_charge_f
+	}
+	dmgtype bowpartialcharge, dmgdirection back
+	{
+		both pb_death_stand_bow_partial_charge_b
+	}
+	dmgtype bowpartialcharge, dmgdirection left
+	{
+		both pb_death_stand_bow_partial_charge_l
+	}
+	dmgtype bowpartialcharge, dmgdirection right
+	{
+		both pb_death_stand_bow_partial_charge_r
+	}
+	dmgtype bowpartialcharge
+	{
+		both pb_death_stand_bow_partial_charge_f
+	}
+	// FLAGGED AS BOWFULLCHARGE
+	dmgtype bowfullcharge, dmgdirection back
+	{
+		both pb_death_stand_bow_full_charge_b
+	}
+	dmgtype bowfullcharge, dmgdirection left
+	{
+		both pb_death_stand_bow_full_charge_l
+	}
+	dmgtype bowfullcharge, dmgdirection right
+	{
+		both pb_death_stand_bow_full_charge_r
+	}
+	dmgtype bowfullcharge
+	{
+		both pb_death_stand_bow_full_charge_f
+	}
+	// FLAGGED AS BLOWBACK
+	dmgtype blowback, dmgdirection above_left
+	{
+		both pb_death_blowback_above_f
+	}
+	dmgtype blowback, dmgdirection above_right
+	{
+		both pb_death_blowback_above_f
+	}
+	dmgtype blowback, dmgdirection above_front
+	{
+		both pb_death_blowback_above_f
+	}
+	dmgtype blowback, dmgdirection above_back
+	{
+		both pb_death_blowback_above_b
+	}
+	dmgtype blowback, dmgdirection below_left
+	{
+		both pb_death_blowback_below_l
+	}
+	dmgtype blowback, dmgdirection below_right
+	{
+		both pb_death_blowback_below_r
+	}
+	dmgtype blowback, dmgdirection below_front
+	{
+		both pb_death_blowback_below_f
+	}
+	dmgtype blowback, dmgdirection below_back
+	{
+		both pb_death_blowback_below_b
+	}
+	dmgtype blowback, dmgdirection back
+	{
+		both pb_death_blowback_b
+	}
+	dmgtype blowback, dmgdirection left
+	{
+		both pb_death_blowback_l
+	}
+	dmgtype blowback, dmgdirection right
+	{
+		both pb_death_blowback_r
+	}
+	dmgtype blowback
+	{
+		both pb_death_blowback_f
+	}
+	// HEADSHOT 
+	hitlocation hit_head, swimtype underwater
+	{
+		both pb_death_swim_headshot
+	}
+	hitlocation hit_head, dmgDirection front, stance crouch
+	{
+		both pb_crouch_death_headshot_front
+	}
+	hitlocation hit_head, dmgDirection back, stance crouch
+	{
+		both pb_crouch_death_headshot_back
+	}
+	hitlocation hit_head, dmgDirection left, stance crouch
+	{
+		both pb_crouch_death_headshot_left
+	}
+	hitlocation hit_head, dmgDirection right, stance crouch
+	{
+		both pb_crouch_death_headshot_right
+	}
+	hitlocation hit_head, dmgDirection front
+	{
+		both pb_death_headshot_front
+		both pb_death_headshot_front_v2
+	}
+	hitlocation hit_head, dmgDirection back
+	{
+		both pb_death_headshot_back
+	}
+	hitlocation hit_head, dmgDirection left
+	{
+		both pb_death_headshot_left
+	}
+	hitlocation hit_head, dmgDirection right
+	{
+		both pb_death_headshot_right
+	}
+	// DEFAULT
+	movestatus movingFast, stance crouch
+	{
+		both pb_crouchrun_death_drop
+		both pb_crouchrun_death_crumple
+	}	
+	stance crouch
+	{
+		both pb_crouch_death_headshot_front
+		both pb_crouch_death_clutchchest
+		both pb_crouch_death_flip
+		both pb_crouch_death_fetal
+		both pb_crouch_death_falltohands
+	}
+	movestatus movingFast, direction backward
+	{
+		both pb_death_run_back
+	}
+	movestatus movingFast, direction left
+	{
+		both pb_death_run_left
+	}
+	movestatus movingFast, direction right
+	{
+		both pb_death_run_right
+	}
+	movestatus movingFast
+	{
+		both pb_death_run_forward_crumple
+		both pb_death_run_onfront
+		both pb_death_run_stumble
+	}
+	default
+	{
+		both pb_stand_death_neckdeath
+		both pb_stand_death_headchest_topple
+		both pb_stand_death_frontspin
+		both pb_stand_death_nervedeath
+		both pb_stand_death_legs
+		both pb_stand_death_lowerback
+		both pb_stand_death_head_collapse
+		both pb_stand_death_neckdeath_thrash
+	}
+}
+
+
+//laststand_suicide
+//{
+//	default
+//	{
+//		both pb_laststand_suicide
+//	}
+//}

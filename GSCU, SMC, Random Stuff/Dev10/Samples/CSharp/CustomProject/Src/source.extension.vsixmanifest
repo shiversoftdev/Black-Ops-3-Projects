@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Vsix Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
+  <Identifier Id="AC4F6611-3817-478E-A1A4-ADF38CDBF1DB">
+    <Name>CustomProj - AC4F6611-3817-478E-A1A4-ADF38CDBF1DB</Name>
+    <Author>Microsoft IT</Author>
+    <Version>1.0</Version>
+    <Description>Empty VSIX Project.</Description>
+    <Locale>1033</Locale>
+    <Icon>VSIXProject_small.png</Icon>
+    <PreviewImage>VSIXProject_large.png</PreviewImage>
+    <SupportedProducts>
+      <VisualStudio Version="10.0">
+        <Edition>Pro</Edition>
+      </VisualStudio>
+    </SupportedProducts>
+    <SupportedFrameworkRuntimeEdition MinVersion="4.0" MaxVersion="4.0" />
+  </Identifier>
+  <References>
+  <!--Add References here-->  
+  </References>
+
+  <Content>
+    <VsPackage>|%CurrentProject%;PkgdefProjectOutputGroup|</VsPackage>
+  </Content>
+
+</Vsix>

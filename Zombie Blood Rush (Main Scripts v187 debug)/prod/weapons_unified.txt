@@ -1,0 +1,339 @@
+weapons unified:
+
+	Universal Balancing Points:
+	
+		- Doubletap increases your dps by 1.333 (fire rate increase!)
+		- Speed cola increases your sustain dps by 1.333 faster reload
+		- Doubletap reduces your incoming pvp damage by 25%
+		
+		- Global Median Body DPS Average (remember: this is (doubletap dps + non-doubletap dps) / 2):
+			- 4 seconds to kill 100k player, 20k to 30k dps (25k median)
+		- Global Median Head DPS Average (remember: this is (doubletap dps + non-doubletap dps) / 2):
+			- 1.5-2.5 seconds to kill 100k; 40k to 70k dps (55k median)
+		
+		
+
+	Mandatory Balancing Points:
+
+		Classification
+			CLASS_NONE
+				- Anything that is unclassed/needs to have mandatory tuneups.
+			CLASS_PISTOL
+				- Usually backup weapons and undesirable unless they have weird quirks from the map
+				- Weak against all other classes except in rare cases like explosive 1911 or python
+				- Restricted to close range engagements
+				- Doesnt really control anything and is usually just there to make progression harder.
+			CLASS_SNIPER
+				- Long range, accuracy requirements and high penalty for missed shots.
+				- Very bad up close because of clunkyness, slow ads speed, hard to track targets, slow strafe speed, etc.
+				- Very unforgiving body shot multipliers (chest or head only viable hit locations)
+				- Controls long range and is only countered barely by some ARs, a shield, and movement.
+			CLASS_AR
+				- Mid-long range, medium mag capacity, good headshot damage
+				- Competitive against snipers but slightly outranged
+				- Close quarters loses to shotguns or smgs
+				- Should be better burst dps than LMGs but lower sustained
+				- Controls medium range, short engagements. Can sometimes fight lmgs and smgs in their range but only with good headshots. Highest headshot multiplier.
+			CLASS_SHOTGUN
+				- Super close range, better burst dps than smgs. Basic headshot multiplier.
+				- Only really competitive in this range, not useful outside of it.
+			CLASS_SMG
+				- Has more range than shotguns but less burst dps. Covers AR medium range sufficiently, higher burst damage up close though (competitive with shotguns but slightly outclassed)
+				- Much better headshot multipliers than shotguns but less than ARs
+			CLASS_LMG
+				- Medium-long range (like ARs), high mag capacity, good headshot damage (lower than ARs)
+				- Lower burst dps but way higher sustained dps
+				- Should lose close quarters but be a menace to snipers
+			CLASS_LAUNCHER
+				- Extremely high burst damage, low sustained
+				- Slower projectiles, weak against PHD flopper and gums
+			CLASS_SPECIAL
+			CLASS_MELEE
+			
+		Role
+			CLASS_NONE
+				- ROLE_DEFAULT_FLAT 
+					- Loctable is flat 1x across the board
+				- ROLE_DEFAULT_HEADSHOT2
+					- Loctable is 1x except headshots which are 2x
+			CLASS_PISTOL
+				- ROLE_LOWCAL
+					- Low damage, round count. usually a spawn pistol
+				- ROLE_HIGHCAL
+					- High damage, mid round count.
+				- ROLE_FULLAUTO
+					- Worse SMG
+				- ROLE_FASTBURST
+				- ROLE_SLOWBURST
+			CLASS_SNIPER
+				- ROLE_BOLT_SLOW
+					- very high damage, slow bolt
+				- ROLE_BOLT_FAST
+					- high damage, fast bold
+				- ROLE_SEMI
+					- mid damage, semi auto
+			CLASS_AR
+				- ROLE_STANDARD
+				- ROLE_STANDARD2
+				- ROLE_SEMI_HIGHDAMAGE
+				- ROLE_SEMI_LOWDAMAGE
+				- ROLE_SLOW_HIGHDAMAGE
+				- ROLE_CQB
+				- ROLE_LONGBURST
+				- ROLE_MIDBURST
+			CLASS_SHOTGUN
+				- ROLE_SEMI
+				- ROLE_PUMP
+				- ROLE_SLUG
+				- ROLE_FULLAUTO
+			CLASS_SMG
+				- ROLE_HEADSHOTS
+					- slowish fire rate, highish headshot damage
+				- ROLE_STANDARD_SMG
+					- baseline smg
+				- ROLE_FASTFIRE
+					- very fast fire rate, super high burst dps (comparable to shotguns)
+				- ROLE_CAPACITY
+					- low burst dps, larger mag, harder hitting shots (basically a weaker LMG at close range)
+				- ROLE_BURST
+					- pharo. high burst dps, small mag, weaker range than AR bursts
+				- ROLE_VERSATILE
+					- slightly faster fire rate than standard but also slightly better burst damage. same mag size
+			CLASS_LMG
+				- ROLE_SLOWFIRE
+					- Gorgon. Very high headshot damage and impact damage. Basically a full auto sniper.
+				- ROLE_CQB
+					- Closer to an AR with a big magazine.
+				- ROLE_BIGBURST
+					- Heavy, longrange bursts. Very hard to use CQB
+				- ROLE_BRM
+					- Standard lmg with no really outstanding properies. Kinda useless.
+				- ROLE_OVERPOWERED
+					- High fire rate, high damage, lower range than usual.
+			CLASS_LAUNCHER
+				- ROLE_LAUNCHER_DAMAGE
+					- [[Small mag
+					- [[Semi-auto
+					- [[high damage
+					- [[high projectile velocity
+				- ROLE_LAUNCHER_FASTFIRE
+					- [[Big mag
+					- [[Semi or full auto
+					- [[lower damage
+				- ROLE_LAUNCHER_MISC
+					- fast velocity
+					- isnt fastfire or damage
+				- ROLE_GL_DAMAGE
+					- small mag
+					- slower fire rate
+					- low velocity
+				- ROLE_GL_FASTFIRE
+					- big mag
+					- faster fire rate
+					- low velocity
+				- ROLE_GL_MISC
+					- low velocity
+					- isnt fastfire or damage
+			CLASS_SPECIAL
+				- ROLE_BALLISTIC_KNIFE
+					- projectile
+					- ismeleeweapon
+					- isballisticknife
+				- ROLE_FLAMETHROWER
+				
+			CLASS_MELEE
+				
+		
+
+	required tooling:
+		- data editor for each stage
+			- raw: dumped data from the game
+				- supports wu.raw.zm_mapname.piecenum.dat
+				- must be able to specify the name and piecenum when dumping
+				- contains all relevant weapondef data pre-autobalance
+				- must allow for selection of [Auto|Ignore] -- only auto will generate data for balancing!
+				- must allow manual overriding of fields if necessary
+			- gen: csv generated pre finalization (where fine tuning is done)
+				- supports wu.gen.zm_mapname.csv
+				- must be able to change metadata (which will regenerate balancing parameters for the gun)
+				- must be able to fine tune parameters:
+					
+					fBodyMP
+					fHeadMP
+					fHDMP
+					
+					class // regenerates balancing params
+						- hitlocs specific for class
+						- global tunes for class
+					role // regenerates balancing params
+						- hitloc specific for role
+						- global tunes for role
+						- sets range/target dps for range
+					
+					// autogenerated by classification/role
+					fRangeClose
+					fCloseDamage
+					fRangeMid
+					fMidDamage
+					fRangeFar
+					fFarDamage
+					
+					// autogenerate hitloc tables for weapon archetypes (class & role)
+					enum hitLocation_t : __int32
+					{
+					  HITLOC_NONE = 0x0,
+					  HITLOC_HELMET = 0x1,
+					  HITLOC_HEAD = 0x2,
+					  HITLOC_NECK = 0x3,
+					  HITLOC_TORSO_UPR = 0x4,
+					  HITLOC_TORSO_MID = 0x5,
+					  HITLOC_TORSO_LWR = 0x6,
+					  HITLOC_R_ARM_UPR = 0x7,
+					  HITLOC_L_ARM_UPR = 0x8,
+					  HITLOC_R_ARM_LWR = 0x9,
+					  HITLOC_L_ARM_LWR = 0xA,
+					  HITLOC_R_HAND = 0xB,
+					  HITLOC_L_HAND = 0xC,
+					  HITLOC_R_LEG_UPR = 0xD,
+					  HITLOC_L_LEG_UPR = 0xE,
+					  HITLOC_R_LEG_LWR = 0xF,
+					  HITLOC_L_LEG_LWR = 0x10,
+					  HITLOC_R_FOOT = 0x11,
+					  HITLOC_L_FOOT = 0x12,
+					  HITLOC_GUN = 0x13,
+					  HITLOC_SHIELD = 0x14,
+					  HITLOC_NUM = 0x15,
+					};
+					
+					
+			
+			- prod: finalized serialized data read by zbr
+				- creates wu.zm_mapname.dat
+				- serializes all data based off GLOBAL BALANCING POINT RATIOS
+					- ex: fBodyMP would be saved as a ratio against global body average dps at round 20
+	
+	NOTE: lets just hook these damage getter functions to intercept based on if its a pvp scenario or not
+		- compiler::weapons_unified_init(mapname)
+		- BG_GetWeaponHitLocationMultiplier
+			- if the weapon is in our known data, redo logic of BG_GetWeaponHitLocationMultiplier
+		- BG_GetWeaponDamageForRange	
+			- if the weapon is in our known data, lerp ourself using BG_GetDamageRangeScale
+				
+				
+	DPS calculator:
+		
+		Burst DPS:
+			- DPS over 4 seconds (optimal ttk for most weapons is about 4 seconds)
+		Sustained DPS:
+			- DPS over 12 seconds (max engagement length for balancing -- 30% efficiency)
+		
+		Need:
+			- RoundsFiredInTime(seconds)
+			- DamagePerRoundFired
+	
+	DAMAGEMODEL:
+		1. if is charge shot ($(firetype)), get correct weapondef for index
+		2. based on $(weapontype):
+			if grenade/mine:
+				- cannot autobalance, requires manual dps input/tuning
+			if PROJECTILE
+				if WEAPCLASS_GRENADE ($weapclass) (grenade launcher)
+					Impact damage is $(damagearray[0])
+					Weapon_RocketLauncher_Fire
+					G_RunMissile
+					G_RunMissileInternal
+					G_ExplodeMissile
+					
+					explosion damage is $(innerExplodamage) $(outerExplodamage)
+				else
+					Weapon_RocketLauncher_Fire
+			if WEAPTYPE_GAS
+				flamethrower fire:
+					$(damage[0])
+					$(damageDuration)
+					$(damageInterval)
+			if BULLET
+				Bullet_Fire
+					$(shotCount)
+					damage and distance
+					
+	FIREMODEL:
+	
+		if ischargeshot ($firetype)
+			min($iHoldFireTime), $(chargeShotMaxTime) / $(chargeShotMaxLevel))
+		if $(bBoltAction)
+			$(iShotsBeforeRechamber)
+			TODO PM_Weapon_CheckForRechamber
+			// TODO iRechamberTime (weapDef->iRechamberBoltTime && weapDef->iRechamberBoltTime < weapDef->iRechamberTime) ? iRechamberBoltTime : 1
+		if burstfirepending ($firetype)
+			if stackfire:
+				istackfire shots
+			if burst
+				$(burstCount)
+				$(burstDelayTime) // time between bursts
+				// TODO $(iFireTime) // time between shots
+				
+		if ismeleeweapon
+			TODO PM_Weapon_CheckForMelee
+		
+		consider reloads:
+			// todo reload time
+			average: BG_GetReloadEmptyTime + BG_GetReloadTime
+			
+			$(iClipSize)
+			$(bIsSegmentedReload)
+				$(iReloadAmmoAdd)
+				$(iReloadStartTime)
+				TODO $(iReloadAddTime)
+			$(fuelTankWeapon) ? $(iTankLifeTim)
+			
+		
+	https://www.cescaper.com/
+	
+	switch [[wp.weapDef->weapType
+	{
+		case grenade/mine/gas:
+			- cannot autobalance, automatically select Manual (user can ignore if they want)
+		case WEAPTYPE_PROJECTILE: // shotcount always 1
+			BG_GetDamageAndRangeValues
+			BG_GetWeaponHitLocationMultiplier
+				[[weapDef->projImpales
+				[[weapDef->projPassThroughActorsAndPlayers
+				G_FillInExplosionParams
+				[[weapDef->explosionInner.damage
+				[[weapDef->explosionInner.damage
+				G_RadiusDamage
+				[[doNotDamageOwner
+				
+		FireWeaponMeleeSwipe
+		
+		case 0:
+			Bullet_Fire
+				if weapClass == spread || pistol_spread
+					[[BG_GetDamageAndRangeValues max range is damage[5]
+				else
+					max range is 65535
+				shotcount = 1 or 2 for doubletap
+				if [[BG_WeaponUsesChargeShot bg_chargeShotDamageIncreasePerBullet
+				
+		BG_GetFireType
+				PM_Weapon_ShouldBeFiring
+				[[PM_Weapon_StartFiring::bBoltAction
+				[[iShotsBeforeRechamber PM_Weapon_CheckForRechamber iRechamberTime (weapDef->iRechamberBoltTime && weapDef->iRechamberBoltTime < weapDef->iRechamberTime) ? iRechamberBoltTime : 1
+				[[iHoldFireTime PM_Weapon_StartFiring iFireDelay
+				[[iLastFireTime iIntroFireTime iIntroFireLength
+				[[BG_GetFireTime::iFireTime
+				[[ShotLimitReached::stackFire (num shots in stack fire)
+				[[BG_ShotLimitReached::burstCount
+				isballisticknife
+				
+		BG_WeaponUsesChargeShot
+		if is dual wield need to calc left hand data too
+		
+		
+		
+	}
+	
+	
+	useful info 
+		- FireWeapon(
